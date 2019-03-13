@@ -1,0 +1,423 @@
+/******************************/
+/*        EVERY PAGE          */
+
+body {
+	background-image: url("../Images/white-waves.png");
+	background-repeat: repeat; 
+	background-color: rgb(255, 255, 255);
+}
+
+body,input {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper {
+	position: relative;
+	background-image: url("../Images/white-waves.png");
+	background-repeat: repeat; 
+	background-color: rgb(255, 255, 255);
+}
+
+h1, h2, h3, h4 {
+	text-align: left;
+	color: rgb(27, 27, 27);
+	font-family: Arial;
+}
+
+
+h1 {
+	font-size: 22pt; 
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+h2 {
+	font-size: 16pt; 
+	padding-left: 5px;
+	margin-left: 5px;
+	color: rgb(78, 78, 78);
+}
+
+h2 b {
+	font-size: 12pt; 
+	padding-left: 5px;
+	color: rgb(136, 136, 136);
+}
+
+h3 {
+	font-size: 14pt; 
+	padding-left: 7px;
+	margin-left: 7px;
+}
+
+h3 b {
+	font-weight: 100;
+}
+
+h3 a {
+	color: rgb(70, 70, 70);
+	text-decoration: none;
+}
+
+h3 a:hover {
+	color: rgb(95, 3, 3);
+	text-decoration: underline;
+}
+
+ul {
+	list-style: none; 
+	display: block; 
+	text-align: left; 
+}
+
+h4 {
+	font-size: 12pt; 
+	padding-left: 5px;
+}
+
+p {
+	font-size: 12pt; 
+	padding-left: 10px; 
+	padding-right: 30px;  
+}
+
+p a {
+	text-decoration: underline; 
+	color: rgb(0, 49, 139); 
+}
+
+p a:hover {
+	color: rgb(110, 0, 0);
+	text-decoration: none;
+}
+
+br.clearfix {
+	clear: both;
+}
+
+/* 
+ *  top nav bar settings 
+ */
+
+.topnav {
+	overflow: hidden;
+	/*background-color: rgb(177, 177, 177);*/
+	background-color: rgb(65, 65, 65);
+	padding: 10px 30px; 
+	margin: 0px 15px 0px 0px; 
+	word-spacing: 10px;
+	position: fixed;
+	width: 95%;
+	top: 0;
+	z-index: 99;
+}
+
+.topnav a {
+	display: block;
+	float: left; 
+	color: rgb(240, 240, 240);
+	text-align: center;
+	padding: 20px 20px;
+	text-decoration: none;
+	font-size: 12pt;
+	border-radius: 5px;
+}
+
+.topnav a:hover {
+	color: rgb(151, 10, 10);
+	background-color: rgb(117, 115, 115);
+}
+
+.topnav .icon {
+	display: none;
+  }
+  
+.topnav .active {
+	background-color: rgb(170, 170, 170);
+	color: rgb(100, 0, 0);
+	font-size: 13pt;
+} 
+
+.right-nav a {
+	float: right;
+}
+
+/* 
+ *  content is on every page and holds 
+ *  the main sections. 
+ */ 
+
+#content {
+	float: none;
+	padding: 100px 0px 0px;
+	margin: 0px 5%;
+	background-image: url("../Images/white-waves.png");
+	background-repeat: repeat; 
+	background-color: rgb(255, 255, 255);
+}
+
+/* 
+ *  this adds a bar above a "content section" 
+ *  to split them up visually 
+ */ 
+
+#contentSection {
+	padding: 20px 10px; 
+	border-top: ridge 1px #c9c9c9;
+}
+
+/*
+ *  page nav sits at the top of a page 
+ *  and povides "anchored" links to sections 
+ *  below. 
+ */
+
+#pagenav {
+	padding: 10px 10px;
+	font-size: 10pt; 
+	text-align: center;
+	word-spacing: 30px; 
+}
+
+#pagenav a {
+	color: rgb(92, 0, 0);
+	text-decoration: none;
+}
+
+#pagenav a:hover {
+	color: rgb(0, 34, 144); 
+	text-decoration: underline;
+}
+
+/* 
+ *  this provides an internal jump 
+ *  point for references to points on a page.  
+ */ 
+
+.anchorRef {
+	display: block;
+    position: relative;
+	top: -100px;
+	visibility: hidden;
+}
+
+/* 
+ *  header for each page. 
+ *  in this case, just my name 
+ *  and the purpose of the page. 
+ */ 
+
+#myName h1, #myName h2 {
+	display: block; 
+	text-align: center; 
+	float: center; 
+}
+
+/*
+ *  the footer section 
+ */ 
+
+#footer {
+	font-size: 10pt; 
+	color: rgb(58, 57, 57); 
+	margin-top: 40px;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 50px;
+	text-align: center;
+	border-top: ridge 1px #c9c9c9;
+	word-spacing: 18pt; 
+}
+
+#footer a {
+	color: rgb(53, 52, 52);
+	text-decoration: none;
+}
+
+/******************************/
+/* SPECIFIC TO A CERTAIN PAGE */
+
+#contactInfo h1, #contactInfo h2,
+#contactInfo h3, #contactInfo h4 {
+	text-align: center;
+	color: rgb(27, 27, 27);
+	display: block; 
+	float: center; 
+}
+
+.box {
+	width: 45%; 
+	display: block;
+	margin: 0 auto; 
+}
+
+img {
+	float: right;
+	width: 230px; 
+	height: 300px;
+}
+
+#content-box1 {
+	display: block;
+	float: left;
+	margin: 0px auto;
+	padding: 30px 3% 0px 0px;
+}
+
+#content-box2 {
+	display: block; 
+	float: right;
+	margin: 0px auto;
+	padding: 45px 0px 0px 2%;
+}
+
+video {
+	width: 320;
+	height: 240;
+	display: block; 
+	float: center; 
+	margin: 0 auto; 
+}
+
+#paper {
+	color: rgb(0, 0, 66);
+	text-decoration: none;
+}
+
+#paper:hover {
+	color: rgb(110, 0, 0);
+	text-decoration: underline;
+}
+
+/* SMALLER BROWSER WINDOW */
+
+/* 
+ *	first resize accounts for nav bar 
+ *  collisions with the links. This 
+ *  hides all links but the home link 
+ *  and puts the rest under the "three bar" 
+ *  button. 
+ */
+ 
+@media screen and (max-width: 900px) {
+	img {
+		float: right; 
+		width: 200px; 
+		height: 250px;
+		padding-top: 30px;
+	}
+
+	.box h1 {
+		font-size: 16pt;	
+	}
+
+	.box h2 {
+		font-size: 12pt; 
+	}
+
+	.box h2 b {
+		font-size: 10pt;
+	}
+}
+
+@media screen and (max-width: 900px) {
+
+	.topnav a {display: none;}	
+
+	.right-nav a:last-child {
+		float: left;
+		display: block;
+	}
+
+	.topnav a.icon {
+		float: right;
+		display: block;
+		color: rgba(245, 245, 245, 0.822);
+	}
+	
+	.about {
+		padding-top: 10%; 
+	}
+
+	#contactInfo h1, #contactInfo h3 a {
+		text-align: left;	
+		display: block; 
+	}
+
+	p {
+		padding-left: 6%; 
+		padding-right: 30px; 
+		text-align: left; 
+		color: black; 
+	}
+
+	h1, h2, h3, ul {
+		padding-left: 5%; 
+		text-align: left;
+		display: block;  
+	}
+
+	.box h1, h2 {
+		text-align: left; 
+	}
+}
+
+/*  
+ *  The "responsive" class is added to the 
+ *  topnav with JavaScript when the user clicks 
+ *  on the icon. This class makes the topnav 
+ *  look good on small screens (display the links 
+ *  vertically instead of horizontally)
+ */ 
+
+@media screen and (max-width: 900px) {
+	.topnav.responsive {position: relative;}
+
+	.topnav.responsive a.icon {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		color: whitesmoke;
+	}
+
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	
+	.topnav.responsive div a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+
+/* 
+ *  This resize accounts for the smaller devices 
+ *  and sets a hard coded minimum width. 
+ */
+
+@media screen and (max-width: 650px) {
+	
+	.topnav {
+		width: 650;
+	}
+
+	img {
+		width: 160px; 
+		height: 200px;
+	}
+		
+	.box h1, h2 {
+		text-align: left; 
+	}
+
+	.box h2 {
+		font-size: 12pt; 
+	}
+
+	.box h2 b {
+		font-size: 10pt;
+	}
+}
