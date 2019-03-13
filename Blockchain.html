@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<title>Stephen M. Lee</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="js/main.js"></script>
+
+	
+	<body>
+		<div id="wrapper">
+			<div id="menu" class="topnav">
+				<a href="Blockchain.html" class="active"><b>BLOCKCHAIN</b></a>
+				<a href="Economics.html"><b>ECONOMICS</b></a>
+				
+				<div class="right-nav"> 
+					<a href="Contact.html"><b>CONTACT</b></a>
+					<a href="Resume.pdf"><b>RESUME</b></a>
+					<a href="About.html"><b>ABOUT</b></a>	
+					<a href="Index.html"><b>HOME</b></a>
+				</div>
+
+				<!-- nav collapse bars -->
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+					<i class="fa fa-bars"></i></a>
+			</div>
+
+			<div id="content">
+				<div id="myName"> 
+					<h1>Stephen M. Lee</h1>
+					<h2>Blockchain Work</h2>
+				</div>
+
+				<div id="pagenav">
+					<a href="#booklocal"><b>BookLocal</b></a>
+					<a href="#simulation"><b>Simulation</b></a>
+					<a href="#events"><b>Events</b></a>
+					<a href="#consulting"><b>Consulting</b></a>
+				</div>
+				<div id="blockchain"> 
+					<a id="booklocal" class="anchorRef"></a>
+					<h1 id="contentSection">BookLocal</h1>
+					<h2>Role</h2>
+					<p>
+						Co-founder and COO
+					</p>
+					<h2>Overview</h2>
+					<p>
+						<a href="Papers/BookLocal_prospectus.pdf" id="paper">
+						BookLocal is an Ethereum based hotel distribution and 
+						property management system. The major advantage of using a 
+						blockchain for this purpose is that it enables hotels to join a 
+						distribution network without barriers. Currently, there is an effective  
+						duopoly in the online travel agency market (Expedia Group and Booking Holdings), 
+						where two main players own all the various online travel site (e.g. Booking.com, 
+						Priceline.com, Kayak.com, and so on). This creates a situation where 
+						many hotels are asked to pay up to 30% comission per room rental - effectively 
+						excluding many independent and small chain hotels. 
+						</a>
+					</p>
+					<h2>ERC-809</h2>
+					<p>
+						In order to rent assets on the blockchian, I proposed a standard 
+						interface in <a href="https://github.com/ethereum/EIPs/issues/809">ERC-809</a>
+						(Ethereum Request for Comment). The advantage of having a consistent 
+						way of interfacing with rentable assets is that users can then 
+						see all of their blockchain-based rentals from a single wallet application. 
+						This means that if you go on a trip, you could open a single application and 
+						find your flight, hotel, car, and dinner reservations. 
+					</p>
+					<p> 
+						This ERC has been used in various other projects, most notably in a 
+						ConsenSys based project that deals with office and real estate rentals.
+						Currently, I'm working on an implementation (<a href="https://github.com/slee981/ERC809-General">here</a>) 
+						that provides an inheritable abstraction for 
+						renting any asset for arbitrary durration without affecting the gas price. 
+					</p>
+
+					<h2>Proof-of-Concept</h2>
+					<p>
+						For our first version proof-of-concept, we built a simple version of the product 
+						and released it on the Rinkeby test network. This version was used to 
+						reserve the first ever blockchain based rentals at the <a href="https://ethmemphis.com/">
+						EthMemphis</a> hackathon and workshop event in May 2018. Here is a short excerpt 
+						that includes a video of the <a href="https://medium.com/@booklocal/hotel-booking-and-guest-management-on-the-ethereum-blockchain-beddcfa2040">
+						proof-of-concept</a>, and here is a short write-up <a href="https://bitcoinmagazine.com/articles/heres-what-happened-gracelands-ethereum-conference/">
+						that summarizes the event.</a> .
+					</p> 
+					<h2>Current</h2>
+					<p>
+						We are currently developing the second generation of the product. 
+						This includes a mobile interface for travelers, a tablet based 
+						interface for hotels, and updated smart-contracts.
+					</p> 
+					<p>
+						For more information, please visit our website at 
+						<a href="https://booklocal.in">https://booklocal.in</a> or
+						send me an email at <a href="mailto:steven@booklocal.in">steven@booklocal.in</a>. 
+					</p> 
+
+					<a id="simulation" class="anchorRef"></a>
+					<h1 id="contentSection">Simulation</h1>
+					<p>
+						Blockchain's are a hot topic right now, 
+						and there is a lot of misinformation. 
+						To better understand what 
+						a blockchain is and what it isn't, I 
+						wrote a paper that compares and contrasts 
+						the Ethereum blockchain to the Bitcoin blockchain.
+						I also wrote a simulation in Python that 
+						emphasizes the key features. 
+					</p>
+					<h2>Paper</h2>
+					<p>
+						<a href="Papers/StephenLee_blockchainPaper.pdf" id="paper">
+							<b>Abstract: </b>Public blockchains and their corresponding cryptocurrencies
+							have captured the imagination of many in recent years. Since the release
+							of Bitcoin, several other projects, most notably one called Ethereum,
+							have extended the key insights to allow code of arbitrary complexity to
+							run securely on these public networks. This paper describes the main
+							problem that they seek to solve and then proceeds to compare and con-
+							trast the implementations of Bitcoin and Ethereum. Finally, I suggest
+							an evaluation of the Ethereum blockchain as a distributed system based
+							on how well it makes resources available and provides user transparency,
+							openness, and scalability.
+						</a>
+					</p>
+
+					<h2>Code</h2>
+					<p>
+						To provide a more interactive description, I wrote 
+						a small blockchain simulation in Python. The code 
+						can be found <a href="https://github.com/slee981/Blockchain-Simulation">
+						on my GitHub</a>. To use, clone the repository and 
+						follow the instructions on the README.md. 
+					</p>
+
+					<a id="events" class="anchorRef"></a>
+					<h1 id="contentSection">Events</h1>
+					<p>
+						I have been involved with a couple 
+						Ethereum hackathons and workshop events. 
+					</p>
+					<h2>EthMemphis</h2>
+					<p>
+						<a href="https://ethmemphis.com/">EthMemphis</a> 
+						was the Southeast's first major 
+						blockchain event. As a co-organizer,
+						I managed website content and design, email 
+						communication with the attendees, and 
+						sponsorship recruitment. 
+					</p>
+
+					<h2>EthAtlanta</h2>
+					<p> 
+						<a href="https://ethatl.com/">EthAtlanta</a>
+						followed a few months after EthMemphis with a simlar 
+						business application focus. I spoke here with a 
+						talk titled "Public Enterprise on Public Blockchains".
+					</p>
+					
+					<!--
+					<video controls>
+						<source src="Videos/Steven Lee - Private Enterprises on a Public Blockchain.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					-->
+
+					<a id="consulting" class="anchorRef"></a>
+					<h1 id="contentSection">Consulting</h1>
+					<p>
+						I am available on a case by case basis for 
+						blockchain consulting. If interested, please contact me 
+						at <a href="mailto:smlee.981@gmail.com">smlee.981@gmail.com</a>.
+					</p>
+				</div>
+
+				<br class="clearfix" />
+			</div>
+
+			<div id="footer" class="lowernav">
+				<a href="Index.html"><b>HOME</b></a>
+				<a href="About.html"><b>ABOUT</b></a>
+				<a href="Contact.html"><b>CONTACT</b></a>
+			</div>
+		</div>
+	</body>
+</html>
