@@ -237,6 +237,7 @@ br.clearfix {
 
 #footer a:hover {
 	color: rgb(0, 34, 144);
+	text-decoration: underline;
 }
 
 /******************************/
