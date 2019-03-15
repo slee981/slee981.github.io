@@ -87,7 +87,7 @@ p a {
 }
 
 p a:hover {
-	color: rgb(110, 0, 0);
+	color: rgb(100, 0, 0);
 	text-decoration: none;
 }
 
@@ -181,7 +181,7 @@ br.clearfix {
 }
 
 #pagenav a {
-	color: rgb(92, 0, 0);
+	color: rgb(100, 0, 0);;
 	text-decoration: none;
 }
 
@@ -197,7 +197,7 @@ br.clearfix {
 
 .anchorRef {
 	display: block;
-    position: relative;
+  position: relative;
 	top: -100px;
 	visibility: hidden;
 }
@@ -286,12 +286,12 @@ video {
 }
 
 #paper {
-	color: rgb(0, 0, 66);
+	color: rgb(0, 49, 139); 
 	text-decoration: none;
 }
 
 #paper:hover {
-	color: rgb(110, 0, 0);
+	color: rgb(100, 0, 0);
 	text-decoration: underline;
 }
 
