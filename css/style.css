@@ -227,7 +227,7 @@ br.clearfix {
 	margin-bottom: 50px;
 	text-align: center;
 	border-top: ridge 1px #c9c9c9;
-	word-spacing: 18pt; 
+	word-spacing: 3pt; 
 }
 
 #footer a {
@@ -236,7 +236,7 @@ br.clearfix {
 }
 
 #footer a:hover {
-	color: rgb(0, 34, 144);
+	color: rgb(100, 0, 0);
 	text-decoration: underline;
 }
 
