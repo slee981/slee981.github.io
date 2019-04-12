@@ -2,9 +2,11 @@
 /*        EVERY PAGE          */
 
 body {
+	/* 
 	background-image: url("../Images/white-waves.png");
 	background-repeat: repeat; 
-	background-color: rgb(255, 255, 255);
+	*/
+	background-color:white;
 }
 
 body,input {
@@ -12,10 +14,13 @@ body,input {
 }
 
 #wrapper {
+
+	/* 
 	position: relative;
 	background-image: url("../Images/white-waves.png");
 	background-repeat: repeat; 
-	background-color: rgb(255, 255, 255);
+	background-color:rgb(240, 240, 240);
+	*/
 }
 
 h1, h2, h3, h4 {
@@ -152,9 +157,6 @@ br.clearfix {
 	float: none;
 	padding: 100px 0px 0px;
 	margin: 0px 5%;
-	background-image: url("../Images/white-waves.png");
-	background-repeat: repeat; 
-	background-color: rgb(255, 255, 255);
 }
 
 /* 
