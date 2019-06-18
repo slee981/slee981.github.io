@@ -34,13 +34,14 @@ h1 {
 	font-size: 22pt; 
 	padding-left: 0px;
 	margin-left: 0px;
+	color: rgb(37, 37, 37);
 }
 
 h2 {
 	font-size: 16pt; 
 	padding-left: 5px;
 	margin-left: 5px;
-	color: rgb(78, 78, 78);
+	color: rgb(60, 0, 0);
 }
 
 h2 b {
@@ -67,12 +68,6 @@ h3 a {
 h3 a:hover {
 	color: rgb(0, 49, 139);
 	text-decoration: underline;
-}
-
-ul {
-	list-style: none; 
-	display: block; 
-	text-align: left; 
 }
 
 h4 {
@@ -106,17 +101,16 @@ br.clearfix {
 
 .topnav {
 	overflow: hidden;
-	/*background-color: rgb(177, 177, 177);*/
 	background-color: rgb(65, 65, 65);
 	padding: 10px 30px; 
-	margin: 0px 15px 0px 0px; 
+	margin: 0px; 
 	word-spacing: 10px;
 	position: fixed;
-	width: 95%;
+	width: 100%;
 	top: 0;
 	z-index: 99;
 }
-
+/*
 .topnav a {
 	display: block;
 	float: left; 
@@ -133,11 +127,13 @@ br.clearfix {
 	color: rgb(151, 10, 10);
 	background-color: rgb(117, 115, 115);
 }
+*/
 
 .topnav .icon {
 	display: none;
   }
-  
+
+/*
 .topnav .active {
 	background-color: rgb(170, 170, 170);
 	color: rgb(100, 0, 0);
@@ -147,6 +143,50 @@ br.clearfix {
 .right-nav a {
 	float: right;
 }
+*/
+
+.links {
+	margin: 7px auto; 
+}
+
+.links ul {
+	list-style: none;
+	text-align: center
+}
+
+.links ul li {
+	display: inline;
+}
+
+button {
+	background-color: rgb(65, 65, 65);
+	border: none;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	display: inline-block;
+	border-radius: 12px;
+}
+
+button a {
+	color: rgb(211, 211, 211);
+	font-size: 18px;
+	text-decoration: none;
+}
+
+button:hover {
+	background-color: rgb(122, 122, 122);
+}
+
+button:hover a {
+	color: rgb(214, 214, 214); 
+}
+
+#active a {
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+} 
 
 /* 
  *  content is on every page and holds 
