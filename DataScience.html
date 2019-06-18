@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
 
-			gtag('config', 'UA-138925131-1');
-		</script>
-		
-		<title>Stephen M. Lee - Data Science</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon"/>
-		<script src="js/main.js"></script>
-	</head>
-	
-	<body>
-		<div id="wrapper">
-			<div id="menu" class="topnav">
-				<a href="Blockchain.html"><b>BLOCKCHAIN</b></a>
-				<a href="DataScience.html" class="active"><b>DATA SCIENCE</b></a>
-				
-				<div class="right-nav"> 
-					<a href="Contact.html"><b>CONTACT</b></a>
-					<a href="Resume.pdf"><b>RESUME</b></a>
-					<a href="About.html"><b>ABOUT</b></a>	
-					<a href="index.html"><b>HOME</b></a>
-				</div>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-				<!-- nav collapse bars -->
-				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-					<i class="fa fa-bars"></i></a>
+		gtag('config', 'UA-138925131-1');
+	</script>
+
+	<title>Stephen M. Lee - Data Science</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+	<script src="js/main.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="menu" class="topnav">
+			<div class="links">
+				<ul>
+					<li><button><a href="index.html">HOME</a></button></li>
+					<li><button><a href="Blockchain.html">BLOCKCHAIN</a></button></li>
+					<li><button id="active"><a href="DataScience.html">DATA SCIENCE</a></button></li>
+					<li><button><a href="Resume.pdf">RESUME</a></button></li>
+					<li><button><a href="About.html">ABOUT</a></button></li>
+					<li><button><a href="Contact.html">CONTACT</a></button></li>
+				</ul>
 			</div>
 
-			<div id="content">
+			<!-- nav collapse bars -->
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i></a>
+		</div>
 
-				<div id="myName"> 
-					<h1>Stephen M. Lee</h1>
-					<h2>Research</h2>
-				</div>
+		<div id="content">
 
-				<div id="pagenav">
-					<a href="#independent"><b>Independent</b></a>
-					<a href="#assistance"><b>Assistance</b></a> 
-				</div>
+			<div id="myName">
+				<h1>Stephen M. Lee</h1>
+				<h2>Research</h2>
+			</div>
 
-				<div id="economics"> 
-					
-					<a id="independent" class="anchorRef"></a>
-					<h1 id="contentSection">Independent Research</h1>
+			<div id="pagenav">
+				<a href="#independent"><b>Independent</b></a>
+				<a href="#assistance"><b>Assistance</b></a>
+			</div>
 
-					<h2>Cointegrated Cryptocurrencies? An Exploration of Price Movements</h2>
-					<p>
-						<a href="Papers/StephenLee_DigitalAsset_Analysis.pdf" id="paper">
+			<div id="economics">
+
+				<a id="independent" class="anchorRef"></a>
+				<h1 id="contentSection">Independent Research</h1>
+
+				<h2>Cointegrated Cryptocurrencies? An Exploration of Price Movements</h2>
+				<p>
+					<a href="Papers/StephenLee_DigitalAsset_Analysis.pdf" id="paper">
 						<b>Abstract: </b>The original Bitcoin whitepaper was released in 2008 under the pseudonym
 						Satoshi Nakamoto (Nakamoto, 2008). Here, the author introduces a
 						novel way of enabling secure peer-to-peer digital transactions without so-
@@ -71,26 +73,26 @@
 						Bitcoin ($ 72.6 Billion), Ether ($ 16.6 Billion), and Ripple ($ 13.6 Billion).
 						Following MacDonald and Taylor, 1989 and Sephton and Larsen, 1991,
 						I explore price movements in the cryptocurrency market by looking for
-						cointegrating relationships between the various coins. While not necessarily 
-						indicative of a market inefficiency, I do find some evidence to suggest price 
+						cointegrating relationships between the various coins. While not necessarily
+						indicative of a market inefficiency, I do find some evidence to suggest price
 						changes in Bitcoin may precede similar changes in the price of
 						Litecoin, and further that none of the cryptocurrencies’ prices appear to
 						change independently of the others. Further, I find that investors seem to
 						respond to negative price changes with an increase in volatility.
-						</a>
-					</p>
-					<p> 
-						<a href="Images/StephenLee_poster.pdf" id="paper"><b>Conference Poster.</b>
-							This paper was presented as a poster at the 2019 Memphis Data conference - 
-							a data science conference hosted by the FedEx Institute of Technology, 
-							the Institute for Intelligent Systems, and the University of Memphis. 
-						</a>
-					</p>
+					</a>
+				</p>
+				<p>
+					<a href="Images/StephenLee_poster.pdf" id="paper"><b>Conference Poster.</b>
+						This paper was presented as a poster at the 2019 Memphis Data conference -
+						a data science conference hosted by the FedEx Institute of Technology,
+						the Institute for Intelligent Systems, and the University of Memphis.
+					</a>
+				</p>
 
-					<h2>Loss Aversion in Experts: Evidence from the PGA Tour</h2>
-					<p>
-						<a href="Papers/StephenLee_PGALossAversion.pdf" id="paper">
-						<b>Abstract: </b>I study loss aversion in professional golf using a proprietary dataset. 
+				<h2>Loss Aversion in Experts: Evidence from the PGA Tour</h2>
+				<p>
+					<a href="Papers/StephenLee_PGALossAversion.pdf" id="paper">
+						<b>Abstract: </b>I study loss aversion in professional golf using a proprietary dataset.
 						I exploit the fact that professional golfers
 						face a “cut” after the second round of a tournament in order to group
 						players into two categories: those who make the cut (and receive prize
@@ -104,19 +106,19 @@
 						3) the magnitude of the effects are smaller for tournaments with more
 						skilled players. These results are consistent with the current loss aversion
 						literature.
-						</a>
-					</p>
+					</a>
+				</p>
 
-					<h2>An Emperical Analysis of the Ethereum Blockchain</h2>
-					<p>
-						<a href="Papers/StephenLee_EthereumMiningPaper.pdf" id="paper">
+				<h2>An Emperical Analysis of the Ethereum Blockchain</h2>
+				<p>
+					<a href="Papers/StephenLee_EthereumMiningPaper.pdf" id="paper">
 						<b>Abstract: </b>Since the introduction of Bitcoin and the underlying blockchain tech-
-						nology, several alternative protocols have been created. This paper explores 
+						nology, several alternative protocols have been created. This paper explores
 						one of those alternatives, Ethereum, to examine the behavior of
-						users and infrastructure providers. While more research is needed for 
+						users and infrastructure providers. While more research is needed for
 						robustness, I find tentative results that suggest: 1) infrastructure providers
 						(called "miners") are currently able to operate at a profit, suggesting there
-						is not a competitive equilibrium. Still, it would take a new miner approximately 
+						is not a competitive equilibrium. Still, it would take a new miner approximately
 						four months to breakeven from the fixed equipment cost; 2) users
 						are willing to pay higher transaction fees, on average, in times of increased
 						congestion, which is consistent with existing literature on queuing theory;
@@ -124,34 +126,35 @@
 						increased level of infrastructure. Possible explanations for this include a
 						time lag between deciding to become a miner and actually obtaining the
 						necessary equipment.
-						</a>
-					</p>
+					</a>
+				</p>
 
-					<a id="assistance" class="anchorRef"></a>
-					<h1 id="contentSection">Research Assistance</h1>
-					<h2>Advertising for Consideration</h2>
-					<p>
-						<a href="https://www.sciencedirect.com/science/article/pii/S0167268118302981?via%3Dihub" id="paper">
-						<b>Abstract: </b>We analyze markets where firms competing on price advertise to 
-						increase the probability of entering consumers' consideration sets. We find that 
-						moderately costly advertising allows firms to raise prices and possibly profits 
-						by reducing the fraction of price-conscious consumers, and by segmenting the 
-						market according to whether or not consumers consider the lower priced firm. 
-						However, when the cost of advertising is sufficiently low, advertising 
-						leads to a prisoners' dilemma that adversely impacts profits without 
+				<a id="assistance" class="anchorRef"></a>
+				<h1 id="contentSection">Research Assistance</h1>
+				<h2>Advertising for Consideration</h2>
+				<p>
+					<a href="https://www.sciencedirect.com/science/article/pii/S0167268118302981?via%3Dihub" id="paper">
+						<b>Abstract: </b>We analyze markets where firms competing on price advertise to
+						increase the probability of entering consumers' consideration sets. We find that
+						moderately costly advertising allows firms to raise prices and possibly profits
+						by reducing the fraction of price-conscious consumers, and by segmenting the
+						market according to whether or not consumers consider the lower priced firm.
+						However, when the cost of advertising is sufficiently low, advertising
+						leads to a prisoners' dilemma that adversely impacts profits without
 						affecting expected prices.
-						</a>
-					</p>
-					<p> 
-						This paper is published in the Journal of Economic Behavior and Organization. 
-					</p>
-				</div>
-				<br class="clearfix" />
+					</a>
+				</p>
+				<p>
+					This paper is published in the Journal of Economic Behavior and Organization.
+				</p>
 			</div>
-
-			<div id="footer" class="lowernav">
-				<a href="https://github.com/slee981/slee981.github.io"><b>WEBSITE SOURCE CODE</b></a>
-			</div>
+			<br class="clearfix" />
 		</div>
-	</body>
+
+		<div id="footer" class="lowernav">
+			<a href="https://github.com/slee981/slee981.github.io"><b>WEBSITE SOURCE CODE</b></a>
+		</div>
+	</div>
+</body>
+
 </html>

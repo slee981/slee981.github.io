@@ -6,7 +6,7 @@ body {
 	background-image: url("../Images/white-waves.png");
 	background-repeat: repeat; 
 	*/
-	background-color:white;
+	background-color:rgb(255, 255, 255);
 }
 
 body,input {
@@ -41,7 +41,7 @@ h2 {
 	font-size: 16pt; 
 	padding-left: 5px;
 	margin-left: 5px;
-	color: rgb(60, 0, 0);
+	color: rgb(80, 80, 80);
 }
 
 h2 b {
@@ -101,7 +101,8 @@ br.clearfix {
 
 .topnav {
 	overflow: hidden;
-	background-color: rgb(65, 65, 65);
+	background-color: rgb(255, 255, 255);
+	/*background-color: rgb(65, 65, 65);*/
 	padding: 10px 30px; 
 	margin: 0px; 
 	word-spacing: 10px;
@@ -159,7 +160,7 @@ br.clearfix {
 }
 
 button {
-	background-color: rgb(65, 65, 65);
+	background-color: rgb(255,255,255);
 	border: none;
 	padding: 15px 32px;
 	text-align: center;
@@ -170,13 +171,13 @@ button {
 }
 
 button a {
-	color: rgb(211, 211, 211);
+	color: rgb(50, 0, 0);
 	font-size: 18px;
 	text-decoration: none;
 }
 
 button:hover {
-	background-color: rgb(122, 122, 122);
+	background-color: rgb(255, 255, 255);
 }
 
 button:hover a {
@@ -184,8 +185,9 @@ button:hover a {
 }
 
 #active a {
-	color: rgb(255, 255, 255);
+	color: rgb(120, 0, 0);
 	font-weight: bold;
+	text-decoration: underline;
 } 
 
 /* 

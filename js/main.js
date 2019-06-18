@@ -17,7 +17,9 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.getElementById("menu").style.padding = "5px 30px";
+    document.getElementById("menu").style.borderBottom = "2px solid rgb(65, 65, 65)";
   } else {
     document.getElementById("menu").style.padding = "10px 30px";
+    document.getElementById("menu").style.borderBottom = "none";
   }
 }
