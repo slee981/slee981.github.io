@@ -9,15 +9,6 @@ body,input {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-#wrapper {
-	/* 
-	position: relative;
-	background-image: url("../Images/white-waves.png");
-	background-repeat: repeat; 
-	background-color:rgb(240, 240, 240);
-	*/
-}
-
 h1, h2, h3, h4 {
 	text-align: left;
 	margin-left: 0px;
@@ -162,8 +153,8 @@ button:hover a {
 
 #content {
 	float: none;
-	padding: 100px 0px 0px;
-	margin: 0px 5%;
+	padding: 150px 0px 0px;
+	margin: 0px;
 }
 
 /* 
@@ -267,7 +258,8 @@ button:hover a {
 }
 
 img {
-	float: right;
+	display: block; 
+	float: right; 
 	width: 230px; 
 	height: 300px;
 }
@@ -275,23 +267,15 @@ img {
 #content-box1 {
 	display: block;
 	float: left;
-	margin: 0px auto;
-	padding: 30px 3% 0px 0px;
+	padding: 10px 10px;
+	margin: auto; 
 }
 
 #content-box2 {
 	display: block; 
 	float: right;
-	margin: 0px auto;
-	padding: 45px 0px 0px 2%;
-}
-
-video {
-	width: 320;
-	height: 240;
-	display: block; 
-	float: center; 
-	margin: 0 auto; 
+	padding: 10px 10px;
+	margin: auto; 
 }
 
 #paper {
@@ -316,10 +300,11 @@ video {
  
 @media screen and (max-width: 1200px) {
 	img {
-		float: right; 
-		width: 200px; 
-		height: 250px;
-		padding-top: 60px;
+		display: block;
+		float: none;
+    	margin: auto; 
+		width: 300px; 
+		height: 375px;
 	}
 
 	.box h1 {
@@ -333,6 +318,18 @@ video {
 	.box h2 b {
 		font-size: 16pt;
 	}
+
+	#content-box1 {
+		width: 100%;
+		float: none;
+		padding: auto; 
+	}
+	
+	#content-box2 {
+		width: 100%;
+		display: block; 
+		float: none; 
+	}
 }
 
 @media screen and (max-width: 1200px) {
@@ -340,8 +337,7 @@ video {
 	.links {display: none;}
 
 	.topnav {
-		padding: 20px 10px; 
-		margin: 0px; 
+		padding: 60px 10px 20px;
 	}
 
 	.topnav a {
@@ -380,8 +376,8 @@ video {
 		display: block;  
 	}
 
-	.box h1, h2 {
-		text-align: left; 
+	#content-box2 h1, #content-box2 h2 {
+		text-align: center; 
 	}
 }
 
@@ -398,7 +394,7 @@ video {
 	.topnav.responsive a.icon {
 		position: absolute;
 		left: 10px;
-		top: 20px;
+		top: 60px;
 		color: rgb(59, 0, 0);
 	}
 
@@ -454,25 +450,9 @@ video {
 	#wrapper {
 		width: 650px;
 	}
-	
-	.topnav {
-		width: 650px;
-	}
 
 	img {
-		width: 160px; 
-		height: 200px;
-	}
-		
-	.box h1, h2 {
-		text-align: left; 
-	}
-
-	.box h2 {
-		font-size: 12pt; 
-	}
-
-	.box h2 b {
-		font-size: 10pt;
+		width: 200px; 
+		height: 250px;
 	}
 }
