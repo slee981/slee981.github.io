@@ -303,8 +303,8 @@ img {
 		display: block;
 		float: none;
     	margin: auto; 
-		width: 300px; 
-		height: 375px;
+		width: 400px; 
+		height: 500px;
 	}
 
 	.box h1 {
@@ -319,6 +319,10 @@ img {
 		font-size: 16pt;
 	}
 
+	#content {
+		padding: 150px 0px 100px 0px;
+	}
+
 	#content-box1 {
 		width: 100%;
 		float: none;
@@ -329,6 +333,7 @@ img {
 		width: 100%;
 		display: block; 
 		float: none; 
+		padding-top: 20px;
 	}
 }
 
