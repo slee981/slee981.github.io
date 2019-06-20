@@ -2,10 +2,6 @@
 /*        EVERY PAGE          */
 
 body {
-	/* 
-	background-image: url("../Images/white-waves.png");
-	background-repeat: repeat; 
-	*/
 	background-color:rgb(255, 255, 255);
 }
 
@@ -14,7 +10,6 @@ body,input {
 }
 
 #wrapper {
-
 	/* 
 	position: relative;
 	background-image: url("../Images/white-waves.png");
@@ -102,57 +97,28 @@ br.clearfix {
 .topnav {
 	overflow: hidden;
 	background-color: rgb(255, 255, 255);
-	/*background-color: rgb(65, 65, 65);*/
-	padding: 10px 30px; 
-	margin: 0px; 
+	padding: 20px 10px; 
+	margin-left: 0px;
+	margin-right: 20px; 
 	word-spacing: 10px;
 	position: fixed;
+	border-bottom: 0.5px solid rgb(65, 65, 65);
 	width: 100%;
 	top: 0;
 	z-index: 99;
 }
-/*
-.topnav a {
-	display: block;
-	float: left; 
-	color: rgb(240, 240, 240);
-	text-align: center;
-	word-spacing: 3px;
-	padding: 20px 20px;
-	text-decoration: none;
-	font-size: 13pt;
-	border-radius: 5px;
-}
-
-.topnav a:hover {
-	color: rgb(151, 10, 10);
-	background-color: rgb(117, 115, 115);
-}
-*/
 
 .topnav .icon {
 	display: none;
   }
 
-/*
-.topnav .active {
-	background-color: rgb(170, 170, 170);
-	color: rgb(100, 0, 0);
-	font-size: 14pt;
-} 
-
-.right-nav a {
-	float: right;
-}
-*/
-
 .links {
-	margin: 7px auto; 
+	margin: 5px auto; 
 }
 
 .links ul {
 	list-style: none;
-	text-align: center
+	text-align: center;
 }
 
 .links ul li {
@@ -162,7 +128,7 @@ br.clearfix {
 button {
 	background-color: rgb(255,255,255);
 	border: none;
-	padding: 15px 32px;
+	padding: 5px 32px;
 	text-align: center;
 	text-decoration: none;
 	font-size: 18px;
@@ -171,7 +137,7 @@ button {
 }
 
 button a {
-	color: rgb(50, 0, 0);
+	color: rgb(100, 0, 0);
 	font-size: 18px;
 	text-decoration: none;
 }
@@ -181,13 +147,19 @@ button:hover {
 }
 
 button:hover a {
-	color: rgb(214, 214, 214); 
+	color: rgb(158, 158, 158); 
+	text-decoration: underline;
 }
 
 #active a {
-	color: rgb(120, 0, 0);
+	color: rgb(170, 0, 0);
 	font-weight: bold;
 	text-decoration: underline;
+} 
+
+#active a:hover {
+	color: rgb(158, 158, 158);
+	font-weight: normal;
 } 
 
 /* 
@@ -349,7 +321,7 @@ video {
  *  button. 
  */
  
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
 	img {
 		float: right; 
 		width: 200px; 
@@ -370,19 +342,31 @@ video {
 	}
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
 
-	.topnav a {display: none;}	
+	.links {display: none;}
 
-	.right-nav a:last-child {
-		float: left;
-		display: block;
+	.topnav {
+		padding: 20px 10px; 
+		margin: 0px; 
+	}
+
+	.topnav a {
+		text-decoration: none;
+		padding: 
 	}
 
 	.topnav a.icon {
-		float: right;
+		padding-left: 100px;
+		float: left;
 		display: block;
-		color: rgba(245, 245, 245, 0.822);
+		color: rgb(59, 0, 0);
+	}
+
+	.topnav a:hover {
+		float: left;
+		display: block;
+		color: rgb(70, 70, 70);
 	}
 	
 	.about {
@@ -415,26 +399,55 @@ video {
  *  vertically instead of horizontally)
  */ 
 
-@media screen and (max-width: 900px) {
-	.topnav.responsive {position: relative;}
+@media screen and (max-width: 1200px) {
 
 	.topnav.responsive a.icon {
 		position: absolute;
-		right: 10px;
-		top: 10px;
-		color: whitesmoke;
+		left: 10px;
+		top: 20px;
+		color: rgb(59, 0, 0);
 	}
 
-	.topnav.responsive a {
-		float: none;
+	.links.responsive {
+		overflow: visible;
+		margin: auto auto; 
 		display: block;
-		text-align: left;
+	}
+
+	.links.responsive ul {
+		padding-top: 15px;
+		list-style: none;
 	}
 	
-	.topnav.responsive div a {
-		float: none;
+	.links.responsive ul li {
 		display: block;
+		float: none;
 		text-align: left;
+	}
+
+	.links.responsive ul li button {
+		background-color: rgb(255,255,255);
+		border: none;
+		padding: 15px 12px 15px 100px;
+		text-align: left;
+		text-decoration: none;
+		font-size: 16px;
+		border-radius: 12px;
+	}
+	
+	.links.responsive ul li button a {
+		color: rgb(100, 0, 0);
+		font-size: 16px;
+		text-decoration: none;
+	}
+
+	.links.responsive ul li button:hover {
+		background-color: rgb(255, 255, 255);
+	}
+	
+	.links.responsive ul li button:hover a {
+		color: rgb(158, 158, 158); 
+		text-decoration: underline;
 	}
 }
 
@@ -444,9 +457,13 @@ video {
  */
 
 @media screen and (max-width: 650px) {
+
+	#wrapper {
+		width: 650px;
+	}
 	
 	.topnav {
-		width: 650;
+		width: 650px;
 	}
 
 	img {

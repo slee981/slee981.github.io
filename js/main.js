@@ -6,9 +6,14 @@ function myFunction() {
   } else {
     x.className = "topnav";
   }
-
-  var r = document.getElementsByClassName("right-nav");
-  r.className += " responsive";
+  console.log("changed topnav")
+  var r = document.getElementById("linksmenu");
+  console.log("found linksmenu")
+  if (r.className === "links") {
+    r.className += " responsive";
+  } else {
+    r.className = "links";
+  }
 }
 
 // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
@@ -16,10 +21,10 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("menu").style.padding = "5px 30px";
+    document.getElementById("menu").style.padding = "15px 10px";
     document.getElementById("menu").style.borderBottom = "2px solid rgb(65, 65, 65)";
   } else {
-    document.getElementById("menu").style.padding = "10px 30px";
-    document.getElementById("menu").style.borderBottom = "none";
+    document.getElementById("menu").style.padding = "20px 10px";
+    document.getElementById("menu").style.borderBottom = "0.5px solid rgb(65, 65, 65)";
   }
 }
