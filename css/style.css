@@ -20,6 +20,7 @@ body,input {
 
 h1, h2, h3, h4 {
 	text-align: left;
+	margin-left: 0px;
 	color: rgb(27, 27, 27);
 	font-family: Arial;
 }
@@ -27,28 +28,25 @@ h1, h2, h3, h4 {
 
 h1 {
 	font-size: 22pt; 
-	padding-left: 0px;
-	margin-left: 0px;
-	color: rgb(37, 37, 37);
+	padding-left: 10px;
+	color: rgb(0, 0, 0);
 }
 
 h2 {
 	font-size: 16pt; 
-	padding-left: 5px;
-	margin-left: 5px;
-	color: rgb(80, 80, 80);
+	padding-left: 15px;
+	color: rgb(90, 90, 90);
 }
 
 h2 b {
 	font-size: 12pt; 
-	padding-left: 5px;
-	color: rgb(136, 136, 136);
+	padding-left: 15px;
+	color: rgb(160, 160, 160);
 }
 
 h3 {
 	font-size: 14pt; 
-	padding-left: 7px;
-	margin-left: 7px;
+	padding-left: 17px;
 }
 
 h3 b {
@@ -65,14 +63,9 @@ h3 a:hover {
 	text-decoration: underline;
 }
 
-h4 {
-	font-size: 12pt; 
-	padding-left: 5px;
-}
-
 p {
 	font-size: 12pt; 
-	padding-left: 10px; 
+	padding-left: 20px; 
 	padding-right: 30px;  
 }
 
@@ -326,19 +319,19 @@ video {
 		float: right; 
 		width: 200px; 
 		height: 250px;
-		padding-top: 30px;
+		padding-top: 60px;
 	}
 
 	.box h1 {
-		font-size: 16pt;	
+		font-size: 32pt;	
 	}
 
 	.box h2 {
-		font-size: 12pt; 
+		font-size: 18pt; 
 	}
 
 	.box h2 b {
-		font-size: 10pt;
+		font-size: 16pt;
 	}
 }
 
@@ -353,7 +346,7 @@ video {
 
 	.topnav a {
 		text-decoration: none;
-		padding: 
+		font-size: 32px;
 	}
 
 	.topnav a.icon {
@@ -374,14 +367,15 @@ video {
 	}
 
 	p {
+		/*
 		padding-left: 6%; 
 		padding-right: 30px; 
+		*/
 		text-align: left; 
 		color: black; 
 	}
 
-	h1, h2, h3, ul {
-		padding-left: 5%; 
+	h1, h2, h3, ul { 
 		text-align: left;
 		display: block;  
 	}
@@ -415,7 +409,7 @@ video {
 	}
 
 	.links.responsive ul {
-		padding-top: 15px;
+		padding-top: 30px;
 		list-style: none;
 	}
 	
@@ -428,16 +422,15 @@ video {
 	.links.responsive ul li button {
 		background-color: rgb(255,255,255);
 		border: none;
-		padding: 15px 12px 15px 100px;
+		padding: 15px 12px 15px 120px;
 		text-align: left;
 		text-decoration: none;
-		font-size: 16px;
 		border-radius: 12px;
 	}
 	
 	.links.responsive ul li button a {
 		color: rgb(100, 0, 0);
-		font-size: 16px;
+		font-size: 32px;
 		text-decoration: none;
 	}
 
