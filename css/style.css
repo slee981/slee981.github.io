@@ -154,7 +154,7 @@ button:hover a {
 #content {
 	float: none;
 	padding: 150px 0px 0px;
-	margin: 0px;
+	margin: 0px 50px;
 }
 
 /* 
@@ -243,6 +243,10 @@ button:hover a {
 /******************************/
 /* SPECIFIC TO A CERTAIN PAGE */
 
+#name {
+	/* color: rgb(0, 3, 163); */ 
+}
+
 #contactInfo h1, #contactInfo h2,
 #contactInfo h3, #contactInfo h4 {
 	text-align: center;
@@ -321,6 +325,7 @@ img {
 
 	#content {
 		padding: 150px 0px 100px 0px;
+		margin: 0px 30px;
 	}
 
 	#content-box1 {
@@ -355,6 +360,13 @@ img {
 		float: left;
 		display: block;
 		color: rgb(59, 0, 0);
+	}
+
+	.topnav a.icon:hover {
+		padding-left: 100px;
+		float: left;
+		display: block;
+		color: rgb(158, 158, 158);
 	}
 
 	.topnav a:hover {
@@ -401,6 +413,13 @@ img {
 		left: 10px;
 		top: 60px;
 		color: rgb(59, 0, 0);
+	}
+
+	.topnav.responsive a.icon:hover {
+		position: absolute;
+		left: 10px;
+		top: 60px;
+		color: rgb(158, 158, 158);
 	}
 
 	.links.responsive {
