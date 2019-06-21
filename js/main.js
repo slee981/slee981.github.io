@@ -6,9 +6,7 @@ function myFunction() {
   } else {
     x.className = "topnav";
   }
-  console.log("changed topnav")
   var r = document.getElementById("linksmenu");
-  console.log("found linksmenu")
   if (r.className === "links") {
     r.className += " responsive";
   } else {
