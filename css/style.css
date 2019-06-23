@@ -50,7 +50,7 @@ h3 a {
 }
 
 h3 a:hover {
-	color: rgb(0, 49, 139);
+	color: rgb(158, 158, 158);
 	text-decoration: underline;
 }
 
@@ -66,7 +66,7 @@ p a {
 }
 
 p a:hover {
-	color: rgb(100, 0, 0);
+	color: rgb(158, 158, 158);
 	text-decoration: none;
 }
 
@@ -293,7 +293,7 @@ img {
 }
 
 #paper:hover {
-	color: rgb(100, 0, 0);
+	color: rgb(158, 158, 158);
 	text-decoration: underline;
 }
 
