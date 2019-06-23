@@ -20,7 +20,7 @@ h1, h2, h3, h4 {
 h1 {
 	font-size: 22pt; 
 	padding-left: 10px;
-	color: rgb(38, 0, 255);
+	color: rgb(100, 0, 0);
 }
 
 h2 {
@@ -153,7 +153,7 @@ button:hover a {
 
 #content {
 	float: none;
-	padding: 150px 0px 0px;
+	padding: 175px 0px 0px;
 	margin: 0px 50px;
 }
 
@@ -168,7 +168,7 @@ button:hover a {
 }
 
 h1#contentSection {
-	color: rgb(70, 70, 70);
+	color: rgb(58, 58, 58);
 }
 
 /*
@@ -185,12 +185,13 @@ h1#contentSection {
 }
 
 #pagenav a {
-	color: rgb(100, 0, 0);;
+	/* color: rgb(100, 0, 0); */
+	color: rgb(167, 167, 167);
 	text-decoration: none;
 }
 
 #pagenav a:hover {
-	color: rgb(0, 34, 144); 
+	color: rgb(200, 200, 200); 
 	text-decoration: underline;
 }
 
@@ -201,7 +202,7 @@ h1#contentSection {
 
 .anchorRef {
 	display: block;
-  position: relative;
+    position: relative;
 	top: -100px;
 	visibility: hidden;
 }
@@ -224,7 +225,7 @@ h1#contentSection {
 
 #footer {
 	font-size: 10pt; 
-	color: rgb(58, 57, 57); 
+	color: rgb(167, 167, 167); 
 	margin-top: 40px;
 	margin-right: 0;
 	margin-left: 0;
@@ -235,12 +236,12 @@ h1#contentSection {
 }
 
 #footer a {
-	color: rgb(112, 112, 112);
+	color: rgb(167, 167, 167);
 	text-decoration: none;
 }
 
 #footer a:hover {
-	color: rgb(100, 0, 0);
+	color: rgb(200, 200, 200);
 	text-decoration: underline;
 }
 
