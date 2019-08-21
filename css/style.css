@@ -178,6 +178,14 @@ h1#contentSection {
 	color: rgb(58, 58, 58);
 }
 
+#contentSection2 {
+	padding: 20px 10px; 
+}
+
+h1#contentSection2 {
+	color: rgb(58, 58, 58)
+}
+
 /*
  *  page nav sits at the top of a page 
  *  and povides "anchored" links to sections 
