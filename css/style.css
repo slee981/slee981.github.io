@@ -144,8 +144,9 @@ button:hover a {
 }
 
 #active a {
-	color: rgb(117, 117, 117);
+	color: rgb(143, 143, 143);
 	text-decoration: underline;
+	font-weight: bold;
 } 
 
 #active a:hover {
