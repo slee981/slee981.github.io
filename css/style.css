@@ -95,10 +95,10 @@ br.clearfix {
 
 .topnav .icon {
 	display: none;
-  }
+}
 
 .links {
-	margin: 5px auto; 
+	margin: 5px auto 5px 0px; 
 }
 
 .links ul {
@@ -108,6 +108,13 @@ br.clearfix {
 
 .links ul li {
 	display: inline;
+}
+
+#name {
+	font-size: 24pt; 
+	font-weight: 400;
+	text-align: center;
+	color: rgb(100, 0, 0);
 }
 
 button {
@@ -122,7 +129,7 @@ button {
 }
 
 button a {
-	color: rgb(100, 0, 0);
+	color: rgb(53, 53, 53);
 	font-size: 18px;
 	text-decoration: none;
 }
@@ -137,13 +144,12 @@ button:hover a {
 }
 
 #active a {
-	color: rgb(170, 0, 0);
-	font-weight: bold;
+	color: rgb(117, 117, 117);
 	text-decoration: underline;
 } 
 
 #active a:hover {
-	color: rgb(158, 158, 158);
+	color: rgb(177, 177, 177);
 	font-weight: normal;
 } 
 
@@ -187,7 +193,7 @@ h1#contentSection {
 
 #pagenav a {
 	/* color: rgb(100, 0, 0); */
-	color: rgb(167, 167, 167);
+	color: rgb(0, 4, 63);
 	text-decoration: none;
 }
 
@@ -204,7 +210,7 @@ h1#contentSection {
 .anchorRef {
 	display: block;
     position: relative;
-	top: -100px;
+	top: -150px;
 	visibility: hidden;
 }
 
@@ -343,6 +349,10 @@ img {
 		float: none; 
 		padding-top: 20px;
 	}
+
+	#name {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 1200px) {
@@ -355,14 +365,14 @@ img {
 
 	.topnav a {
 		text-decoration: none;
-		font-size: 32px;
+		font-size: 40px;
 	}
 
 	.topnav a.icon {
 		padding-left: 100px;
 		float: left;
 		display: block;
-		color: rgb(59, 0, 0);
+		color: rgb(100, 0, 0);
 	}
 
 	.topnav a.icon:hover {
@@ -415,7 +425,7 @@ img {
 		position: absolute;
 		left: 10px;
 		top: 60px;
-		color: rgb(59, 0, 0);
+		color: rgb(100, 0, 0);
 	}
 
 	.topnav.responsive a.icon:hover {
@@ -452,7 +462,7 @@ img {
 	}
 	
 	.links.responsive ul li button a {
-		color: rgb(100, 0, 0);
+		color: rgb(53, 53, 53);
 		font-size: 32px;
 		text-decoration: none;
 	}
