@@ -263,12 +263,13 @@ h1#contentSection2 {
 /******************************/
 /* SPECIFIC TO A CERTAIN PAGE */
 
-#contactInfo h1, #contactInfo h2,
-#contactInfo h3, #contactInfo h4 {
-	text-align: center;
-	color: rgb(0, 49, 139); 
+#contactInfo h1 a, #contactInfo h2 a,
+#contactInfo h3 a, #contactInfo h4 a {
 	display: block; 
-	float: center; 
+	float: center;
+	text-align: center;
+	line-height: 0pt;
+	color: rgb(0, 4, 63); 
 }
 
 .box {
