@@ -22,7 +22,7 @@
 <body>
 	<div id="wrapper">
 		<div id="menu" class="topnav">
-			<div> 
+			<div>
 				<h1 id="name">Stephen M. Lee</h1>
 			</div>
 			<div id="linksmenu" class="links">
@@ -38,7 +38,7 @@
 
 			<!-- nav collapse bars -->
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-				<i class="fa fa-bars w3-xxxlarge"></i>    Stephen M. Lee</a>
+				<i class="fa fa-bars w3-xxxlarge"></i> Stephen M. Lee</a>
 		</div>
 
 		<div id="content">
@@ -51,6 +51,61 @@
 
 				<a id="independent" class="anchorRef"></a>
 				<h1 id="contentSection2">Independent Research</h1>
+
+				<h2>Variation in Political News: An NLP Approach</h2>
+				<p>
+					<a target="_new" href="Papers/StephenLee_NewsClassification.pdf" id="paper">
+						<b>Abstract: </b>By many reports, there has been an increase in skepticism
+						and polarity in news consumption. Since 2016, we have even heard the president
+						of the United States make accusations of traditionally mainstream news sources
+						publishing "fake news". With a goal of classifying news articles by their source,
+						I scraped several thousand political news articles from Fox, Vox, and PBS News.
+						I then trained a bidirectional LSTM netural network to classify the source of the
+						article based on the text. Accuracy was measured by calculating the F1 score, on
+						which the best model scored a 0.946 on the out of sample classification task.
+						To interact with this tool, I developed a web application that implements the
+						trained network. Finally, I considered the social implications of such a tool.
+					</a>
+				</p>
+				<p>
+					<b>Code: </b>
+					<a href="https://github.com/slee981/xyzNews" id="paper">
+						https://github.com/slee981/xyzNews.
+					</a>
+				</p>
+				<p>
+					<b>Tools and Skills: </b> Python (pandas, selenium, beautifulsoup4, keras, flask), R,
+					LSTM Neural Networks, GloVe word embeddings, Multinomial Inverse Regression for text, webscraping.
+				</p>
+
+				<h2>Inforamtion in Public FOMC Speeches</h2>
+				<p>
+					<a target="_new" href="Papers/StephenLee_FOMC_Speeches.pdf" id="paper">
+						<b>Abstract: </b>The Federal Reserve System was created by an act of Congress in 1913,
+						and they are tasked with a so called “dual mandate” to 1) promote full employment
+						and 2) ensure price stability. In practice, the most traditional tool that they have
+						to achieve these goals is by setting the interest rate at which large banking
+						institutions can lend to each other overnight. This rate is known as the federal
+						funds rate, and it is decided by the Federal Open Markets Committee (FOMC) in meetings
+						that occur about every six (6) weeks. In between meeting dates, members
+						of the Federal Reserve Board of Governors – a group that is always allowed to vote on
+						the interest rate decision – may give speeches to the public during scheduled events.
+						One might wonder, do these speeches contain information about their upcoming decisions?
+						Performing an analysis using a Latent Dirchelt Alocation (LDA) fit on the cleaned text
+						of speeches, I find evidence to suggest that these speeches do in fact seem to contain
+						information that is useful in predicting future interest rate decisions.
+					</a>
+				</p>
+				<p>
+					<b>Code: </b>
+					<a href="https://github.com/slee981/fed_statements" id="paper">
+						https://github.com/slee981/fed_statements.
+					</a>
+				</p>
+				<p>
+					<b>Tools and Skills: </b> Python (pandas, selenium, beautifulsoup4, gensim), webscraping,
+					Latent Dirchelet Alocation (LDA), LASSO regression, OLS regression.
+				</p>
 
 				<h2>Cointegrated Cryptocurrencies? An Exploration of Price Movements</h2>
 				<p>
@@ -130,7 +185,9 @@
 				<h1 id="contentSection">Research Assistance</h1>
 				<h2>Advertising for Consideration</h2>
 				<p>
-					<a target="_new" href="https://www.sciencedirect.com/science/article/pii/S0167268118302981?via%3Dihub" id="paper">
+					<a target="_new"
+						href="https://www.sciencedirect.com/science/article/pii/S0167268118302981?via%3Dihub"
+						id="paper">
 						<b>Abstract: </b>We analyze markets where firms competing on price advertise to
 						increase the probability of entering consumers' consideration sets. We find that
 						moderately costly advertising allows firms to raise prices and possibly profits
