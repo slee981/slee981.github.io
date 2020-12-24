@@ -21,27 +21,31 @@ window.onscroll = function () { scrollFunction() };
 var x = window.matchMedia("(max-width: 1200px)")
 
 function scrollFunction() {
+  let menu = document.getElementById("menu");
 
   // if you are scrolling
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("menu").style.borderBottom = "2px solid rgb(65, 65, 65)";
+    menu.style.borderBottom = "2px solid rgb(65, 65, 65)";
+    menu.style["boxShadow"] = "5px 10px 18px #888888";
+
     // mobile
     if (x.matches) {
-      document.getElementById("menu").style.padding = "60px 10px 10px";
+      menu.style.padding = "40px 10px 10px";
       // desktop
     } else {
-      document.getElementById("menu").style.padding = "20px 10px 5px";
+      menu.style.padding = "10px 10px 5px";
     }
 
     // if you are not scrolling
   } else {
-    document.getElementById("menu").style.borderBottom = "0.5px solid rgb(65, 65, 65)";
+    menu.style["boxShadow"] = "none";
+    menu.style.borderBottom = "0.5px solid rgb(65, 65, 65)";
     // mobile
     if (x.matches) {
-      document.getElementById("menu").style.padding = "60px 10px 20px";
+      menu.style.padding = "60px 10px 20px";
       // desktop
     } else {
-      document.getElementById("menu").style.padding = "20px 10px";
+      menu.style.padding = "20px 10px";
     }
   }
 }
