@@ -1,0 +1,10 @@
+- name: About
+  link: index.html
+- name: Work 
+  link: work.html
+- name: Notes
+  link: notes.html 
+- name: Categories
+  link: categories.html
+- name: Archive 
+  link: archive.html

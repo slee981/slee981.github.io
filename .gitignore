@@ -1,4 +1,5 @@
-website-todo.txt
-.DS_Store
-
-archive
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor

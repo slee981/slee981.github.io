@@ -1,71 +1,123 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default
+permalink: index.html
+---
 
-<head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async
-		src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
+<div class="row p-5">
+    <div class="col d-flex justify-content-center mx-5 px-5">
+        <div class="card p-3 headshot-card">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="img-fluid headshot"
+                        src="{{ 'assets/images/profile.png' | relative_url }}"
+                        alt="">
+                </div>
 
-		gtag('config', 'UA-138925131-1');
-	</script>
+                <div
+                    class="col-sm-8 d-flex justify-content-center align-items-center">
+                    <div class="card-body main-info-text">
+                        <h1 class="card-title">Stephen M. Lee</h1>
+                        <h2 class="card-text">Economist</h2>
+                        <h3>Econ One Research</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </h2>
+    </div>
+</div>
+<hr>
 
-	<title>Stephen M. Lee</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
-	<script src="js/main.js"></script>
-</head>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Employment</h2>
+                <ul class="card-text">
+                    <li>M.S. Computer Science, 2019</li>
+                    <li>M.A. Economics, 2018</li>
+                    <li>B.S. Physics, 2013</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Education</h2>
+                <h5 class="card-text">University of Memphis</h5>
+                <ul class="card-text">
+                    <li>M.S. Computer Science, 2019</li>
+                    <li>M.A. Economics, 2018</li>
+                    <li>B.S. Physics, 2013</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<body>
-	<div id="wrapper">
-		<div id="menu" class="topnav">
-			<div id="linksmenu" class="links">
-				<ul>
-					<li><button id="active"><a
-								href="index.html">HOME</a></button></li>
-					<li><button><a href="Economics.html">ECONOMICS</a></button>
-					</li>
-					<li><button><a href="Resume.pdf">RESUME</a></button></li>
-					<li><button><a href="About.html">ABOUT</a></button></li>
-					<li><button><a
-								href="https://sparklingcorrelation.com">BLOG</a></button>
-					</li>
-					<li><button><a href="Contact.html">CONTACT</a></button></li>
-				</ul>
-			</div>
+</div>
+<hr>
 
-			<!-- nav collapse bars -->
-			<a href="javascript:void(0);" class="icon" onclick="toggleTopNav()">
-				<i class="fa fa-bars w3-xxxlarge"></i></a>
-		</div>
-
-		<div id="content">
-			<div class="box" id="content-box1">
-				<img class="pic" src="Images/profile.png" />
-			</div>
-
-			<div class="box" id="content-box2">
-				<h1 id="name-main"><b>Stephen M. Lee</b></h1>
-
-				<h2>Economist<br>
-					<b>Econ One Research</b>
-				</h2>
-
-			</div>
-			<br class="clearfix" />
-		</div>
-
-		<div id="footer" class="lowernav">
-			<a target="_new"
-				href="https://github.com/slee981/slee981.github.io"><b>WEBSITE
-					SOURCE CODE</b></a>
-		</div>
-	</div>
-</body>
-
-</html>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Golf</h2>
+                <div class="card-text">
+                    <p>
+                        My dad introduced me to golf when I was very young -
+                        in fact, I've been told stories about me crawling around
+                        with
+                        a wooden golf club before I could walk. This turned
+                        into a real obsession with time.
+                    </p>
+                    <p>
+                        I played in tournaments frequently throughout
+                        high school and ended up earning a scholarship
+                        to play golf at the University of Memphis.
+                    </p>
+                    <p>
+                        At Memphis, we had a good team and won the 2012
+                        Conference USA Team Championship, and even qualified
+                        to play in the NCAA Championship at the Riviera CC
+                        (in California) that same year. Individually, a couple
+                        of my highlights include qualifying to compete in the
+                        PGA
+                        Tour's
+                        FedEx St. Jude Classic and the United States Amateur -
+                        both
+                        in the summer of 2011.
+                    </p>
+                    <p>
+                        After college, I played professionally for a year.
+                        I won some money and lived out of my suitcase and
+                        then retired as a golfer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Selected Awards and Scholarships</h2>
+                <ul class="card-text">
+                    <li><b>2019: </b> 2nd Place, University of Memphis Graduate
+                        Student Research Symposium</li>
+                    <li><b>2018: </b> Winner, Wells Fargo Campus Analytics
+                        Challenge</li>
+                    <li><b>2018-2019: </b> Graduate Assistantship in Computer
+                        Science</li>
+                    <li><b>2016-2018: </b> Graduate Assistantshi Economics</li>
+                    <li><b>2013: </b> Cleveland Golf / Srixon All America
+                        Scholar</li>
+                    <li><b>2012: </b> Cleveland Golf / Srixon All America
+                        Scholar</li>
+                    <li><b>2009-2013: </b>Cecil C. Humphreys Presidental
+                        Scholarship</li>
+                    <li><b>2009-2013: </b> Men's Golf Scholarship</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
