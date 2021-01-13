@@ -23,11 +23,12 @@ email: smlee.981@gmail.com
 description: Notes on computers, economics, and so on...
 
 # Cadre settings
-# navbar_img: assets/images/SparklingCorrelation.png
-# favicon_img: assets/images/SparklingCorrelation-icon.png
+# navbar_img: assets/images/logo.png
+# favicon_img: assets/images/favicon.png
 pagination: 3
+google_analytics: UA-138925131-1
 
-# baseurl: "sparkling-correlation" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://stephenlee.info" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
@@ -37,26 +38,3 @@ plugins:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
-  # - jekyll-remote-theme
-
-# remote_theme: slee981/jekyll-theme-cadre
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/

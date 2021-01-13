@@ -1,87 +1,106 @@
 ---
 layout: page
-title: Work
 permalink: work.html
 ---
 
+<h1 class="text-center">Work</h1>
+<div class="category-tags d-flex flex-wrap justify-content-center px-5">
+    <a class="card-link my-1 py-2 px-3 big-tag"
+        href="{{ 'work.html#open-source' | relative_url }}">Open Source</a>
+    <a class="card-link my-1 py-2 px-3 big-tag"
+        href="{{ 'work.html#independent' | relative_url }}">Independent Research</a>
+</div>
 <hr>
-<h2>Open Source Contributions</h2>
+
+<a class="jump-to-anchor" id="open-source"></a>
+<h2 class="work-section">Open Source Contributions</h2>
 <div class="row">
     <div class="col-sm-6">
-        <div class="card m-3">
+        <div class="card h-100 m-3 work-card">
             <div class="card-body">
                 <h3 class="card-title">wsjplot</h3>
-                <div class="card-text">
-                    <p>
-                        <b>Role:</b> Author, lead maintainer
-                    </p>
-                    <p>
-                        <b>Core libraries:</b> tidyverse
-                    </p>
-                    <p>
-                        An R package that formats your "ggplot" graphs like the
-                        Wall Street Journal.
-                    </p>
-                </div>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    An R package that formats your "ggplot" graphs like the Wall Street Journal.
+                </h6>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Role:</b> Author</li>
+                <li class="list-group-item"><b>Keywords:</b> R, tidyverse, ggplot</li>
+            </ul>
+            <div class="card-body">
+                <p class="work-link card-text">
+                    <a href="https://cran.r-project.org/web/packages/wsjplot/index.html">
+                        Download from CRAN &raquo;
+                    </a>
+                </p>
+                <p class="work-link card-link">
+                    <a href="https://github.com/slee981/wsjplot">
+                        Contribute &raquo;
+                    </a>
+                </p>
             </div>
         </div>
     </div>
     <div class="col-sm-6">
-        <div class="card m-3">
+        <div class="card h-100 m-3 work-card">
             <div class="card-body">
                 <h3 class="card-title">jekyll-theme-cadre</h3>
-                <div class="card-text">
-                    <p>
-                        <b>Role:</b> Author, lead maintainer
-                    </p>
-                    <p>
-                        <b>Core libraries:</b> Jekyll, Liquid, Bootstrap 4
-                    </p>
-                    <p>
-                        A responsive, modern, Jekyll theme for bloggers with
-                        Bootstrap styling and KaTex support.
-                    </p>
-                </div>
-
+                <h6 class="card-subtitle mb-2 text-muted">
+                    A responsive, modern, and customizable Jekyll theme for bloggers.
+                </h6>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Role:</b> Author</li>
+                <li class="list-group-item"><b>Keywords:</b> Jekyll, Bootstrap 4, SCSS, Liquid, Gem</li>
+            </ul>
+            <div class="card-body">
+                <p class="work-link card-text">
+                    <a href="https://rubygems.org/gems/jekyll-theme-cadre">
+                        Download from RubyGems &raquo;
+                    </a>
+                </p>
+                <p class="work-link card-link">
+                    <a href="https://github.com/slee981/jekyll-theme-cadre">
+                        Contribute &raquo;
+                    </a>
+                </p>
             </div>
         </div>
     </div>
 </div>
 
 <hr>
-<h2>Independent Research</h2>
-<div class="card m-3">
+<a class="jump-to-anchor" id="independent"></a>
+<h2 class="work-section">Independent Research</h2>
+<div class="card m-3 work-card">
     <div class="card-body">
         <h3 class="card-title">Variation in Political News: An NLP Approach</h3>
         <div class="card-text">
             <p>
-                <a target="_new" href="Papers/StephenLee_NewsClassification.pdf"
-                    id="paper">
-                    <b>Abstract: </b>By many reports, there has been an
-                    increase in skepticism
-                    and polarity in news consumption. Since 2016, we have
-                    even heard the president
-                    of the United States make accusations of traditionally
-                    mainstream news sources
-                    publishing "fake news". With a goal of classifying news
-                    articles by their source,
-                    I scraped several thousand political news articles from
-                    Fox, Vox, and PBS News.
-                    I then trained a bidirectional LSTM netural network to
-                    classify the source of the
-                    article based on the text. Accuracy was measured by
-                    calculating the F1 score, on
-                    which the best model scored a 0.946 on the out of sample
-                    classification task.
-                    To interact with this tool, I developed a web
-                    application that implements the
-                    trained network. Finally, I considered the social
-                    implications of such a tool.
-                </a>
+                <b>Abstract: </b>By many reports, there has been an
+                increase in skepticism
+                and polarity in news consumption. Since 2016, we have
+                even heard the president
+                of the United States make accusations of traditionally
+                mainstream news sources
+                publishing "fake news". With a goal of classifying news
+                articles by their source,
+                I scraped several thousand political news articles from
+                Fox, Vox, and PBS News.
+                I then trained a bidirectional LSTM netural network to
+                classify the source of the
+                article based on the text. Accuracy was measured by
+                calculating the F1 score, on
+                which the best model scored a 0.946 on the out of sample
+                classification task.
+                To interact with this tool, I developed a web
+                application that implements the
+                trained network. Finally, I considered the social
+                implications of such a tool.
             </p>
             <p>
                 <b>Code: </b>
-                <a href="https://github.com/slee981/xyzNews" id="paper">
+                <a class="work-link card-link" href="https://github.com/slee981/xyzNews">
                     https://github.com/slee981/xyzNews.
                 </a>
             </p>
@@ -91,49 +110,50 @@ permalink: work.html
                 LSTM Neural Networks, GloVe word embeddings, Multinomial
                 Inverse Regression for text, webscraping.
             </p>
-
+            <p class="work-link card-link">
+                <a target="_new" href="{{ 'assets/papers/StephenLee_NewsClassification.pdf' | relative_url }}">
+                    Read paper &raquo;
+                </a>
+            </p>
         </div>
     </div>
 </div>
 
-<div class="card m-3">
+<div class="card m-3 work-card">
     <div class="card-body">
         <h3 class="card-title">Information in Public FOMC Speeches</h3>
         <div class="card-text">
             <p>
-                <a target="_new" href="Papers/StephenLee_FOMC_Speeches.pdf"
-                    id="paper">
-                    <b>Abstract: </b>The Federal Reserve System was created
-                    by an act of Congress in 1913,
-                    and they are tasked with a so called “dual mandate” to
-                    1) promote full employment
-                    and 2) ensure price stability. In practice, the most
-                    traditional tool that they have
-                    to achieve these goals is by setting the interest rate
-                    at which large banking
-                    institutions can lend to each other overnight. This rate
-                    is known as the federal
-                    funds rate, and it is decided by the Federal Open
-                    Markets Committee (FOMC) in meetings
-                    that occur about every six (6) weeks. In between meeting
-                    dates, members
-                    of the Federal Reserve Board of Governors – a group that
-                    is always allowed to vote on
-                    the interest rate decision – may give speeches to the
-                    public during scheduled events.
-                    One might wonder, do these speeches contain information
-                    about their upcoming decisions?
-                    Performing an analysis using a Latent Dirchelt Alocation
-                    (LDA) fit on the cleaned text
-                    of speeches, I find evidence to suggest that these
-                    speeches do in fact seem to contain
-                    information that is useful in predicting future interest
-                    rate decisions.
-                </a>
+                <b>Abstract: </b>The Federal Reserve System was created
+                by an act of Congress in 1913,
+                and they are tasked with a so called “dual mandate” to
+                1) promote full employment
+                and 2) ensure price stability. In practice, the most
+                traditional tool that they have
+                to achieve these goals is by setting the interest rate
+                at which large banking
+                institutions can lend to each other overnight. This rate
+                is known as the federal
+                funds rate, and it is decided by the Federal Open
+                Markets Committee (FOMC) in meetings
+                that occur about every six (6) weeks. In between meeting
+                dates, members
+                of the Federal Reserve Board of Governors – a group that
+                is always allowed to vote on
+                the interest rate decision – may give speeches to the
+                public during scheduled events.
+                One might wonder, do these speeches contain information
+                about their upcoming decisions?
+                Performing an analysis using a Latent Dirchelt Alocation
+                (LDA) fit on the cleaned text
+                of speeches, I find evidence to suggest that these
+                speeches do in fact seem to contain
+                information that is useful in predicting future interest
+                rate decisions.
             </p>
             <p>
                 <b>Code: </b>
-                <a href="https://github.com/slee981/fed_statements" id="paper">
+                <a href="https://github.com/slee981/fed_statements">
                     https://github.com/slee981/fed_statements.
                 </a>
             </p>
@@ -143,190 +163,166 @@ permalink: work.html
                 Latent Dirchelet Alocation (LDA), LASSO regression, OLS
                 regression.
             </p>
+            <p class="work-link card-link">
+                <a target="_new" href="{{ 'assets/papers/StephenLee_FOMC_Speeches.pdf' | relative_url }}">
+                    Read paper &raquo;
+                </a>
+            </p>
         </div>
     </div>
 </div>
 
-<div class="card m-3">
+<div class="card m-3 work-card">
     <div class="card-body">
-        <h3 class="card-title">Cointegrated Cryptocurrencies? An Exploration of
-            Price
-            Movements</h3>
+        <h3 class="card-title">Cointegrated Cryptocurrencies? An Exploration of Price Movements</h3>
         <div class="card-text">
             <p>
-                <a target="_new"
-                    href="Papers/StephenLee_DigitalAsset_Analysis.pdf"
-                    id="paper">
-                    <b>Abstract: </b>The original Bitcoin whitepaper was
-                    released in 2008 under the pseudonym
-                    Satoshi Nakamoto (Nakamoto, 2008). Here, the author
-                    introduces a
-                    novel way of enabling secure peer-to-peer digital
-                    transactions without so-
-                    called “double spending” attacks. Traditionally, these
-                    attacks are avoided
-                    through the use of banks and other intermediaries (i.e.
-                    Paypal, Venmo)
-                    who ensure that users transact honestly. With Bitcoin,
-                    however, double
-                    spending is prevented through a clever combination of
-                    cryptography and
-                    game theory. Since then, other projects (for example,
-                    Buterin, 2013)
-                    have modified the original Bitcoin protocol to create
-                    new blockchains,
-                    each with their own coins. Colloquially referred to as
-                    “cryptocurrencies”,
-                    these projects have captured the imagination of many. As
-                    of February
-                    23, 2019, the three largest cryptocurrencies by market
-                    capitalization are
-                    Bitcoin ($ 72.6 Billion), Ether ($ 16.6 Billion), and
-                    Ripple ($ 13.6 Billion).
-                    Following MacDonald and Taylor, 1989 and Sephton and
-                    Larsen, 1991,
-                    I explore price movements in the cryptocurrency market
-                    by looking for
-                    cointegrating relationships between the various coins.
-                    While not necessarily
-                    indicative of a market inefficiency, I do find some
-                    evidence to suggest price
-                    changes in Bitcoin may precede similar changes in the
-                    price of
-                    Litecoin, and further that none of the cryptocurrencies’
-                    prices appear to
-                    change independently of the others. Further, I find that
-                    investors seem to
-                    respond to negative price changes with an increase in
-                    volatility.
-                </a>
+                <b>Abstract: </b>The original Bitcoin whitepaper was
+                released in 2008 under the pseudonym
+                Satoshi Nakamoto (Nakamoto, 2008). Here, the author
+                introduces a
+                novel way of enabling secure peer-to-peer digital
+                transactions without so-
+                called “double spending” attacks. Traditionally, these
+                attacks are avoided
+                through the use of banks and other intermediaries (i.e.
+                Paypal, Venmo)
+                who ensure that users transact honestly. With Bitcoin,
+                however, double
+                spending is prevented through a clever combination of
+                cryptography and
+                game theory. Since then, other projects (for example,
+                Buterin, 2013)
+                have modified the original Bitcoin protocol to create
+                new blockchains,
+                each with their own coins. Colloquially referred to as
+                “cryptocurrencies”,
+                these projects have captured the imagination of many. As
+                of February
+                23, 2019, the three largest cryptocurrencies by market
+                capitalization are
+                Bitcoin ($ 72.6 Billion), Ether ($ 16.6 Billion), and
+                Ripple ($ 13.6 Billion).
+                Following MacDonald and Taylor, 1989 and Sephton and
+                Larsen, 1991,
+                I explore price movements in the cryptocurrency market
+                by looking for
+                cointegrating relationships between the various coins.
+                While not necessarily
+                indicative of a market inefficiency, I do find some
+                evidence to suggest price
+                changes in Bitcoin may precede similar changes in the
+                price of
+                Litecoin, and further that none of the cryptocurrencies’
+                prices appear to
+                change independently of the others. Further, I find that
+                investors seem to
+                respond to negative price changes with an increase in
+                volatility.
             </p>
             <p>
-                <a target="_new" href="Images/StephenLee_poster.pdf"
-                    id="paper"><b>Conference Poster.</b>
-                    This paper was presented as a poster at the 2019 Memphis
-                    Data conference -
-                    a data science conference hosted by the FedEx Institute
-                    of Technology,
-                    the Institute for Intelligent Systems, and the
-                    University of Memphis.
+                <b>Conference Poster.</b>
+                This paper was presented as a poster at the 2019 Memphis
+                Data conference -
+                a data science conference hosted by the FedEx Institute
+                of Technology,
+                the Institute for Intelligent Systems, and the
+                University of Memphis.
+            </p>
+            <p class="work-link card-link">
+                <a target="_new" href="{{ 'assets/images/StephenLee_poster.pdf' | relative_url }}">
+                View poster &raquo;
+                </a>
+            </p>
+            <p class="work-link card-link">
+                <a target="_new" href="{{ 'assets/papers/StephenLee_DigitalAsset_Analysis.pdf' | relative_url }}">
+                    Read paper &raquo;
                 </a>
             </p>
         </div>
     </div>
 </div>
 
-<div class="card m-3">
+<div class="card m-3 work-card">
     <div class="card-body">
         <h3 class="card-title">Loss Aversion in Experts: Evidence from the PGA
             Tour</h3>
         <div class="card-text">
             <p>
-                <a target="_new" href="Papers/StephenLee_PGALossAversion.pdf"
-                    id="paper">
-                    <b>Abstract: </b>I study loss aversion in professional
-                    golf using a proprietary dataset.
-                    I exploit the fact that professional golfers
-                    face a “cut” after the second round of a tournament in
-                    order to group
-                    players into two categories: those who make the cut (and
-                    receive prize
-                    money) and those who miss the cut (and go home with
-                    nothing). Due
-                    to this structure, golfers can observe their position
-                    after the first round
-                    and decide on a strategy. Empirical analysis supports my
-                    predictions
-                    that 1) players inside the projected cut choose a less
-                    risky strategy in the
-                    second round than players outside the projected cut; 2)
-                    players inside the
-                    projected cut after the first round, after controlling
-                    for position differences,
-                    make the cut more often than players outside of the
-                    projected cut; and
-                    3) the magnitude of the effects are smaller for
-                    tournaments with more
-                    skilled players. These results are consistent with the
-                    current loss aversion
-                    literature.
+                <b>Abstract: </b>I study loss aversion in professional
+                golf using a proprietary dataset.
+                I exploit the fact that professional golfers
+                face a “cut” after the second round of a tournament in
+                order to group
+                players into two categories: those who make the cut (and
+                receive prize
+                money) and those who miss the cut (and go home with
+                nothing). Due
+                to this structure, golfers can observe their position
+                after the first round
+                and decide on a strategy. Empirical analysis supports my
+                predictions
+                that 1) players inside the projected cut choose a less
+                risky strategy in the
+                second round than players outside the projected cut; 2)
+                players inside the
+                projected cut after the first round, after controlling
+                for position differences,
+                make the cut more often than players outside of the
+                projected cut; and
+                3) the magnitude of the effects are smaller for
+                tournaments with more
+                skilled players. These results are consistent with the
+                current loss aversion
+                literature.
+            </p>
+            <p class="work-link card-link">
+                <a target="_new" href="{{ 'assets/papers/StephenLee_PGALossAversion.pdf' | relative_url }}">
+                    Read paper &raquo;
                 </a>
             </p>
         </div>
     </div>
 </div>
 
-<div class="card m-3">
+<div class="card m-3 work-card">
     <div class="card-body">
         <h3 class="card-title">An Emperical Analysis of the Ethereum Blockchain
         </h3>
         <div class="card-text">
             <p>
-                <a target="_new"
-                    href="Papers/StephenLee_EthereumMiningPaper.pdf" id="paper">
-                    <b>Abstract: </b>Since the introduction of Bitcoin and
-                    the underlying blockchain tech-
-                    nology, several alternative protocols have been created.
-                    This paper explores
-                    one of those alternatives, Ethereum, to examine the
-                    behavior of
-                    users and infrastructure providers. While more research
-                    is needed for
-                    robustness, I find tentative results that suggest: 1)
-                    infrastructure providers
-                    (called "miners") are currently able to operate at a
-                    profit, suggesting there
-                    is not a competitive equilibrium. Still, it would take a
-                    new miner approximately
-                    four months to breakeven from the fixed equipment cost;
-                    2) users
-                    are willing to pay higher transaction fees, on average,
-                    in times of increased
-                    congestion, which is consistent with existing literature
-                    on queuing theory;
-                    and 3) decreasing rewards for infrastructure providers
-                    correlate with an
-                    increased level of infrastructure. Possible explanations
-                    for this include a
-                    time lag between deciding to become a miner and actually
-                    obtaining the
-                    necessary equipment.
-                </a>
+                <b>Abstract: </b>Since the introduction of Bitcoin and
+                the underlying blockchain tech-
+                nology, several alternative protocols have been created.
+                This paper explores
+                one of those alternatives, Ethereum, to examine the
+                behavior of
+                users and infrastructure providers. While more research
+                is needed for
+                robustness, I find tentative results that suggest: 1)
+                infrastructure providers
+                (called "miners") are currently able to operate at a
+                profit, suggesting there
+                is not a competitive equilibrium. Still, it would take a
+                new miner approximately
+                four months to breakeven from the fixed equipment cost;
+                2) users
+                are willing to pay higher transaction fees, on average,
+                in times of increased
+                congestion, which is consistent with existing literature
+                on queuing theory;
+                and 3) decreasing rewards for infrastructure providers
+                correlate with an
+                increased level of infrastructure. Possible explanations
+                for this include a
+                time lag between deciding to become a miner and actually
+                obtaining the
+                necessary equipment.
             </p>
-        </div>
-    </div>
-</div>
-
-<hr>
-<h2>Research Assistance</h2>
-<div class="card m-3">
-    <div class="card-body">
-        <h2 class="card-title">Advertising for Consideration</h2>
-        <div class="card-text">
-            <p>
-                <a target="_new"
-                    href="https://www.sciencedirect.com/science/article/pii/S0167268118302981?via%3Dihub"
-                    id="paper">
-                    <b>Abstract: </b>We analyze markets where firms
-                    competing on price advertise to
-                    increase the probability of entering consumers'
-                    consideration sets. We find that
-                    moderately costly advertising allows firms to raise
-                    prices and possibly profits
-                    by reducing the fraction of price-conscious consumers,
-                    and by segmenting the
-                    market according to whether or not consumers consider
-                    the lower priced firm.
-                    However, when the cost of advertising is sufficiently
-                    low, advertising
-                    leads to a prisoners' dilemma that adversely impacts
-                    profits without
-                    affecting expected prices.
+            <p class="work-link card-link">
+                <a target="_new" href="{{ 'assets/papers/StephenLee_EthereumMiningPaper.pdf' | relative_url }}">
+                    Read paper &raquo;
                 </a>
-            </p>
-            <p>
-                This paper is published in the Journal of Economic Behavior
-                and Organization.
             </p>
         </div>
     </div>
