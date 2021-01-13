@@ -1,0 +1,36 @@
+TODO: 
+
+--- Redesign 
+    -> Make responsive
+        @ Handle mobile resize 
+
+--- Videos 
+
+    -> Blockchain
+        @ Environment and writing simple smart contract  : Truffle, metamask, RemixIDE
+        @ Deploying smart contract to different networks : (truffle, infura), (myetherwallet, mycrypto), (RemixIDE) 
+        @ Design considerations                          : is-a vs. has-a and gas considerations
+
+    -> AWS 
+	@ Launch EC2 and ssh in from Windows, Ubuntu, Mac 
+        @ Env setup and getting your code to the EC2 
+        @ Connecting EC2 to an RDS 
+        @ Connecting EC2 to an EFS
+        @ Running your EC2 while you sleep 
+
+    -> Webscraping 
+	@ Basic scraping with requests and beautifulsoup 
+        @ Advanced scraping with selenium 
+        @ Scraping with selenium, EC2, and EFS
+
+    -> NLP 
+        @ Analyzing ngram frequency in text
+        @ RNN vs LTSM model selection 
+        @ Word embeddings and BERT 
+
+    -> Timeseries 
+
+--- Resume 
+
+    -> Update with Fed Reserve
+
