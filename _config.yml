@@ -20,11 +20,12 @@
 
 title: Stephen M. Lee 
 email: smlee.981@gmail.com
-description: Notes on computers, economics, and so on...
+description: Personal Website
 
 # Cadre settings
 # navbar_img: assets/images/logo.png
 # favicon_img: assets/images/favicon.png
+about: Notes on computers, economics, and so on.
 pagination: 3
 google_analytics: UA-138925131-1
 
@@ -37,6 +38,7 @@ plugins:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-remote-theme
+  - jekyll-remote-theme                        # production
 
-remote_theme: slee981/jekyll-theme-cadre
+remote_theme: slee981/jekyll-theme-cadre       # production
+# theme: jekyll-theme-cadre                      # development
