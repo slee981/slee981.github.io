@@ -32,9 +32,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://stephenlee.info" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-theme: jekyll-theme-cadre
 plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-remote-theme
+
+remote_theme: slee981/jekyll-theme-cadre
