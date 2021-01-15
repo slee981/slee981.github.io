@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- load bootstrap -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- user -->
+  
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+  
+  <link rel="stylesheet" href="/assets/css/open-color.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/main.js"></script>
+
+  <!-- font awesome -->
+  <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+  <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Text Wraps in Safari, but Scrolls in Chrome | Stephen M. Lee</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Text Wraps in Safari, but Scrolls in Chrome" />
+<meta name="author" content="Stephen Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:" />
+<meta property="og:description" content="Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:" />
+<link rel="canonical" href="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html" />
+<meta property="og:url" content="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html" />
+<meta property="og:site_name" content="Stephen M. Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-12T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Text Wraps in Safari, but Scrolls in Chrome" />
+<script type="application/ld+json">
+{"headline":"Text Wraps in Safari, but Scrolls in Chrome","dateModified":"2021-01-12T00:00:00-06:00","datePublished":"2021-01-12T00:00:00-06:00","url":"https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+  <body>
+    <div id="main" class="container">
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light py-4" id="menu">
+
+  <!-- BRAND LOGO OR NAME -->
+  <a class="navbar-brand top" id="site-logo" href="/">
+    
+      Stephen M. Lee
+    
+  </a>
+  
+  <!-- NAVIGATION -->
+  
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <div class="navbar-nav">
+      
+        
+        <a class="nav-item nav-link " href="/index.html">About</a>
+      
+        
+        <a class="nav-item nav-link " href="/work.html">Work</a>
+      
+        
+        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+      
+      </div>
+    </div>
+  
+</nav>
+
+
+      <main>
+        <!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/assets/js/adjustAnchorLink.js"></script>
+<script src="/assets/js/liveTOCScroll.js"></script>
+
+<div class="post-body">
+  <div class="row post-header">
+    <div class="col">
+      <h1 class="post-title text-center">Text Wraps in Safari, but Scrolls in Chrome</h1>
+      <div class="post-meta text-center">
+
+        
+          
+            <span class="post-metadata" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              Stephen Lee -
+            </span>
+            
+          
+        
+
+        
+        <time class="post-metadata" datetime="2021-01-12T00:00:00-06:00" itemprop="datePublished">
+          Jan 12, 2021
+        </time>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- START COL WITH TOC -->
+    <div class="col-sm-2 pt-3">
+      <div class="toc-div py-3">
+  
+    <h3 class="toc-title">Table of Contents</h3>
+  
+  <ul class="toc"><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li><li><a href="#summary">Summary</a></li></ul>
+
+</div>
+
+    </div>
+
+    <!-- MAIN POST -->
+    <div class="col-sm-10 post p-4">
+        <h2 id="problem">Problem</h2>
+<p>On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:</p>
+
+<div class="row py-5">
+    <div class="col d-flex justify-content-center">
+        <img class="small-img" alt="" src="/assets/images/code_wrap/code-with-scroll.png" />
+    </div>
+</div>
+
+<p>However, in several different contexts I’ve noticed that what works in Brave and Chrome doesn’t necessarily work in Safari.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>I’ve recreated a minimum working example to emphasize this point.</p>
+
+<p>Imagine you write the following HTML / CSS code:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+<span class="nt">code</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">250px</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">lightgrey</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">word-wrap</span><span class="p">:</span> <span class="n">break-word</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.i-1</span> <span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">1rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"code-block"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;pre&gt;</span>
+            <span class="nt">&lt;code&gt;</span>
+                <span class="nt">&lt;span&gt;</span>def main():<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"i-1"</span><span class="nt">&gt;</span>my_really_long_var_name = [11, 32, 5, 53, 23, 67, 46, 7, 34, 2]<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;/pre&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>This will produce the following output in Brave browser (I assume it’s the same for Chrome).</p>
+
+<div class="row py-5">
+    <div class="col d-flex justify-content-center">
+        <img class="small-img" src="/assets/images/code_wrap/brave.png" />
+    </div>
+</div>
+
+<p>However, it will produce the following results in Safari:</p>
+
+<div class="row py-5">
+    <div class="col d-flex justify-content-center">
+        <img class="small-img" src="/assets/images/code_wrap/safari.png" />
+    </div>
+</div>
+
+<p>Obviously, when there is such little code, it’s obvious that the issue is with the line <code class="language-plaintext highlighter-rouge">word-wrap: break-word</code>. In other words, if we change the style to</p>
+
+<pre><code class="language-git">- word-wrap: break-word;
++ word-wrap: normal;
+</code></pre>
+
+<p>then it works in both browsers. But when it’s late, and you’re staring at this screen</p>
+
+<div class="row py-5">
+    <div class="col d-flex justify-content-center">
+        <img src="/assets/images/code_wrap/safari-dev.png" />
+    </div>
+</div>
+
+<p>let’s just say that things can take longer than you hope.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Safari and Brave / Chrome handle <code class="language-plaintext highlighter-rouge">word-wrap: break-word</code> differently when combined with <code class="language-plaintext highlighter-rouge">overflow: auto</code>. Brave and Chrome will still enforce the <code class="language-plaintext highlighter-rouge">overflow: auto</code>, while Safari will enforce the <code class="language-plaintext highlighter-rouge">word-wrap: break-word</code>. This can lead to confusion when using large and inherited style sheets.</p>
+
+<p>If you want your overflow code to scroll and not wrap in Safari browser, make sure your final <code class="language-plaintext highlighter-rouge">code</code> block settings look like this:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">code</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">250px</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">lightgrey</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">word-wrap</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+    <span class="c">/*  
+    ** TLDR: this works in brave, but not in safar
+    **
+    ** word-wrap: break-word; 
+    */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center pt-5">
+    <h2>More</h2>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col-sm-6">
+      <div class="card info-card sticky-div h-100">
+
+  <div class="card-body">
+
+    <h3 class="card-title text-center">Recent Posts</h3>
+  </div>
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-12T00:00:00-06:00">Jan 13, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/version%20control/2021/01/13/git-force-push-subtree.html">Force Push a Git Subtree</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-12T00:00:00-06:00">Jan 13, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html">Deploy Jekyll to GitHub Pages</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-12T00:00:00-06:00">Jan 12, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html">Text Wraps in Safari, but Scrolls in Chrome</a>
+        </li>
+      
+    </ul>
+  <div class="card-body">
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="card info-card sticky-div h-100">
+
+    <div class="card-body">
+
+      <h3 class="card-title text-center">Categories</h3>
+
+      
+        <div class="category-tags d-flex flex-wrap justify-content-center">
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#web-development">
+              
+              
+                Web
+              
+                Development
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#front-end">
+              
+              
+                Front
+              
+                End
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#version-control">
+              
+              
+                Version
+              
+                Control
+              
+            
+            </a>
+          
+        </div>
+      
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+      
+</div>
+      </main>
+
+    </div>
+    <footer class="text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="footer-element">
+        <p>&copy;2021 Stephen M. Lee</p>
+    
+</div>
+      </div>
+    </div>
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="footer-element">
+    
+        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
+            <i class="fa-hover fas fa-envelope" title="Email"></i>
+        </a>
+    
+        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
+        </a>
+    
+        <a class="social-icon" href="https://github.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-github" title="GitHub"></i>
+        </a>
+    
+</div>
+
+        </div>
+      </div>
+    
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+           <p class="powered-by footer-element mt-3">
+    Powered by 
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & 
+    <a href="https://github.com/slee981/jekyll-theme-cadre" target="_blank">Cadre</a>
+</p>
+
+        </div>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+    
+    
+    
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+<script>
+  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138925131-1');
+</script>
+
+    
+  </body>
+</html>

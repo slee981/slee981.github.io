@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2021-01-14T22:00:19-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Deploy Jekyll to GitHub Pages</title><link href="https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html" rel="alternate" type="text/html" title="Deploy Jekyll to GitHub Pages" /><published>2021-01-13T00:00:00-06:00</published><updated>2021-01-13T00:00:00-06:00</updated><id>https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages</id><content type="html" xml:base="https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;You have made a beautiful blog with Jekyll (and hopefully with the &lt;a href=&quot;https://github.com/slee981/jekyll-theme-cadre&quot;&gt;Cadre theme&lt;/a&gt;), but don’t know the best workflow to make it go live on the Internet.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+&lt;p&gt;There are two options depending on your use case and preferences.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-the-github-pages-plugin&quot;&gt;Using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages&lt;/code&gt; plugin&lt;/h3&gt;
+&lt;p&gt;When you create a new Jekyll project, the boilerplate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; has the following lines:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./ Gemfile&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Hello! This is where you manage which Jekyll version is used to run.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# When you want to use a different version, change it below, save the&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# file and run `bundle install`. Run Jekyll with `bundle exec`, like so: # #     bundle exec jekyll serve&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# This will help ensure the proper Jekyll version is running.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Happy Jekylling!&lt;/span&gt;
+gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 4.2.0&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# This is the default theme for new Jekyll sites. You may change this to anything you like.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# gem &quot;minima&quot;, &quot;~&amp;gt; 2.5&quot;&lt;/span&gt;
+gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll-theme-cadre&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 0.1.20&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# If you want to use GitHub Pages, remove the &quot;gem &quot;jekyll&quot;&quot; above and&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# uncomment the line below. To upgrade, run `bundle update github-pages`.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# gem &quot;github-pages&quot;, group: :jekyll_plugins&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want to use another theme, you change that here. Similarily, as the comments suggest, you comment out the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; line and uncomment the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages&lt;/code&gt; line. Your ready-to-deploy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; might look like this:&lt;/p&gt;
+
+&lt;h4 id=&quot;gemfile-and-_configyml&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/h4&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./ Gemfile&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Hello! This is where you manage which Jekyll version is used to run.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# When you want to use a different version, change it below, save the&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#     bundle exec jekyll serve&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# This will help ensure the proper Jekyll version is running.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Happy Jekylling!&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# gem &quot;jekyll&quot;, &quot;~&amp;gt; 4.2.0&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# This is the default theme for new Jekyll sites. You may change this to anything you like.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# gem &quot;minima&quot;, &quot;~&amp;gt; 2.5&quot;&lt;/span&gt;
+gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll-theme-cadre&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 0.1.20&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# If you want to use GitHub Pages, remove the &quot;gem &quot;jekyll&quot;&quot; above and&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# uncomment the line below. To upgrade, run `bundle update github-pages`.&lt;/span&gt;
+gem &lt;span class=&quot;s2&quot;&gt;&quot;github-pages&quot;&lt;/span&gt;, group: :jekyll_plugins
+
+&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For safety reasons, GitHub Pages does not support running “unapproved” themes. There is a workaround. In your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, use&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# ./_config.yml&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# url settings are important for finding &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# all the 'assets' like images and style sheets&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# if using github&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ghuser.github.io&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# if on a project repository, &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# the exact name of that repo&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;baseurl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;repo-name&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Build settings&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-feed&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-remote-theme&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# this will not work!&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# theme: jekyll-theme-cadre&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# use this instead!&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;remote_theme&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;slee981/jekyll-theme-cadre&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;deploy&quot;&gt;Deploy&lt;/h4&gt;
+&lt;p&gt;Now, you can push your repo as normal to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch. For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/Documents/MyBlog &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; gh-pages
+
+~/Documents/MyBlog &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;gh-pages&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin gh-pages 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After a few minutes, you should see your site live. If you want to deploy to a custom domain name, the GitHub Pages documentation is an excellent guide.&lt;/p&gt;
+
+&lt;h3 id=&quot;build-and-push-_site-folder&quot;&gt;Build and push &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder&lt;/h3&gt;
+&lt;p&gt;One issue with the first approach is that the workflow for testing your site locally is a bit more complicated:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;You have to change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; to run locally with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;You have to add the additional &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;remote_theme&lt;/code&gt; option for “unsupported themes, but I’ve not had luck getting that to work locally either.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;gemfile-and-_configyml-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;In this case, I use the standard &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./ Gemfile&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
+
+gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 4.2.0&quot;&lt;/span&gt;
+gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll-theme-cadre&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 0.1.20&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and the standard &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# ./_config.yml&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;theme&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-theme-cadre&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Build settings&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-feed&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will build locally with:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now I can work locally on a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dev&lt;/code&gt; branch, and, without checking out a different branch, build the static &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder and push it directly to the remote &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;h4 id=&quot;deploy-1&quot;&gt;Deploy&lt;/h4&gt;
+&lt;p&gt;First, we need to tell &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt; to track the changes for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./.gitignore&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# _site    &amp;lt;-- comment this out or delete&lt;/span&gt;
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# build for production &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll build
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# commit the changes &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;update with build&quot;&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# push the &quot;_site&quot; subfolder &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git subtree push &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; _site origin gh-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;add-to-makefile&quot;&gt;Add to Makefile&lt;/h5&gt;
+&lt;p&gt;Skip the typing and add these shortcuts in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Makefile&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./Makefile
+&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+	bundle
+	bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+
+&lt;span class=&quot;nl&quot;&gt;publish&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+	git subtree push &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; _site origin gh-pages
+
+&lt;span class=&quot;nl&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+	bundle 
+	&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, after editing a new post, updating the live site only requires:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make build 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;add new post&quot;&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make publish 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="web development" /><category term="front end" /><category term="jekyll" /><category term="git" /><category term="github" /><summary type="html">Problem You have made a beautiful blog with Jekyll (and hopefully with the Cadre theme), but don’t know the best workflow to make it go live on the Internet.</summary></entry><entry><title type="html">Force Push a Git Subtree</title><link href="https://stephenlee.info/version%20control/2021/01/13/git-force-push-subtree.html" rel="alternate" type="text/html" title="Force Push a Git Subtree" /><published>2021-01-13T00:00:00-06:00</published><updated>2021-01-13T00:00:00-06:00</updated><id>https://stephenlee.info/version%20control/2021/01/13/git-force-push-subtree</id><content type="html" xml:base="https://stephenlee.info/version%20control/2021/01/13/git-force-push-subtree.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it):&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;useful message&quot;&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# shoot, i really should have also changed [ ... ]&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;...&quot;&lt;/span&gt; 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# interactive rebase to &quot;fixup&quot; the last commit&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# i.e. this essentially puts the last change into &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#      the previous commit message &lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; HEAD~2
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Additionally, if this repo is, for example, a Jekyll blog, you may be building the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder and pushing only that to the remote &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git subtree push &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; _site origin gh-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;However, after you just did a dumb dumb thing and forced a push, the next time you run the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git subtree push ...&lt;/code&gt; command, you will get a hard reject - something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;rejected]        gh-pages -&amp;gt; gh-pages &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;fetch first&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+error: failed to push some refs to &lt;span class=&quot;s1&quot;&gt;'file:///...'&lt;/span&gt;
+hint: Updates were rejected because the remote contains work that you &lt;span class=&quot;k&quot;&gt;do
+&lt;/span&gt;hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first merge the remote changes &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;e.g.,
+hint: &lt;span class=&quot;s1&quot;&gt;'git pull'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; before pushing again.
+hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git push --help'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;In this case, pulling will not help because it thinks you have less (and older) code than it does. You did just bury some changes into a previous commit message, after all.&lt;/p&gt;
+
+&lt;p&gt;The following solution is taken shamelessly from &lt;a href=&quot;https://gist.github.com/tduarte/eac064b4778711b116bb827f8c9bef7b&quot;&gt;this excellent GitHub Gist&lt;/a&gt; and preserved here for others (including my future-self) to find.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# create a local gh-pages branch containing the splitted output folder&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git subtree &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; _site &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; gh-pages 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# force the push of the gh-pages branch to the remote gh-pages branch at origin&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; origin gh-pages:gh-pages 
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# delete the local gh-pages because you will need it later&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; gh-pages 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You are now free to go about your business.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="version control" /><category term="git" /><summary type="html">Problem For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it):</summary></entry><entry><title type="html">Text Wraps in Safari, but Scrolls in Chrome</title><link href="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html" rel="alternate" type="text/html" title="Text Wraps in Safari, but Scrolls in Chrome" /><published>2021-01-12T00:00:00-06:00</published><updated>2021-01-12T00:00:00-06:00</updated><id>https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser</id><content type="html" xml:base="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:&lt;/p&gt;
+
+&lt;div class=&quot;row py-5&quot;&gt;
+    &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
+        &lt;img class=&quot;small-img&quot; alt=&quot;&quot; src=&quot;/assets/images/code_wrap/code-with-scroll.png&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However, in several different contexts I’ve noticed that what works in Brave and Chrome doesn’t necessarily work in Safari.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;I’ve recreated a minimum working example to emphasize this point.&lt;/p&gt;
+
+&lt;p&gt;Imagine you write the following HTML / CSS code:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;250px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;lightgrey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;word-wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;break-word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.i-1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;code-block&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;pre&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;code&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;def main():&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;i-1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;my_really_long_var_name = [11, 32, 5, 53, 23, 67, 46, 7, 34, 2]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/code&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/pre&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will produce the following output in Brave browser (I assume it’s the same for Chrome).&lt;/p&gt;
+
+&lt;div class=&quot;row py-5&quot;&gt;
+    &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
+        &lt;img class=&quot;small-img&quot; src=&quot;/assets/images/code_wrap/brave.png&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However, it will produce the following results in Safari:&lt;/p&gt;
+
+&lt;div class=&quot;row py-5&quot;&gt;
+    &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
+        &lt;img class=&quot;small-img&quot; src=&quot;/assets/images/code_wrap/safari.png&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Obviously, when there is such little code, it’s obvious that the issue is with the line &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;word-wrap: break-word&lt;/code&gt;. In other words, if we change the style to&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-git&quot;&gt;- word-wrap: break-word;
++ word-wrap: normal;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then it works in both browsers. But when it’s late, and you’re staring at this screen&lt;/p&gt;
+
+&lt;div class=&quot;row py-5&quot;&gt;
+    &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
+        &lt;img src=&quot;/assets/images/code_wrap/safari-dev.png&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;let’s just say that things can take longer than you hope.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Safari and Brave / Chrome handle &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;word-wrap: break-word&lt;/code&gt; differently when combined with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;overflow: auto&lt;/code&gt;. Brave and Chrome will still enforce the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;overflow: auto&lt;/code&gt;, while Safari will enforce the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;word-wrap: break-word&lt;/code&gt;. This can lead to confusion when using large and inherited style sheets.&lt;/p&gt;
+
+&lt;p&gt;If you want your overflow code to scroll and not wrap in Safari browser, make sure your final &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code&lt;/code&gt; block settings look like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;250px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;lightgrey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;word-wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;/*  
+    ** TLDR: this works in brave, but not in safar
+    **
+    ** word-wrap: break-word; 
+    */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="web development" /><category term="front end" /><category term="css" /><category term="html" /><summary type="html">Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:</summary></entry></feed>

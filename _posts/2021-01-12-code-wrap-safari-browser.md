@@ -11,8 +11,8 @@ tags: [css, html]
 ## Problem
 On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below: 
 
-<div class="row">
-    <div class="col mx-5 px-5 d-flex justify-content-center">
+<div class="row py-5">
+    <div class="col d-flex justify-content-center">
         <img class="small-img" alt="" src="{{ 'assets/images/code_wrap/code-with-scroll.png' | relative_url }}">
     </div>
 </div>
@@ -56,7 +56,7 @@ code {
 
 This will produce the following output in Brave browser (I assume it's the same for Chrome). 
 
-<div class="row">
+<div class="row py-5">
     <div class="col d-flex justify-content-center">
         <img class="small-img" src="{{ 'assets/images/code_wrap/brave.png' | relative_url}}">
     </div>
@@ -64,7 +64,7 @@ This will produce the following output in Brave browser (I assume it's the same 
 
 However, it will produce the following results in Safari: 
 
-<div class="row">
+<div class="row py-5">
     <div class="col d-flex justify-content-center">
         <img class="small-img" src="{{ 'assets/images/code_wrap/safari.png' | relative_url}}">
     </div>
@@ -79,7 +79,7 @@ Obviously, when there is such little code, it's obvious that the issue is with t
 
 then it works in both browsers. But when it's late, and you're staring at this screen
 
-<div class="row p-5">
+<div class="row py-5">
     <div class="col d-flex justify-content-center">
         <img src="{{ 'assets/images/code_wrap/safari-dev.png' | relative_url}}">
     </div>
