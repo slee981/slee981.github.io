@@ -210,6 +210,10 @@ sup { top: -0.5em; }
 
 .highlight .ss { color: #076678; }
 
+img { object-fit: contain; }
+
+hr { margin: 3rem 0rem; }
+
 img.headshot { max-height: 300px; }
 
 .main-info-text { padding-left: 1.5rem; margin-left: 1.5rem; }
@@ -233,8 +237,6 @@ img.headshot { max-height: 300px; }
 .work-link { text-align: right !important; }
 
 a.big-tag { font-size: 16pt !important; line-height: 28pt !important; border: none; }
-
-hr { margin: 3rem 0rem; }
 
 .small-img { max-width: 350px !important; }
 
