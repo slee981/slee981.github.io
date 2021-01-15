@@ -10,8 +10,8 @@ build-and-publish: build
 publish: 
 	# this repo runs from master
 	# keep this as a reference for future projects 
-	# git subtree push --prefix _site origin gh-pages
-	git push 
+	git subtree push --prefix _site origin gh-pages
+	# git push 
 
 build: 
 	bundle 
