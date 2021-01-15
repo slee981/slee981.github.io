@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2021-01-14T22:14:57-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Deploy Jekyll to GitHub Pages</title><link href="https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html" rel="alternate" type="text/html" title="Deploy Jekyll to GitHub Pages" /><published>2021-01-13T00:00:00-06:00</published><updated>2021-01-13T00:00:00-06:00</updated><id>https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages</id><content type="html" xml:base="https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2021-01-14T22:48:45-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Deploy Jekyll to GitHub Pages</title><link href="https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html" rel="alternate" type="text/html" title="Deploy Jekyll to GitHub Pages" /><published>2021-01-13T00:00:00-06:00</published><updated>2021-01-13T00:00:00-06:00</updated><id>https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages</id><content type="html" xml:base="https://stephenlee.info/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 &lt;p&gt;You have made a beautiful blog with Jekyll (and hopefully with the &lt;a href=&quot;https://github.com/slee981/jekyll-theme-cadre&quot;&gt;Cadre theme&lt;/a&gt;), but don’t know the best workflow to make it go live on the Internet.&lt;/p&gt;
 
 &lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
@@ -227,7 +227,7 @@ hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/sp
 &lt;p&gt;You are now free to go about your business.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="version control" /><category term="git" /><summary type="html">Problem For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it):</summary></entry><entry><title type="html">Text Wraps in Safari, but Scrolls in Chrome</title><link href="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html" rel="alternate" type="text/html" title="Text Wraps in Safari, but Scrolls in Chrome" /><published>2021-01-12T00:00:00-06:00</published><updated>2021-01-12T00:00:00-06:00</updated><id>https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser</id><content type="html" xml:base="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 &lt;p&gt;On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:&lt;/p&gt;
 
-&lt;div class=&quot;row py-5&quot;&gt;
+&lt;div class=&quot;row py-3&quot;&gt;
     &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
         &lt;img class=&quot;small-img&quot; alt=&quot;&quot; src=&quot;/assets/images/code_wrap/code-with-scroll.png&quot; /&gt;
     &lt;/div&gt;
@@ -271,7 +271,7 @@ hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/sp
 
 &lt;p&gt;This will produce the following output in Brave browser (I assume it’s the same for Chrome).&lt;/p&gt;
 
-&lt;div class=&quot;row py-5&quot;&gt;
+&lt;div class=&quot;row py-3&quot;&gt;
     &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
         &lt;img class=&quot;small-img&quot; src=&quot;/assets/images/code_wrap/brave.png&quot; /&gt;
     &lt;/div&gt;
@@ -279,7 +279,7 @@ hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/sp
 
 &lt;p&gt;However, it will produce the following results in Safari:&lt;/p&gt;
 
-&lt;div class=&quot;row py-5&quot;&gt;
+&lt;div class=&quot;row py-3&quot;&gt;
     &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
         &lt;img class=&quot;small-img&quot; src=&quot;/assets/images/code_wrap/safari.png&quot; /&gt;
     &lt;/div&gt;
@@ -293,7 +293,7 @@ hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/sp
 
 &lt;p&gt;then it works in both browsers. But when it’s late, and you’re staring at this screen&lt;/p&gt;
 
-&lt;div class=&quot;row py-5&quot;&gt;
+&lt;div class=&quot;row py-3&quot;&gt;
     &lt;div class=&quot;col d-flex justify-content-center&quot;&gt;
         &lt;img src=&quot;/assets/images/code_wrap/safari-dev.png&quot; /&gt;
     &lt;/div&gt;

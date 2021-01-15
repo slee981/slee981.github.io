@@ -1,3 +1,11 @@
+img {
+    object-fit: contain;
+}
+
+hr {
+    margin: 3rem 0rem;
+}
+
 img.headshot {
     max-height: 300px;
 }
@@ -62,10 +70,6 @@ a.big-tag {
     font-size: 16pt !important;
     line-height: 28pt !important;
     border: none;
-}
-
-hr {
-    margin: 3rem 0rem;
 }
 
 .small-img {
