@@ -27,6 +27,7 @@ description: Personal Website
 # favicon_img: assets/images/favicon.png
 about: A blog with "notes to self" for all things technincal.  
 pagination: 3
+favicon_img: assets/images/steve-logo.png
 google_analytics: UA-138925131-1
 
 baseurl: "" # the subpath of your site, e.g. /blog
