@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Use Docker for Local Databases" />
 <script type="application/ld+json">
-{"url":"https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html","headline":"Use Docker for Local Databases","dateModified":"2021-01-19T00:00:00-06:00","datePublished":"2021-01-19T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Problem","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Use Docker for Local Databases","dateModified":"2021-01-19T00:00:00-06:00","datePublished":"2021-01-19T00:00:00-06:00","url":"https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Problem","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -67,13 +67,13 @@
       <div class="navbar-nav">
       
         
-        <a class="nav-item nav-link " href="/index.html">About</a>
+        <a class="nav-item nav-link " href="/about.html">About</a>
       
         
         <a class="nav-item nav-link " href="/work.html">Work</a>
       
         
-        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+        <a class="nav-item nav-link " href="/index.html">Notes</a>
       
       </div>
     </div>
@@ -136,11 +136,15 @@
 
 <p>Use Docker. It can manage your data (with <code class="language-plaintext highlighter-rouge">docker volume</code>), your databases and versions (with <code class="language-plaintext highlighter-rouge">docker images</code>), and makes cleanup very simple so as to not overburden your computer.</p>
 
+<p>For these examples, I’m using Docker version 3.1.0 on OSX.</p>
+
 <h3 id="example-1-db-only">Example 1: DB only</h3>
 <p>For this, I’m using MySQL, although conceptually changing to any other database (e.g. PostGREs, Mongo, Maria) is straightforward. To create a Docker managed database (without a corresponding database management system), we can create the following <code class="language-plaintext highlighter-rouge">Makefile</code>.</p>
 
 <h4 id="setup">Setup</h4>
-<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># local variables 
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ./Makefile 
+</span>
+<span class="c"># local variables 
 # these can be imported from a separate config file 
 </span><span class="nv">MYSQL_DATA_IMAGE_NAME</span><span class="o">=</span>steve-data
 <span class="nv">MYSQL_INIT_FILE</span><span class="o">=</span>dev.mysql.list
@@ -157,7 +161,7 @@
 	docker volume create <span class="nt">--name</span> <span class="nv">$(MYSQL_DATA_IMAGE_NAME)</span>
 
 <span class="c"># start database in a docker instance.
-</span><span class="nl">start-db</span><span class="o">:</span> <span class="nf">stop-db</span>
+</span><span class="nl">start-db</span><span class="o">:</span>
 	docker run <span class="nt">--name</span> <span class="nv">$(MYSQL_IMAGE_NAME)</span> <span class="nt">-v</span> <span class="nv">$(MYSQL_DATA_IMAGE_NAME)</span>:/var/lib/mysql <span class="nt">--network</span> <span class="nv">$(DOCKER_NETWORK)</span> <span class="nt">--env-file</span> <span class="nv">$(MYSQL_INIT_FILE)</span> <span class="nt">--detach</span> <span class="nt">--publish</span> <span class="nv">$(MYSQL_PORT)</span>:3306 mysql:5.7
 
 <span class="c"># stop database instance.
@@ -176,22 +180,170 @@
 
 <span class="nl">ip_addr</span><span class="o">:</span> 
 	docker inspect <span class="nv">$(MYSQL_IMAGE_NAME)</span> | <span class="nb">grep </span>IPAddress
+
+<span class="nl">clean</span><span class="o">:</span>
+	docker volume <span class="nb">rm</span> <span class="nv">$(MYSQL_DATA_IMAGE_NAME)</span>
 </code></pre></div></div>
 
 <p>And, we can provide the specified environment configuration file as follows:</p>
 
-<pre><code class="language-list">MYSQL_USER=steve
+<pre><code class="language-list"># ./dev.mysql.list
+
+MYSQL_USER=steve
 MYSQL_PASSWORD=password
 MYSQL_ROOT_PASSWORD=password
 </code></pre>
 
 <h4 id="run">Run</h4>
+<p>To run this, <code class="language-plaintext highlighter-rouge">cd</code> into the same directory as the <code class="language-plaintext highlighter-rouge">Makefile</code>, and enter:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls
+</span>Makefile    dev.mysql.list
+
+<span class="nv">$ </span>make setup
+<span class="nv">$ </span>make start-db
+</code></pre></div></div>
+
+<p>You can then interact with the database via the cli. For example, to administer user permissions (for later use when seeding data, or whatever), you might do the following.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make shell-root
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with <span class="p">;</span> or <span class="se">\g</span><span class="nb">.</span>
+Your MySQL connection <span class="nb">id </span>is 2
+Server version: 5.7.32 MySQL Community Server <span class="o">(</span>GPL<span class="o">)</span>
+
+Copyright <span class="o">(</span>c<span class="o">)</span> 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type <span class="s1">'help;'</span> or <span class="s1">'\h'</span> <span class="k">for </span>help. Type <span class="s1">'\c'</span> to clear the current input statement.
+
+mysql&gt; SHOW DATABASES<span class="p">;</span>
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows <span class="k">in </span><span class="nb">set</span> <span class="o">(</span>0.01 sec<span class="o">)</span>
+
+mysql&gt; SHOW GRANTS <span class="k">for</span> <span class="s1">'steve'</span><span class="p">;</span> 
++------------------------------------------------------+
+| Grants <span class="k">for </span>steve@%                                |
++------------------------------------------------------+
+| GRANT USAGE ON <span class="k">*</span>.<span class="k">*</span> TO <span class="s1">'steve'</span>@<span class="s1">'%'</span>                |
++------------------------------------------------------+
+1 rows <span class="k">in </span><span class="nb">set</span> <span class="o">(</span>0.00 sec<span class="o">)</span>
+
+mysql&gt; GRANT INSERT, UPDATE, DELETE ON <span class="k">*</span>.<span class="k">*</span> TO <span class="s1">'steve'</span><span class="p">;</span>
+Query OK, 0 rows affected <span class="o">(</span>0.00 sec<span class="o">)</span>
+
+mysql&gt; FLUSH PRIVILEGES<span class="p">;</span>
+Query OK, 0 rows affected <span class="o">(</span>0.00 sec<span class="o">)</span>
+
+mysql&gt; SHOW GRANTS FOR <span class="s1">'steve'</span><span class="p">;</span>
++----------------------------------------------------+
+| Grants <span class="k">for </span>steve@%                                 |
++----------------------------------------------------+
+| GRANT SELECT, INSERT, UPDATE ON <span class="k">*</span>.<span class="k">*</span> TO <span class="s1">'steve'</span>@<span class="s1">'%'</span> |
++----------------------------------------------------+
+1 row <span class="k">in </span><span class="nb">set</span> <span class="o">(</span>0.00 sec<span class="o">)</span>
+</code></pre></div></div>
+
+<p>And later, to stop the database container, run</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make stop
+</code></pre></div></div>
+
+<p>And finally, if you want to destroy the data from that database to free up hard drive space, type</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make clean
+</code></pre></div></div>
 
 <h3 id="example-2-db-and-dbms">Example 2: DB and DBMS</h3>
+<p>Sometimes you may additionally want to have available a database management system without committing to a full install. For example, Sequel Ace is a very popular piece of database management software for MySQL and Maria databases, but is only compatible on OSX. MySQL Workbench is a popular but bulky choice if you’re not 100% committed to using it regularly.</p>
+
+<p>In this case, we can use <code class="language-plaintext highlighter-rouge">docker-compose</code> to build both the database server, and a locally hosted database management system.</p>
 
 <h4 id="setup-1">Setup</h4>
+<p>We’ll again use MySQL as the database, and select Adminer (formerly phpMyAdmin) as the database management system. It’s not <em>amazing</em>, but it does everything we need as lightweight solution.</p>
+
+<p>First, create a <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ./docker-compose.yml</span>
+
+<span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.1'</span>
+
+<span class="na">services</span><span class="pi">:</span>
+
+  <span class="na">adminer</span><span class="pi">:</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">admin_portal</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">adminer</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">8080:8080</span>
+
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">steve_db</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">mysql:5.6</span>
+    <span class="na">ports</span><span class="pi">:</span> 
+      <span class="pi">-</span> <span class="s">3306:3306</span>
+    <span class="na">volumes</span><span class="pi">:</span> 
+      <span class="pi">-</span> <span class="s">steve_data:/var/lib/mysql</span>
+    <span class="na">env_file</span><span class="pi">:</span> 
+      <span class="pi">-</span> <span class="s">mysql.dev.list</span>
+      
+<span class="na">volumes</span><span class="pi">:</span> 
+  <span class="na">steve_data</span><span class="pi">:</span>
+</code></pre></div></div>
+
+<p>The mysql environment configuation file, <code class="language-plaintext highlighter-rouge">mysql.dev.list</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ./mysql.dev.list
+
+MYSQL_ROOT_PASSWORD=password
+MYSQL_USER=steve
+MYSQL_PASSWORD=password
+MYSQL_DATABASE=test_db
+</code></pre></div></div>
+
+<p>Finally, we can build a <code class="language-plaintext highlighter-rouge">Makefile</code> to simplify commands</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ./Makefile
+</span>
+<span class="nv">DATABASE_IMAGE</span><span class="o">=</span>steve_db
+<span class="nv">DEFAULT_USER</span><span class="o">=</span>steve
+
+<span class="nl">up</span><span class="o">:</span> 
+	docker-compose up <span class="nt">-d</span>
+
+<span class="nl">down</span><span class="o">:</span> 
+	docker-compose down
+
+<span class="nl">shell</span><span class="o">:</span> 
+	docker <span class="nb">exec</span> <span class="nt">-it</span> <span class="nv">$(DATABASE_CONTAINER)</span> mysql <span class="nt">-u</span> <span class="nv">$(DEFAULT_USER)</span> <span class="nt">-p</span> 
+
+<span class="nl">inspect</span><span class="o">:</span> 
+	docker inspect <span class="nv">$(DATABASE_CONTAINER)</span>
+
+<span class="nl">ip_addr</span><span class="o">:</span> 
+	docker inspect <span class="nv">$(DATABASE_CONTAINER)</span> | <span class="nb">grep </span>IPAddress
+</code></pre></div></div>
 
 <h4 id="run-1">Run</h4>
+<p>Now, to start the database, we <code class="language-plaintext highlighter-rouge">cd</code> into the root directory with the <code class="language-plaintext highlighter-rouge">Makefile</code> and <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> and run</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls 
+</span>Makefile    docker-compose.yml    mysql.dev.list
+
+<span class="nv">$ </span>make up 
+</code></pre></div></div>
+
+<p>Now, we can either interact with the database via the cli</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make shell
+</code></pre></div></div>
+
+<p>Or, we can open a browser, navigate to https://localhost:8080, and find Adminer. Simply login with the credentials you provided in the <code class="language-plaintext highlighter-rouge">mysql.dev.list</code> configuration file.</p>
 
 
     </div>
@@ -218,15 +370,15 @@ MYSQL_ROOT_PASSWORD=password
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-19T00:00:00-06:00">Jan 13, 2021</time> 
+          <time datetime="2021-01-19T00:00:00-06:00">Jan 14, 2021</time> 
           &raquo;
-          <a class="card-link" href="/version%20control/2021/01/13/git-force-push-subtree.html">Force Push a Git Subtree</a>
+          <a class="card-link" href="/web%20development/front%20end/2021/01/14/deploy-jekyll-to-github-pages.html">Deploy Jekyll to GitHub Pages</a>
         </li>
       
         <li class="list-group-item">
           <time datetime="2021-01-19T00:00:00-06:00">Jan 13, 2021</time> 
           &raquo;
-          <a class="card-link" href="/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html">Deploy Jekyll to GitHub Pages</a>
+          <a class="card-link" href="/version%20control/2021/01/13/git-force-push-subtree.html">Force Push a Git Subtree</a>
         </li>
       
         <li class="list-group-item">
@@ -385,6 +537,17 @@ MYSQL_ROOT_PASSWORD=password
     
     
     
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+<script>
+  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138925131-1');
+</script>
+
     
   </body>
 </html>
