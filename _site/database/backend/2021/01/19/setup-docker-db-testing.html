@@ -21,22 +21,22 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Force Push a Git Subtree | Stephen M. Lee</title>
+<title>Use Docker for Local Databases | Stephen M. Lee</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Force Push a Git Subtree" />
+<meta property="og:title" content="Use Docker for Local Databases" />
 <meta name="author" content="Stephen Lee" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Problem For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it):" />
-<meta property="og:description" content="Problem For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it):" />
-<link rel="canonical" href="https://stephenlee.info/version%20control/2021/01/13/git-force-push-subtree.html" />
-<meta property="og:url" content="https://stephenlee.info/version%20control/2021/01/13/git-force-push-subtree.html" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html" />
+<meta property="og:url" content="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html" />
 <meta property="og:site_name" content="Stephen M. Lee" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-13T00:00:00-06:00" />
+<meta property="article:published_time" content="2021-01-19T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Force Push a Git Subtree" />
+<meta property="twitter:title" content="Use Docker for Local Databases" />
 <script type="application/ld+json">
-{"url":"https://stephenlee.info/version%20control/2021/01/13/git-force-push-subtree.html","headline":"Force Push a Git Subtree","dateModified":"2021-01-13T00:00:00-06:00","datePublished":"2021-01-13T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/version%20control/2021/01/13/git-force-push-subtree.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Problem For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it):","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html","headline":"Use Docker for Local Databases","dateModified":"2021-01-19T00:00:00-06:00","datePublished":"2021-01-19T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Problem","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -91,7 +91,7 @@
 <div class="post-body">
   <div class="row post-header">
     <div class="col">
-      <h1 class="post-title text-center">Force Push a Git Subtree</h1>
+      <h1 class="post-title text-center">Use Docker for Local Databases</h1>
       <div class="post-meta text-center">
 
         
@@ -104,8 +104,8 @@
         
 
         
-        <time class="post-metadata" datetime="2021-01-13T00:00:00-06:00" itemprop="datePublished">
-          Jan 13, 2021
+        <time class="post-metadata" datetime="2021-01-19T00:00:00-06:00" itemprop="datePublished">
+          Jan 19, 2021
         </time>
         
       </div>
@@ -120,7 +120,7 @@
   
     <h3 class="toc-title">Table of Contents</h3>
   
-  <ul class="toc"><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li></ul>
+  <ul class="toc"><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a><ul><li><a href="#example-1-db-only">Example 1: DB only</a><ul><li><a href="#setup">Setup</a></li><li><a href="#run">Run</a></li></ul></li><li><a href="#example-2-db-and-dbms">Example 2: DB and DBMS</a><ul><li><a href="#setup-1">Setup</a></li><li><a href="#run-1">Run</a></li></ul></li></ul></li></ul>
 
 </div>
 
@@ -129,56 +129,70 @@
     <!-- MAIN POST -->
     <div class="col-sm-10 post p-4">
         <h2 id="problem">Problem</h2>
-<p>For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it):</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nb">.</span> 
-<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"useful message"</span> 
-<span class="nv">$ </span>git push 
-<span class="nv">$ </span><span class="c">#</span>
-<span class="nv">$ </span><span class="c"># shoot, i really should have also changed [ ... ]</span>
-<span class="nv">$ </span>git add <span class="nb">.</span> 
-<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"..."</span> 
-<span class="nv">$ </span><span class="c">#</span>
-<span class="nv">$ </span><span class="c"># interactive rebase to "fixup" the last commit</span>
-<span class="nv">$ </span><span class="c"># i.e. this essentially puts the last change into </span>
-<span class="nv">$ </span><span class="c">#      the previous commit message </span>
-<span class="nv">$ </span>git rebase <span class="nt">-i</span> HEAD~2
-<span class="nv">$ </span>git push <span class="nt">-f</span>
-</code></pre></div></div>
-
-<p>Additionally, if this repo is, for example, a Jekyll blog, you may be building the <code class="language-plaintext highlighter-rouge">_site</code> folder and pushing only that to the remote <code class="language-plaintext highlighter-rouge">gh-pages</code> branch.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git subtree push <span class="nt">--prefix</span> _site origin gh-pages
-</code></pre></div></div>
-
-<p>However, after you just did a dumb dumb thing and forced a push, the next time you run the <code class="language-plaintext highlighter-rouge">git subtree push ...</code> command, you will get a hard reject - something like this:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!</span> <span class="o">[</span>rejected]        gh-pages -&gt; gh-pages <span class="o">(</span>fetch first<span class="o">)</span>
-error: failed to push some refs to <span class="s1">'file:///...'</span>
-hint: Updates were rejected because the remote contains work that you <span class="k">do
-</span>hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first merge the remote changes <span class="o">(</span>e.g.,
-hint: <span class="s1">'git pull'</span><span class="o">)</span> before pushing again.
-hint: See the <span class="s1">'Note about fast-forwards'</span> <span class="k">in</span> <span class="s1">'git push --help'</span> <span class="k">for </span>details.
-</code></pre></div></div>
+<p>You want access to a local database for some reason. You might be doing web or app development, or practicing SQL queries, or whatever. Why you want a local database is your business.</p>
 
 <h2 id="solution">Solution</h2>
 
-<p>In this case, pulling will not help because it thinks you have less (and older) code than it does. You did just bury some changes into a previous commit message, after all.</p>
+<p>Use Docker. It can manage your data (with <code class="language-plaintext highlighter-rouge">docker volume</code>), your databases and versions (with <code class="language-plaintext highlighter-rouge">docker images</code>), and makes cleanup very simple so as to not overburden your computer.</p>
 
-<p>The following solution is taken shamelessly from <a href="https://gist.github.com/tduarte/eac064b4778711b116bb827f8c9bef7b">this excellent GitHub Gist</a> and preserved here for others (including my future-self) to find.</p>
+<h3 id="example-1-db-only">Example 1: DB only</h3>
+<p>For this, I’m using MySQL, although conceptually changing to any other database (e.g. PostGREs, Mongo, Maria) is straightforward. To create a Docker managed database (without a corresponding database management system), we can create the following <code class="language-plaintext highlighter-rouge">Makefile</code>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="c"># create a local gh-pages branch containing the splitted output folder</span>
-<span class="nv">$ </span>git subtree <span class="nb">split</span> <span class="nt">--prefix</span> _site <span class="nt">-b</span> gh-pages 
-<span class="nv">$ </span><span class="c">#</span>
-<span class="nv">$ </span><span class="c"># force the push of the gh-pages branch to the remote gh-pages branch at origin</span>
-<span class="nv">$ </span>git push <span class="nt">-f</span> origin gh-pages:gh-pages 
-<span class="nv">$ </span><span class="c">#</span>
-<span class="nv">$ </span><span class="c"># delete the local gh-pages because you will need it later</span>
-<span class="nv">$ </span>git branch <span class="nt">-D</span> gh-pages 
+<h4 id="setup">Setup</h4>
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># local variables 
+# these can be imported from a separate config file 
+</span><span class="nv">MYSQL_DATA_IMAGE_NAME</span><span class="o">=</span>steve-data
+<span class="nv">MYSQL_INIT_FILE</span><span class="o">=</span>dev.mysql.list
+<span class="nv">SHELL_USER</span><span class="o">=</span>steve
+
+<span class="nv">DOCKER_NETWORK</span><span class="o">=</span>steve-network
+<span class="nv">MYSQL_IMAGE_NAME</span><span class="o">=</span>steve-dev-mysql
+<span class="nv">MYSQL_PORT</span><span class="o">=</span>3306 <span class="c"># &lt;-- can be different to avoid port collisions.</span>
+
+<span class="c"># create network and volume
+# only needs to be run once
+</span><span class="nl">setup</span><span class="o">:</span>
+	docker network create <span class="nv">$(DOCKER_NETWORK)</span>
+	docker volume create <span class="nt">--name</span> <span class="nv">$(MYSQL_DATA_IMAGE_NAME)</span>
+
+<span class="c"># start database in a docker instance.
+</span><span class="nl">start-db</span><span class="o">:</span> <span class="nf">stop-db</span>
+	docker run <span class="nt">--name</span> <span class="nv">$(MYSQL_IMAGE_NAME)</span> <span class="nt">-v</span> <span class="nv">$(MYSQL_DATA_IMAGE_NAME)</span>:/var/lib/mysql <span class="nt">--network</span> <span class="nv">$(DOCKER_NETWORK)</span> <span class="nt">--env-file</span> <span class="nv">$(MYSQL_INIT_FILE)</span> <span class="nt">--detach</span> <span class="nt">--publish</span> <span class="nv">$(MYSQL_PORT)</span>:3306 mysql:5.7
+
+<span class="c"># stop database instance.
+</span><span class="nl">stop-db</span><span class="o">:</span>
+	docker stop <span class="nv">$(MYSQL_IMAGE_NAME)</span>
+	docker <span class="nb">rm</span> <span class="nv">$(MYSQL_IMAGE_NAME)</span>
+
+<span class="nl">shell</span><span class="o">:</span> 
+	docker <span class="nb">exec</span> <span class="nt">-it</span> <span class="nv">$(MYSQL_IMAGE_NAME)</span> mysql <span class="nt">-u</span> <span class="nv">$(SHELL_USER)</span> <span class="nt">-p</span> 
+
+<span class="nl">shell-root</span><span class="o">:</span> 
+	docker <span class="nb">exec</span> <span class="nt">-it</span> <span class="nv">$(MYSQL_IMAGE_NAME)</span> mysql <span class="nt">-u</span> root <span class="nt">-p</span> 
+
+<span class="nl">inspect</span><span class="o">:</span> 
+	docker inspect <span class="nv">$(MYSQL_IMAGE_NAME)</span>
+
+<span class="nl">ip_addr</span><span class="o">:</span> 
+	docker inspect <span class="nv">$(MYSQL_IMAGE_NAME)</span> | <span class="nb">grep </span>IPAddress
 </code></pre></div></div>
 
-<p>You are now free to go about your business.</p>
+<p>And, we can provide the specified environment configuration file as follows:</p>
+
+<pre><code class="language-list">MYSQL_USER=steve
+MYSQL_PASSWORD=password
+MYSQL_ROOT_PASSWORD=password
+</code></pre>
+
+<h4 id="run">Run</h4>
+
+<h3 id="example-2-db-and-dbms">Example 2: DB and DBMS</h3>
+
+<h4 id="setup-1">Setup</h4>
+
+<h4 id="run-1">Run</h4>
+
 
     </div>
   </div>
@@ -198,25 +212,25 @@ hint: See the <span class="s1">'Note about fast-forwards'</span> <span class="k"
     <ul class="list-group list-group-flush">
       
         <li class="list-group-item">
-          <time datetime="2021-01-13T00:00:00-06:00">Jan 19, 2021</time> 
+          <time datetime="2021-01-19T00:00:00-06:00">Jan 19, 2021</time> 
           &raquo;
           <a class="card-link" href="/database/backend/2021/01/19/setup-docker-db-testing.html">Use Docker for Local Databases</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-13T00:00:00-06:00">Jan 13, 2021</time> 
+          <time datetime="2021-01-19T00:00:00-06:00">Jan 13, 2021</time> 
           &raquo;
           <a class="card-link" href="/version%20control/2021/01/13/git-force-push-subtree.html">Force Push a Git Subtree</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-13T00:00:00-06:00">Jan 13, 2021</time> 
+          <time datetime="2021-01-19T00:00:00-06:00">Jan 13, 2021</time> 
           &raquo;
           <a class="card-link" href="/web%20development/front%20end/2021/01/13/deploy-jekyll-to-github-pages.html">Deploy Jekyll to GitHub Pages</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-13T00:00:00-06:00">Jan 12, 2021</time> 
+          <time datetime="2021-01-19T00:00:00-06:00">Jan 12, 2021</time> 
           &raquo;
           <a class="card-link" href="/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html">Text Wraps in Safari, but Scrolls in Chrome</a>
         </li>
