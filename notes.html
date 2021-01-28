@@ -21,20 +21,19 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Page 2 of 2 for Notes | Stephen M. Lee</title>
+<title>Notes | Stephen M. Lee</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="Notes" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Personal Website" />
 <meta property="og:description" content="Personal Website" />
-<link rel="canonical" href="https://stephenlee.info/page2/" />
-<meta property="og:url" content="https://stephenlee.info/page2/" />
+<link rel="canonical" href="https://stephenlee.info/notes.html" />
+<meta property="og:url" content="https://stephenlee.info/notes.html" />
 <meta property="og:site_name" content="Stephen M. Lee" />
-<link rel="prev" href="https://stephenlee.info/" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Notes" />
 <script type="application/ld+json">
-{"headline":"Notes","url":"https://stephenlee.info/page2/","description":"Personal Website","@type":"WebPage","@context":"https://schema.org"}</script>
+{"headline":"Notes","url":"https://stephenlee.info/notes.html","description":"Personal Website","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -65,13 +64,13 @@
       <div class="navbar-nav">
       
         
-        <a class="nav-item nav-link " href="/about.html">About</a>
+        <a class="nav-item nav-link " href="/index.html">About</a>
       
         
         <a class="nav-item nav-link " href="/work.html">Work</a>
       
         
-        <a class="nav-item nav-link " href="/index.html">Notes</a>
+        <a class="nav-item nav-link active" href="/notes.html">Notes</a>
       
       </div>
     </div>
@@ -80,50 +79,7 @@
 
 
       <main>
-        <div class="row">
-    <div class="col d-flex justify-content-center">
-        <div class="card p-3 headshot-card">
-            <div class="row">
-                <div class="col-sm-5 d-flex justify-content-center">
-                    <img class="img-fluid headshot"
-                        src="/assets/images/profile.png"
-                        alt="">
-                </div>
-
-                <div class="col-sm-7 d-flex justify-content-center align-items-center">
-                    <div class="card-body main-info-text">
-                        <h1 class="card-title my-name mt-4">Stephen M. Lee</h1>
-                        <h5 class="card-text">Economist</h5>
-                        <h6 class="card-text">Econ One Research</h6>
-                        <div class="row social">
-                            <div class="d-flex social justify-content-end align-bottom mt-5">
-                                <div class="footer-element">
-    
-        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
-            <i class="fa-hover fas fa-envelope" title="Email"></i>
-        </a>
-    
-        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
-            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
-        </a>
-    
-        <a class="social-icon" href="https://github.com/slee981" target="_blank">
-            <i class="fa-hover fab fa-github" title="GitHub"></i>
-        </a>
-    
-</div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<hr>
+        <h1 class="text-center">Steve Notes</h1>
 <div class="row">
     <div class="category-tags d-flex flex-wrap justify-content-center px-5">
         <a class="card-link my-1 py-2 px-3"
@@ -135,6 +91,9 @@
     </div>
 </div>
 
+<hr>
+
+
 
 <div class="row mt-3">
 
@@ -142,6 +101,60 @@
   <div class="col-md-8 py-2">
     
 
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Use Docker for Local Databases</h3>
+
+            <p class="card-text text-center">
+                
+                    Problem You want access to a local database for some reason. You might be doing web or app development, or practicing SQL queries, or whatever. Why you want a local database is your business. Solution Use Docker. It can manage your data (with docker volume), your databases and versions (with...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/database/backend/2021/01/19/setup-docker-db-testing.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Deploy Jekyll to GitHub Pages</h3>
+
+            <p class="card-text text-center">
+                
+                    Problem You have made a beautiful blog with Jekyll (and hopefully with the Cadre theme), but don’t know the best workflow to make it go live on the Internet. Solution There are two options depending on your use case and preferences. Using the github-pages plugin When you create a new...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/web%20development/front%20end/2021/01/14/deploy-jekyll-to-github-pages.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Force Push a Git Subtree</h3>
+
+            <p class="card-text text-center">
+                
+                    Problem For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it): $ git add . $ git commit -m "useful message" $ git push $ # $ # shoot, i really should have also...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/version%20control/2021/01/13/git-force-push-subtree.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
 
     <div class="card my-2 mx-3">
         <div class="card-body p-5">
@@ -164,22 +177,6 @@
 
 
     
-<div class="d-flex justify-content-around px-3">
-        
-            <a class="pagination-nav-active" href="/">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </a>
-        
-
-        <p>More</p>
-
-        
-            <span class="pagination-nav-inactive">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </span>
-        
-</div>
-
   </div>
 
   <!-- START INFO COLUMN -->
