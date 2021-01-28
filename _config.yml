@@ -24,11 +24,12 @@ description: Personal Website
 
 # Cadre settings
 # navbar_img: assets/images/logo.png
-# favicon_img: assets/images/favicon.png
 about: A blog with "notes to self" for all things technincal.  
-paginate: 3
 favicon_img: assets/images/steve-logo.png
 google_analytics: UA-138925131-1
+
+# only works if I set the "blog" to index.html
+# paginate: 3
 
 # baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://stephenlee.info" # the base hostname & protocol for your site, e.g. http://example.com

@@ -1,6 +1,6 @@
 - name: About
-  link: about.html
+  link: index.html
 - name: Work 
   link: work.html
 - name: Notes
-  link: index.html 
+  link: notes.html 
