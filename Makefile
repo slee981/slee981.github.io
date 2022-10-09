@@ -3,8 +3,6 @@ start:
 	bundle exec jekyll serve
 
 build-and-publish: build 
-	$(shell git add .)
-	$(shell git commit -m "update build")
 	$(MAKE) publish
 
 publish: 
