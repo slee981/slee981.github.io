@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- load bootstrap -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- user -->
+  
+    <link rel="shortcut icon" type="image/png" href="/assets/images/steve-logo.png">
+  
+  <link rel="stylesheet" href="/assets/css/open-color.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/main.js"></script>
+
+  <!-- font awesome -->
+  <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+  <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Rederiving Aimpoint | Stephen M. Lee</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Rederiving Aimpoint" />
+<meta name="author" content="Stephen Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Physics of Putting" />
+<meta property="og:description" content="The Physics of Putting" />
+<link rel="canonical" href="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" />
+<meta property="og:url" content="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" />
+<meta property="og:site_name" content="Stephen M. Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-11-17T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Rederiving Aimpoint" />
+<script type="application/ld+json">
+{"url":"https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html","headline":"Rederiving Aimpoint","dateModified":"2025-11-17T00:00:00-06:00","datePublished":"2025-11-17T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"The Physics of Putting","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+  <body>
+    <div id="main" class="container">
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light py-4" id="menu">
+
+  <!-- BRAND LOGO OR NAME -->
+  <a class="navbar-brand top" id="site-logo" href="/">
+    
+      Stephen M. Lee
+    
+  </a>
+  
+  <!-- NAVIGATION -->
+  
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <div class="navbar-nav">
+      
+        
+        <a class="nav-item nav-link " href="/index.html">About</a>
+      
+        
+        <a class="nav-item nav-link " href="/work.html">Work</a>
+      
+        
+        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+      
+      </div>
+    </div>
+  
+</nav>
+
+
+      <main>
+        <!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/assets/js/adjustAnchorLink.js"></script>
+<script src="/assets/js/liveTOCScroll.js"></script>
+
+<div class="post-body">
+  <div class="row post-header">
+    <div class="col">
+      <h1 class="post-title text-center">Rederiving Aimpoint</h1>
+      <div class="post-meta text-center">
+
+        
+          
+            <span class="post-metadata" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              Stephen Lee -
+            </span>
+            
+          
+        
+
+        
+        <time class="post-metadata" datetime="2025-11-17T00:00:00-06:00" itemprop="datePublished">
+          Nov 17, 2025
+        </time>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- START COL WITH TOC -->
+    <div class="col-sm-2 pt-3">
+      <div class="toc-div py-3">
+  
+    <h3 class="toc-title">Table of Contents</h3>
+  
+  <ul class="toc"><li><a href="#problem">Problem</a></li><li><a href="#newtons-laws">Newton’s Laws</a></li><li><a href="#stimpmeters">Stimpmeters</a><ul><li><a href="#exit-velocity">Exit Velocity</a></li><li><a href="#frictional-deceleration">Frictional Deceleration</a></li></ul></li><li><a href="#slope-and-speed">Slope and Speed</a></li><li><a href="#slope-and-break">Slope and Break</a><ul><li><a href="#break-at-the-hole">Break at the Hole</a></li><li><a href="#friction-damping-of-break">Friction Damping of Break</a></li></ul></li><li><a href="#results">Results</a><ul><li><a href="#effective-stimp">Effective Stimp</a></li><li><a href="#1-side-slope">1% side slope</a></li><li><a href="#2-side-slope">2% side slope</a></li><li><a href="#3-side-slope">3% side slope</a></li></ul></li><li><a href="#summary">Summary</a></li><li><a href="#appendix">Appendix</a><ul><li><a href="#appendix-kinematics">A0. Newton’s Laws</a></li><li><a href="#appendix-stimp">A1. Stimpmeter Exit Velocity</a></li><li><a href="#appendix-friction">A2. Frictional Deceleration</a></li><li><a href="#appendix-effective-stimp">A3. Effective Stimp</a></li></ul></li></ul>
+
+</div>
+
+    </div>
+
+    <!-- MAIN POST -->
+    <div class="col-sm-10 post p-4">
+        <h1 id="the-physics-of-putting">The Physics of Putting</h1>
+
+<h2 id="problem">Problem</h2>
+
+<p>Most golfers have an intuitive sense of how putts behave on different greens—fast vs slow, uphill vs downhill, breaking left or right—but the underlying mechanics are surprisingly consistent. With a few reasonable assumptions, you can describe the motion of a rolling golf ball with straightforward physics.</p>
+
+<p>This first part lays out the foundation for a simple model that estimates how far a ball rolls and how much it breaks. The goal isn’t to produce a full fluid-dynamics treatment or handle every edge case. Instead, we want something accurate in the practical range where golfers actually need precision: putts of about 5–20 feet on slopes of roughly 0–3%.</p>
+
+<p>We’ll start by recalling a few Newtonian relationships, connect them to the Stimp reading, and show how slope influences both speed and break.</p>
+
+<hr />
+
+<!-- ### Quick Reference
+
+For readers who want the bottom line first, here are the main formulas derived in this post:
+
+| Formula | Description | Equation |
+|---------|-------------|----------|
+| **Effective Stimp** | How forward slope $$X$$ changes speed | $$S_{\text{eff}} \approx S(1 + 1.64\, S\, X)$$ |
+| **Break (undamped)** | Lateral break at hole, upper bound | $$x_\text{break} \approx 1.64\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2R - 2\sqrt{R(D+R)})$$ |
+| **Break (damped)** | With friction coupling correction | $$x_\text{break} \approx 1.17\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2R - 2\sqrt{R(D+R)})$$ |
+| **Break ($$R=1$$)** | Simplified for 1-ft rollout | $$x_\text{break} \approx 1.17\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2 - 2\sqrt{D+1})$$ |
+| **Constants** | From USGA Stimp meter | $$v_s = 6.27\ \text{ft/s}$$, $$g = 32.17\ \text{ft/s}^2$$ |
+
+**Notation:**
+- $$S$$ = base Stimp reading on level green (ft)
+- $$S_\text{eff}$$ = effective Stimp accounting for forward slope
+- $$X$$ = forward slope as decimal (positive uphill, negative downhill)
+- $$X_s$$ = side-slope as decimal
+- $$D$$ = distance to hole (ft)
+- $$R$$ = desired rollout past hole (ft)
+
+The rest of this post derives these formulas from first principles.
+
+---
+ -->
+
+<h2 id="newtons-laws">Newton’s Laws</h2>
+
+<p>A rolling ball on a green slows down at a roughly constant rate due to rolling friction. Because the speeds and slopes involved are small, this constant-acceleration approximation works well for short putts.</p>
+
+<p>Under constant acceleration, there are three relationships we’ll use:<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<ol>
+  <li>
+\[v(t) = v_0 + a t\]
+  </li>
+  <li>
+\[s(t) = v_0 t + \frac{1}{2} a t^2\]
+  </li>
+  <li>
+\[v^2 = v_0^2 + 2 a s\]
+  </li>
+</ol>
+
+<p>For putting, the third equation is especially convenient because the ball always ends with \(v = 0\). That gives a direct link between the initial speed, the deceleration, and the stopping distance.</p>
+
+<hr />
+
+<h2 id="stimpmeters">Stimpmeters</h2>
+
+<p>A Stimp reading \(S\) is the distance (in feet) that a golf ball rolls on a level green after being released from a standard Stimp meter. The USGA-specified Stimp meter is a 30-inch long aluminum bar with a V-groove. A ball is placed in a notch and the bar is slowly raised until the ball releases when the angle reaches approximately 20 degrees.</p>
+
+<h3 id="exit-velocity">Exit Velocity</h3>
+
+<p>When a golf ball rolls down the Stimp meter ramp without slipping, its acceleration is reduced by rotational inertia. A sliding object on an incline accelerates at \(g\sin\theta\), but a rolling sphere must also spin up, which “costs” kinetic energy. For a solid sphere with moment of inertia \(I = \frac{2}{5}mR^2\), this reduces the acceleration by a factor of \(\frac{7}{5}\):<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+\[a = \frac{5g\sin\theta}{7}\]
+
+<p>For the USGA Stimp meter with \(\theta = 20°\) and \(g = 32.17\ \text{ft/s}^2\):</p>
+
+\[a = \frac{5 \times 32.17 \times \sin(20°)}{7} \approx 7.87\ \text{ft/s}^2\]
+
+<p>The ball rolls down \(L = 30\ \text{in} = 2.5\ \text{ft}\) starting from rest. Using \(v^2 = v_0^2 + 2as\) with \(v_0 = 0\):</p>
+
+\[v_s = \sqrt{2aL} = \sqrt{2 \times 7.87 \times 2.5} \approx 6.27\ \text{ft/s}\]
+
+<p>This exit velocity is the key to connecting the Stimp reading to green speed.</p>
+
+<h3 id="frictional-deceleration">Frictional Deceleration</h3>
+
+<p>Using the velocity–position relation with \(v = 0\):</p>
+
+\[0 = v_s^2 + 2 a_f S\]
+
+<p>Solving for the frictional deceleration \(a_f\):<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+\[a_f = -\frac{v_s^2}{2 S}\]
+
+<p>This tells us:</p>
+
+<ul>
+  <li>Faster greens (larger Stimp numbers) have <strong>smaller magnitude deceleration</strong>.</li>
+  <li>Slower greens have <strong>larger deceleration</strong>.</li>
+</ul>
+
+<p>Everything else in this model builds off that simple relationship.</p>
+
+<p>For example, on greens that stimp 10, we find that the greens slow the ball down:</p>
+
+\[a_f \approx -\frac{6.27^2}{2 \cdot 10} = -1.97 \frac{ft}{s^2}\]
+
+<hr />
+
+<h2 id="slope-and-speed">Slope and Speed</h2>
+
+<p>Now consider an uphill or downhill slope. On a slope with rise/run ratio \(X\), the component of gravity along the slope direction is \(g\sin\theta\). For small angles (typical on greens), \(\sin\theta \approx \tan\theta = X\), giving:</p>
+
+\[a_g \approx g X\]
+
+<p>where:</p>
+
+<ul>
+  <li>\(X\) is slope expressed as a decimal (e.g., 2% = 0.02, positive for uphill, negative for downhill)</li>
+  <li>
+\[g = -32.17\ \mathrm{ft/s^2}\]
+  </li>
+</ul>
+
+<p>Since friction \(a_f\) is negative (opposing motion), the total acceleration becomes:</p>
+
+\[a_\text{eff} = a_f + a_g &lt; 0\]
+
+<p>More explicitly:</p>
+
+<ul>
+  <li>Downhill: \(X &lt; 0, \text{which implies } a_g &gt; 0\). Negative slope causes the ball to lose speed slower i.e. it decreases the magnitude of deceleration.</li>
+  <li>Uphill: \(X &gt; 0, \text{which implies } a_g &lt; 0\). Positive slope causes the ball to lose speed faster i.e. it increases the magnitude of deceleration.</li>
+</ul>
+
+<p>Golfers often describe a slope as “making the putt faster or slower.” Mathematically, this is the same as saying that the ball behaves as if the Stimp number changed.</p>
+
+<p>Define \(S_{\text{eff}}\) as the “effective Stimp” on the slope. Since \(S = -\frac{v_s^2}{2a_f}\), the stopping distance is inversely proportional to the magnitude of deceleration:</p>
+
+\[\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_\text{eff}}\]
+
+<p>After inserting constants and simplifying, we get a useful approximation:<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote">4</a></sup></p>
+
+\[S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S}\]
+
+<p>where the coefficient 1.64 comes from \(\frac{2g}{v_s^2}\) with \(g = 32.17\ \text{ft/s}^2\) and \(v_s \approx 6.27\ \text{ft/s}\) (the exit velocity from a USGA Stimp meter).</p>
+
+<p>This provides a practical way to think about uphill or downhill putts without re-deriving the full dynamics.</p>
+
+<hr />
+
+<h2 id="slope-and-break">Slope and Break</h2>
+
+<p>The same slope that changes speed can also produce lateral acceleration when the slope tilts sideways relative to the target line.</p>
+
+<p><strong>Note:</strong> When calculating break, we need to account for the <em>effective</em> Stimp \(S_\text{eff}\) from Section 3 so any uphill or downhill slope factors in to the time the putt has to move sideways. This way, a putt going uphill (which actually stops in a shorter amount of time) will have less time to break laterally.</p>
+
+<p>Let \(X_s\) be the side-slope (in decimal form). The lateral component of gravitational acceleration is:</p>
+
+\[a_\text{lat} = g X_s\]
+
+<p><strong>Important:</strong> We want to calculate the lateral displacement <strong>at the hole</strong> (distance \(D\)), not at the final stopping point. The golfer needs to know how much the ball breaks by the time it reaches the cup, even though it has enough speed to roll past.</p>
+
+<h3 id="break-at-the-hole">Break at the Hole</h3>
+
+<p>To compute the break at distance \(D\), we need to find how long it takes the ball to reach the hole when it has enough speed to roll out a total distance \(L = D + R\), where:</p>
+
+<ul>
+  <li>\(D\) = distance to the hole</li>
+  <li>\(R\) = desired rollout past the hole (e.g. 1 foot or so)</li>
+</ul>
+
+<p><strong>Step 1:</strong> The initial speed needed to roll total distance \(L = D + R\) is:</p>
+
+\[v_0 = \sqrt{2 a_\text{eff} (D+R)}\]
+
+<p><strong>Step 2:</strong> The time to reach the hole at distance \(D\) (not the stopping time!) satisfies:</p>
+
+\[D = v_0 t_D - \frac{1}{2}a_\text{eff} t_D^2\]
+
+<p>Solving this quadratic gives:</p>
+
+\[t_D = \frac{v_0 - \sqrt{v_0^2 - 2 a_\text{eff} D}}{a_\text{eff}}\]
+
+<p>Substituting \(v_0^2 = 2  a_\text{eff} (D+R)\):</p>
+
+\[t_D = \frac{\sqrt{2a_\text{eff}(D+R)} - \sqrt{2a_\text{eff} R}}{a_\text{eff}}
+    = \sqrt{\frac{2}{a_\text{eff}}}\left(\sqrt{D+R} - \sqrt{R}\right)\]
+
+<p><strong>Step 3:</strong> Lateral displacement at the hole becomes:</p>
+
+\[x_\text{break} = \frac{1}{2} a_\text{lat} t_D^2
+               = \frac{g X_s}{a_\text{eff}}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+
+<p>Now substitute the physical relationship for effective deceleration. The ball experiences both friction and gravity along the forward direction:</p>
+
+\[a_\text{eff} = a_f + a_g \approx -( \frac{6.27^2}{2S} + gX)\]
+
+<p>where \(X\) is the forward slope (positive uphill, negative downhill).</p>
+
+<p>Substituting everything in:</p>
+
+\[x_\text{break} \approx \frac{g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+
+<p>This is now the break in feet. We simply multiply by 12 to get break in inches:</p>
+
+\[x_\text{break} \approx \frac{12 g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+
+<p>This makes the dependence on base Stimp and forward slope explicit without needing to first calculate effective Stimp.</p>
+
+<h3 id="friction-damping-of-break">Friction Damping of Break</h3>
+
+<p>This model treats lateral and forward motion independently—gravity accelerates the ball laterally while friction only decelerates it forward. In reality, friction opposes the <em>total</em> velocity vector (the vector sum of forward and lateral components), which reduces lateral deflection somewhat. In other words, the problem really needs to be modeled with velocity as a 3D vector that changes over time, and friction would produce an acceleration that opposes that motion.</p>
+
+<p>But our goal is a useful model that generates accurate heuristics for players on the course. A simple correction is to multiply the break by some damping factor. We’ll use \(f_\text{damp} \approx \frac{5}{7}\), analogous to how rotational inertia reduces forward acceleration. While not rigorously derived from the coupled dynamics, this heuristic gives a practical first-order correction:</p>
+
+\[x_\text{break,damped} \approx \frac{5}{7} \left(\frac{12 g X_s S}{19.7 + g S X} \right) \left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+
+<p>This captures the essential behavior of a breaking putt under the assumptions of constant friction and small slopes.</p>
+
+<h2 id="results">Results</h2>
+
+<p>How does this model perform?</p>
+
+<h3 id="effective-stimp">Effective Stimp</h3>
+
+<p>First, we’ll analyze a table of effective Stimps on different slopes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Forward Slope (%)</th>
+      <th style="text-align: center">S = 8</th>
+      <th style="text-align: center">S = 9</th>
+      <th style="text-align: center">S = 10</th>
+      <th style="text-align: center">S = 11</th>
+      <th style="text-align: center">S = 12</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">5.7</td>
+      <td style="text-align: center">6.2</td>
+      <td style="text-align: center">6.7</td>
+      <td style="text-align: center">7.1</td>
+      <td style="text-align: center">7.5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">6.3</td>
+      <td style="text-align: center">6.9</td>
+      <td style="text-align: center">7.5</td>
+      <td style="text-align: center">8.1</td>
+      <td style="text-align: center">8.6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">7.1</td>
+      <td style="text-align: center">7.8</td>
+      <td style="text-align: center">8.6</td>
+      <td style="text-align: center">9.3</td>
+      <td style="text-align: center">10.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">8.0</td>
+      <td style="text-align: center">9.0</td>
+      <td style="text-align: center">10.0</td>
+      <td style="text-align: center">11.0</td>
+      <td style="text-align: center">12.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-1</td>
+      <td style="text-align: center">9.2</td>
+      <td style="text-align: center">10.6</td>
+      <td style="text-align: center">12.0</td>
+      <td style="text-align: center">13.4</td>
+      <td style="text-align: center">14.9</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-2</td>
+      <td style="text-align: center">10.8</td>
+      <td style="text-align: center">12.8</td>
+      <td style="text-align: center">14.9</td>
+      <td style="text-align: center">17.2</td>
+      <td style="text-align: center">19.8</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-3</td>
+      <td style="text-align: center">13.2</td>
+      <td style="text-align: center">16.2</td>
+      <td style="text-align: center">19.7</td>
+      <td style="text-align: center">24.0</td>
+      <td style="text-align: center">29.3</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is very much in line with what old Aimpoint charts presented. You can still find those floating around online if you look.</p>
+
+<h3 id="1-side-slope">1% side slope</h3>
+
+<p>To evaluate the total break, we need to pick a green speed and a side slope. For greens that run 10 on the Stimp, this model produces the following estimates for total break.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Forward Slope (%)</th>
+      <th style="text-align: center">D = 3</th>
+      <th style="text-align: center">D = 5</th>
+      <th style="text-align: center">D = 10</th>
+      <th style="text-align: center">D = 15</th>
+      <th style="text-align: center">D = 20</th>
+      <th style="text-align: center">D = 30</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">0.8</td>
+      <td style="text-align: center">1.6</td>
+      <td style="text-align: center">4.4</td>
+      <td style="text-align: center">7.6</td>
+      <td style="text-align: center">10.9</td>
+      <td style="text-align: center">18.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">0.8</td>
+      <td style="text-align: center">1.9</td>
+      <td style="text-align: center">5.0</td>
+      <td style="text-align: center">8.5</td>
+      <td style="text-align: center">12.3</td>
+      <td style="text-align: center">20.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1.0</td>
+      <td style="text-align: center">2.1</td>
+      <td style="text-align: center">5.6</td>
+      <td style="text-align: center">9.7</td>
+      <td style="text-align: center">14.0</td>
+      <td style="text-align: center">23.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1.1</td>
+      <td style="text-align: center">2.5</td>
+      <td style="text-align: center">6.6</td>
+      <td style="text-align: center">11.3</td>
+      <td style="text-align: center">16.3</td>
+      <td style="text-align: center">26.9</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-1</td>
+      <td style="text-align: center">1.3</td>
+      <td style="text-align: center">2.9</td>
+      <td style="text-align: center">7.9</td>
+      <td style="text-align: center">13.5</td>
+      <td style="text-align: center">19.5</td>
+      <td style="text-align: center">32.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-2</td>
+      <td style="text-align: center">1.7</td>
+      <td style="text-align: center">3.6</td>
+      <td style="text-align: center">9.8</td>
+      <td style="text-align: center">16.7</td>
+      <td style="text-align: center">24.2</td>
+      <td style="text-align: center">40.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-3</td>
+      <td style="text-align: center">2.2</td>
+      <td style="text-align: center">4.8</td>
+      <td style="text-align: center">12.9</td>
+      <td style="text-align: center">22.1</td>
+      <td style="text-align: center">31.9</td>
+      <td style="text-align: center">52.8</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note</strong>, these values can be interpreted as total break. But remember, since the cup is just over 4 inches in diameter, the breaks of 1 that you see will still be played inside the edge of the cup.</p>
+
+<h3 id="2-side-slope">2% side slope</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Forward Slope (%)</th>
+      <th style="text-align: center">D = 3</th>
+      <th style="text-align: center">D = 5</th>
+      <th style="text-align: center">D = 10</th>
+      <th style="text-align: center">D = 15</th>
+      <th style="text-align: center">D = 20</th>
+      <th style="text-align: center">D = 30</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">1.5</td>
+      <td style="text-align: center">3.3</td>
+      <td style="text-align: center">8.8</td>
+      <td style="text-align: center">15.1</td>
+      <td style="text-align: center">21.9</td>
+      <td style="text-align: center">36.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">1.7</td>
+      <td style="text-align: center">3.7</td>
+      <td style="text-align: center">9.9</td>
+      <td style="text-align: center">17.0</td>
+      <td style="text-align: center">24.6</td>
+      <td style="text-align: center">40.6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1.9</td>
+      <td style="text-align: center">4.2</td>
+      <td style="text-align: center">11.3</td>
+      <td style="text-align: center">19.4</td>
+      <td style="text-align: center">28.0</td>
+      <td style="text-align: center">46.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">2.3</td>
+      <td style="text-align: center">4.9</td>
+      <td style="text-align: center">13.1</td>
+      <td style="text-align: center">22.5</td>
+      <td style="text-align: center">32.6</td>
+      <td style="text-align: center">53.9</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-1</td>
+      <td style="text-align: center">2.7</td>
+      <td style="text-align: center">5.9</td>
+      <td style="text-align: center">15.7</td>
+      <td style="text-align: center">26.9</td>
+      <td style="text-align: center">39.0</td>
+      <td style="text-align: center">64.4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-2</td>
+      <td style="text-align: center">3.3</td>
+      <td style="text-align: center">7.3</td>
+      <td style="text-align: center">19.5</td>
+      <td style="text-align: center">33.5</td>
+      <td style="text-align: center">48.4</td>
+      <td style="text-align: center">80.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-3</td>
+      <td style="text-align: center">4.4</td>
+      <td style="text-align: center">9.6</td>
+      <td style="text-align: center">25.8</td>
+      <td style="text-align: center">44.2</td>
+      <td style="text-align: center">63.9</td>
+      <td style="text-align: center">105.7</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="3-side-slope">3% side slope</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Forward Slope (%)</th>
+      <th style="text-align: center">D = 3</th>
+      <th style="text-align: center">D = 5</th>
+      <th style="text-align: center">D = 10</th>
+      <th style="text-align: center">D = 15</th>
+      <th style="text-align: center">D = 20</th>
+      <th style="text-align: center">D = 30</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">2.3</td>
+      <td style="text-align: center">4.9</td>
+      <td style="text-align: center">13.2</td>
+      <td style="text-align: center">22.7</td>
+      <td style="text-align: center">32.8</td>
+      <td style="text-align: center">54.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">2.5</td>
+      <td style="text-align: center">5.6</td>
+      <td style="text-align: center">14.9</td>
+      <td style="text-align: center">25.5</td>
+      <td style="text-align: center">36.9</td>
+      <td style="text-align: center">60.9</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2.9</td>
+      <td style="text-align: center">6.3</td>
+      <td style="text-align: center">16.9</td>
+      <td style="text-align: center">29.1</td>
+      <td style="text-align: center">42.0</td>
+      <td style="text-align: center">69.5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">3.4</td>
+      <td style="text-align: center">7.4</td>
+      <td style="text-align: center">19.7</td>
+      <td style="text-align: center">33.8</td>
+      <td style="text-align: center">48.9</td>
+      <td style="text-align: center">80.8</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-1</td>
+      <td style="text-align: center">4.0</td>
+      <td style="text-align: center">8.8</td>
+      <td style="text-align: center">23.6</td>
+      <td style="text-align: center">40.4</td>
+      <td style="text-align: center">58.4</td>
+      <td style="text-align: center">96.6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-2</td>
+      <td style="text-align: center">5.0</td>
+      <td style="text-align: center">10.9</td>
+      <td style="text-align: center">29.3</td>
+      <td style="text-align: center">50.2</td>
+      <td style="text-align: center">72.6</td>
+      <td style="text-align: center">120.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">-3</td>
+      <td style="text-align: center">6.6</td>
+      <td style="text-align: center">14.4</td>
+      <td style="text-align: center">38.6</td>
+      <td style="text-align: center">66.3</td>
+      <td style="text-align: center">95.8</td>
+      <td style="text-align: center">158.5</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="summary">Summary</h2>
+
+<p>These values are very much in line with what official aimport charts, and newer Aimpoint Express generate.</p>
+
+<p>While I don’t personally plan to, or even recommend, using charts like this on the course, the excerise of modeling this out was instructive to conclude:</p>
+
+<ol>
+  <li>
+    <p><strong>Faster greens are much more demanding on speed control</strong>. Uphill putts are relatively slower, and downhill putts much faster than the same grade slope on slower greens. In other words, the faster the greens, the smaller margin of error you have in every way speed wise. I didn’t show the calculation, but if you examine the relative increase/decrease in effective Stimp compared to true Stimp, the faster greens are more extreme percent changes both up and down hill.</p>
+  </li>
+  <li>
+    <p><strong>Break increases (or decreases) porportional to the increase (or decrease) in speed</strong>. If you have a fast downhill putt, it may act like a green that is nearly 2x as fast! But importantly, it will break 2x as much as your read would tell you if you only look at side slope. The reverse is true with uphill putts.</p>
+  </li>
+  <li>
+    <p><strong>Aimpoint Express is really a great system</strong>. But spend the time to calibrate your feelings with your feet, and give as much attention to the uphill/downhill slope as you do the side slope.</p>
+  </li>
+</ol>
+
+<h2 id="appendix">Appendix</h2>
+
+<p>This appendix provides step-by-step derivations for the key equations used in the main text.</p>
+
+<h3 id="appendix-kinematics">A0. Newton’s Laws</h3>
+
+<p>We start with the fundamental definitions of velocity and acceleration as derivatives:</p>
+
+\[v(t) = \frac{ds}{dt} \quad \text{and} \quad a(t) = \frac{dv}{dt}\]
+
+<p>For constant acceleration, \(a(t) = a\) (a constant value).</p>
+
+<p><strong>Equation 1: \(v(t) = v_0 + at\)</strong></p>
+
+<p>Starting with the definition of acceleration:</p>
+
+\[\frac{dv}{dt} = a\]
+
+<p>Integrate both sides with respect to time:</p>
+
+\[\int dv = \int a \, dt\]
+
+\[v = at + C\]
+
+<p>Using the initial condition \(v(0) = v_0\), we find \(C = v_0\):</p>
+
+\[v(t) = v_0 + at\]
+
+<p><strong>Equation 2: \(s(t) = v_0 t + \frac{1}{2}at^2\)</strong></p>
+
+<p>Starting with the definition of velocity and substituting our result from Equation 1:</p>
+
+\[\frac{ds}{dt} = v(t) = v_0 + at\]
+
+<p>Integrate both sides with respect to time:</p>
+
+\[\int ds = \int (v_0 + at) \, dt\]
+
+\[s = v_0 t + \frac{1}{2}at^2 + C\]
+
+<p>Using the initial condition \(s(0) = 0\) (measuring position from the starting point), we find \(C = 0\):</p>
+
+\[s(t) = v_0 t + \frac{1}{2}at^2\]
+
+<p><strong>Equation 3: \(v^2 = v_0^2 + 2as\)</strong></p>
+
+<p>We can derive this by eliminating time from Equations 1 and 2.</p>
+
+<p>From Equation 1, solve for \(t\):</p>
+
+\[t = \frac{v - v_0}{a}\]
+
+<p>Substitute into Equation 2:</p>
+
+\[s = v_0 \left(\frac{v - v_0}{a}\right) + \frac{1}{2}a\left(\frac{v - v_0}{a}\right)^2\]
+
+\[s = \frac{v_0(v - v_0)}{a} + \frac{1}{2a}(v - v_0)^2\]
+
+\[s = \frac{v_0 v - v_0^2}{a} + \frac{v^2 - 2vv_0 + v_0^2}{2a}\]
+
+<p>Multiply through by \(2a\):</p>
+
+\[2as = 2v_0 v - 2v_0^2 + v^2 - 2vv_0 + v_0^2\]
+
+\[2as = v^2 - v_0^2\]
+
+<p>Rearranging:</p>
+
+\[v^2 = v_0^2 + 2as\]
+
+<p><strong>Alternative derivation using the chain rule:</strong></p>
+
+<p>We can also derive Equation 3 more directly using the chain rule. Starting with:</p>
+
+\[a = \frac{dv}{dt} = \frac{dv}{ds} \cdot \frac{ds}{dt} = v \frac{dv}{ds}\]
+
+<p>Rearrange and integrate:</p>
+
+\[a \, ds = v \, dv\]
+
+\[\int_0^s a \, ds = \int_{v_0}^v v \, dv\]
+
+<p>For constant \(a\):</p>
+
+\[as = \frac{1}{2}v^2 - \frac{1}{2}v_0^2\]
+
+\[v^2 = v_0^2 + 2as\]
+
+<h3 id="appendix-stimp">A1. Stimpmeter Exit Velocity</h3>
+
+<p>The USGA Stimp meter is designed as a 30-inch (2.5 ft) inclined ramp with a V-groove. The ball is released from a notch when the angle reaches \(\theta \approx 20°\).</p>
+
+<p>When a ball rolls down an incline without slipping, it experiences:</p>
+<ul>
+  <li>Gravitational component along the slope: \(g\sin\theta\)</li>
+  <li>Rotational inertia effects that reduce the effective acceleration</li>
+</ul>
+
+<p>For a sphere rolling without slipping down an incline, the acceleration is:</p>
+
+\[a = \frac{g\sin\theta}{1 + \frac{I}{mR^2}}\]
+
+<p>where \(I = \frac{2}{5}mR^2\) for a solid sphere. This gives:</p>
+
+\[a = \frac{g\sin\theta}{1 + \frac{2}{5}} = \frac{5g\sin\theta}{7}\]
+
+<p>For \(\theta = 20°\) and \(g = 32.17\ \text{ft/s}^2\):</p>
+
+\[a = \frac{5 \times 32.17 \times \sin(20°)}{7} \approx \frac{5 \times 32.17 \times 0.342}{7} \approx 7.87\ \text{ft/s}^2\]
+
+<p>The ball rolls down a distance \(L = 2.5\ \text{ft}\) (30 inches), starting from rest. Using \(v^2 = v_0^2 + 2as\) with \(v_0 = 0\):</p>
+
+\[v_s^2 = 2 \times 7.87 \times 2.5 \approx 39.35\]
+
+\[v_s \approx 6.27\ \text{ft/s}\]
+
+<p>In practice, the exact release velocity depends on:</p>
+<ul>
+  <li>The precise release angle (which varies slightly with operator technique)</li>
+  <li>Any sliding that occurs before pure rolling begins</li>
+  <li>The coefficient of friction in the V-groove</li>
+</ul>
+
+<p>For most calculations, \(v_s \approx 6.0\ \text{ft/s}\) is commonly used as a round approximation.</p>
+
+<h3 id="appendix-friction">A2. Frictional Deceleration</h3>
+
+<p>Starting with the kinematic equation relating velocity, acceleration, and distance:</p>
+
+\[v^2 = v_0^2 + 2as\]
+
+<p>For a ball released from a Stimp meter:</p>
+<ul>
+  <li>Initial velocity: \(v_0 = v_s\) (the known Stimp meter release velocity)</li>
+  <li>Final velocity: \(v = 0\) (ball comes to rest)</li>
+  <li>Distance traveled: \(s = S\) (the Stimp reading)</li>
+  <li>Acceleration: \(a = a_f\) (the frictional deceleration we want to find)</li>
+</ul>
+
+<p>Substituting these values:</p>
+
+\[0^2 = v_s^2 + 2 a_f S\]
+
+\[0 = v_s^2 + 2 a_f S\]
+
+<p>Solving for \(a_f\):</p>
+
+\[-2 a_f S = v_s^2\]
+
+\[a_f = -\frac{v_s^2}{2S}\]
+
+<p>The negative sign indicates deceleration (acceleration opposite to the direction of motion).</p>
+
+<h3 id="appendix-effective-stimp">A3. Effective Stimp</h3>
+
+<p>When the green has a slope \(X\) (expressed as a decimal), gravity contributes an additional acceleration component:</p>
+
+\[a_g = g X\]
+
+<p>where \(g = 32.17\ \text{ft/s}^2\) is gravitational acceleration.</p>
+
+<p>The effective acceleration becomes:</p>
+
+\[a_{\text{eff}} = a_f + a_g\]
+
+<p>where \(a_f &lt; 0\) (friction opposes motion) and \(a_g = gX\) (positive for downhill, negative for uphill).</p>
+
+<p>The effective Stimp reading \(S_{\text{eff}}\) is the distance a ball would roll with this modified acceleration. Using the same kinematic relationship:</p>
+
+\[0 = v_s^2 + 2 a_{\text{eff}} S_{\text{eff}}\]
+
+\[S_{\text{eff}} = -\frac{v_s^2}{2 a_{\text{eff}}}\]
+
+<p>Taking the ratio with the level-green Stimp:</p>
+
+\[\frac{S_{\text{eff}}}{S} = \frac{-\frac{v_s^2}{2 a_{\text{eff}}}}{-\frac{v_s^2}{2 a_f}} = \frac{a_f}{a_{\text{eff}}} = \frac{a_f}{a_f + gX}\]
+
+<p>For a standard Stimp meter (as derived in Appendix A1), the release velocity is \(v_s \approx 6.27\ \text{ft/s}\) and we can express \(a_f \approx \frac{19.7}{S}\)</p>
+
+\[\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_f + gX} = \frac{1}{1 + 1.64 X S}\]
+
+<p>Therefore:</p>
+
+\[S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S}\]
+
+<hr />
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>See <a href="#appendix-kinematics">Appendix A0</a> for the full derivation from calculus. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>See <a href="#appendix-stimp">Appendix A1</a> for the calculation from USGA Stimp meter geometry. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>See <a href="#appendix-friction">Appendix A2</a> for the full derivation. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>See <a href="#appendix-effective-stimp">Appendix A3</a> for the full derivation. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center pt-5">
+    <h2>More</h2>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col-sm-6">
+      <div class="card info-card sticky-div h-100">
+
+  <div class="card-body">
+
+    <h3 class="card-title text-center">Recent Posts</h3>
+  </div>
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-17T00:00:00-06:00">Nov 17, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Rederiving Aimpoint</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-17T00:00:00-06:00">Jan 19, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/database/backend/2021/01/19/setup-docker-db-testing.html">Use Docker for Local Databases</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-17T00:00:00-06:00">Jan 14, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/web%20development/front%20end/2021/01/14/deploy-jekyll-to-github-pages.html">Deploy Jekyll to GitHub Pages</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-17T00:00:00-06:00">Jan 13, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/version%20control/2021/01/13/git-force-push-subtree.html">Force Push a Git Subtree</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-17T00:00:00-06:00">Jan 12, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html">Text Wraps in Safari, but Scrolls in Chrome</a>
+        </li>
+      
+    </ul>
+  <div class="card-body">
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="card info-card sticky-div h-100">
+
+    <div class="card-body">
+
+      <h3 class="card-title text-center">Categories</h3>
+
+      
+        <div class="category-tags d-flex flex-wrap justify-content-center">
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#web-development">
+              
+              
+                Web
+              
+                Development
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#front-end">
+              
+              
+                Front
+              
+                End
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#version-control">
+              
+              
+                Version
+              
+                Control
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#database">
+              
+              
+                Database
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#backend">
+              
+              
+                Backend
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#golf">
+              
+              
+                Golf
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#physics">
+              
+              
+                Physics
+              
+            
+            </a>
+          
+        </div>
+      
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+      
+</div>
+      </main>
+
+    </div>
+    <footer class="text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="footer-element">
+        <p>&copy;2025 Stephen M. Lee</p>
+    
+</div>
+      </div>
+    </div>
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="footer-element">
+    
+        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
+            <i class="fa-hover fas fa-envelope" title="Email"></i>
+        </a>
+    
+        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
+        </a>
+    
+        <a class="social-icon" href="https://github.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-github" title="GitHub"></i>
+        </a>
+    
+</div>
+
+        </div>
+      </div>
+    
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+           <p class="powered-by footer-element mt-3">
+    Powered by 
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & 
+    <a href="https://github.com/slee981/jekyll-theme-cadre" target="_blank">Cadre</a>
+</p>
+
+        </div>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+    
+    
+    
+      <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+<script>
+  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138925131-1');
+</script>
+
+    
+  </body>
+</html>
