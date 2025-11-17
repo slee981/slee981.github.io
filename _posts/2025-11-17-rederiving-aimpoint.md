@@ -1,5 +1,5 @@
 ---
-title: Rederiving Aimpoint
+title: Modeling Aimpoint for Green Reading
 layout: post
 author: Stephen Lee
 
@@ -14,38 +14,13 @@ tags: [golf, physics]
 
 ## Problem 
 
-Most golfers have an intuitive sense of how putts behave on different greens—fast vs slow, uphill vs downhill, breaking left or right—but the underlying mechanics are surprisingly consistent. With a few reasonable assumptions, you can describe the motion of a rolling golf ball with straightforward physics.
+Aimpoint Express is a common system for calibrating your feet and fingers to estimate the break of a putt. Tune in to a professional golf tournament and you're likely to see players doing funny things with their fingers, and awkwardly straddling their line. 
 
-This first part lays out the foundation for a simple model that estimates how far a ball rolls and how much it breaks. The goal isn't to produce a full fluid-dynamics treatment or handle every edge case. Instead, we want something accurate in the practical range where golfers actually need precision: putts of about 5–20 feet on slopes of roughly 0–3%.
+I played competitive golf for many years, but tended to hit it better tee to green than I could consistently putt. This post is an attempt to better understand the physics of how putts break, and perhaps more importantly, how green speed and uphill/downhill slopes impact that break. 
+
+This first part lays out the foundation for a simple model that estimates how far a ball rolls and how much it breaks. The goal isn't to produce a full dynamics treatment or handle every edge case. Instead, we want something accurate in the practical range where golfers actually need precision: putts of about 5–20 feet on slopes of roughly 0–3%.
 
 We'll start by recalling a few Newtonian relationships, connect them to the Stimp reading, and show how slope influences both speed and break.
-
----
-
-<!-- ### Quick Reference
-
-For readers who want the bottom line first, here are the main formulas derived in this post:
-
-| Formula | Description | Equation |
-|---------|-------------|----------|
-| **Effective Stimp** | How forward slope $$X$$ changes speed | $$S_{\text{eff}} \approx S(1 + 1.64\, S\, X)$$ |
-| **Break (undamped)** | Lateral break at hole, upper bound | $$x_\text{break} \approx 1.64\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2R - 2\sqrt{R(D+R)})$$ |
-| **Break (damped)** | With friction coupling correction | $$x_\text{break} \approx 1.17\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2R - 2\sqrt{R(D+R)})$$ |
-| **Break ($$R=1$$)** | Simplified for 1-ft rollout | $$x_\text{break} \approx 1.17\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2 - 2\sqrt{D+1})$$ |
-| **Constants** | From USGA Stimp meter | $$v_s = 6.27\ \text{ft/s}$$, $$g = 32.17\ \text{ft/s}^2$$ |
-
-**Notation:**
-- $$S$$ = base Stimp reading on level green (ft)
-- $$S_\text{eff}$$ = effective Stimp accounting for forward slope
-- $$X$$ = forward slope as decimal (positive uphill, negative downhill)
-- $$X_s$$ = side-slope as decimal
-- $$D$$ = distance to hole (ft)
-- $$R$$ = desired rollout past hole (ft)
-
-The rest of this post derives these formulas from first principles.
-
----
- -->
 
 ## Newton's Laws
 
