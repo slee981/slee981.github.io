@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- load bootstrap -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- user -->
+  
+    <link rel="shortcut icon" type="image/png" href="/assets/images/steve-logo.png">
+  
+  <link rel="stylesheet" href="/assets/css/open-color.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/main.js"></script>
+
+  <!-- font awesome -->
+  <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+  <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>What is the “Potential Outcomes” Framework | Stephen M. Lee</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="What is the “Potential Outcomes” Framework" />
+<meta name="author" content="Stephen Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Overview Potential outcomes is a set of techniques and tools for estimating the likely results of a particular action. More specifically, potential outcomes provides a methodology for assessing the effect of a treatment (aka intervention) when certain assumptions are believed to be true. Notably, this approach is often applied to observational data in fields like economics, epidemiology, or sociology, where many experiments would be prohibitedly expensive or unethical." />
+<meta property="og:description" content="Overview Potential outcomes is a set of techniques and tools for estimating the likely results of a particular action. More specifically, potential outcomes provides a methodology for assessing the effect of a treatment (aka intervention) when certain assumptions are believed to be true. Notably, this approach is often applied to observational data in fields like economics, epidemiology, or sociology, where many experiments would be prohibitedly expensive or unethical." />
+<link rel="canonical" href="https://stephenlee.info/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html" />
+<meta property="og:url" content="https://stephenlee.info/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html" />
+<meta property="og:site_name" content="Stephen M. Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-13T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="What is the “Potential Outcomes” Framework" />
+<script type="application/ld+json">
+{"url":"https://stephenlee.info/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html","headline":"What is the “Potential Outcomes” Framework","dateModified":"2021-07-13T00:00:00-05:00","datePublished":"2021-07-13T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Overview Potential outcomes is a set of techniques and tools for estimating the likely results of a particular action. More specifically, potential outcomes provides a methodology for assessing the effect of a treatment (aka intervention) when certain assumptions are believed to be true. Notably, this approach is often applied to observational data in fields like economics, epidemiology, or sociology, where many experiments would be prohibitedly expensive or unethical.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+  <body>
+    <div id="main" class="container">
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light py-4" id="menu">
+
+  <!-- BRAND LOGO OR NAME -->
+  <a class="navbar-brand top" id="site-logo" href="/">
+    
+      Stephen M. Lee
+    
+  </a>
+  
+  <!-- NAVIGATION -->
+  
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <div class="navbar-nav">
+      
+        
+        <a class="nav-item nav-link " href="/index.html">About</a>
+      
+        
+        <a class="nav-item nav-link " href="/work.html">Work</a>
+      
+        
+        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+      
+      </div>
+    </div>
+  
+</nav>
+
+
+      <main>
+        <!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/assets/js/adjustAnchorLink.js"></script>
+<script src="/assets/js/liveTOCScroll.js"></script>
+
+<div class="post-body">
+  <div class="row post-header">
+    <div class="col">
+      <h1 class="post-title text-center">What is the "Potential Outcomes" Framework</h1>
+      <div class="post-meta text-center">
+
+        
+          
+            <span class="post-metadata" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              Stephen Lee -
+            </span>
+            
+          
+        
+
+        
+        <time class="post-metadata" datetime="2021-07-13T00:00:00-05:00" itemprop="datePublished">
+          Jul 13, 2021
+        </time>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- START COL WITH TOC -->
+    <div class="col-sm-2 pt-3">
+      <div class="toc-div py-3">
+  
+    <h3 class="toc-title">Table of Contents</h3>
+  
+  <ul class="toc"><li><a href="#overview">Overview</a></li><li><a href="#philosophy">Philosophy</a></li><li><a href="#assumptions">Assumptions</a><ul><li><a href="#1-stable-unit-treatment-value-assumption-sutva">(1) Stable Unit Treatment Value Assumption (SUTVA)</a></li><li><a href="#2-assignment-mechanism">(2) Assignment Mechanism</a></li></ul></li><li><a href="#resources">Resources</a></li><li><a href="#footnotes">Footnotes</a></li></ul>
+
+</div>
+
+    </div>
+
+    <!-- MAIN POST -->
+    <div class="col-sm-10 post p-4">
+        <h2 id="overview">Overview</h2>
+<p>Potential outcomes is a set of techniques and tools for estimating the likely results of a particular action. More specifically, potential outcomes provides a methodology for assessing the effect of a treatment (aka intervention) when certain assumptions are believed to be true. Notably, this approach is often applied to observational data in fields like economics, epidemiology, or sociology, where many experiments would be prohibitedly expensive or unethical.</p>
+
+<p>While the randomized control trial is often considered a benchmark for causal inference,<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup> practitioners of potential outcomes argue that these methods can be naturally applied to other settings as well. Intuitively, the belief is that since we humans seem able to draw useful inference about the world without rigorous experiment (e.g. taking an asprine will help my headache because it helped last time), formalizing the process of observational based inference can yield valuable insight.</p>
+
+<h2 id="philosophy">Philosophy</h2>
+<p>One way to think about cause and effect is as a comparison between outcomes: what would be the difference in my outcome if I receive the treatment, compared to if I do not receive the treatment? In other words, what is the difference between the <em>potential outcomes</em>? Central to this is the missing data problem, also referred to as the fundamental problem of causal inference. In short, (for a given unit):</p>
+
+<blockquote>
+  <p>You can only either observe the outcome after treatment, or after no-treatment.</p>
+
+  <p>Since we cannot go back in time, we cannot observe both, and hence, we cannot measure true effects at an individual level of analysis.</p>
+</blockquote>
+
+<p>The workaround for potential outcomes is to focus on treatment groups to estimate aggregated effects, as opposed to individual level effects. For example, we may measure the average treatment effect (ATE) or the 25th percentile treatement effect, but we cannot measure Bob or Ann’s specific treatment effect.</p>
+
+<p>Note, there is another popular approach to thinking through causal inference problems often referred to as structural modeling. For example, the Structural Causal Model (SCM) popularized by Judea Pearl requires statement of all relevant variables, and their potential interactions. In his words, one must specify, “who talks to whom”. With this, one can then utilize graphical abstractions of these relationships in the form of directed acyclic graphs (DAGs), and follow certain proceedural rules to discover if your causal question can be estimated with the data you have i.e. are you missing observation of any variables that are critical to the estimation. Beyond this, there is a long tradition of structural economic modeling, and in particular with simultaneously determined relationships like supply and demand. This will likely become a separate blog post, but for now, this is outside the scope of this post.</p>
+
+<h2 id="assumptions">Assumptions</h2>
+
+<blockquote>
+  <p>Causal conclusions are only as valid as the causal assumptions upon which they rest.</p>
+
+  <p>– Judea Pearl</p>
+</blockquote>
+
+<p>What makes assumptions so tricky is that in many cases you cannot test them for validity. For an analysis of potential outcomes, two main categories of assumptions are needed:</p>
+
+<h3 id="1-stable-unit-treatment-value-assumption-sutva">(1) Stable Unit Treatment Value Assumption (SUTVA)</h3>
+<p>According to Donald Rubin (who is largely credited with shaping this literature), this assumption requires:</p>
+<ol>
+  <li>There are no individual spillovers (i.e. no externalities).</li>
+  <li>There is no hidden variation in the treatment e.g. strength or adherence.</li>
+</ol>
+
+<p>For example, if studying the effect of graded homework on student performance at a university, there could likely be spillovers in the form of peer effects: a “treatment” classroom may impact student performance in a “control” classroom if friends from both groups study together.</p>
+
+<p>Further, this assumption also requires only one “strength” of treatment. To extend the same example, if the treatment is to assign graded homeworks, compared to a control where students do not have their homework assignments graded, each classroom in the treatment group must grade homework assignments with the same frequency. In other words, if one teacher in the treatment group returns graded assignments every week, while another teacher in the treatment group only returns graded assignments once a month, the final causal inference would likely be conflated.</p>
+
+<p>When these conditions are met, the causal analysis is greatly simplified. Unfortunately however, these are rather strong assumptions and often may not be plausible. Fortunately, there is a growing body of research to best handle estimation when these assumptions are relaxed.</p>
+
+<h3 id="2-assignment-mechanism">(2) Assignment Mechanism</h3>
+<p>When comparing a group that received treatment to a group that didn’t receive treatment, we need to know (or make an assumption) about why certain individuals were assigned to the treatment group, while others were not.</p>
+
+<p>In the simplest case, this assignment is random (as in a clinical trial) and unconfounded insofar as assignment does not depend on the potential outcomes. In other words, if all of the individuals that received treatment were given it precicely because they had the most to benefit, a straight forward comparison between the outcomes of the treatment and control groups woudl not represent a causal effect of the treatment.</p>
+
+<p>For example, one may wonder what is the causal effect of attending and graduating from a university. Since it would be unethical, costly, and infeasible in a reasonable timeline, we do not perform this experiment. Thus, we may try to use observational data on students that graduated from university and compare their outcomes to students that didn’t attend. In this case, the causal inference is complicated by the fact that the decision to attend or not attend college is likely incluenced by the perceived benefit of attending. Thus, the treatment (attend college) may depend on the potential outcome (do you expect to be better or worse off if you attend?).</p>
+
+<p>Various tools have been developed to handle cases where the assignment is not random or the distribution of the assignment is unknown. For these, techniques rapidly become more and more sophisticated, and assumptions become more and more layered. Overall, estimation can still occur, but it’s much more difficult.</p>
+
+<h2 id="resources">Resources</h2>
+<ul>
+  <li><em>Causal Inference for Statistics, Social, and Biomedical Sciences</em>. Imbens G. and Rubin D.</li>
+  <li><em>Causal Inference: The Mixtape</em>. Cunningham S.</li>
+</ul>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Consider, as evidence, that this is the requirement for a drug to pass FDA inspection. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center pt-5">
+    <h2>More</h2>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col-sm-6">
+      <div class="card info-card sticky-div h-100">
+
+  <div class="card-body">
+
+    <h3 class="card-title text-center">Recent Posts</h3>
+  </div>
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item">
+          <time datetime="2021-07-13T00:00:00-05:00">Nov 17, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Modeling Aimpoint for Green Reading</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-07-13T00:00:00-05:00">Aug 2, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/networks/2021/08/02/networks-navigation.html">Networks (Part II) - Navigation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-07-13T00:00:00-05:00">Jul 14, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/networks/2021/07/14/networks-notation.html">Networks (Part I) - Notation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-07-13T00:00:00-05:00">Jul 13, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html">What is the "Potential Outcomes" Framework</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-07-13T00:00:00-05:00">Jul 12, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/instrumental%20variables/2021/07/12/sem-iv.html">SEM Estimation by 2SLS</a>
+        </li>
+      
+    </ul>
+  <div class="card-body">
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="card info-card sticky-div h-100">
+
+    <div class="card-body">
+
+      <h3 class="card-title text-center">Categories</h3>
+
+      
+        <div class="category-tags d-flex flex-wrap justify-content-center">
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#general">
+              
+              
+                General
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#tutorial">
+              
+              
+                Tutorial
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#econometrics">
+              
+              
+                Econometrics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#machine-learning">
+              
+              
+                Machine
+              
+                Learning
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#prediction">
+              
+              
+                Prediction
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#web-development">
+              
+              
+                Web
+              
+                Development
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#front-end">
+              
+              
+                Front
+              
+                End
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#version-control">
+              
+              
+                Version
+              
+                Control
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#statistics">
+              
+              
+                Statistics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#database">
+              
+              
+                Database
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#backend">
+              
+              
+                Backend
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#instrumental-variables">
+              
+              
+                Instrumental
+              
+                Variables
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#potential-outcomes">
+              
+              
+                Potential
+              
+                Outcomes
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#networks">
+              
+              
+                Networks
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#golf">
+              
+              
+                Golf
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#physics">
+              
+              
+                Physics
+              
+            
+            </a>
+          
+        </div>
+      
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+      
+</div>
+      </main>
+
+    </div>
+    <footer class="text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="footer-element">
+        <p>&copy;2025 Stephen M. Lee</p>
+    
+</div>
+      </div>
+    </div>
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="footer-element">
+    
+        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
+            <i class="fa-hover fas fa-envelope" title="Email"></i>
+        </a>
+    
+        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
+        </a>
+    
+        <a class="social-icon" href="https://github.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-github" title="GitHub"></i>
+        </a>
+    
+</div>
+
+        </div>
+      </div>
+    
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+           <p class="powered-by footer-element mt-3">
+    Powered by 
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & 
+    <a href="https://github.com/slee981/jekyll-theme-cadre" target="_blank">Cadre</a>
+</p>
+
+        </div>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+    
+    
+    
+      <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+<script>
+  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138925131-1');
+</script>
+
+    
+  </body>
+</html>

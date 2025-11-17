@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- load bootstrap -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- user -->
+  
+    <link rel="shortcut icon" type="image/png" href="/assets/images/steve-logo.png">
+  
+  <link rel="stylesheet" href="/assets/css/open-color.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/main.js"></script>
+
+  <!-- font awesome -->
+  <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+  <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Docker for Managing Code Versions | Stephen M. Lee</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Docker for Managing Code Versions" />
+<meta name="author" content="Stephen Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use." />
+<meta property="og:description" content="Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use." />
+<link rel="canonical" href="https://stephenlee.info/general/tutorial/2020/10/15/docker.html" />
+<meta property="og:url" content="https://stephenlee.info/general/tutorial/2020/10/15/docker.html" />
+<meta property="og:site_name" content="Stephen M. Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-15T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Docker for Managing Code Versions" />
+<script type="application/ld+json">
+{"url":"https://stephenlee.info/general/tutorial/2020/10/15/docker.html","headline":"Docker for Managing Code Versions","dateModified":"2020-10-15T00:00:00-05:00","datePublished":"2020-10-15T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/general/tutorial/2020/10/15/docker.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+  <body>
+    <div id="main" class="container">
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light py-4" id="menu">
+
+  <!-- BRAND LOGO OR NAME -->
+  <a class="navbar-brand top" id="site-logo" href="/">
+    
+      Stephen M. Lee
+    
+  </a>
+  
+  <!-- NAVIGATION -->
+  
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <div class="navbar-nav">
+      
+        
+        <a class="nav-item nav-link " href="/index.html">About</a>
+      
+        
+        <a class="nav-item nav-link " href="/work.html">Work</a>
+      
+        
+        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+      
+      </div>
+    </div>
+  
+</nav>
+
+
+      <main>
+        <!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/assets/js/adjustAnchorLink.js"></script>
+<script src="/assets/js/liveTOCScroll.js"></script>
+
+<div class="post-body">
+  <div class="row post-header">
+    <div class="col">
+      <h1 class="post-title text-center">Docker for Managing Code Versions</h1>
+      <div class="post-meta text-center">
+
+        
+          
+            <span class="post-metadata" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              Stephen Lee -
+            </span>
+            
+          
+        
+
+        
+        <time class="post-metadata" datetime="2020-10-15T00:00:00-05:00" itemprop="datePublished">
+          Oct 15, 2020
+        </time>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- START COL WITH TOC -->
+    <div class="col-sm-2 pt-3">
+      <div class="toc-div py-3">
+  
+    <h3 class="toc-title">Table of Contents</h3>
+  
+  <ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#download-docker">Download Docker</a></li><li><a href="#create-dockerfile">Create Dockerfile</a></li><li><a href="#build-dockerfile">Build Dockerfile</a></li><li><a href="#run-dockerfile">Run Dockerfile</a></li><li><a href="#add-shortcut-to-run">Add Shortcut to Run</a></li><li><a href="#run-python">Run Python</a></li><li><a href="#conclusion">Conclusion</a></li><li><a href="#link-to-code">Link to Code</a></li></ul>
+
+</div>
+
+    </div>
+
+    <!-- MAIN POST -->
+    <div class="col-sm-10 post p-4">
+        <p>Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</p>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>If you’re here, you either want to learn Docker, or find a better way to manage various programming languages and their versions.</p>
+
+<p>For this use case, we explore Docker in the context of providing a “clean” way to install multiple versions of your favorite language (e.g. Python), or experiment with new languages that you don’t want to commit to installing directly on your machine.</p>
+
+<p>Docker has many other cool use cases, but they are beyond the scope of this tutorial.</p>
+
+<p>You can find the <a href="https://github.com/slee981/docker-for-language-versions">full code here</a>.</p>
+
+<h3 id="download-docker">Download Docker</h3>
+<ul>
+  <li><a href="https://docs.docker.com/get-docker/">Download here</a> and follow the instructions.</li>
+  <li><a href="https://docs.docker.com/engine/install/">View supported platforms here</a>.</li>
+  <li>Note, if you are using Windows 10 with WSL2 enabled, be sure to follow those instructions. You still have to download the Windows 10 version of Docker Desktop - it will not work to try and install via your WSL2 terminal.</li>
+</ul>
+
+<h3 id="create-dockerfile">Create Dockerfile</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>docker-python-example 
+<span class="nv">$ </span><span class="nb">cd </span>docker-python-example
+<span class="nv">$ </span><span class="nb">touch </span>Dockerfile
+</code></pre></div></div>
+
+<p>Open this in your favorite text editor and add:</p>
+
+<div class="language-docker highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dockerfile </span>
+
+<span class="c"># image to start from</span>
+<span class="k">FROM</span><span class="s"> python:3.9-buster </span>
+
+<span class="c"># explicitly set working directory </span>
+<span class="c"># this comes in handy later...</span>
+<span class="k">WORKDIR</span><span class="s"> /usr/src</span>
+
+<span class="c"># copy over files from local machine to docker</span>
+<span class="k">COPY</span><span class="s"> requirements.txt .</span>
+<span class="k">COPY</span><span class="s"> ./.bashrc /root/.bashrc</span>
+
+<span class="c"># this base python:3.9-buster images is itself </span>
+<span class="c"># built on top of a Debian based Linux image </span>
+<span class="c"># so we update, upgrade, and install vim</span>
+<span class="k">RUN </span>apt update <span class="o">&amp;&amp;</span> <span class="se">\
+</span>	apt <span class="nt">-y</span> upgrade <span class="o">&amp;&amp;</span> <span class="se">\
+</span>	apt <span class="nb">install</span> <span class="nt">-y</span> vim
+
+<span class="c"># install any libraries you need</span>
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># open up a bash shell</span>
+<span class="k">CMD</span><span class="s"> ["bash"]</span>
+</code></pre></div></div>
+
+<p>A quick note about the logic above: Docker is built in layers, so the reason we separate out the <code class="language-plaintext highlighter-rouge">RUN</code> command that updates the operating system and installs vim from the <code class="language-plaintext highlighter-rouge">RUN</code> command the installs Python packages is that we may in the future want to add some Python packages. This ordering ensurs that the build will only need to redo that particlar layer (i.e. step), and not the entire thing. Alternatively, if we are unsure of what pacakges we want in this Docker environment, we could list each pip install on a separate <code class="language-plaintext highlighter-rouge">RUN</code> layer (appended to the bottom, always just before the <code class="language-plaintext highlighter-rouge">CMD</code> layer). This will ensure quicker builds in the future.</p>
+
+<p>Here is a link to <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">best practices</a>  for creating a Dockerfile, and here is a link to <a href="https://hub.docker.com/_/python">Python’s page on Docker Hub</a>. You can find other versions of Python here, or explore other images to build upon.</p>
+
+<h3 id="build-dockerfile">Build Dockerfile</h3>
+
+<p>This step builds your Dockerfile “recipe” into a local image and gives it a “tag” or label called “python3.9”. Don’t forget the “.”! It tells Docker where to look for the Dockerfile.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker build <span class="nt">-t</span> python3.9 <span class="nb">.</span>
+</code></pre></div></div>
+
+<h3 id="run-dockerfile">Run Dockerfile</h3>
+
+<p>Once this builds, you are ready to run!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> <span class="nt">--rm</span> <span class="nt">-v</span> <span class="nv">$PWD</span>:/usr/src python3.9 
+</code></pre></div></div>
+
+<p>Some notes on the flags:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">-it</code>: effectively runs whatever <code class="language-plaintext highlighter-rouge">CMD</code> is specified in the Dockerfile in an interactive terminal (in this case, it just opens up a bash shell).<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup> For more information, see <a href="https://docs.docker.com/engine/reference/run/">this link</a>. The point here is that Docker was designed to run well in the background (e.g. for deploying a web application), and so you need to be explicit about wanting to interact with the container via a terminal.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">--rm</code>: remove the container after you’re done. You can additionally manage your docker images and containers via <code class="language-plaintext highlighter-rouge">docker images</code>, <code class="language-plaintext highlighter-rouge">docker rmi [ image-id ]</code>, <code class="language-plaintext highlighter-rouge">docker container ls</code>, <code class="language-plaintext highlighter-rouge">docker container rm [ container-id ]</code>.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">-v</code>: this final flag specifies a so-called “volume”. In this case, we bind our present working directory (<code class="language-plaintext highlighter-rouge">$PWD</code>) to the working directory we specified in the container (<code class="language-plaintext highlighter-rouge">/usr/src</code>). Docker also has their own <a href="https://docs.docker.com/storage/volumes/">storage volumes</a>, but for the case of interactive discovery and data analytics, binding your actual filesystem to the container allows you to edit files and have them available locally when finished. If there is a better way to do this, please let me know in the comments.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">python3.9</code>: the “tag” name we gave our image.</li>
+</ul>
+
+<h3 id="add-shortcut-to-run">Add Shortcut to Run</h3>
+
+<p>That’s a lot to type each time we want to access our new version of Python! This shortcut function allows us to call <code class="language-plaintext highlighter-rouge">python-docker</code> with an optional argument specifying the version we want (if we use this concept to build multiple versions).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ~/.bashrc</span>
+
+...
+
+python-docker<span class="o">()</span> <span class="o">{</span>
+	<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span><span class="nt">-eq</span> 0 <span class="o">]</span><span class="p">;</span> <span class="k">then
+		</span><span class="nv">p</span><span class="o">=</span><span class="s2">"python3.9"</span>       <span class="c"># default version</span>
+	<span class="k">else
+		</span><span class="nv">p</span><span class="o">=</span><span class="s2">"python</span><span class="nv">$1</span><span class="s2">"</span>        <span class="c"># user supplied version</span>
+	<span class="k">fi
+
+	</span>docker run <span class="nt">-it</span> <span class="nt">--rm</span> <span class="nt">-v</span> <span class="nv">$PWD</span>:/usr/src <span class="nv">$p</span><span class="p">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="run-python">Run Python</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">source</span> ~/.bashrc          <span class="c"># source our new function</span>
+<span class="nv">$ </span>python-docker
+</code></pre></div></div>
+<p>or</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python-docker 3.9         <span class="c"># &lt;-- manage version here</span>
+</code></pre></div></div>
+
+<p>After doing this, you should see the following screen:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>docker<span class="o">)</span> /usr/src
+
+<span class="err">$</span>
+</code></pre></div></div>
+
+<p>This is based on my personal favorite <code class="language-plaintext highlighter-rouge">PS1</code> settings in <code class="language-plaintext highlighter-rouge">.bashrc</code>. From here, you can write files and run them in Python v3.9, and, since we included <code class="language-plaintext highlighter-rouge">numpy</code> in <code class="language-plaintext highlighter-rouge">requirements.txt</code>, we have access to that as well.</p>
+
+<p>For example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">docker</span><span class="p">)</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">src</span> 
+
+<span class="err">$</span> <span class="n">python</span> 
+<span class="n">Python</span> <span class="mf">3.9</span><span class="p">.</span><span class="mi">0</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Oct</span>  <span class="mi">6</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">21</span><span class="p">:</span><span class="mi">52</span><span class="p">:</span><span class="mi">53</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">8.3</span><span class="p">.</span><span class="mi">0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
+<span class="n">Type</span> <span class="s">"help"</span><span class="p">,</span> <span class="s">"copyright"</span><span class="p">,</span> <span class="s">"credits"</span> <span class="ow">or</span> <span class="s">"license"</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="p">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="mi">14</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>And just like that, you can now manage multiple versions of the same language (e.g. Python) or test new languages (e.g. Go, Julia, Haskell) without a full local install.</p>
+
+<h3 id="link-to-code">Link to Code</h3>
+
+<p>If you’d like to see it all together, <a href="https://github.com/slee981/docker-for-language-versions">here is a link to the full code</a>.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>The <code class="language-plaintext highlighter-rouge">-it</code> flag “instructs Docker to allocate a pseudo-TTY connected to the container’s stdin”. <a href="https://docs.docker.com/engine/reference/commandline/run/">Link to documentation</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center pt-5">
+    <h2>More</h2>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col-sm-6">
+      <div class="card info-card sticky-div h-100">
+
+  <div class="card-body">
+
+    <h3 class="card-title text-center">Recent Posts</h3>
+  </div>
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item">
+          <time datetime="2020-10-15T00:00:00-05:00">Nov 17, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Modeling Aimpoint for Green Reading</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2020-10-15T00:00:00-05:00">Aug 2, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/networks/2021/08/02/networks-navigation.html">Networks (Part II) - Navigation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2020-10-15T00:00:00-05:00">Jul 14, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/networks/2021/07/14/networks-notation.html">Networks (Part I) - Notation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2020-10-15T00:00:00-05:00">Jul 13, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html">What is the "Potential Outcomes" Framework</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2020-10-15T00:00:00-05:00">Jul 12, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/instrumental%20variables/2021/07/12/sem-iv.html">SEM Estimation by 2SLS</a>
+        </li>
+      
+    </ul>
+  <div class="card-body">
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="card info-card sticky-div h-100">
+
+    <div class="card-body">
+
+      <h3 class="card-title text-center">Categories</h3>
+
+      
+        <div class="category-tags d-flex flex-wrap justify-content-center">
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#general">
+              
+              
+                General
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#tutorial">
+              
+              
+                Tutorial
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#econometrics">
+              
+              
+                Econometrics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#machine-learning">
+              
+              
+                Machine
+              
+                Learning
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#prediction">
+              
+              
+                Prediction
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#web-development">
+              
+              
+                Web
+              
+                Development
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#front-end">
+              
+              
+                Front
+              
+                End
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#version-control">
+              
+              
+                Version
+              
+                Control
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#statistics">
+              
+              
+                Statistics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#database">
+              
+              
+                Database
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#backend">
+              
+              
+                Backend
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#instrumental-variables">
+              
+              
+                Instrumental
+              
+                Variables
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#potential-outcomes">
+              
+              
+                Potential
+              
+                Outcomes
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#networks">
+              
+              
+                Networks
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#golf">
+              
+              
+                Golf
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#physics">
+              
+              
+                Physics
+              
+            
+            </a>
+          
+        </div>
+      
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+      
+</div>
+      </main>
+
+    </div>
+    <footer class="text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="footer-element">
+        <p>&copy;2025 Stephen M. Lee</p>
+    
+</div>
+      </div>
+    </div>
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="footer-element">
+    
+        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
+            <i class="fa-hover fas fa-envelope" title="Email"></i>
+        </a>
+    
+        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
+        </a>
+    
+        <a class="social-icon" href="https://github.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-github" title="GitHub"></i>
+        </a>
+    
+</div>
+
+        </div>
+      </div>
+    
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+           <p class="powered-by footer-element mt-3">
+    Powered by 
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & 
+    <a href="https://github.com/slee981/jekyll-theme-cadre" target="_blank">Cadre</a>
+</p>
+
+        </div>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+    
+    
+    
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+<script>
+  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138925131-1');
+</script>
+
+    
+  </body>
+</html>

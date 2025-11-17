@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- load bootstrap -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- user -->
+  
+    <link rel="shortcut icon" type="image/png" href="/assets/images/steve-logo.png">
+  
+  <link rel="stylesheet" href="/assets/css/open-color.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/main.js"></script>
+
+  <!-- font awesome -->
+  <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+  <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Moving Average in R, tidyverse | Stephen M. Lee</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Moving Average in R, tidyverse" />
+<meta name="author" content="Stephen Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Problem" />
+<meta property="og:description" content="Problem" />
+<link rel="canonical" href="https://stephenlee.info/statistics/tutorial/2021/01/19/moving-average-in-R.html" />
+<meta property="og:url" content="https://stephenlee.info/statistics/tutorial/2021/01/19/moving-average-in-R.html" />
+<meta property="og:site_name" content="Stephen M. Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-19T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Moving Average in R, tidyverse" />
+<script type="application/ld+json">
+{"url":"https://stephenlee.info/statistics/tutorial/2021/01/19/moving-average-in-R.html","headline":"Moving Average in R, tidyverse","dateModified":"2021-01-19T00:00:00-06:00","datePublished":"2021-01-19T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/statistics/tutorial/2021/01/19/moving-average-in-R.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Problem","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+  <body>
+    <div id="main" class="container">
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light py-4" id="menu">
+
+  <!-- BRAND LOGO OR NAME -->
+  <a class="navbar-brand top" id="site-logo" href="/">
+    
+      Stephen M. Lee
+    
+  </a>
+  
+  <!-- NAVIGATION -->
+  
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <div class="navbar-nav">
+      
+        
+        <a class="nav-item nav-link " href="/index.html">About</a>
+      
+        
+        <a class="nav-item nav-link " href="/work.html">Work</a>
+      
+        
+        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+      
+      </div>
+    </div>
+  
+</nav>
+
+
+      <main>
+        <!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/assets/js/adjustAnchorLink.js"></script>
+<script src="/assets/js/liveTOCScroll.js"></script>
+
+<div class="post-body">
+  <div class="row post-header">
+    <div class="col">
+      <h1 class="post-title text-center">Moving Average in R, tidyverse</h1>
+      <div class="post-meta text-center">
+
+        
+          
+            <span class="post-metadata" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              Stephen Lee -
+            </span>
+            
+          
+        
+
+        
+        <time class="post-metadata" datetime="2021-01-19T00:00:00-06:00" itemprop="datePublished">
+          Jan 19, 2021
+        </time>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- START COL WITH TOC -->
+    <div class="col-sm-2 pt-3">
+      <div class="toc-div py-3">
+  
+    <h3 class="toc-title">Table of Contents</h3>
+  
+  <ul class="toc"><li><a href="#problem">Problem</a><ul><li><a href="#sample-data">Sample Data</a></li><li><a href="#setup">Setup</a></li></ul></li><li><a href="#solution">Solution</a></li></ul>
+
+</div>
+
+    </div>
+
+    <!-- MAIN POST -->
+    <div class="col-sm-10 post p-4">
+        <h2 id="problem">Problem</h2>
+
+<p>Given some dataset, you might want to find the rolling or moving average. We can visualize this in a sample dataset as follows. Note, the <code class="language-plaintext highlighter-rouge">k-lag</code> moving average we want, <code class="language-plaintext highlighter-rouge">MA-k</code>, is the mean of the last <code class="language-plaintext highlighter-rouge">k</code> observations in time, including the current one.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A tibble: 48 x 5</span><span class="w">
+   </span><span class="n">Manufacturer</span><span class="w">  </span><span class="n">Date</span><span class="w">       </span><span class="n">Price</span><span class="w">  </span><span class="n">MA_3</span><span class="w">  </span><span class="n">MA_4</span><span class="w">
+   </span><span class="o">&lt;</span><span class="n">chr</span><span class="o">&gt;</span><span class="w">         </span><span class="o">&lt;</span><span class="n">date</span><span class="o">&gt;</span><span class="w">     </span><span class="o">&lt;</span><span class="n">dbl</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dbl</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dbl</span><span class="o">&gt;</span><span class="w">
+ </span><span class="m">1</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2010-03-31</span><span class="w">     </span><span class="m">5</span><span class="w"> </span><span class="kc">NA</span><span class="w">    </span><span class="kc">NA</span><span class="w">   
+ </span><span class="m">2</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2010-06-30</span><span class="w">     </span><span class="m">4</span><span class="w"> </span><span class="kc">NA</span><span class="w">    </span><span class="kc">NA</span><span class="w">   
+ </span><span class="m">3</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2010-09-30</span><span class="w">     </span><span class="m">3</span><span class="w">  </span><span class="m">4</span><span class="w">    </span><span class="kc">NA</span><span class="w">   
+ </span><span class="m">4</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2010-12-31</span><span class="w">     </span><span class="m">6</span><span class="w">  </span><span class="m">4.33</span><span class="w">  </span><span class="m">4.5</span><span class="w"> 
+ </span><span class="m">5</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2011-03-31</span><span class="w">     </span><span class="m">7</span><span class="w">  </span><span class="m">5.33</span><span class="w">  </span><span class="m">5</span><span class="w">   
+ </span><span class="m">6</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2011-06-30</span><span class="w">     </span><span class="m">5</span><span class="w">  </span><span class="m">6</span><span class="w">     </span><span class="m">5.25</span><span class="w">
+ </span><span class="m">7</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2011-09-30</span><span class="w">     </span><span class="m">4</span><span class="w">  </span><span class="m">5.33</span><span class="w">  </span><span class="m">5.5</span><span class="w"> 
+ </span><span class="m">8</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2011-12-31</span><span class="w">     </span><span class="m">4</span><span class="w">  </span><span class="m">4.33</span><span class="w">  </span><span class="m">5</span><span class="w">   
+ </span><span class="m">9</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2012-03-31</span><span class="w">     </span><span class="m">5</span><span class="w">  </span><span class="m">4.33</span><span class="w">  </span><span class="m">4.5</span><span class="w"> 
+</span><span class="m">10</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">Industries</span><span class="w"> </span><span class="m">2012-06-30</span><span class="w">     </span><span class="m">4</span><span class="w">  </span><span class="m">4.33</span><span class="w">  </span><span class="m">4.25</span><span class="w">
+</span><span class="c1"># … with 38 more rows</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Additionally, however, we want to use <code class="language-plaintext highlighter-rouge">tidyverse</code> methodology: so no <code class="language-plaintext highlighter-rouge">for</code> loops.</p>
+
+<h3 id="sample-data">Sample Data</h3>
+
+<p>For this post, I use a constructed dataset to emphasize the usecase I want. Namely, imagine we have a panel dataset of manufacturer prices over time, and we want to see how those prices change from a moving average perspective.</p>
+
+<p>The following code will generate a simulation dataset.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+
+</span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tibble</span><span class="p">(</span><span class="w">
+    </span><span class="n">Manufacturer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="w">
+        </span><span class="nf">rep</span><span class="p">(</span><span class="s2">"A1 Industries"</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">),</span><span class="w">
+        </span><span class="nf">rep</span><span class="p">(</span><span class="s2">"B2 Factories"</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">),</span><span class="w">
+        </span><span class="nf">rep</span><span class="p">(</span><span class="s2">"C3 Potentials"</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">)</span><span class="w">
+    </span><span class="p">),</span><span class="w">
+    </span><span class="n">Date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="w">
+        </span><span class="n">as.Date</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="w">
+            </span><span class="s2">"2010-03-31"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2010-06-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2010-09-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2010-12-31"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2011-03-31"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2011-06-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2011-09-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2011-12-31"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2012-03-31"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2012-06-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2012-09-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2012-12-31"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"2013-03-31"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2013-06-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2013-09-30"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2013-12-31"</span><span class="w">
+        </span><span class="p">)),</span><span class="w"> </span><span class="m">3</span><span class="w">
+    </span><span class="p">),</span><span class="w">
+    </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="w">
+        </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w">
+        </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="w">
+        </span><span class="p">),</span><span class="w"> </span><span class="m">6</span><span class="w">
+    </span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># &gt; data </span><span class="w">
+</span><span class="c1"># # A tibble: 48 x 3</span><span class="w">
+</span><span class="c1">#    Manufacturer  Date       Price</span><span class="w">
+</span><span class="c1">#    &lt;chr&gt;         &lt;date&gt;     &lt;dbl&gt;</span><span class="w">
+</span><span class="c1">#  1 A1 Industries 2010-03-31     5</span><span class="w">
+</span><span class="c1">#  2 A1 Industries 2010-06-30     4</span><span class="w">
+</span><span class="c1">#  3 A1 Industries 2010-09-30     3</span><span class="w">
+</span><span class="c1">#  4 A1 Industries 2010-12-31     6</span><span class="w">
+</span><span class="c1">#  5 A1 Industries 2011-03-31     7</span><span class="w">
+</span><span class="c1">#  6 A1 Industries 2011-06-30     5</span><span class="w">
+</span><span class="c1">#  7 A1 Industries 2011-09-30     4</span><span class="w">
+</span><span class="c1">#  8 A1 Industries 2011-12-31     4</span><span class="w">
+</span><span class="c1">#  9 A1 Industries 2012-03-31     5</span><span class="w">
+</span><span class="c1"># 10 A1 Industries 2012-06-30     4</span><span class="w">
+</span><span class="c1"># # … with 38 more rows</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="setup">Setup</h3>
+
+<p>We can take advantage of an existing function in the <code class="language-plaintext highlighter-rouge">zoo</code> package, called <code class="language-plaintext highlighter-rouge">zoo::rollmean</code>, and modify it to fit this use case.</p>
+
+<p>On its own, <code class="language-plaintext highlighter-rouge">zoo::rollmean</code> exhibits the following behavior:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">arrange</span><span class="p">(</span><span class="n">Manufacturer</span><span class="p">,</span><span class="w"> </span><span class="n">Date</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">group_by</span><span class="p">(</span><span class="n">Manufacturer</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">mutate</span><span class="p">(</span><span class="w">
+        </span><span class="n">Roll_3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zoo</span><span class="o">::</span><span class="n">rollmean</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">),</span><span class="w">
+        </span><span class="n">Roll_4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zoo</span><span class="o">::</span><span class="n">rollmean</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">)</span><span class="w">
+    </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">ungroup</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># # A tibble: 48 x 5</span><span class="w">
+</span><span class="c1">#    Manufacturer  Date       Price Roll_3 Roll_4</span><span class="w">
+</span><span class="c1">#    &lt;chr&gt;         &lt;date&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span><span class="w">
+</span><span class="c1">#  1 A1 Industries 2010-03-31     5  NA     NA   </span><span class="w">
+</span><span class="c1">#  2 A1 Industries 2010-06-30     4   4      4   </span><span class="w">
+</span><span class="c1">#  3 A1 Industries 2010-09-30     3   4.33   4.33</span><span class="w">
+</span><span class="c1">#  4 A1 Industries 2010-12-31     6   5.33   5.33</span><span class="w">
+</span><span class="c1">#  5 A1 Industries 2011-03-31     7   6      6   </span><span class="w">
+</span><span class="c1">#  6 A1 Industries 2011-06-30     5   5.33   5.33</span><span class="w">
+</span><span class="c1">#  7 A1 Industries 2011-09-30     4   4.33   4.33</span><span class="w">
+</span><span class="c1">#  8 A1 Industries 2011-12-31     4   4.33   4.33</span><span class="w">
+</span><span class="c1">#  9 A1 Industries 2012-03-31     5   4.33   4.33</span><span class="w">
+</span><span class="c1"># 10 A1 Industries 2012-06-30     4   4      4   </span><span class="w">
+</span><span class="c1"># # … with 38 more rows</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Not what I expected! In this case, the default behavior is to take the rolling mean <em>centered</em> on the given row, meaning it is using fututre “lead” data, as well as past “lagged” data. Note the use of <code class="language-plaintext highlighter-rouge">fill = NA</code>. this just tells the function how to pad the data, since any use of lagged variabes will necessarily shrink the number of usable rows.</p>
+
+<p>There are some other options that sound promising, but they do not seem to work for me.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">arrange</span><span class="p">(</span><span class="n">Manufacturer</span><span class="p">,</span><span class="w"> </span><span class="n">Date</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">group_by</span><span class="p">(</span><span class="n">Manufacturer</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">mutate</span><span class="p">(</span><span class="w">
+        </span><span class="n">Roll_4_right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zoo</span><span class="o">::</span><span class="n">rollmean</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"right"</span><span class="p">),</span><span class="w">
+        </span><span class="n">Roll_4_left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zoo</span><span class="o">::</span><span class="n">rollmean</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">align</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"left"</span><span class="p">)</span><span class="w">
+    </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">ungroup</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># # A tibble: 48 x 5</span><span class="w">
+</span><span class="c1">#    Manufacturer  Date       Price Roll_4_right Roll_4_left</span><span class="w">
+</span><span class="c1">#    &lt;chr&gt;         &lt;date&gt;     &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span><span class="w">
+</span><span class="c1">#  1 A1 Industries 2010-03-31     5        NA           4   </span><span class="w">
+</span><span class="c1">#  2 A1 Industries 2010-06-30     4        NA           4.33</span><span class="w">
+</span><span class="c1">#  3 A1 Industries 2010-09-30     3         4           5.33</span><span class="w">
+</span><span class="c1">#  4 A1 Industries 2010-12-31     6         4.33        6   </span><span class="w">
+</span><span class="c1">#  5 A1 Industries 2011-03-31     7         5.33        5.33</span><span class="w">
+</span><span class="c1">#  6 A1 Industries 2011-06-30     5         6           4.33</span><span class="w">
+</span><span class="c1">#  7 A1 Industries 2011-09-30     4         5.33        4.33</span><span class="w">
+</span><span class="c1">#  8 A1 Industries 2011-12-31     4         4.33        4.33</span><span class="w">
+</span><span class="c1">#  9 A1 Industries 2012-03-31     5         4.33        4   </span><span class="w">
+</span><span class="c1"># 10 A1 Industries 2012-06-30     4         4.33        4.33</span><span class="w">
+</span><span class="c1"># # … with 38 more rows</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="solution">Solution</h2>
+
+<p>In this case, the behavior is mostly correct, so I wrap this function to give it the behavior I want.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">moving_average</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">series</span><span class="p">,</span><span class="w"> </span><span class="n">klags</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nf">return</span><span class="p">(</span><span class="w">
+        </span><span class="n">lag</span><span class="p">(</span><span class="w">
+            </span><span class="n">zoo</span><span class="o">::</span><span class="n">rollmean</span><span class="p">(</span><span class="n">series</span><span class="p">,</span><span class="w"> </span><span class="n">klags</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">),</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="n">klags</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+        </span><span class="p">)</span><span class="w">
+    </span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This will first calculate the rolling mean with the <code class="language-plaintext highlighter-rouge">zoo</code> package function, and then shift the results back to where we want them. The use of <code class="language-plaintext highlighter-rouge">floor(klags / 2)</code> accounts for how <code class="language-plaintext highlighter-rouge">zoo::rollmean</code> handles even and odd numbers.</p>
+
+<p>The result is the following:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ma_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">arrange</span><span class="p">(</span><span class="n">Manufacturer</span><span class="p">,</span><span class="w"> </span><span class="n">Date</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">group_by</span><span class="p">(</span><span class="n">Manufacturer</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">mutate</span><span class="p">(</span><span class="w">
+        </span><span class="n">MA_3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moving_average</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w">
+        </span><span class="n">MA_4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moving_average</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w">
+        </span><span class="n">MA_5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moving_average</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w">
+        </span><span class="n">MA_6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">moving_average</span><span class="p">(</span><span class="n">Price</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">),</span><span class="w">
+    </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">ungroup</span><span class="p">()</span><span class="w">
+
+</span><span class="c1"># &gt; ma_data </span><span class="w">
+</span><span class="c1"># # A tibble: 48 x 7</span><span class="w">
+</span><span class="c1">#    Manufacturer  Date       Price  MA_3  MA_4  MA_5  MA_6</span><span class="w">
+</span><span class="c1">#    &lt;chr&gt;         &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span><span class="w">
+</span><span class="c1">#  1 A1 Industries 2010-03-31     5 NA    NA     NA   NA   </span><span class="w">
+</span><span class="c1">#  2 A1 Industries 2010-06-30     4 NA    NA     NA   NA   </span><span class="w">
+</span><span class="c1">#  3 A1 Industries 2010-09-30     3  4    NA     NA   NA   </span><span class="w">
+</span><span class="c1">#  4 A1 Industries 2010-12-31     6  4.33  4.5   NA   NA   </span><span class="w">
+</span><span class="c1">#  5 A1 Industries 2011-03-31     7  5.33  5      5   NA   </span><span class="w">
+</span><span class="c1">#  6 A1 Industries 2011-06-30     5  6     5.25   5    5   </span><span class="w">
+</span><span class="c1">#  7 A1 Industries 2011-09-30     4  5.33  5.5    5    4.83</span><span class="w">
+</span><span class="c1">#  8 A1 Industries 2011-12-31     4  4.33  5      5.2  4.83</span><span class="w">
+</span><span class="c1">#  9 A1 Industries 2012-03-31     5  4.33  4.5    5    5.17</span><span class="w">
+</span><span class="c1"># 10 A1 Industries 2012-06-30     4  4.33  4.25   4.4  4.83</span><span class="w">
+</span><span class="c1"># # … with 38 more rows</span><span class="w">
+</span></code></pre></div></div>
+
+<p>To convince yourself that this works on the different groups e.g. manufacturers, view this table in R Studio</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">View</span><span class="p">(</span><span class="n">ma_data</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center pt-5">
+    <h2>More</h2>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col-sm-6">
+      <div class="card info-card sticky-div h-100">
+
+  <div class="card-body">
+
+    <h3 class="card-title text-center">Recent Posts</h3>
+  </div>
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-19T00:00:00-06:00">Nov 17, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Modeling Aimpoint for Green Reading</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-19T00:00:00-06:00">Aug 2, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/networks/2021/08/02/networks-navigation.html">Networks (Part II) - Navigation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-19T00:00:00-06:00">Jul 14, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/networks/2021/07/14/networks-notation.html">Networks (Part I) - Notation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-19T00:00:00-06:00">Jul 13, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html">What is the "Potential Outcomes" Framework</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2021-01-19T00:00:00-06:00">Jul 12, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/instrumental%20variables/2021/07/12/sem-iv.html">SEM Estimation by 2SLS</a>
+        </li>
+      
+    </ul>
+  <div class="card-body">
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="card info-card sticky-div h-100">
+
+    <div class="card-body">
+
+      <h3 class="card-title text-center">Categories</h3>
+
+      
+        <div class="category-tags d-flex flex-wrap justify-content-center">
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#general">
+              
+              
+                General
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#tutorial">
+              
+              
+                Tutorial
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#econometrics">
+              
+              
+                Econometrics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#machine-learning">
+              
+              
+                Machine
+              
+                Learning
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#prediction">
+              
+              
+                Prediction
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#web-development">
+              
+              
+                Web
+              
+                Development
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#front-end">
+              
+              
+                Front
+              
+                End
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#version-control">
+              
+              
+                Version
+              
+                Control
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#statistics">
+              
+              
+                Statistics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#database">
+              
+              
+                Database
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#backend">
+              
+              
+                Backend
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#instrumental-variables">
+              
+              
+                Instrumental
+              
+                Variables
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#potential-outcomes">
+              
+              
+                Potential
+              
+                Outcomes
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#networks">
+              
+              
+                Networks
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#golf">
+              
+              
+                Golf
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#physics">
+              
+              
+                Physics
+              
+            
+            </a>
+          
+        </div>
+      
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+      
+</div>
+      </main>
+
+    </div>
+    <footer class="text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="footer-element">
+        <p>&copy;2025 Stephen M. Lee</p>
+    
+</div>
+      </div>
+    </div>
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="footer-element">
+    
+        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
+            <i class="fa-hover fas fa-envelope" title="Email"></i>
+        </a>
+    
+        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
+        </a>
+    
+        <a class="social-icon" href="https://github.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-github" title="GitHub"></i>
+        </a>
+    
+</div>
+
+        </div>
+      </div>
+    
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+           <p class="powered-by footer-element mt-3">
+    Powered by 
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & 
+    <a href="https://github.com/slee981/jekyll-theme-cadre" target="_blank">Cadre</a>
+</p>
+
+        </div>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+    
+    
+    
+      <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+<script>
+  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138925131-1');
+</script>
+
+    
+  </body>
+</html>

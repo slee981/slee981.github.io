@@ -21,22 +21,22 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Text Wraps in Safari, but Scrolls in Chrome | Stephen M. Lee</title>
+<title>Networks (Part II) - Navigation | Stephen M. Lee</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Text Wraps in Safari, but Scrolls in Chrome" />
+<meta property="og:title" content="Networks (Part II) - Navigation" />
 <meta name="author" content="Stephen Lee" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:" />
-<meta property="og:description" content="Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:" />
-<link rel="canonical" href="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html" />
-<meta property="og:url" content="https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html" />
+<meta name="description" content="Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use." />
+<meta property="og:description" content="Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use." />
+<link rel="canonical" href="https://stephenlee.info/networks/2021/08/02/networks-navigation.html" />
+<meta property="og:url" content="https://stephenlee.info/networks/2021/08/02/networks-navigation.html" />
 <meta property="og:site_name" content="Stephen M. Lee" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-12T00:00:00-06:00" />
+<meta property="article:published_time" content="2021-08-02T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Text Wraps in Safari, but Scrolls in Chrome" />
+<meta property="twitter:title" content="Networks (Part II) - Navigation" />
 <script type="application/ld+json">
-{"url":"https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html","headline":"Text Wraps in Safari, but Scrolls in Chrome","dateModified":"2021-01-12T00:00:00-06:00","datePublished":"2021-01-12T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"https://stephenlee.info/networks/2021/08/02/networks-navigation.html","headline":"Networks (Part II) - Navigation","dateModified":"2021-08-02T00:00:00-05:00","datePublished":"2021-08-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/networks/2021/08/02/networks-navigation.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -91,7 +91,7 @@
 <div class="post-body">
   <div class="row post-header">
     <div class="col">
-      <h1 class="post-title text-center">Text Wraps in Safari, but Scrolls in Chrome</h1>
+      <h1 class="post-title text-center">Networks (Part II) - Navigation</h1>
       <div class="post-meta text-center">
 
         
@@ -104,8 +104,8 @@
         
 
         
-        <time class="post-metadata" datetime="2021-01-12T00:00:00-06:00" itemprop="datePublished">
-          Jan 12, 2021
+        <time class="post-metadata" datetime="2021-08-02T00:00:00-05:00" itemprop="datePublished">
+          Aug 02, 2021
         </time>
         
       </div>
@@ -120,7 +120,7 @@
   
     <h3 class="toc-title">Table of Contents</h3>
   
-  <ul class="toc"><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li><li><a href="#summary">Summary</a></li></ul>
+  <ul class="toc"><li><a href="#audience">Audience</a></li><li><a href="#overview">Overview</a></li><li><a href="#definitions">Definitions</a><ul><li><a href="#paths">Paths</a></li><li><a href="#walk">Walk</a></li><li><a href="#cycles">Cycles</a></li><li><a href="#geodesic">Geodesic</a></li><li><a href="#degree">Degree</a></li><li><a href="#component">Component</a></li><li><a href="#conclusion">Conclusion</a></li></ul></li><li><a href="#resources">Resources</a></li></ul>
 
 </div>
 
@@ -128,103 +128,81 @@
 
     <!-- MAIN POST -->
     <div class="col-sm-10 post p-4">
-        <h2 id="problem">Problem</h2>
-<p>On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below:</p>
+        <p>Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</p>
 
-<div class="row py-3">
-    <div class="col d-flex justify-content-center">
-        <img class="small-img" alt="" src="/assets/images/code_wrap/code-with-scroll.png" />
-    </div>
-</div>
+<h2 id="audience">Audience</h2>
 
-<p>However, in several different contexts I’ve noticed that what works in Brave and Chrome doesn’t necessarily work in Safari.</p>
+<p>This is part II in a series about making economic inferences on network structures. The notation is covered in <a href="/networks/2021/07/14/networks-notation.html">part I</a>.</p>
 
-<h2 id="solution">Solution</h2>
+<h2 id="overview">Overview</h2>
 
-<p>I’ve recreated a minimum working example to emphasize this point.</p>
+<p>In the previous post I described the basic notations for representing network graphs. Here, I will introduce some definitions that relate to navigating in a graph. This is a key building block for more complicated analyses in a network.</p>
 
-<p>Imagine you write the following HTML / CSS code:</p>
+<h2 id="definitions">Definitions</h2>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;style&gt;</span>
-<span class="nt">code</span> <span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">250px</span><span class="p">;</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="no">lightgrey</span><span class="p">;</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
-    <span class="nl">word-wrap</span><span class="p">:</span> <span class="n">break-word</span><span class="p">;</span>
-<span class="p">}</span>
+<p>Consider the following network graph.</p>
 
-<span class="nc">.i-1</span> <span class="p">{</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span> <span class="m">1rem</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">&lt;/style&gt;</span>
+<p><img src="/assets/images/networks/network-simple.svg" alt="scatter" width="150" /></p>
 
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"code-block"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;pre&gt;</span>
-            <span class="nt">&lt;code&gt;</span>
-                <span class="nt">&lt;span&gt;</span>def main():<span class="nt">&lt;/span&gt;</span>
-                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"i-1"</span><span class="nt">&gt;</span>my_really_long_var_name = [11, 32, 5, 53, 23, 67, 46, 7, 34, 2]<span class="nt">&lt;/span&gt;</span>
-            <span class="nt">&lt;/code&gt;</span>
-        <span class="nt">&lt;/pre&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div></div>
+<p>The figure above shows an undirected network graph with four (4) nodes and three unweighted edges. We can represent this graph, \(g\), in matrix form as follows:</p>
 
-<p>This will produce the following output in Brave browser (I assume it’s the same for Chrome).</p>
+\[g = \begin{bmatrix}
+0 &amp; 1 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\ 
+1 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}\]
 
-<div class="row py-3">
-    <div class="col d-flex justify-content-center">
-        <img class="small-img" src="/assets/images/code_wrap/brave.png" />
-    </div>
-</div>
+<p>Note, this is illustrative to provide a concrete example to reference. All the definitions below apply to both weighted and unweighted, directed and undirected graphs.</p>
 
-<p>However, it will produce the following results in Safari:</p>
+<h3 id="paths">Paths</h3>
 
-<div class="row py-3">
-    <div class="col d-flex justify-content-center">
-        <img class="small-img" src="/assets/images/code_wrap/safari.png" />
-    </div>
-</div>
+<p>A path from node \(i\) to node \(j\) in graph \(g\) is a sequence that begins at node \(i\) and follows available edges until arriving at node \(j\).</p>
 
-<p>Obviously, when there is such little code, it’s obvious that the issue is with the line <code class="language-plaintext highlighter-rouge">word-wrap: break-word</code>. In other words, if we change the style to</p>
+<p>Formally, a <strong>path</strong> in network \(g\) between nodes \(i\) and \(j\) is a sequence of edges \((n_1, n_2) \rightarrow (n_2, n_3) \rightarrow ... \rightarrow (n_{K-1}, n_K)\) where each edge \((n_{k-1}, n_k) \in g\), \(n_1 = i\) and \(n_K = j\), and each node \(n_1, ..., n_K\) are distinct. Note that the destination node along one edge becomes the starting node for the next edge.</p>
 
-<pre><code class="language-git">- word-wrap: break-word;
-+ word-wrap: normal;
-</code></pre>
+<p>Using the graph in the figure above, there is only one possible path from node \(1\) to node \(3\), namely \(\{(1, 2) \rightarrow (2, 3)\}\).</p>
 
-<p>then it works in both browsers. But when it’s late, and you’re staring at this screen</p>
+<h3 id="walk">Walk</h3>
 
-<div class="row py-3">
-    <div class="col d-flex justify-content-center">
-        <img src="/assets/images/code_wrap/safari-dev.png" />
-    </div>
-</div>
+<p>A <strong>walk</strong> is a path that doesn’t require distinct nodes i.e. an edge can lead to a node that has already been visited. In this sense, a walk will, in general, be less restrictive.</p>
 
-<p>let’s just say that things can take longer than you hope.</p>
+<h3 id="cycles">Cycles</h3>
 
-<h2 id="summary">Summary</h2>
+<p>A <strong>cycle</strong> is a walk that starts and ends at the same node without visiting any other node more than once. In the definition of path above, we simply let \(n_1 = n_K = i = j\).</p>
 
-<p>Safari and Brave / Chrome handle <code class="language-plaintext highlighter-rouge">word-wrap: break-word</code> differently when combined with <code class="language-plaintext highlighter-rouge">overflow: auto</code>. Brave and Chrome will still enforce the <code class="language-plaintext highlighter-rouge">overflow: auto</code>, while Safari will enforce the <code class="language-plaintext highlighter-rouge">word-wrap: break-word</code>. This can lead to confusion when using large and inherited style sheets.</p>
+<h3 id="geodesic">Geodesic</h3>
 
-<p>If you want your overflow code to scroll and not wrap in Safari browser, make sure your final <code class="language-plaintext highlighter-rouge">code</code> block settings look like this:</p>
+<p>A <strong>geodesic</strong> between nodes \(i\) and \(j\) is the shortest path between those nodes.</p>
 
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">code</span> <span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">250px</span><span class="p">;</span>
-    <span class="nl">background-color</span><span class="p">:</span> <span class="no">lightgrey</span><span class="p">;</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-    <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
-    <span class="nl">word-wrap</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+<h3 id="degree">Degree</h3>
 
-    <span class="c">/*  
-    ** TLDR: this works in brave, but not in safar
-    **
-    ** word-wrap: break-word; 
-    */</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<p>The <strong>degree</strong> of a node is the number of links that involve the node. For directed graphs, this can be referenced as an in-degree and an out-degree, depending on if the edge ends with or starts from that node.</p>
+
+<p>In our example above, nodes \(1\) and \(2\) both have degree two (2), while nodes \(3\) and \(4\) have degree one (1).</p>
+
+<h3 id="component">Component</h3>
+
+<p>Finally, what if there is a node \(j\) that cannot be reached after starting from some other node \(i\)? In this case, we say that those nodes are in separate components.</p>
+
+<p>More formally, a given network \(g\) is <strong>connected</strong> if there exists a path between any two nodes i.e. you can start at any node in the network and find a path to reach any other node in the network.</p>
+
+<p>Similarly, a <strong>component</strong> of a network \(g\) is a subnetwork \(g' \subseteq g\) where 1) \(g'\) is connected and 2) if a node \(i\) is in \(g'\) and the edge \((i, j) \in g\) (i.e. the edge exists in the larger graph) then the node \(j\) and edge \((i, j)\) must both also be in \(g'\). In other words, a component is a maximally connected subgraph. The graph below shows a network with two connected components.</p>
+
+<p><img src="/assets/images/networks/network-component.svg" alt="scatter" width="150" /></p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>This post focused on definitions that relate to navigating in a network i.e. how to think about moving from one node to another.</p>
+
+<p>One very natural extension are algorithms for actually navigating these graphs. This includes things like depth-first and breadth-first searches, among other. I suspect I’ll make a post about these at some point, but until then, I very much recommend <a href="http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf">this textbook</a>, which is currently available for free as a PDF online.</p>
+
+<h2 id="resources">Resources</h2>
+<ul>
+  <li>“Social and Economic Networks” by M. O. Jackson</li>
+  <li>“Algorithms” by S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani</li>
+</ul>
+
 
     </div>
   </div>
@@ -244,31 +222,31 @@
     <ul class="list-group list-group-flush">
       
         <li class="list-group-item">
-          <time datetime="2021-01-12T00:00:00-06:00">Nov 17, 2025</time> 
+          <time datetime="2021-08-02T00:00:00-05:00">Nov 17, 2025</time> 
           &raquo;
           <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Modeling Aimpoint for Green Reading</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-12T00:00:00-06:00">Aug 2, 2021</time> 
+          <time datetime="2021-08-02T00:00:00-05:00">Aug 2, 2021</time> 
           &raquo;
           <a class="card-link" href="/networks/2021/08/02/networks-navigation.html">Networks (Part II) - Navigation</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-12T00:00:00-06:00">Jul 14, 2021</time> 
+          <time datetime="2021-08-02T00:00:00-05:00">Jul 14, 2021</time> 
           &raquo;
           <a class="card-link" href="/networks/2021/07/14/networks-notation.html">Networks (Part I) - Notation</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-12T00:00:00-06:00">Jul 13, 2021</time> 
+          <time datetime="2021-08-02T00:00:00-05:00">Jul 13, 2021</time> 
           &raquo;
           <a class="card-link" href="/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html">What is the "Potential Outcomes" Framework</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-01-12T00:00:00-06:00">Jul 12, 2021</time> 
+          <time datetime="2021-08-02T00:00:00-05:00">Jul 12, 2021</time> 
           &raquo;
           <a class="card-link" href="/instrumental%20variables/2021/07/12/sem-iv.html">SEM Estimation by 2SLS</a>
         </li>
@@ -559,6 +537,23 @@
 
     
     
+    
+      <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
     
     
     
