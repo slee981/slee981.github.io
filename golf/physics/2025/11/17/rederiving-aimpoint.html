@@ -21,9 +21,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Rederiving Aimpoint | Stephen M. Lee</title>
+<title>Modeling Aimpoint for Green Reading | Stephen M. Lee</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Rederiving Aimpoint" />
+<meta property="og:title" content="Modeling Aimpoint for Green Reading" />
 <meta name="author" content="Stephen Lee" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The Physics of Putting" />
@@ -34,9 +34,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-17T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Rederiving Aimpoint" />
+<meta property="twitter:title" content="Modeling Aimpoint for Green Reading" />
 <script type="application/ld+json">
-{"url":"https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html","headline":"Rederiving Aimpoint","dateModified":"2025-11-17T00:00:00-06:00","datePublished":"2025-11-17T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"The Physics of Putting","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html","headline":"Modeling Aimpoint for Green Reading","dateModified":"2025-11-17T00:00:00-06:00","datePublished":"2025-11-17T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"The Physics of Putting","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -91,7 +91,7 @@
 <div class="post-body">
   <div class="row post-header">
     <div class="col">
-      <h1 class="post-title text-center">Rederiving Aimpoint</h1>
+      <h1 class="post-title text-center">Modeling Aimpoint for Green Reading</h1>
       <div class="post-meta text-center">
 
         
@@ -132,38 +132,13 @@
 
 <h2 id="problem">Problem</h2>
 
-<p>Most golfers have an intuitive sense of how putts behave on different greens—fast vs slow, uphill vs downhill, breaking left or right—but the underlying mechanics are surprisingly consistent. With a few reasonable assumptions, you can describe the motion of a rolling golf ball with straightforward physics.</p>
+<p>Aimpoint Express is a common system for calibrating your feet and fingers to estimate the break of a putt. Tune in to a professional golf tournament and you’re likely to see players doing funny things with their fingers, and awkwardly straddling their line.</p>
 
-<p>This first part lays out the foundation for a simple model that estimates how far a ball rolls and how much it breaks. The goal isn’t to produce a full fluid-dynamics treatment or handle every edge case. Instead, we want something accurate in the practical range where golfers actually need precision: putts of about 5–20 feet on slopes of roughly 0–3%.</p>
+<p>I played competitive golf for many years, but tended to hit it better tee to green than I could consistently putt. This post is an attempt to better understand the physics of how putts break, and perhaps more importantly, how green speed and uphill/downhill slopes impact that break.</p>
+
+<p>This first part lays out the foundation for a simple model that estimates how far a ball rolls and how much it breaks. The goal isn’t to produce a full dynamics treatment or handle every edge case. Instead, we want something accurate in the practical range where golfers actually need precision: putts of about 5–20 feet on slopes of roughly 0–3%.</p>
 
 <p>We’ll start by recalling a few Newtonian relationships, connect them to the Stimp reading, and show how slope influences both speed and break.</p>
-
-<hr />
-
-<!-- ### Quick Reference
-
-For readers who want the bottom line first, here are the main formulas derived in this post:
-
-| Formula | Description | Equation |
-|---------|-------------|----------|
-| **Effective Stimp** | How forward slope $$X$$ changes speed | $$S_{\text{eff}} \approx S(1 + 1.64\, S\, X)$$ |
-| **Break (undamped)** | Lateral break at hole, upper bound | $$x_\text{break} \approx 1.64\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2R - 2\sqrt{R(D+R)})$$ |
-| **Break (damped)** | With friction coupling correction | $$x_\text{break} \approx 1.17\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2R - 2\sqrt{R(D+R)})$$ |
-| **Break ($$R=1$$)** | Simplified for 1-ft rollout | $$x_\text{break} \approx 1.17\, S\, X_s\, (1 + 1.64\, S\, X)(D + 2 - 2\sqrt{D+1})$$ |
-| **Constants** | From USGA Stimp meter | $$v_s = 6.27\ \text{ft/s}$$, $$g = 32.17\ \text{ft/s}^2$$ |
-
-**Notation:**
-- $$S$$ = base Stimp reading on level green (ft)
-- $$S_\text{eff}$$ = effective Stimp accounting for forward slope
-- $$X$$ = forward slope as decimal (positive uphill, negative downhill)
-- $$X_s$$ = side-slope as decimal
-- $$D$$ = distance to hole (ft)
-- $$R$$ = desired rollout past hole (ft)
-
-The rest of this post derives these formulas from first principles.
-
----
- -->
 
 <h2 id="newtons-laws">Newton’s Laws</h2>
 
@@ -914,7 +889,7 @@ The rest of this post derives these formulas from first principles.
         <li class="list-group-item">
           <time datetime="2025-11-17T00:00:00-06:00">Nov 17, 2025</time> 
           &raquo;
-          <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Rederiving Aimpoint</a>
+          <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Modeling Aimpoint for Green Reading</a>
         </li>
       
         <li class="list-group-item">
@@ -1132,17 +1107,6 @@ The rest of this post derives these formulas from first principles.
 
     
     
-    
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
-<script>
-  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-138925131-1');
-</script>
-
     
   </body>
 </html>
