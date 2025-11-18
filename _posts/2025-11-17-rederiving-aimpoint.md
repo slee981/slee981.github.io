@@ -97,10 +97,12 @@ $$
 
 ## Slope and Speed
 
-Now consider an uphill or downhill slope. On a slope with rise/run ratio $$X$$, the component of gravity along the slope direction is $$g\sin\theta$$. For small angles (typical on greens), $$\sin\theta \approx \tan\theta = X$$, giving:
+Now consider an uphill or downhill slope. On a slope with rise/run ratio $$X$$, the component of gravity along the slope direction is $$g\sin\theta$$. For small angles (typical on greens), $$\sin\theta \approx \tan\theta = X$$.
+
+Just as with the Stimp meter ramp, rotational inertia reduces the gravitational acceleration by a factor of $$\frac{5}{7}$$ for a rolling sphere, giving:
 
 $$
-a_g \approx g X
+a_g \approx \frac{5}{7} g X
 $$
 
 where:
@@ -130,14 +132,12 @@ $$
 After inserting constants and simplifying, we get a useful approximation:[^4]
 
 $$
-S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S} 
+S_{\text{eff}} \approx \frac{S}{1 + 1.17 X S}
 $$
 
 
 
-where the coefficient 1.64 comes from $$\frac{2g}{v_s^2}$$ with $$g = 32.17\ \text{ft/s}^2$$ and $$v_s \approx 6.27\ \text{ft/s}$$ (the exit velocity from a USGA Stimp meter).
-
-This provides a practical way to think about uphill or downhill putts without re-deriving the full dynamics.
+where the coefficient 1.17 comes from $$\frac{5}{7} \cdot \frac{2g}{v_s^2}$$ with $$g = 32.17\ \text{ft/s}^2$$ and $$v_s \approx 6.27\ \text{ft/s}$$ (the exit velocity from a USGA Stimp meter). The $$\frac{5}{7}$$ factor accounts for rotational inertia.
 
 ---
 
@@ -145,9 +145,9 @@ This provides a practical way to think about uphill or downhill putts without re
 
 The same slope that changes speed can also produce lateral acceleration when the slope tilts sideways relative to the target line.
 
-**Note:** When calculating break, we need to account for the *effective* Stimp $$S_\text{eff}$$ from Section 3 so any uphill or downhill slope factors in to the time the putt has to move sideways. This way, a putt going uphill (which actually stops in a shorter amount of time) will have less time to break laterally.
-
 Let $$X_s$$ be the side-slope (in decimal form). The lateral component of gravitational acceleration is:
+
+**Note:** For now, we ignore the effect of friction on lateral motion. This model treats lateral and forward motion independently—gravity accelerates the ball laterally while friction only decelerates it forward. We'll address this simplification later.
 
 $$
 a_\text{lat} = g X_s
@@ -197,7 +197,7 @@ $$
 Now substitute the physical relationship for effective deceleration. The ball experiences both friction and gravity along the forward direction:
 
 $$
-a_\text{eff} = a_f + a_g \approx -( \frac{6.27^2}{2S} + gX)
+a_\text{eff} = a_f + a_g \approx -( \frac{19.7}{S} + 23X)
 $$
 
 where $$X$$ is the forward slope (positive uphill, negative downhill). 
@@ -205,13 +205,13 @@ where $$X$$ is the forward slope (positive uphill, negative downhill).
 Substituting everything in:
 
 $$
-x_\text{break} \approx \frac{g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2
+x_\text{break} \approx \frac{g X_s S}{19.7 + 23 S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2
 $$
 
 This is now the break in feet. We simply multiply by 12 to get break in inches: 
 
 $$
-x_\text{break} \approx \frac{12 g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2
+x_\text{break} \approx \frac{12 g X_s S}{19.7 + 23 S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2
 $$
 
 This makes the dependence on base Stimp and forward slope explicit without needing to first calculate effective Stimp.
@@ -223,7 +223,7 @@ This model treats lateral and forward motion independently—gravity accelerates
 But our goal is a useful model that generates accurate heuristics for players on the course. A simple correction is to multiply the break by some damping factor. We'll use $$f_\text{damp} \approx \frac{5}{7}$$, analogous to how rotational inertia reduces forward acceleration. While not rigorously derived from the coupled dynamics, this heuristic gives a practical first-order correction:
 
 $$
-x_\text{break,damped} \approx \frac{5}{7} \left(\frac{12 g X_s S}{19.7 + g S X} \right) \left(\sqrt{D+R} - \sqrt{R}\right)^2
+x_\text{break,damped} \approx \frac{5}{7} \left(\frac{12 g X_s S}{19.7 + 23 S X} \right) \left(\sqrt{D+R} - \sqrt{R}\right)^2
 $$
 
 This captures the essential behavior of a breaking putt under the assumptions of constant friction and small slopes.
@@ -238,13 +238,13 @@ First, we'll analyze a table of effective Stimps on different slopes:
 
 | Forward Slope (%) | S = 8 | S = 9 | S = 10 | S = 11 | S = 12 |
 |:-----------------:|:-----:|:-----:|:------:|:------:|:------:|
-|        +3         |  5.7  |  6.2  |  6.7   |  7.1   |  7.5   |
-|        +2         |  6.3  |  6.9  |  7.5   |  8.1   |  8.6   |
-|        +1         |  7.1  |  7.8  |  8.6   |  9.3   |  10.0  |
+|        +3         |  6.2  |  6.8  |  7.4   |  7.9   |  8.4   |
+|        +2         |  6.7  |  7.4  |  8.1   |  8.7   |  9.4   |
+|        +1         |  7.3  |  8.1  |  9.0   |  9.7   |  10.5  |
 |         0         |  8.0  |  9.0  |  10.0  |  11.0  |  12.0  |
-|        -1         |  9.2  | 10.6  |  12.0  |  13.4  |  14.9  |
-|        -2         | 10.8  | 12.8  |  14.9  |  17.2  |  19.8  |
-|        -3         | 13.2  | 16.2  |  19.7  |  24.0  |  29.3  |
+|        -1         |  8.8  | 10.1  |  11.3  |  12.6  |  14.0  |
+|        -2         |  9.8  | 11.4  |  13.1  |  14.8  |  16.7  |
+|        -3         | 11.1  | 13.2  |  15.4  |  17.9  |  20.7  |
 
 This is very much in line with what old Aimpoint charts presented. You can still find those floating around online if you look. 
 
@@ -255,13 +255,13 @@ To evaluate the total break, we need to pick a green speed and a side slope. For
 
   | Forward Slope (%) | D = 3 | D = 5 | D = 10 | D = 15 | D = 20 | D = 30 |
   |:-----------------:|:-----:|:-----:|:------:|:------:|:------:|:------:|
-  |        +3         |  0.8  |  1.6  |  4.4   |  7.6   |  10.9  |  18.1  |
-  |        +2         |  0.8  |  1.9  |  5.0   |  8.5   |  12.3  |  20.3  |
-  |        +1         |  1.0  |  2.1  |  5.6   |  9.7   |  14.0  |  23.2  |
-  |         0         |  1.1  |  2.5  |  6.6   |  11.3  |  16.3  |  26.9  |
-  |        -1         |  1.3  |  2.9  |  7.9   |  13.5  |  19.5  |  32.2  |
-  |        -2         |  1.7  |  3.6  |  9.8   |  16.7  |  24.2  |  40.0  |
-  |        -3         |  2.2  |  4.8  |  12.9  |  22.1  |  31.9  |  52.8  |
+  |        +3         |  1.0  |  2.2  |  5.6   |  9.3   |  13.3  |  21.6  |
+  |        +2         |  1.1  |  2.4  |  6.1   |  10.2  |  14.6  |  23.7  |
+  |        +1         |  1.3  |  2.6  |  6.7   |  11.3  |  16.1  |  26.2  |
+  |         0         |  1.4  |  2.9  |  7.5   |  12.6  |  18.0  |  29.2  |
+  |        -1         |  1.6  |  3.3  |  8.5   |  14.3  |  20.3  |  33.1  |
+  |        -2         |  1.8  |  3.8  |  9.8   |  16.4  |  23.4  |  38.1  |
+  |        -3         |  2.2  |  4.5  |  11.6  |  19.4  |  27.6  |  44.9  |
 
 **Note**, these values can be interpreted as total break. But remember, since the cup is just over 4 inches in diameter, the breaks of 1 that you see will still be played inside the edge of the cup. 
 
@@ -269,25 +269,25 @@ To evaluate the total break, we need to pick a green speed and a side slope. For
 
   | Forward Slope (%) | D = 3 | D = 5 | D = 10 | D = 15 | D = 20 | D = 30 |
   |:-----------------:|:-----:|:-----:|:------:|:------:|:------:|:------:|
-  |        +3         |  1.5  |  3.3  |  8.8   |  15.1  |  21.9  |  36.2  |
-  |        +2         |  1.7  |  3.7  |  9.9   |  17.0  |  24.6  |  40.6  |
-  |        +1         |  1.9  |  4.2  |  11.3  |  19.4  |  28.0  |  46.3  |
-  |         0         |  2.3  |  4.9  |  13.1  |  22.5  |  32.6  |  53.9  |
-  |        -1         |  2.7  |  5.9  |  15.7  |  26.9  |  39.0  |  64.4  |
-  |        -2         |  3.3  |  7.3  |  19.5  |  33.5  |  48.4  |  80.0  |
-  |        -3         |  4.4  |  9.6  |  25.8  |  44.2  |  63.9  | 105.7  |
+  |        +3         |  2.1  |  4.4  |  11.1  |  18.7  |  26.6  |  43.3  |
+  |        +2         |  2.3  |  4.8  |  12.2  |  20.4  |  29.1  |  47.4  |
+  |        +1         |  2.5  |  5.3  |  13.5  |  22.6  |  32.2  |  52.3  |
+  |         0         |  2.8  |  5.9  |  15.0  |  25.2  |  35.9  |  58.4  |
+  |        -1         |  3.2  |  6.7  |  17.0  |  28.5  |  40.7  |  66.1  |
+  |        -2         |  3.7  |  7.7  |  19.6  |  32.9  |  46.9  |  76.2  |
+  |        -3         |  4.3  |  9.1  |  23.1  |  38.8  |  55.3  |  89.9  |
 
 ### 3% side slope 
 
   | Forward Slope (%) | D = 3 | D = 5 | D = 10 | D = 15 | D = 20 | D = 30 |
   |:-----------------:|:-----:|:-----:|:------:|:------:|:------:|:------:|
-  |        +3         |  2.3  |  4.9  |  13.2  |  22.7  |  32.8  |  54.3  |
-  |        +2         |  2.5  |  5.6  |  14.9  |  25.5  |  36.9  |  60.9  |
-  |        +1         |  2.9  |  6.3  |  16.9  |  29.1  |  42.0  |  69.5  |
-  |         0         |  3.4  |  7.4  |  19.7  |  33.8  |  48.9  |  80.8  |
-  |        -1         |  4.0  |  8.8  |  23.6  |  40.4  |  58.4  |  96.6  |
-  |        -2         |  5.0  | 10.9  |  29.3  |  50.2  |  72.6  | 120.1  |
-  |        -3         |  6.6  | 14.4  |  38.6  |  66.3  |  95.8  | 158.5  |
+  |        +3         |  3.1  |  6.5  |  16.7  |  28.0  |  39.9  |  64.9  |
+  |        +2         |  3.4  |  7.2  |  18.3  |  30.6  |  43.7  |  71.0  |
+  |        +1         |  3.8  |  7.9  |  20.2  |  33.8  |  48.3  |  78.5  |
+  |         0         |  4.2  |  8.8  |  22.5  |  37.8  |  53.9  |  87.6  |
+  |        -1         |  4.8  | 10.0  |  25.5  |  42.8  |  61.0  |  99.2  |
+  |        -2         |  5.5  | 11.5  |  29.4  |  49.3  |  70.3  | 114.3  |
+  |        -3         |  6.5  | 13.6  |  34.7  |  58.2  |  82.9  | 134.8  |
 
 ---
 
@@ -522,10 +522,10 @@ The negative sign indicates deceleration (acceleration opposite to the direction
 
 [^4]: See [Appendix A3](#appendix-effective-stimp) for the full derivation.
 
-When the green has a slope $$X$$ (expressed as a decimal), gravity contributes an additional acceleration component:
+When the green has a slope $$X$$ (expressed as a decimal), gravity contributes an additional acceleration component. Just as with the Stimp meter ramp, rotational inertia reduces this gravitational component by $$\frac{5}{7}$$:
 
 $$
-a_g = g X
+a_g \approx \frac{5}{7} g X
 $$
 
 where $$g = 32.17\ \text{ft/s}^2$$ is gravitational acceleration.
@@ -536,7 +536,7 @@ $$
 a_{\text{eff}} = a_f + a_g
 $$
 
-where $$a_f < 0$$ (friction opposes motion) and $$a_g = gX$$ (positive for downhill, negative for uphill).
+where $$a_f < 0$$ (friction opposes motion) and $$a_g = \frac{5}{7}gX$$ (positive for downhill, negative for uphill).
 
 The effective Stimp reading $$S_{\text{eff}}$$ is the distance a ball would roll with this modified acceleration. Using the same kinematic relationship:
 
@@ -551,19 +551,19 @@ $$
 Taking the ratio with the level-green Stimp:
 
 $$
-\frac{S_{\text{eff}}}{S} = \frac{-\frac{v_s^2}{2 a_{\text{eff}}}}{-\frac{v_s^2}{2 a_f}} = \frac{a_f}{a_{\text{eff}}} = \frac{a_f}{a_f + gX}
+\frac{S_{\text{eff}}}{S} = \frac{-\frac{v_s^2}{2 a_{\text{eff}}}}{-\frac{v_s^2}{2 a_f}} = \frac{a_f}{a_{\text{eff}}} = \frac{a_f}{a_f + \frac{5}{7}gX}
 $$
 
-For a standard Stimp meter (as derived in Appendix A1), the release velocity is $$v_s \approx 6.27\ \text{ft/s}$$ and we can express $$a_f \approx \frac{19.7}{S}$$
+For a standard Stimp meter (as derived in Appendix A1), the release velocity is $$v_s \approx 6.27\ \text{ft/s}$$ and we can express $$a_f \approx -\frac{19.7}{S}$$
 
 $$
-\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_f + gX} = \frac{1}{1 + 1.64 X S}
+\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_f + \frac{5}{7}gX} = \frac{1}{1 + \frac{5}{7} \cdot 1.64 X S} = \frac{1}{1 + 1.17 X S}
 $$
 
 Therefore:
 
 $$
-S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S} 
+S_{\text{eff}} \approx \frac{S}{1 + 1.17 X S}
 $$
 
 ---
