@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-18T13:40:56-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-18T14:54:39-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;In my &lt;a href=&quot;/golf/physics/2025/11/17/rederiving-aimpoint.html&quot;&gt;previous post&lt;/a&gt;, I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we’re going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system.&lt;/p&gt;
 
@@ -228,7 +228,225 @@
 
 &lt;p&gt;Next time you’re on the practice green, find the Stimp reading and test these viewing distances. I suspect you’ll find they provide an excellent baseline for the Express system—and a deeper appreciation for the physics happening beneath your feet.&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><category term="geometry" /><summary type="html">Introduction</summary></entry><entry><title type="html">Modeling Aimpoint for Green Reading</title><link href="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" rel="alternate" type="text/html" title="Modeling Aimpoint for Green Reading" /><published>2025-11-17T00:00:00-06:00</published><updated>2025-11-17T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html">&lt;h1 id=&quot;the-physics-of-putting&quot;&gt;The Physics of Putting&lt;/h1&gt;
+&lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><category term="geometry" /><summary type="html">Introduction</summary></entry><entry><title type="html">Effective Distance on Sloped Greens</title><link href="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html" rel="alternate" type="text/html" title="Effective Distance on Sloped Greens" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">&lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
+
+&lt;p&gt;You face a 20-foot putt that’s 2% downhill on 10-stimp greens. How hard should you hit it?&lt;/p&gt;
+
+&lt;p&gt;Instead of thinking “hit it softer than a flat 20-footer,” what if we could translate this into an equivalent flat distance? Your body already knows how to hit a 15-footer—that muscle memory is far more reliable than abstract “softer” adjustments.&lt;/p&gt;
+
+&lt;h2 id=&quot;derivation&quot;&gt;Derivation&lt;/h2&gt;
+
+&lt;p&gt;From the &lt;a href=&quot;/golf/physics/2025/11/17/rederiving-aimpoint.html&quot;&gt;earlier physics model&lt;/a&gt;, we know that for a putt with total rollout \(L = D + R\), the required initial velocity is:&lt;/p&gt;
+
+\[v_0^2 = 2 a_{\text{eff}} L\]
+
+&lt;p&gt;where \(a_{\text{eff}}\) is the effective deceleration accounting for both friction and slope.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deceleration from Friction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On flat greens at Stimp \(S\):&lt;/p&gt;
+
+\[a_f = -\frac{v_s^2}{2S} \approx -\frac{19.7}{S}\]
+
+&lt;p&gt;where \(v_s \approx 6.27\ \text{ft/s}\) is the Stimp meter release velocity.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Acceleration from Gravity&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On a slope with forward grade \(X\) (positive uphill, negative downhill), gravity adds:&lt;/p&gt;
+
+\[a_g = \frac{5}{7} g X \approx 23 X\]
+
+&lt;p&gt;The effective deceleration becomes:&lt;/p&gt;
+
+\[a_{\text{eff}} = a_f + a_g \approx -\frac{19.7}{S} - 23X\]
+
+&lt;p&gt;&lt;strong&gt;Distance Adjustment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To find the equivalent flat distance, we set initial velocities equal:&lt;/p&gt;
+
+\[-\frac{19.7}{S} \cdot 2 L_{\text{flat}} = -\left(\frac{19.7}{S} + 23X\right) \cdot 2 L_{\text{slope}}\]
+
+&lt;p&gt;Solving for \(L_{\text{flat}}\):&lt;/p&gt;
+
+\[L_{\text{flat}} = \left(1 + \frac{23SX}{19.7}\right) L_{\text{slope}}\]
+
+&lt;p&gt;Using \(\frac{23}{19.7} \approx 1.17\):&lt;/p&gt;
+
+\[\frac{L_{\text{flat}}}{L_{\text{slope}}} =  1 + 1.17 \, S \, X\]
+
+&lt;p&gt;This is our distance adjustment formula.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-tables&quot;&gt;The Tables&lt;/h2&gt;
+
+&lt;h3 id=&quot;effective-distance&quot;&gt;Effective Distance&lt;/h3&gt;
+
+&lt;p&gt;Multiply your actual distance by these percentages:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Forward Slope&lt;/th&gt;
+      &lt;th&gt;Stimp 8&lt;/th&gt;
+      &lt;th&gt;Stimp 9&lt;/th&gt;
+      &lt;th&gt;Stimp 10&lt;/th&gt;
+      &lt;th&gt;Stimp 11&lt;/th&gt;
+      &lt;th&gt;Stimp 12&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+3% (steep uphill)&lt;/td&gt;
+      &lt;td&gt;128%&lt;/td&gt;
+      &lt;td&gt;132%&lt;/td&gt;
+      &lt;td&gt;135%&lt;/td&gt;
+      &lt;td&gt;139%&lt;/td&gt;
+      &lt;td&gt;142%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+2% (uphill)&lt;/td&gt;
+      &lt;td&gt;119%&lt;/td&gt;
+      &lt;td&gt;121%&lt;/td&gt;
+      &lt;td&gt;123%&lt;/td&gt;
+      &lt;td&gt;126%&lt;/td&gt;
+      &lt;td&gt;128%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+1% (slight uphill)&lt;/td&gt;
+      &lt;td&gt;109%&lt;/td&gt;
+      &lt;td&gt;111%&lt;/td&gt;
+      &lt;td&gt;112%&lt;/td&gt;
+      &lt;td&gt;113%&lt;/td&gt;
+      &lt;td&gt;114%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0% (flat)&lt;/td&gt;
+      &lt;td&gt;100%&lt;/td&gt;
+      &lt;td&gt;100%&lt;/td&gt;
+      &lt;td&gt;100%&lt;/td&gt;
+      &lt;td&gt;100%&lt;/td&gt;
+      &lt;td&gt;100%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-1% (slight downhill)&lt;/td&gt;
+      &lt;td&gt;91%&lt;/td&gt;
+      &lt;td&gt;89%&lt;/td&gt;
+      &lt;td&gt;88%&lt;/td&gt;
+      &lt;td&gt;87%&lt;/td&gt;
+      &lt;td&gt;86%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-2% (downhill)&lt;/td&gt;
+      &lt;td&gt;81%&lt;/td&gt;
+      &lt;td&gt;79%&lt;/td&gt;
+      &lt;td&gt;77%&lt;/td&gt;
+      &lt;td&gt;74%&lt;/td&gt;
+      &lt;td&gt;72%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-3% (steep downhill)&lt;/td&gt;
+      &lt;td&gt;72%&lt;/td&gt;
+      &lt;td&gt;68%&lt;/td&gt;
+      &lt;td&gt;65%&lt;/td&gt;
+      &lt;td&gt;61%&lt;/td&gt;
+      &lt;td&gt;58%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; 20-foot putt, 2% downhill, 10 stimp → \(20 \times 0.77 = 15.4\) feet&lt;/p&gt;
+
+&lt;h3 id=&quot;10-foot-putt&quot;&gt;10-Foot Putt&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Forward Slope&lt;/th&gt;
+      &lt;th&gt;Stimp 8&lt;/th&gt;
+      &lt;th&gt;Stimp 10&lt;/th&gt;
+      &lt;th&gt;Stimp 12&lt;/th&gt;
+      &lt;th&gt;Stimp 14&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+3% (steep uphill)&lt;/td&gt;
+      &lt;td&gt;12.8 ft&lt;/td&gt;
+      &lt;td&gt;13.5 ft&lt;/td&gt;
+      &lt;td&gt;14.2 ft&lt;/td&gt;
+      &lt;td&gt;14.9 ft&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+2% (uphill)&lt;/td&gt;
+      &lt;td&gt;11.9 ft&lt;/td&gt;
+      &lt;td&gt;12.3 ft&lt;/td&gt;
+      &lt;td&gt;12.8 ft&lt;/td&gt;
+      &lt;td&gt;13.3 ft&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+1% (slight uphill)&lt;/td&gt;
+      &lt;td&gt;10.9 ft&lt;/td&gt;
+      &lt;td&gt;11.2 ft&lt;/td&gt;
+      &lt;td&gt;11.4 ft&lt;/td&gt;
+      &lt;td&gt;11.6 ft&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0% (flat)&lt;/td&gt;
+      &lt;td&gt;10.0 ft&lt;/td&gt;
+      &lt;td&gt;10.0 ft&lt;/td&gt;
+      &lt;td&gt;10.0 ft&lt;/td&gt;
+      &lt;td&gt;10.0 ft&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-1% (slight downhill)&lt;/td&gt;
+      &lt;td&gt;9.1 ft&lt;/td&gt;
+      &lt;td&gt;8.8 ft&lt;/td&gt;
+      &lt;td&gt;8.6 ft&lt;/td&gt;
+      &lt;td&gt;8.4 ft&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-2% (downhill)&lt;/td&gt;
+      &lt;td&gt;8.1 ft&lt;/td&gt;
+      &lt;td&gt;7.7 ft&lt;/td&gt;
+      &lt;td&gt;7.2 ft&lt;/td&gt;
+      &lt;td&gt;6.7 ft&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-3% (steep downhill)&lt;/td&gt;
+      &lt;td&gt;7.2 ft&lt;/td&gt;
+      &lt;td&gt;6.5 ft&lt;/td&gt;
+      &lt;td&gt;5.8 ft&lt;/td&gt;
+      &lt;td&gt;5.1 ft&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;key-takeaways&quot;&gt;Key takeaways&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Faster greens amplify slope effects.&lt;/strong&gt; On 14-stimp greens, a 3% uphill 10-footer plays like 15 feet (+49%), while 3% downhill plays like 5 feet (-49%). On 8-stimp greens, the same slopes only adjust ±28%. Speed matters.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Downhill adjustments are more dramatic than uphill.&lt;/strong&gt; A 2% downhill putt on 10-stimp greens requires hitting 77% of the distance—a 20-footer becomes a 15-footer. But 2% uphill only requires 123%—a 20-footer becomes 24.5 feet. You lose more distance downhill than you gain uphill.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;how-to-use-this&quot;&gt;How to Use This&lt;/h2&gt;
+
+&lt;p&gt;It’s simple:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Read your slope (e.g., 2% uphill)&lt;/li&gt;
+  &lt;li&gt;Know the green speed (e.g., 10 stimp)&lt;/li&gt;
+  &lt;li&gt;Look up the adjustment (e.g., 123%)&lt;/li&gt;
+  &lt;li&gt;Hit it like the adjusted distance (e.g., 20 × 1.23 = 24.6 feet)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;That’s it. Your body knows what a 25-footer feels like. Trust that muscle memory instead of guessing “hit it harder.”&lt;/p&gt;
+
+&lt;p&gt;On the practice green, verify the table matches your feel. Hit 10-footers at different slopes and see if the adjustments work. Once calibrated, you’ll have a reliable system for speed control.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><summary type="html">The Problem</summary></entry><entry><title type="html">Modeling Aimpoint for Green Reading</title><link href="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" rel="alternate" type="text/html" title="Modeling Aimpoint for Green Reading" /><published>2025-11-17T00:00:00-06:00</published><updated>2025-11-17T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html">&lt;h1 id=&quot;the-physics-of-putting&quot;&gt;The Physics of Putting&lt;/h1&gt;
 
 &lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 
@@ -1996,180 +2214,4 @@ MYSQL_DATABASE=test_db
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make shell
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Or, we can open a browser, navigate to https://localhost:8080, and find Adminer. Simply login with the credentials you provided in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql.dev.list&lt;/code&gt; configuration file.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="database" /><category term="backend" /><category term="docker" /><category term="mysql" /><summary type="html">Problem</summary></entry><entry><title type="html">Deploy Jekyll to GitHub Pages</title><link href="https://stephenlee.info/web%20development/front%20end/2021/01/14/deploy-jekyll-to-github-pages.html" rel="alternate" type="text/html" title="Deploy Jekyll to GitHub Pages" /><published>2021-01-14T00:00:00-06:00</published><updated>2021-01-14T00:00:00-06:00</updated><id>https://stephenlee.info/web%20development/front%20end/2021/01/14/deploy-jekyll-to-github-pages</id><content type="html" xml:base="https://stephenlee.info/web%20development/front%20end/2021/01/14/deploy-jekyll-to-github-pages.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
-&lt;p&gt;You have made a beautiful blog with Jekyll (and hopefully with the &lt;a href=&quot;https://github.com/slee981/jekyll-theme-cadre&quot;&gt;Cadre theme&lt;/a&gt;), but don’t know the best workflow to make it go live on the Internet.&lt;/p&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-&lt;p&gt;There are two options depending on your use case and preferences.&lt;/p&gt;
-
-&lt;h3 id=&quot;using-the-github-pages-plugin&quot;&gt;Using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages&lt;/code&gt; plugin&lt;/h3&gt;
-&lt;p&gt;When you create a new Jekyll project, the boilerplate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; has the following lines:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./ Gemfile&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Hello! This is where you manage which Jekyll version is used to run.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# When you want to use a different version, change it below, save the&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# file and run `bundle install`. Run Jekyll with `bundle exec`, like so: # #     bundle exec jekyll serve&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# This will help ensure the proper Jekyll version is running.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Happy Jekylling!&lt;/span&gt;
-gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 4.2.0&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# This is the default theme for new Jekyll sites. You may change this to anything you like.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# gem &quot;minima&quot;, &quot;~&amp;gt; 2.5&quot;&lt;/span&gt;
-gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll-theme-cadre&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 0.1.20&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# If you want to use GitHub Pages, remove the &quot;gem &quot;jekyll&quot;&quot; above and&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# uncomment the line below. To upgrade, run `bundle update github-pages`.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# gem &quot;github-pages&quot;, group: :jekyll_plugins&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If you want to use another theme, you change that here. Similarily, as the comments suggest, you comment out the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; line and uncomment the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages&lt;/code&gt; line. Your ready-to-deploy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; might look like this:&lt;/p&gt;
-
-&lt;h4 id=&quot;gemfile-and-_configyml&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/h4&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./ Gemfile&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Hello! This is where you manage which Jekyll version is used to run.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# When you want to use a different version, change it below, save the&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#     bundle exec jekyll serve&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# This will help ensure the proper Jekyll version is running.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Happy Jekylling!&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# gem &quot;jekyll&quot;, &quot;~&amp;gt; 4.2.0&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# This is the default theme for new Jekyll sites. You may change this to anything you like.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# gem &quot;minima&quot;, &quot;~&amp;gt; 2.5&quot;&lt;/span&gt;
-gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll-theme-cadre&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 0.1.20&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# If you want to use GitHub Pages, remove the &quot;gem &quot;jekyll&quot;&quot; above and&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# uncomment the line below. To upgrade, run `bundle update github-pages`.&lt;/span&gt;
-gem &lt;span class=&quot;s2&quot;&gt;&quot;github-pages&quot;&lt;/span&gt;, group: :jekyll_plugins
-
-&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;For safety reasons, GitHub Pages does not support running “unapproved” themes. There is a workaround. In your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, use&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# ./_config.yml&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# url settings are important for finding &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# all the 'assets' like images and style sheets&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# if using github&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ghuser.github.io&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# if on a project repository, &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# the exact name of that repo&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;baseurl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;repo-name&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Build settings&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-feed&lt;/span&gt;
-  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-remote-theme&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# this will not work!&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# theme: jekyll-theme-cadre&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# use this instead!&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;remote_theme&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;slee981/jekyll-theme-cadre&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;deploy&quot;&gt;Deploy&lt;/h4&gt;
-&lt;p&gt;Now, you can push your repo as normal to a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch. For example:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~/Documents/MyBlog &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; gh-pages
-
-~/Documents/MyBlog &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;gh-pages&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin gh-pages 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;After a few minutes, you should see your site live. If you want to deploy to a custom domain name, the GitHub Pages documentation is an excellent guide.&lt;/p&gt;
-
-&lt;h3 id=&quot;build-and-push-_site-folder&quot;&gt;Build and push &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder&lt;/h3&gt;
-&lt;p&gt;One issue with the first approach is that the workflow for testing your site locally is a bit more complicated:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;You have to change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; to run locally with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;You have to add the additional &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;remote_theme&lt;/code&gt; option for “unsupported themes, but I’ve not had luck getting that to work locally either.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;gemfile-and-_configyml-1&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/h4&gt;
-&lt;p&gt;In this case, I use the standard &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./ Gemfile&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
-
-gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 4.2.0&quot;&lt;/span&gt;
-gem &lt;span class=&quot;s2&quot;&gt;&quot;jekyll-theme-cadre&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 0.1.20&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and the standard &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# ./_config.yml&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;theme&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-theme-cadre&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Build settings&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll-feed&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This will build locally with:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now I can work locally on a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dev&lt;/code&gt; branch, and, without checking out a different branch, build the static &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder and push it directly to the remote &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch.&lt;/p&gt;
-
-&lt;h4 id=&quot;deploy-1&quot;&gt;Deploy&lt;/h4&gt;
-&lt;p&gt;First, we need to tell &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt; to track the changes for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt; folder:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./.gitignore&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# _site    &amp;lt;-- comment this out or delete&lt;/span&gt;
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# build for production &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll build
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# commit the changes &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;update with build&quot;&lt;/span&gt; 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# push the &quot;_site&quot; subfolder &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git subtree push &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; _site origin gh-pages
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h5 id=&quot;add-to-makefile&quot;&gt;Add to Makefile&lt;/h5&gt;
-&lt;p&gt;Skip the typing and add these shortcuts in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Makefile&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./Makefile
-&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	bundle
-	bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
-
-&lt;span class=&quot;nl&quot;&gt;publish&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	git subtree push &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; _site origin gh-pages
-
-&lt;span class=&quot;nl&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	bundle 
-	&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now, after editing a new post, updating the live site only requires:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make build 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;add new post&quot;&lt;/span&gt; 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make publish 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="web development" /><category term="front end" /><category term="jekyll" /><category term="git" /><category term="github" /><summary type="html">Problem You have made a beautiful blog with Jekyll (and hopefully with the Cadre theme), but don’t know the best workflow to make it go live on the Internet.</summary></entry></feed>
+&lt;p&gt;Or, we can open a browser, navigate to https://localhost:8080, and find Adminer. Simply login with the credentials you provided in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql.dev.list&lt;/code&gt; configuration file.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="database" /><category term="backend" /><category term="docker" /><category term="mysql" /><summary type="html">Problem</summary></entry></feed>
