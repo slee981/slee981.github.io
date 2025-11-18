@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-17T18:00:50-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Modeling Aimpoint for Green Reading</title><link href="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" rel="alternate" type="text/html" title="Modeling Aimpoint for Green Reading" /><published>2025-11-17T00:00:00-06:00</published><updated>2025-11-17T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html">&lt;h1 id=&quot;the-physics-of-putting&quot;&gt;The Physics of Putting&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-18T08:56:26-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Modeling Aimpoint for Green Reading</title><link href="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" rel="alternate" type="text/html" title="Modeling Aimpoint for Green Reading" /><published>2025-11-17T00:00:00-06:00</published><updated>2025-11-17T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html">&lt;h1 id=&quot;the-physics-of-putting&quot;&gt;The Physics of Putting&lt;/h1&gt;
 
 &lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 
@@ -79,9 +79,11 @@
 
 &lt;h2 id=&quot;slope-and-speed&quot;&gt;Slope and Speed&lt;/h2&gt;
 
-&lt;p&gt;Now consider an uphill or downhill slope. On a slope with rise/run ratio \(X\), the component of gravity along the slope direction is \(g\sin\theta\). For small angles (typical on greens), \(\sin\theta \approx \tan\theta = X\), giving:&lt;/p&gt;
+&lt;p&gt;Now consider an uphill or downhill slope. On a slope with rise/run ratio \(X\), the component of gravity along the slope direction is \(g\sin\theta\). For small angles (typical on greens), \(\sin\theta \approx \tan\theta = X\).&lt;/p&gt;
 
-\[a_g \approx g X\]
+&lt;p&gt;Just as with the Stimp meter ramp, rotational inertia reduces the gravitational acceleration by a factor of \(\frac{5}{7}\) for a rolling sphere, giving:&lt;/p&gt;
+
+\[a_g \approx \frac{5}{7} g X\]
 
 &lt;p&gt;where:&lt;/p&gt;
 
@@ -111,11 +113,9 @@
 
 &lt;p&gt;After inserting constants and simplifying, we get a useful approximation:&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-\[S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S}\]
+\[S_{\text{eff}} \approx \frac{S}{1 + 1.17 X S}\]
 
-&lt;p&gt;where the coefficient 1.64 comes from \(\frac{2g}{v_s^2}\) with \(g = 32.17\ \text{ft/s}^2\) and \(v_s \approx 6.27\ \text{ft/s}\) (the exit velocity from a USGA Stimp meter).&lt;/p&gt;
-
-&lt;p&gt;This provides a practical way to think about uphill or downhill putts without re-deriving the full dynamics.&lt;/p&gt;
+&lt;p&gt;where the coefficient 1.17 comes from \(\frac{5}{7} \cdot \frac{2g}{v_s^2}\) with \(g = 32.17\ \text{ft/s}^2\) and \(v_s \approx 6.27\ \text{ft/s}\) (the exit velocity from a USGA Stimp meter). The \(\frac{5}{7}\) factor accounts for rotational inertia.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -123,9 +123,9 @@
 
 &lt;p&gt;The same slope that changes speed can also produce lateral acceleration when the slope tilts sideways relative to the target line.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; When calculating break, we need to account for the &lt;em&gt;effective&lt;/em&gt; Stimp \(S_\text{eff}\) from Section 3 so any uphill or downhill slope factors in to the time the putt has to move sideways. This way, a putt going uphill (which actually stops in a shorter amount of time) will have less time to break laterally.&lt;/p&gt;
-
 &lt;p&gt;Let \(X_s\) be the side-slope (in decimal form). The lateral component of gravitational acceleration is:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; For now, we ignore the effect of friction on lateral motion. This model treats lateral and forward motion independently—gravity accelerates the ball laterally while friction only decelerates it forward. We’ll address this simplification later.&lt;/p&gt;
 
 \[a_\text{lat} = g X_s\]
 
@@ -164,17 +164,17 @@
 
 &lt;p&gt;Now substitute the physical relationship for effective deceleration. The ball experiences both friction and gravity along the forward direction:&lt;/p&gt;
 
-\[a_\text{eff} = a_f + a_g \approx -( \frac{6.27^2}{2S} + gX)\]
+\[a_\text{eff} = a_f + a_g \approx -( \frac{19.7}{S} + 23X)\]
 
 &lt;p&gt;where \(X\) is the forward slope (positive uphill, negative downhill).&lt;/p&gt;
 
 &lt;p&gt;Substituting everything in:&lt;/p&gt;
 
-\[x_\text{break} \approx \frac{g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+\[x_\text{break} \approx \frac{g X_s S}{19.7 + 23 S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
 
 &lt;p&gt;This is now the break in feet. We simply multiply by 12 to get break in inches:&lt;/p&gt;
 
-\[x_\text{break} \approx \frac{12 g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+\[x_\text{break} \approx \frac{12 g X_s S}{19.7 + 23 S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
 
 &lt;p&gt;This makes the dependence on base Stimp and forward slope explicit without needing to first calculate effective Stimp.&lt;/p&gt;
 
@@ -184,7 +184,7 @@
 
 &lt;p&gt;But our goal is a useful model that generates accurate heuristics for players on the course. A simple correction is to multiply the break by some damping factor. We’ll use \(f_\text{damp} \approx \frac{5}{7}\), analogous to how rotational inertia reduces forward acceleration. While not rigorously derived from the coupled dynamics, this heuristic gives a practical first-order correction:&lt;/p&gt;
 
-\[x_\text{break,damped} \approx \frac{5}{7} \left(\frac{12 g X_s S}{19.7 + g S X} \right) \left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+\[x_\text{break,damped} \approx \frac{5}{7} \left(\frac{12 g X_s S}{19.7 + 23 S X} \right) \left(\sqrt{D+R} - \sqrt{R}\right)^2\]
 
 &lt;p&gt;This captures the essential behavior of a breaking putt under the assumptions of constant friction and small slopes.&lt;/p&gt;
 
@@ -210,27 +210,27 @@
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.7&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;6.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;6.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8.4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;6.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;6.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.4&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;8.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9.4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;9.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10.5&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
@@ -242,27 +242,27 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;9.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;12.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;13.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;14.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;14.0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;12.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;14.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;17.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;19.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;13.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;14.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16.7&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11.1&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;13.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;16.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;19.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;24.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;29.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;15.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;17.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20.7&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -288,66 +288,66 @@
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;18.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;13.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;21.6&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;0.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;12.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;20.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;14.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;23.7&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;9.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;14.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;23.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;26.2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;6.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;11.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;16.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;26.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;29.2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;13.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;19.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;32.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;14.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;33.1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;3.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.8&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;9.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;16.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;24.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;40.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;23.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;38.1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-3&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;2.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;12.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;22.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;31.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;52.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;19.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;27.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;44.9&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -371,66 +371,66 @@
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;3.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;15.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;21.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;36.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;26.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;43.3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;3.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;9.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;17.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;24.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;40.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;12.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;29.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;47.4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;1.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;11.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;19.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;28.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;46.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;13.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;22.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;32.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;52.3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;13.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;22.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;32.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;53.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;15.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;25.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;35.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;58.4&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;15.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;26.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;39.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;64.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;17.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;28.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;40.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;66.1&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;3.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;19.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;33.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;48.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;80.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;19.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;32.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;46.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;76.2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;9.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;25.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;44.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;63.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;105.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;9.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;23.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;38.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;55.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;89.9&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -452,66 +452,66 @@
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;13.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;22.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;32.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;54.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;16.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;28.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;39.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;64.9&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;14.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;25.5&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;36.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;60.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;18.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;30.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;43.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;71.0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;+1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;6.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;16.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;29.1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;42.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;69.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;33.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;48.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;78.5&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;3.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;7.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;19.7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;33.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;48.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;80.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;8.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;22.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;37.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;53.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;87.6&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;4.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;8.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;23.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;40.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;58.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;96.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;25.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;42.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;61.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;99.2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;5.0&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10.9&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;29.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;50.2&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;72.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;120.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;11.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;29.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;49.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;70.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;114.3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;-3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;6.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;14.4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;38.6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;66.3&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;95.8&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;158.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;13.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;34.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;58.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;82.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;134.8&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -691,9 +691,9 @@
 
 &lt;h3 id=&quot;appendix-effective-stimp&quot;&gt;A3. Effective Stimp&lt;/h3&gt;
 
-&lt;p&gt;When the green has a slope \(X\) (expressed as a decimal), gravity contributes an additional acceleration component:&lt;/p&gt;
+&lt;p&gt;When the green has a slope \(X\) (expressed as a decimal), gravity contributes an additional acceleration component. Just as with the Stimp meter ramp, rotational inertia reduces this gravitational component by \(\frac{5}{7}\):&lt;/p&gt;
 
-\[a_g = g X\]
+\[a_g \approx \frac{5}{7} g X\]
 
 &lt;p&gt;where \(g = 32.17\ \text{ft/s}^2\) is gravitational acceleration.&lt;/p&gt;
 
@@ -701,7 +701,7 @@
 
 \[a_{\text{eff}} = a_f + a_g\]
 
-&lt;p&gt;where \(a_f &amp;lt; 0\) (friction opposes motion) and \(a_g = gX\) (positive for downhill, negative for uphill).&lt;/p&gt;
+&lt;p&gt;where \(a_f &amp;lt; 0\) (friction opposes motion) and \(a_g = \frac{5}{7}gX\) (positive for downhill, negative for uphill).&lt;/p&gt;
 
 &lt;p&gt;The effective Stimp reading \(S_{\text{eff}}\) is the distance a ball would roll with this modified acceleration. Using the same kinematic relationship:&lt;/p&gt;
 
@@ -711,15 +711,15 @@
 
 &lt;p&gt;Taking the ratio with the level-green Stimp:&lt;/p&gt;
 
-\[\frac{S_{\text{eff}}}{S} = \frac{-\frac{v_s^2}{2 a_{\text{eff}}}}{-\frac{v_s^2}{2 a_f}} = \frac{a_f}{a_{\text{eff}}} = \frac{a_f}{a_f + gX}\]
+\[\frac{S_{\text{eff}}}{S} = \frac{-\frac{v_s^2}{2 a_{\text{eff}}}}{-\frac{v_s^2}{2 a_f}} = \frac{a_f}{a_{\text{eff}}} = \frac{a_f}{a_f + \frac{5}{7}gX}\]
 
-&lt;p&gt;For a standard Stimp meter (as derived in Appendix A1), the release velocity is \(v_s \approx 6.27\ \text{ft/s}\) and we can express \(a_f \approx \frac{19.7}{S}\)&lt;/p&gt;
+&lt;p&gt;For a standard Stimp meter (as derived in Appendix A1), the release velocity is \(v_s \approx 6.27\ \text{ft/s}\) and we can express \(a_f \approx -\frac{19.7}{S}\)&lt;/p&gt;
 
-\[\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_f + gX} = \frac{1}{1 + 1.64 X S}\]
+\[\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_f + \frac{5}{7}gX} = \frac{1}{1 + \frac{5}{7} \cdot 1.64 X S} = \frac{1}{1 + 1.17 X S}\]
 
 &lt;p&gt;Therefore:&lt;/p&gt;
 
-\[S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S}\]
+\[S_{\text{eff}} \approx \frac{S}{1 + 1.17 X S}\]
 
 &lt;hr /&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;

@@ -209,9 +209,11 @@
 
 <h2 id="slope-and-speed">Slope and Speed</h2>
 
-<p>Now consider an uphill or downhill slope. On a slope with rise/run ratio \(X\), the component of gravity along the slope direction is \(g\sin\theta\). For small angles (typical on greens), \(\sin\theta \approx \tan\theta = X\), giving:</p>
+<p>Now consider an uphill or downhill slope. On a slope with rise/run ratio \(X\), the component of gravity along the slope direction is \(g\sin\theta\). For small angles (typical on greens), \(\sin\theta \approx \tan\theta = X\).</p>
 
-\[a_g \approx g X\]
+<p>Just as with the Stimp meter ramp, rotational inertia reduces the gravitational acceleration by a factor of \(\frac{5}{7}\) for a rolling sphere, giving:</p>
+
+\[a_g \approx \frac{5}{7} g X\]
 
 <p>where:</p>
 
@@ -241,11 +243,9 @@
 
 <p>After inserting constants and simplifying, we get a useful approximation:<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote">4</a></sup></p>
 
-\[S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S}\]
+\[S_{\text{eff}} \approx \frac{S}{1 + 1.17 X S}\]
 
-<p>where the coefficient 1.64 comes from \(\frac{2g}{v_s^2}\) with \(g = 32.17\ \text{ft/s}^2\) and \(v_s \approx 6.27\ \text{ft/s}\) (the exit velocity from a USGA Stimp meter).</p>
-
-<p>This provides a practical way to think about uphill or downhill putts without re-deriving the full dynamics.</p>
+<p>where the coefficient 1.17 comes from \(\frac{5}{7} \cdot \frac{2g}{v_s^2}\) with \(g = 32.17\ \text{ft/s}^2\) and \(v_s \approx 6.27\ \text{ft/s}\) (the exit velocity from a USGA Stimp meter). The \(\frac{5}{7}\) factor accounts for rotational inertia.</p>
 
 <hr />
 
@@ -253,9 +253,9 @@
 
 <p>The same slope that changes speed can also produce lateral acceleration when the slope tilts sideways relative to the target line.</p>
 
-<p><strong>Note:</strong> When calculating break, we need to account for the <em>effective</em> Stimp \(S_\text{eff}\) from Section 3 so any uphill or downhill slope factors in to the time the putt has to move sideways. This way, a putt going uphill (which actually stops in a shorter amount of time) will have less time to break laterally.</p>
-
 <p>Let \(X_s\) be the side-slope (in decimal form). The lateral component of gravitational acceleration is:</p>
+
+<p><strong>Note:</strong> For now, we ignore the effect of friction on lateral motion. This model treats lateral and forward motion independently—gravity accelerates the ball laterally while friction only decelerates it forward. We’ll address this simplification later.</p>
 
 \[a_\text{lat} = g X_s\]
 
@@ -294,17 +294,17 @@
 
 <p>Now substitute the physical relationship for effective deceleration. The ball experiences both friction and gravity along the forward direction:</p>
 
-\[a_\text{eff} = a_f + a_g \approx -( \frac{6.27^2}{2S} + gX)\]
+\[a_\text{eff} = a_f + a_g \approx -( \frac{19.7}{S} + 23X)\]
 
 <p>where \(X\) is the forward slope (positive uphill, negative downhill).</p>
 
 <p>Substituting everything in:</p>
 
-\[x_\text{break} \approx \frac{g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+\[x_\text{break} \approx \frac{g X_s S}{19.7 + 23 S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
 
 <p>This is now the break in feet. We simply multiply by 12 to get break in inches:</p>
 
-\[x_\text{break} \approx \frac{12 g X_s S}{19.7 + g S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+\[x_\text{break} \approx \frac{12 g X_s S}{19.7 + 23 S X}\left(\sqrt{D+R} - \sqrt{R}\right)^2\]
 
 <p>This makes the dependence on base Stimp and forward slope explicit without needing to first calculate effective Stimp.</p>
 
@@ -314,7 +314,7 @@
 
 <p>But our goal is a useful model that generates accurate heuristics for players on the course. A simple correction is to multiply the break by some damping factor. We’ll use \(f_\text{damp} \approx \frac{5}{7}\), analogous to how rotational inertia reduces forward acceleration. While not rigorously derived from the coupled dynamics, this heuristic gives a practical first-order correction:</p>
 
-\[x_\text{break,damped} \approx \frac{5}{7} \left(\frac{12 g X_s S}{19.7 + g S X} \right) \left(\sqrt{D+R} - \sqrt{R}\right)^2\]
+\[x_\text{break,damped} \approx \frac{5}{7} \left(\frac{12 g X_s S}{19.7 + 23 S X} \right) \left(\sqrt{D+R} - \sqrt{R}\right)^2\]
 
 <p>This captures the essential behavior of a breaking putt under the assumptions of constant friction and small slopes.</p>
 
@@ -340,27 +340,27 @@
   <tbody>
     <tr>
       <td style="text-align: center">+3</td>
-      <td style="text-align: center">5.7</td>
       <td style="text-align: center">6.2</td>
-      <td style="text-align: center">6.7</td>
-      <td style="text-align: center">7.1</td>
-      <td style="text-align: center">7.5</td>
+      <td style="text-align: center">6.8</td>
+      <td style="text-align: center">7.4</td>
+      <td style="text-align: center">7.9</td>
+      <td style="text-align: center">8.4</td>
     </tr>
     <tr>
       <td style="text-align: center">+2</td>
-      <td style="text-align: center">6.3</td>
-      <td style="text-align: center">6.9</td>
-      <td style="text-align: center">7.5</td>
+      <td style="text-align: center">6.7</td>
+      <td style="text-align: center">7.4</td>
       <td style="text-align: center">8.1</td>
-      <td style="text-align: center">8.6</td>
+      <td style="text-align: center">8.7</td>
+      <td style="text-align: center">9.4</td>
     </tr>
     <tr>
       <td style="text-align: center">+1</td>
-      <td style="text-align: center">7.1</td>
-      <td style="text-align: center">7.8</td>
-      <td style="text-align: center">8.6</td>
-      <td style="text-align: center">9.3</td>
-      <td style="text-align: center">10.0</td>
+      <td style="text-align: center">7.3</td>
+      <td style="text-align: center">8.1</td>
+      <td style="text-align: center">9.0</td>
+      <td style="text-align: center">9.7</td>
+      <td style="text-align: center">10.5</td>
     </tr>
     <tr>
       <td style="text-align: center">0</td>
@@ -372,27 +372,27 @@
     </tr>
     <tr>
       <td style="text-align: center">-1</td>
-      <td style="text-align: center">9.2</td>
-      <td style="text-align: center">10.6</td>
-      <td style="text-align: center">12.0</td>
-      <td style="text-align: center">13.4</td>
-      <td style="text-align: center">14.9</td>
+      <td style="text-align: center">8.8</td>
+      <td style="text-align: center">10.1</td>
+      <td style="text-align: center">11.3</td>
+      <td style="text-align: center">12.6</td>
+      <td style="text-align: center">14.0</td>
     </tr>
     <tr>
       <td style="text-align: center">-2</td>
-      <td style="text-align: center">10.8</td>
-      <td style="text-align: center">12.8</td>
-      <td style="text-align: center">14.9</td>
-      <td style="text-align: center">17.2</td>
-      <td style="text-align: center">19.8</td>
+      <td style="text-align: center">9.8</td>
+      <td style="text-align: center">11.4</td>
+      <td style="text-align: center">13.1</td>
+      <td style="text-align: center">14.8</td>
+      <td style="text-align: center">16.7</td>
     </tr>
     <tr>
       <td style="text-align: center">-3</td>
+      <td style="text-align: center">11.1</td>
       <td style="text-align: center">13.2</td>
-      <td style="text-align: center">16.2</td>
-      <td style="text-align: center">19.7</td>
-      <td style="text-align: center">24.0</td>
-      <td style="text-align: center">29.3</td>
+      <td style="text-align: center">15.4</td>
+      <td style="text-align: center">17.9</td>
+      <td style="text-align: center">20.7</td>
     </tr>
   </tbody>
 </table>
@@ -418,66 +418,66 @@
   <tbody>
     <tr>
       <td style="text-align: center">+3</td>
-      <td style="text-align: center">0.8</td>
-      <td style="text-align: center">1.6</td>
-      <td style="text-align: center">4.4</td>
-      <td style="text-align: center">7.6</td>
-      <td style="text-align: center">10.9</td>
-      <td style="text-align: center">18.1</td>
+      <td style="text-align: center">1.0</td>
+      <td style="text-align: center">2.2</td>
+      <td style="text-align: center">5.6</td>
+      <td style="text-align: center">9.3</td>
+      <td style="text-align: center">13.3</td>
+      <td style="text-align: center">21.6</td>
     </tr>
     <tr>
       <td style="text-align: center">+2</td>
-      <td style="text-align: center">0.8</td>
-      <td style="text-align: center">1.9</td>
-      <td style="text-align: center">5.0</td>
-      <td style="text-align: center">8.5</td>
-      <td style="text-align: center">12.3</td>
-      <td style="text-align: center">20.3</td>
+      <td style="text-align: center">1.1</td>
+      <td style="text-align: center">2.4</td>
+      <td style="text-align: center">6.1</td>
+      <td style="text-align: center">10.2</td>
+      <td style="text-align: center">14.6</td>
+      <td style="text-align: center">23.7</td>
     </tr>
     <tr>
       <td style="text-align: center">+1</td>
-      <td style="text-align: center">1.0</td>
-      <td style="text-align: center">2.1</td>
-      <td style="text-align: center">5.6</td>
-      <td style="text-align: center">9.7</td>
-      <td style="text-align: center">14.0</td>
-      <td style="text-align: center">23.2</td>
+      <td style="text-align: center">1.3</td>
+      <td style="text-align: center">2.6</td>
+      <td style="text-align: center">6.7</td>
+      <td style="text-align: center">11.3</td>
+      <td style="text-align: center">16.1</td>
+      <td style="text-align: center">26.2</td>
     </tr>
     <tr>
       <td style="text-align: center">0</td>
-      <td style="text-align: center">1.1</td>
-      <td style="text-align: center">2.5</td>
-      <td style="text-align: center">6.6</td>
-      <td style="text-align: center">11.3</td>
-      <td style="text-align: center">16.3</td>
-      <td style="text-align: center">26.9</td>
+      <td style="text-align: center">1.4</td>
+      <td style="text-align: center">2.9</td>
+      <td style="text-align: center">7.5</td>
+      <td style="text-align: center">12.6</td>
+      <td style="text-align: center">18.0</td>
+      <td style="text-align: center">29.2</td>
     </tr>
     <tr>
       <td style="text-align: center">-1</td>
-      <td style="text-align: center">1.3</td>
-      <td style="text-align: center">2.9</td>
-      <td style="text-align: center">7.9</td>
-      <td style="text-align: center">13.5</td>
-      <td style="text-align: center">19.5</td>
-      <td style="text-align: center">32.2</td>
+      <td style="text-align: center">1.6</td>
+      <td style="text-align: center">3.3</td>
+      <td style="text-align: center">8.5</td>
+      <td style="text-align: center">14.3</td>
+      <td style="text-align: center">20.3</td>
+      <td style="text-align: center">33.1</td>
     </tr>
     <tr>
       <td style="text-align: center">-2</td>
-      <td style="text-align: center">1.7</td>
-      <td style="text-align: center">3.6</td>
+      <td style="text-align: center">1.8</td>
+      <td style="text-align: center">3.8</td>
       <td style="text-align: center">9.8</td>
-      <td style="text-align: center">16.7</td>
-      <td style="text-align: center">24.2</td>
-      <td style="text-align: center">40.0</td>
+      <td style="text-align: center">16.4</td>
+      <td style="text-align: center">23.4</td>
+      <td style="text-align: center">38.1</td>
     </tr>
     <tr>
       <td style="text-align: center">-3</td>
       <td style="text-align: center">2.2</td>
-      <td style="text-align: center">4.8</td>
-      <td style="text-align: center">12.9</td>
-      <td style="text-align: center">22.1</td>
-      <td style="text-align: center">31.9</td>
-      <td style="text-align: center">52.8</td>
+      <td style="text-align: center">4.5</td>
+      <td style="text-align: center">11.6</td>
+      <td style="text-align: center">19.4</td>
+      <td style="text-align: center">27.6</td>
+      <td style="text-align: center">44.9</td>
     </tr>
   </tbody>
 </table>
@@ -501,66 +501,66 @@
   <tbody>
     <tr>
       <td style="text-align: center">+3</td>
-      <td style="text-align: center">1.5</td>
-      <td style="text-align: center">3.3</td>
-      <td style="text-align: center">8.8</td>
-      <td style="text-align: center">15.1</td>
-      <td style="text-align: center">21.9</td>
-      <td style="text-align: center">36.2</td>
+      <td style="text-align: center">2.1</td>
+      <td style="text-align: center">4.4</td>
+      <td style="text-align: center">11.1</td>
+      <td style="text-align: center">18.7</td>
+      <td style="text-align: center">26.6</td>
+      <td style="text-align: center">43.3</td>
     </tr>
     <tr>
       <td style="text-align: center">+2</td>
-      <td style="text-align: center">1.7</td>
-      <td style="text-align: center">3.7</td>
-      <td style="text-align: center">9.9</td>
-      <td style="text-align: center">17.0</td>
-      <td style="text-align: center">24.6</td>
-      <td style="text-align: center">40.6</td>
+      <td style="text-align: center">2.3</td>
+      <td style="text-align: center">4.8</td>
+      <td style="text-align: center">12.2</td>
+      <td style="text-align: center">20.4</td>
+      <td style="text-align: center">29.1</td>
+      <td style="text-align: center">47.4</td>
     </tr>
     <tr>
       <td style="text-align: center">+1</td>
-      <td style="text-align: center">1.9</td>
-      <td style="text-align: center">4.2</td>
-      <td style="text-align: center">11.3</td>
-      <td style="text-align: center">19.4</td>
-      <td style="text-align: center">28.0</td>
-      <td style="text-align: center">46.3</td>
+      <td style="text-align: center">2.5</td>
+      <td style="text-align: center">5.3</td>
+      <td style="text-align: center">13.5</td>
+      <td style="text-align: center">22.6</td>
+      <td style="text-align: center">32.2</td>
+      <td style="text-align: center">52.3</td>
     </tr>
     <tr>
       <td style="text-align: center">0</td>
-      <td style="text-align: center">2.3</td>
-      <td style="text-align: center">4.9</td>
-      <td style="text-align: center">13.1</td>
-      <td style="text-align: center">22.5</td>
-      <td style="text-align: center">32.6</td>
-      <td style="text-align: center">53.9</td>
+      <td style="text-align: center">2.8</td>
+      <td style="text-align: center">5.9</td>
+      <td style="text-align: center">15.0</td>
+      <td style="text-align: center">25.2</td>
+      <td style="text-align: center">35.9</td>
+      <td style="text-align: center">58.4</td>
     </tr>
     <tr>
       <td style="text-align: center">-1</td>
-      <td style="text-align: center">2.7</td>
-      <td style="text-align: center">5.9</td>
-      <td style="text-align: center">15.7</td>
-      <td style="text-align: center">26.9</td>
-      <td style="text-align: center">39.0</td>
-      <td style="text-align: center">64.4</td>
+      <td style="text-align: center">3.2</td>
+      <td style="text-align: center">6.7</td>
+      <td style="text-align: center">17.0</td>
+      <td style="text-align: center">28.5</td>
+      <td style="text-align: center">40.7</td>
+      <td style="text-align: center">66.1</td>
     </tr>
     <tr>
       <td style="text-align: center">-2</td>
-      <td style="text-align: center">3.3</td>
-      <td style="text-align: center">7.3</td>
-      <td style="text-align: center">19.5</td>
-      <td style="text-align: center">33.5</td>
-      <td style="text-align: center">48.4</td>
-      <td style="text-align: center">80.0</td>
+      <td style="text-align: center">3.7</td>
+      <td style="text-align: center">7.7</td>
+      <td style="text-align: center">19.6</td>
+      <td style="text-align: center">32.9</td>
+      <td style="text-align: center">46.9</td>
+      <td style="text-align: center">76.2</td>
     </tr>
     <tr>
       <td style="text-align: center">-3</td>
-      <td style="text-align: center">4.4</td>
-      <td style="text-align: center">9.6</td>
-      <td style="text-align: center">25.8</td>
-      <td style="text-align: center">44.2</td>
-      <td style="text-align: center">63.9</td>
-      <td style="text-align: center">105.7</td>
+      <td style="text-align: center">4.3</td>
+      <td style="text-align: center">9.1</td>
+      <td style="text-align: center">23.1</td>
+      <td style="text-align: center">38.8</td>
+      <td style="text-align: center">55.3</td>
+      <td style="text-align: center">89.9</td>
     </tr>
   </tbody>
 </table>
@@ -582,66 +582,66 @@
   <tbody>
     <tr>
       <td style="text-align: center">+3</td>
-      <td style="text-align: center">2.3</td>
-      <td style="text-align: center">4.9</td>
-      <td style="text-align: center">13.2</td>
-      <td style="text-align: center">22.7</td>
-      <td style="text-align: center">32.8</td>
-      <td style="text-align: center">54.3</td>
+      <td style="text-align: center">3.1</td>
+      <td style="text-align: center">6.5</td>
+      <td style="text-align: center">16.7</td>
+      <td style="text-align: center">28.0</td>
+      <td style="text-align: center">39.9</td>
+      <td style="text-align: center">64.9</td>
     </tr>
     <tr>
       <td style="text-align: center">+2</td>
-      <td style="text-align: center">2.5</td>
-      <td style="text-align: center">5.6</td>
-      <td style="text-align: center">14.9</td>
-      <td style="text-align: center">25.5</td>
-      <td style="text-align: center">36.9</td>
-      <td style="text-align: center">60.9</td>
+      <td style="text-align: center">3.4</td>
+      <td style="text-align: center">7.2</td>
+      <td style="text-align: center">18.3</td>
+      <td style="text-align: center">30.6</td>
+      <td style="text-align: center">43.7</td>
+      <td style="text-align: center">71.0</td>
     </tr>
     <tr>
       <td style="text-align: center">+1</td>
-      <td style="text-align: center">2.9</td>
-      <td style="text-align: center">6.3</td>
-      <td style="text-align: center">16.9</td>
-      <td style="text-align: center">29.1</td>
-      <td style="text-align: center">42.0</td>
-      <td style="text-align: center">69.5</td>
+      <td style="text-align: center">3.8</td>
+      <td style="text-align: center">7.9</td>
+      <td style="text-align: center">20.2</td>
+      <td style="text-align: center">33.8</td>
+      <td style="text-align: center">48.3</td>
+      <td style="text-align: center">78.5</td>
     </tr>
     <tr>
       <td style="text-align: center">0</td>
-      <td style="text-align: center">3.4</td>
-      <td style="text-align: center">7.4</td>
-      <td style="text-align: center">19.7</td>
-      <td style="text-align: center">33.8</td>
-      <td style="text-align: center">48.9</td>
-      <td style="text-align: center">80.8</td>
+      <td style="text-align: center">4.2</td>
+      <td style="text-align: center">8.8</td>
+      <td style="text-align: center">22.5</td>
+      <td style="text-align: center">37.8</td>
+      <td style="text-align: center">53.9</td>
+      <td style="text-align: center">87.6</td>
     </tr>
     <tr>
       <td style="text-align: center">-1</td>
-      <td style="text-align: center">4.0</td>
-      <td style="text-align: center">8.8</td>
-      <td style="text-align: center">23.6</td>
-      <td style="text-align: center">40.4</td>
-      <td style="text-align: center">58.4</td>
-      <td style="text-align: center">96.6</td>
+      <td style="text-align: center">4.8</td>
+      <td style="text-align: center">10.0</td>
+      <td style="text-align: center">25.5</td>
+      <td style="text-align: center">42.8</td>
+      <td style="text-align: center">61.0</td>
+      <td style="text-align: center">99.2</td>
     </tr>
     <tr>
       <td style="text-align: center">-2</td>
-      <td style="text-align: center">5.0</td>
-      <td style="text-align: center">10.9</td>
-      <td style="text-align: center">29.3</td>
-      <td style="text-align: center">50.2</td>
-      <td style="text-align: center">72.6</td>
-      <td style="text-align: center">120.1</td>
+      <td style="text-align: center">5.5</td>
+      <td style="text-align: center">11.5</td>
+      <td style="text-align: center">29.4</td>
+      <td style="text-align: center">49.3</td>
+      <td style="text-align: center">70.3</td>
+      <td style="text-align: center">114.3</td>
     </tr>
     <tr>
       <td style="text-align: center">-3</td>
-      <td style="text-align: center">6.6</td>
-      <td style="text-align: center">14.4</td>
-      <td style="text-align: center">38.6</td>
-      <td style="text-align: center">66.3</td>
-      <td style="text-align: center">95.8</td>
-      <td style="text-align: center">158.5</td>
+      <td style="text-align: center">6.5</td>
+      <td style="text-align: center">13.6</td>
+      <td style="text-align: center">34.7</td>
+      <td style="text-align: center">58.2</td>
+      <td style="text-align: center">82.9</td>
+      <td style="text-align: center">134.8</td>
     </tr>
   </tbody>
 </table>
@@ -821,9 +821,9 @@
 
 <h3 id="appendix-effective-stimp">A3. Effective Stimp</h3>
 
-<p>When the green has a slope \(X\) (expressed as a decimal), gravity contributes an additional acceleration component:</p>
+<p>When the green has a slope \(X\) (expressed as a decimal), gravity contributes an additional acceleration component. Just as with the Stimp meter ramp, rotational inertia reduces this gravitational component by \(\frac{5}{7}\):</p>
 
-\[a_g = g X\]
+\[a_g \approx \frac{5}{7} g X\]
 
 <p>where \(g = 32.17\ \text{ft/s}^2\) is gravitational acceleration.</p>
 
@@ -831,7 +831,7 @@
 
 \[a_{\text{eff}} = a_f + a_g\]
 
-<p>where \(a_f &lt; 0\) (friction opposes motion) and \(a_g = gX\) (positive for downhill, negative for uphill).</p>
+<p>where \(a_f &lt; 0\) (friction opposes motion) and \(a_g = \frac{5}{7}gX\) (positive for downhill, negative for uphill).</p>
 
 <p>The effective Stimp reading \(S_{\text{eff}}\) is the distance a ball would roll with this modified acceleration. Using the same kinematic relationship:</p>
 
@@ -841,15 +841,15 @@
 
 <p>Taking the ratio with the level-green Stimp:</p>
 
-\[\frac{S_{\text{eff}}}{S} = \frac{-\frac{v_s^2}{2 a_{\text{eff}}}}{-\frac{v_s^2}{2 a_f}} = \frac{a_f}{a_{\text{eff}}} = \frac{a_f}{a_f + gX}\]
+\[\frac{S_{\text{eff}}}{S} = \frac{-\frac{v_s^2}{2 a_{\text{eff}}}}{-\frac{v_s^2}{2 a_f}} = \frac{a_f}{a_{\text{eff}}} = \frac{a_f}{a_f + \frac{5}{7}gX}\]
 
-<p>For a standard Stimp meter (as derived in Appendix A1), the release velocity is \(v_s \approx 6.27\ \text{ft/s}\) and we can express \(a_f \approx \frac{19.7}{S}\)</p>
+<p>For a standard Stimp meter (as derived in Appendix A1), the release velocity is \(v_s \approx 6.27\ \text{ft/s}\) and we can express \(a_f \approx -\frac{19.7}{S}\)</p>
 
-\[\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_f + gX} = \frac{1}{1 + 1.64 X S}\]
+\[\frac{S_{\text{eff}}}{S} = \frac{a_f}{a_f + \frac{5}{7}gX} = \frac{1}{1 + \frac{5}{7} \cdot 1.64 X S} = \frac{1}{1 + 1.17 X S}\]
 
 <p>Therefore:</p>
 
-\[S_{\text{eff}} \approx \frac{S}{1 + 1.64 X S}\]
+\[S_{\text{eff}} \approx \frac{S}{1 + 1.17 X S}\]
 
 <hr />
 <div class="footnotes" role="doc-endnotes">
