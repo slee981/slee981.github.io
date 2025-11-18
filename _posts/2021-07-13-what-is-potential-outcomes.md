@@ -9,6 +9,8 @@ toc: true
 katex: true
 ---
 
+Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. 
+
 ## Overview
 Potential outcomes is a set of techniques and tools for estimating the likely results of a particular action. More specifically, potential outcomes provides a methodology for assessing the effect of a treatment (aka intervention) when certain assumptions are believed to be true. Notably, this approach is often applied to observational data in fields like economics, epidemiology, or sociology, where many experiments would be prohibitedly expensive or unethical. 
 

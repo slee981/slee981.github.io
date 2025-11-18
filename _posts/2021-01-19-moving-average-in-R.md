@@ -9,6 +9,8 @@ toc: true
 katex: true
 ---
 
+Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. 
+
 ## Problem  
 
 Given some dataset, you might want to find the rolling or moving average. We can visualize this in a sample dataset as follows. Note, the `k-lag` moving average we want, `MA-k`, is the mean of the last `k` observations in time, including the current one.  

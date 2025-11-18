@@ -9,6 +9,8 @@ toc: true
 katex: true
 ---
 
+Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. 
+
 ## Overview
 
 In simulation, we can show that omitting a variable $$x_2$$ can cause the point estimates for a correlated variable $$x_1$$ to change from (positive) $$0.999$$ with a p-value of nearly zero, to (negative!) $$-0.512$$, also with a p-value of nearly zero! 

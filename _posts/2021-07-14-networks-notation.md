@@ -9,6 +9,8 @@ toc: true
 katex: true
 ---
 
+Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. 
+
 ## Audience 
 
 I assume you know what a network is, some areas where they appear (e.g. social media connection graphs, airline routes, supply chain logistics, etc.), and are familiar with or curious about formalizing these relationships mathematically. 
