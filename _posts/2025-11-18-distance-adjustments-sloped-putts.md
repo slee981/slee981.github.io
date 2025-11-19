@@ -100,23 +100,15 @@ Multiply your actual distance by these percentages:
 | -2% (downhill) | 8.1 ft | 7.7 ft | 7.2 ft | 6.7 ft |
 | -3% (steep downhill) | 7.2 ft | 6.5 ft | 5.8 ft | 5.1 ft |
 
-## Key takeaways
-
-1. **Faster greens amplify slope effects.** On 14-stimp greens, a 3% uphill 10-footer plays like 15 feet (+49%), while 3% downhill plays like 5 feet (-49%). On 8-stimp greens, the same slopes only adjust ±28%. Speed matters.
-
-2. **Downhill adjustments are more dramatic than uphill.** A 2% downhill putt on 10-stimp greens requires hitting 77% of the distance—a 20-footer becomes a 15-footer. But 2% uphill only requires 123%—a 20-footer becomes 24.5 feet. You lose more distance downhill than you gain uphill.
-
 ## How to Use This
 
-It's simple:
+These distances provide a good guide for thinking about speed:
 
 1. Read your slope (e.g., 2% uphill)
 2. Know the green speed (e.g., 10 stimp)
 3. Look up the adjustment (e.g., 123%)
 4. Hit it like the adjusted distance (e.g., 20 × 1.23 = 24.6 feet)
 
-That's it. Your body knows what a 25-footer feels like. Trust that muscle memory instead of guessing "hit it harder."
-
-On the practice green, verify the table matches your feel. Hit 10-footers at different slopes and see if the adjustments work. Once calibrated, you'll have a reliable system for speed control.
+On the practice green, verify the table matches your feel. Hit 10-footers at different slopes and see if the adjustments work. Once calibrated, you'll have a more reliable guide for speed control that compliments the broader Aimpoint Express system. 
 
 ---
