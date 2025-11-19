@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-18T21:42:45-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-18T21:48:47-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;In my &lt;a href=&quot;/golf/physics/2025/11/17/rederiving-aimpoint.html&quot;&gt;previous post&lt;/a&gt;, I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we’re going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system.&lt;/p&gt;
 
@@ -420,20 +420,9 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;key-takeaways&quot;&gt;Key takeaways&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Faster greens amplify slope effects.&lt;/strong&gt; On 14-stimp greens, a 3% uphill 10-footer plays like 15 feet (+49%), while 3% downhill plays like 5 feet (-49%). On 8-stimp greens, the same slopes only adjust ±28%. Speed matters.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Downhill adjustments are more dramatic than uphill.&lt;/strong&gt; A 2% downhill putt on 10-stimp greens requires hitting 77% of the distance—a 20-footer becomes a 15-footer. But 2% uphill only requires 123%—a 20-footer becomes 24.5 feet. You lose more distance downhill than you gain uphill.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
 &lt;h2 id=&quot;how-to-use-this&quot;&gt;How to Use This&lt;/h2&gt;
 
-&lt;p&gt;It’s simple:&lt;/p&gt;
+&lt;p&gt;These distances provide a good guide for thinking about speed:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Read your slope (e.g., 2% uphill)&lt;/li&gt;
@@ -442,9 +431,7 @@
   &lt;li&gt;Hit it like the adjusted distance (e.g., 20 × 1.23 = 24.6 feet)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;That’s it. Your body knows what a 25-footer feels like. Trust that muscle memory instead of guessing “hit it harder.”&lt;/p&gt;
-
-&lt;p&gt;On the practice green, verify the table matches your feel. Hit 10-footers at different slopes and see if the adjustments work. Once calibrated, you’ll have a reliable system for speed control.&lt;/p&gt;
+&lt;p&gt;On the practice green, verify the table matches your feel. Hit 10-footers at different slopes and see if the adjustments work. Once calibrated, you’ll have a more reliable guide for speed control that compliments the broader Aimpoint Express system.&lt;/p&gt;
 
 &lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><summary type="html">The Problem</summary></entry><entry><title type="html">Modeling Aimpoint for Green Reading</title><link href="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" rel="alternate" type="text/html" title="Modeling Aimpoint for Green Reading" /><published>2025-11-17T00:00:00-06:00</published><updated>2025-11-17T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html">&lt;h1 id=&quot;the-physics-of-putting&quot;&gt;The Physics of Putting&lt;/h1&gt;
 
