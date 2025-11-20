@@ -120,7 +120,7 @@
   
     <h3 class="toc-title">Table of Contents</h3>
   
-  <ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#the-cancellation-condition">The Cancellation Condition</a></li><li><a href="#design-parameters">Design Parameters</a><ul><li><a href="#comparison-of-designs">Comparison of Designs</a></li></ul></li><li><a href="#performance-across-stroke-speeds">Performance Across Stroke Speeds</a></li><li><a href="#when-two-wrongs-make-a-right">When Two Wrongs Make a Right</a></li></ul>
+  <ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#the-cancellation-condition">The Cancellation Condition</a></li><li><a href="#calibration">Calibration</a></li><li><a href="#comparison">Comparison</a></li><li><a href="#performance">Performance</a></li><li><a href="#when-two-wrongs-make-a-right">When Two Wrongs Make a Right</a></li></ul>
 
 </div>
 
@@ -169,21 +169,21 @@
   <li>\(g\) = gravitational acceleration (9.8 m/s²)</li>
 </ul>
 
-<p><strong>Key insight</strong>: For a typical stroke acceleration of \(a = 9\) m/s², we need:</p>
+<p>For example, a stroke acceleration of \(a = 9\) m/s² requires:</p>
 
 \[\frac{b_g}{b_a} = -\frac{9}{9.8} \approx -0.918\]
 
 <hr />
 
-<h2 id="design-parameters">Design Parameters</h2>
+<h2 id="calibration">Calibration</h2>
 
-<p>For a toe-hang putter with typical heel bias (\(b_a = -50\) mm, meaning the shaft is in front of the COM on the “face” side of the putter), the required forward offset is:</p>
+<p>If we assume a relative shaft-to-COM length of \(b_a = -50\) mm, meaning the shaft is positioned to the heel side of the COM by about 2 inches:</p>
 
 \[b_g = -0.918 \times (-50) = 45.9 \text{ mm}\]
 
-<p>This is <strong>2.4× more forward</strong> than a traditional toe-hang blade (\(b_g \approx 19\) mm).</p>
+<p>Which just requires the shaft is also in front of the COM (toward the face) by about 2 inches also. This can be easily achieved through a large mallet with rear weight.</p>
 
-<h3 id="comparison-of-designs">Comparison of Designs</h3>
+<h2 id="comparison">Comparison</h2>
 
 <table>
   <thead>
@@ -231,9 +231,9 @@
 
 <hr />
 
-<h2 id="performance-across-stroke-speeds">Performance Across Stroke Speeds</h2>
+<h2 id="performance">Performance</h2>
 
-<p>The cancellation is <strong>acceleration-dependent</strong>. Here’s how rotation varies with stroke aggressiveness:</p>
+<p>The cancellation is acceleration-dependent. Here’s how rotation varies with stroke aggressiveness:</p>
 
 <table>
   <thead>
@@ -266,22 +266,22 @@
   </tbody>
 </table>
 
-<p><strong>Observations:</strong></p>
+<p>Observations:</p>
 
 <ol>
   <li><strong>Traditional toe-hang</strong>: Always closes, fighting the required ~7° arc opening</li>
   <li><strong>Balanced toe-hang</strong>: Neutral at 9 m/s², with ±3° variation across realistic stroke speeds</li>
 </ol>
 
-<p>The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range.</p>
+<p>The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range, but is still sensitive to tempo and rhythm (which manifest as acceleration) in the stroke.</p>
 
 <hr />
 
 <h2 id="when-two-wrongs-make-a-right">When Two Wrongs Make a Right</h2>
 
-<p>Unlike L.A.B. putters that eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.</p>
+<p>Unlike zero torque putters that try to eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.</p>
 
-<p>Putters exactly like these can be seen all over! I suspect this is more or less what the plumber’s neck version of the popular Taylor Made Spyder putters do. Especially with their removable weights, I imagine they can get those pretty dialed.</p>
+<p>Putters exactly like these can be seen all over, too. I suspect this is more or less what the plumber’s neck version of the popular Taylor Made Spyder putters do. Especially with their changable weights, I imagine they can get those pretty dialed.</p>
 
 <p>Even more players are reducing torque than we thought!</p>
 

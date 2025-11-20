@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T20:44:44-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T21:07:32-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Dr. Sasho MacKenzie’s research shows that successful putting requires managing three factors:&lt;/p&gt;
 
@@ -468,21 +468,21 @@ R\cos\theta\cos\phi
   &lt;li&gt;\(g\) = gravitational acceleration (9.8 m/s²)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;Key insight&lt;/strong&gt;: For a typical stroke acceleration of \(a = 9\) m/s², we need:&lt;/p&gt;
+&lt;p&gt;For example, a stroke acceleration of \(a = 9\) m/s² requires:&lt;/p&gt;
 
 \[\frac{b_g}{b_a} = -\frac{9}{9.8} \approx -0.918\]
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;design-parameters&quot;&gt;Design Parameters&lt;/h2&gt;
+&lt;h2 id=&quot;calibration&quot;&gt;Calibration&lt;/h2&gt;
 
-&lt;p&gt;For a toe-hang putter with typical heel bias (\(b_a = -50\) mm, meaning the shaft is in front of the COM on the “face” side of the putter), the required forward offset is:&lt;/p&gt;
+&lt;p&gt;If we assume a relative shaft-to-COM length of \(b_a = -50\) mm, meaning the shaft is positioned to the heel side of the COM by about 2 inches:&lt;/p&gt;
 
 \[b_g = -0.918 \times (-50) = 45.9 \text{ mm}\]
 
-&lt;p&gt;This is &lt;strong&gt;2.4× more forward&lt;/strong&gt; than a traditional toe-hang blade (\(b_g \approx 19\) mm).&lt;/p&gt;
+&lt;p&gt;Which just requires the shaft is also in front of the COM (toward the face) by about 2 inches also. This can be easily achieved through a large mallet with rear weight.&lt;/p&gt;
 
-&lt;h3 id=&quot;comparison-of-designs&quot;&gt;Comparison of Designs&lt;/h3&gt;
+&lt;h2 id=&quot;comparison&quot;&gt;Comparison&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -530,9 +530,9 @@ R\cos\theta\cos\phi
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;performance-across-stroke-speeds&quot;&gt;Performance Across Stroke Speeds&lt;/h2&gt;
+&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
 
-&lt;p&gt;The cancellation is &lt;strong&gt;acceleration-dependent&lt;/strong&gt;. Here’s how rotation varies with stroke aggressiveness:&lt;/p&gt;
+&lt;p&gt;The cancellation is acceleration-dependent. Here’s how rotation varies with stroke aggressiveness:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -565,22 +565,22 @@ R\cos\theta\cos\phi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Observations:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Observations:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Traditional toe-hang&lt;/strong&gt;: Always closes, fighting the required ~7° arc opening&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Balanced toe-hang&lt;/strong&gt;: Neutral at 9 m/s², with ±3° variation across realistic stroke speeds&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range.&lt;/p&gt;
+&lt;p&gt;The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range, but is still sensitive to tempo and rhythm (which manifest as acceleration) in the stroke.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;h2 id=&quot;when-two-wrongs-make-a-right&quot;&gt;When Two Wrongs Make a Right&lt;/h2&gt;
 
-&lt;p&gt;Unlike L.A.B. putters that eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.&lt;/p&gt;
+&lt;p&gt;Unlike zero torque putters that try to eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.&lt;/p&gt;
 
-&lt;p&gt;Putters exactly like these can be seen all over! I suspect this is more or less what the plumber’s neck version of the popular Taylor Made Spyder putters do. Especially with their removable weights, I imagine they can get those pretty dialed.&lt;/p&gt;
+&lt;p&gt;Putters exactly like these can be seen all over, too. I suspect this is more or less what the plumber’s neck version of the popular Taylor Made Spyder putters do. Especially with their changable weights, I imagine they can get those pretty dialed.&lt;/p&gt;
 
 &lt;p&gt;Even more players are reducing torque than we thought!&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">Effective Distance on Sloped Greens</title><link href="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html" rel="alternate" type="text/html" title="Effective Distance on Sloped Greens" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">&lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
 
