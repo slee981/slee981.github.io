@@ -1,4 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T21:07:32-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-20T08:09:41-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">A Balanced Toe-Hang Putter</title><link href="https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter.html" rel="alternate" type="text/html" title="A Balanced Toe-Hang Putter" /><published>2025-11-20T00:00:00-06:00</published><updated>2025-11-20T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In a &lt;a href=&quot;/golf/physics/2025/11/19/putter-torque-physics.html&quot;&gt;previous post&lt;/a&gt;, I analyzed how different putter designs create torques that want to twist the face during your stroke. The key point was that putter head geometry creates two independent torque sources:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Gravitational torque&lt;/strong&gt;: This term is present even when the putter is held still. It depends on how far the center of mass is, in the heel-toe direction, from the shaft line when in the address position.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Inertial torque&lt;/strong&gt;: This term depends on how hard you accelerate the putter and on the distance from the shaft’s pivot point to the putter’s center of mass in the left-to-right direction (i.e. face to back of club).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Traditional blade style toe-hang putters fight the natural arc geometry by closing the face during the backswing since the inertial torque dominates. But what if we could design a toe-hang putter where these torques cancel out?&lt;/p&gt;
+
+&lt;p&gt;This post explores the “balanced toe-hang” design—a putter that achieves near-zero initial torques by deliberately using opposing gravitational and inertial forces.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important caveat&lt;/strong&gt;: This cancellation only occurs during the backswing. When you transition to the forward swing, the inertial torque reverses direction while gravity remains constant. Instead of canceling, both torques now work together to open the face. The result is a putter that feels fairly neutral on the backswing but wants to open aggressively during the forward strike.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-cancellation-condition&quot;&gt;The Cancellation Condition&lt;/h2&gt;
+
+&lt;p&gt;For the total torque to be zero:&lt;/p&gt;
+
+\[\tau_{total} = \tau_g + \tau_{in} = 0\]
+
+&lt;p&gt;Substituting the torque formulas:&lt;/p&gt;
+
+\[mgb_g + mab_a = 0\]
+
+&lt;p&gt;The mass \(m\) cancels out, giving us the design constraint:&lt;/p&gt;
+
+\[gb_g = -ab_a\]
+
+&lt;p&gt;Rearranging for the critical ratio:&lt;/p&gt;
+
+\[\frac{b_g}{b_a} = -\frac{a}{g}\]
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;\(b_g\) = front/back COM offset from shaft (mm)&lt;/li&gt;
+  &lt;li&gt;\(b_a\) = heel/toe COM offset from shaft (mm)&lt;/li&gt;
+  &lt;li&gt;\(a\) = stroke acceleration (m/s²)&lt;/li&gt;
+  &lt;li&gt;\(g\) = gravitational acceleration (9.8 m/s²)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For example, a stroke acceleration of \(a = 9\) m/s² requires:&lt;/p&gt;
+
+\[\frac{b_g}{b_a} = -\frac{9}{9.8} \approx -0.918\]
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;calibration&quot;&gt;Calibration&lt;/h2&gt;
+
+&lt;p&gt;If we assume a relative shaft-to-COM length of \(b_a = -50\) mm, meaning the shaft is positioned to the heel side of the COM by about 2 inches:&lt;/p&gt;
+
+\[b_g = -0.918 \times (-50) = 45.9 \text{ mm}\]
+
+&lt;p&gt;Which just requires the shaft is also in front of the COM (toward the face) by about 2 inches also. This can be easily achieved through a large mallet with rear weight.&lt;/p&gt;
+
+&lt;h2 id=&quot;comparison&quot;&gt;Comparison&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parameter&lt;/th&gt;
+      &lt;th&gt;Traditional Toe-Hang&lt;/th&gt;
+      &lt;th&gt;Balanced Toe-Hang&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\(b_g\) (forward offset)&lt;/td&gt;
+      &lt;td&gt;+19 mm&lt;/td&gt;
+      &lt;td&gt;+46 mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\(b_a\) (heel/toe offset)&lt;/td&gt;
+      &lt;td&gt;-51 mm&lt;/td&gt;
+      &lt;td&gt;-50 mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\(\tau_g\) @ rest&lt;/td&gt;
+      &lt;td&gt;+0.065 N·m&lt;/td&gt;
+      &lt;td&gt;+0.158 N·m&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\(\tau_{in}\) @ 9 m/s²&lt;/td&gt;
+      &lt;td&gt;-0.159 N·m&lt;/td&gt;
+      &lt;td&gt;-0.158 N·m&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Net torque&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-0.094 N·m&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;~0 N·m&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The balanced toe-hang achieves cancellation by having:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Large gravitational torque (wants to open face)&lt;/li&gt;
+  &lt;li&gt;Equally large inertial torque (wants to close face)&lt;/li&gt;
+  &lt;li&gt;Perfect cancellation at initial acceleration&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
+
+&lt;p&gt;The cancellation is acceleration-dependent. Here’s how rotation varies with stroke aggressiveness:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Stroke Type&lt;/th&gt;
+      &lt;th&gt;Acceleration&lt;/th&gt;
+      &lt;th&gt;Traditional Toe-Hang&lt;/th&gt;
+      &lt;th&gt;Balanced Toe-Hang&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Gentle&lt;/td&gt;
+      &lt;td&gt;6 m/s²&lt;/td&gt;
+      &lt;td&gt;-2.5° (closes)&lt;/td&gt;
+      &lt;td&gt;+3.1° (opens)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Medium&lt;/td&gt;
+      &lt;td&gt;9 m/s²&lt;/td&gt;
+      &lt;td&gt;-5.7° (closes)&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;±0.0°&lt;/strong&gt; (neutral)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Aggressive&lt;/td&gt;
+      &lt;td&gt;12 m/s²&lt;/td&gt;
+      &lt;td&gt;-8.8° (closes)&lt;/td&gt;
+      &lt;td&gt;*-3.1° (closes)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Observations:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Traditional toe-hang&lt;/strong&gt;: Always closes, fighting the required ~7° arc opening&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Balanced toe-hang&lt;/strong&gt;: Neutral at 9 m/s², with ±3° variation across realistic stroke speeds&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range, but is still sensitive to tempo and rhythm (which manifest as acceleration) in the stroke.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;when-two-wrongs-make-a-right&quot;&gt;When Two Wrongs Make a Right&lt;/h2&gt;
+
+&lt;p&gt;Unlike zero torque putters that try to eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.&lt;/p&gt;
+
+&lt;p&gt;This cancellation only works during the initial acceleration of the backswing, however. When you transition to the forward swing, the inertial torque reverses direction (acceleration flips sign) while gravitational torque remains roughly the same. Now instead of canceling, both torques add together to rotate the face open. The golfer experiences a putter that feels fairly neutral on the backswing but wants to open through impact. This may still explain their popularity — the neutral backswing feel is appealing, and the feeling of closing the face through impact is standard with every other club in the bag.&lt;/p&gt;
+
+&lt;p&gt;If you want an example of this in action, check out the popular Taylor Made Spider putters with the plumber necks (a la Scottie Scheffler) that will have the toe hang ~45 degrees when laid down horizontally. Especially with their changable weights, I imagine they can get those pretty dialed to a players specific accelerations.&lt;/p&gt;
+
+&lt;p&gt;Even more players are reducing torque than we thought!&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Dr. Sasho MacKenzie’s research shows that successful putting requires managing three factors:&lt;/p&gt;
 
@@ -427,162 +586,7 @@ R\cos\theta\cos\phi
       &lt;p&gt;MacKenzie, S., &amp;amp; MacInnis, K. (2017). “Evaluation of Near Versus Far Target Visual Focus Strategies with Breaking Putts.” Study of 27 golfers on breaking putts from 6-14 feet showed far-focus strategy improved make rate from 37% to 40% through better distance control. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">A Balanced Toe-Hang Putter</title><link href="https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html" rel="alternate" type="text/html" title="A Balanced Toe-Hang Putter" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;In a &lt;a href=&quot;/golf/physics/2025/11/19/putter-torque-physics.html&quot;&gt;previous post&lt;/a&gt;, I analyzed how different putter designs create torques that want to twist the face during your stroke. The key point was that putter head geometry creates two independent torque sources:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Gravitational torque&lt;/strong&gt;: This term is present even when the putter is held still. It depends on how far the center of mass is, in the heel-toe direction, from the shaft line when in the address position.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Inertial torque&lt;/strong&gt;: This term depends on how hard you accelerate the putter and on the distance from the shaft’s pivot point to the putter’s center of mass in the left-to-right direction (i.e. face to back of club).&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Traditional blade style toe-hang putters fight the natural arc geometry by closing the face during the backswing since the inertial torque dominates. But what if we could design a toe-hang putter where these torques cancel out?&lt;/p&gt;
-
-&lt;p&gt;This post explores the “balanced toe-hang” design—a putter that achieves near-zero initial torques by deliberately using opposing gravitational and inertial forces.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;the-cancellation-condition&quot;&gt;The Cancellation Condition&lt;/h2&gt;
-
-&lt;p&gt;For the total torque to be zero:&lt;/p&gt;
-
-\[\tau_{total} = \tau_g + \tau_{in} = 0\]
-
-&lt;p&gt;Substituting the torque formulas:&lt;/p&gt;
-
-\[mgb_g + mab_a = 0\]
-
-&lt;p&gt;The mass \(m\) cancels out, giving us the design constraint:&lt;/p&gt;
-
-\[gb_g = -ab_a\]
-
-&lt;p&gt;Rearranging for the critical ratio:&lt;/p&gt;
-
-\[\frac{b_g}{b_a} = -\frac{a}{g}\]
-
-&lt;p&gt;where:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;\(b_g\) = front/back COM offset from shaft (mm)&lt;/li&gt;
-  &lt;li&gt;\(b_a\) = heel/toe COM offset from shaft (mm)&lt;/li&gt;
-  &lt;li&gt;\(a\) = stroke acceleration (m/s²)&lt;/li&gt;
-  &lt;li&gt;\(g\) = gravitational acceleration (9.8 m/s²)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For example, a stroke acceleration of \(a = 9\) m/s² requires:&lt;/p&gt;
-
-\[\frac{b_g}{b_a} = -\frac{9}{9.8} \approx -0.918\]
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;calibration&quot;&gt;Calibration&lt;/h2&gt;
-
-&lt;p&gt;If we assume a relative shaft-to-COM length of \(b_a = -50\) mm, meaning the shaft is positioned to the heel side of the COM by about 2 inches:&lt;/p&gt;
-
-\[b_g = -0.918 \times (-50) = 45.9 \text{ mm}\]
-
-&lt;p&gt;Which just requires the shaft is also in front of the COM (toward the face) by about 2 inches also. This can be easily achieved through a large mallet with rear weight.&lt;/p&gt;
-
-&lt;h2 id=&quot;comparison&quot;&gt;Comparison&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Parameter&lt;/th&gt;
-      &lt;th&gt;Traditional Toe-Hang&lt;/th&gt;
-      &lt;th&gt;Balanced Toe-Hang&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(b_g\) (forward offset)&lt;/td&gt;
-      &lt;td&gt;+19 mm&lt;/td&gt;
-      &lt;td&gt;+46 mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(b_a\) (heel/toe offset)&lt;/td&gt;
-      &lt;td&gt;-51 mm&lt;/td&gt;
-      &lt;td&gt;-50 mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(\tau_g\) @ rest&lt;/td&gt;
-      &lt;td&gt;+0.065 N·m&lt;/td&gt;
-      &lt;td&gt;+0.158 N·m&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(\tau_{in}\) @ 9 m/s²&lt;/td&gt;
-      &lt;td&gt;-0.159 N·m&lt;/td&gt;
-      &lt;td&gt;-0.158 N·m&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Net torque&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;-0.094 N·m&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;~0 N·m&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The balanced toe-hang achieves cancellation by having:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Large gravitational torque (wants to open face)&lt;/li&gt;
-  &lt;li&gt;Equally large inertial torque (wants to close face)&lt;/li&gt;
-  &lt;li&gt;Perfect cancellation at initial acceleration&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;performance&quot;&gt;Performance&lt;/h2&gt;
-
-&lt;p&gt;The cancellation is acceleration-dependent. Here’s how rotation varies with stroke aggressiveness:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Stroke Type&lt;/th&gt;
-      &lt;th&gt;Acceleration&lt;/th&gt;
-      &lt;th&gt;Traditional Toe-Hang&lt;/th&gt;
-      &lt;th&gt;Balanced Toe-Hang&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Gentle&lt;/td&gt;
-      &lt;td&gt;6 m/s²&lt;/td&gt;
-      &lt;td&gt;-2.5° (closes)&lt;/td&gt;
-      &lt;td&gt;+3.1° (opens)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Medium&lt;/td&gt;
-      &lt;td&gt;9 m/s²&lt;/td&gt;
-      &lt;td&gt;-5.7° (closes)&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;±0.0°&lt;/strong&gt; (neutral)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Aggressive&lt;/td&gt;
-      &lt;td&gt;12 m/s²&lt;/td&gt;
-      &lt;td&gt;-8.8° (closes)&lt;/td&gt;
-      &lt;td&gt;*-3.1° (closes)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Observations:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Traditional toe-hang&lt;/strong&gt;: Always closes, fighting the required ~7° arc opening&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Balanced toe-hang&lt;/strong&gt;: Neutral at 9 m/s², with ±3° variation across realistic stroke speeds&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range, but is still sensitive to tempo and rhythm (which manifest as acceleration) in the stroke.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;when-two-wrongs-make-a-right&quot;&gt;When Two Wrongs Make a Right&lt;/h2&gt;
-
-&lt;p&gt;Unlike zero torque putters that try to eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.&lt;/p&gt;
-
-&lt;p&gt;Putters exactly like these can be seen all over, too. I suspect this is more or less what the plumber’s neck version of the popular Taylor Made Spyder putters do. Especially with their changable weights, I imagine they can get those pretty dialed.&lt;/p&gt;
-
-&lt;p&gt;Even more players are reducing torque than we thought!&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">Effective Distance on Sloped Greens</title><link href="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html" rel="alternate" type="text/html" title="Effective Distance on Sloped Greens" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">&lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
+&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">Effective Distance on Sloped Greens</title><link href="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html" rel="alternate" type="text/html" title="Effective Distance on Sloped Greens" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">&lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
 
 &lt;p&gt;You face a 20-foot putt that’s 2% downhill on 10-stimp greens. How hard should you hit it?&lt;/p&gt;
 

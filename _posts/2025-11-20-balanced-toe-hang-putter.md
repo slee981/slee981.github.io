@@ -19,6 +19,8 @@ Traditional blade style toe-hang putters fight the natural arc geometry by closi
 
 This post explores the "balanced toe-hang" design—a putter that achieves near-zero initial torques by deliberately using opposing gravitational and inertial forces.
 
+**Important caveat**: This cancellation only occurs during the backswing. When you transition to the forward swing, the inertial torque reverses direction while gravity remains constant. Instead of canceling, both torques now work together to open the face. The result is a putter that feels fairly neutral on the backswing but wants to open aggressively during the forward strike.
+
 ---
 
 ## The Cancellation Condition
@@ -113,6 +115,8 @@ The balanced design provides ±3° variation compared to traditional toe-hang's 
 
 Unlike zero torque putters that try to eliminate both offsets ($$b_g \approx 0$$, $$b_a \approx 0$$), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.
 
-Putters exactly like these can be seen all over, too. I suspect this is more or less what the plumber's neck version of the popular Taylor Made Spyder putters do. Especially with their changable weights, I imagine they can get those pretty dialed. 
+This cancellation only works during the initial acceleration of the backswing, however. When you transition to the forward swing, the inertial torque reverses direction (acceleration flips sign) while gravitational torque remains roughly the same. Now instead of canceling, both torques add together to rotate the face open. The golfer experiences a putter that feels fairly neutral on the backswing but wants to open through impact. This may still explain their popularity — the neutral backswing feel is appealing, and the feeling of closing the face through impact is standard with every other club in the bag.  
+
+If you want an example of this in action, check out the popular Taylor Made Spider putters with the plumber necks (a la Scottie Scheffler) that will have the toe hang ~45 degrees when laid down horizontally. Especially with their changable weights, I imagine they can get those pretty dialed to a players specific accelerations. 
 
 Even more players are reducing torque than we thought! 
