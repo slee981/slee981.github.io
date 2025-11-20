@@ -21,9 +21,9 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Stephen M. Lee | Personal Website</title>
+<title>Notes | Stephen M. Lee</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Stephen M. Lee" />
+<meta property="og:title" content="Notes" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Personal Website" />
 <meta property="og:description" content="Personal Website" />
@@ -31,9 +31,9 @@
 <meta property="og:url" content="https://stephenlee.info/" />
 <meta property="og:site_name" content="Stephen M. Lee" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Stephen M. Lee" />
+<meta property="twitter:title" content="Notes" />
 <script type="application/ld+json">
-{"url":"https://stephenlee.info/","headline":"Stephen M. Lee","name":"Stephen M. Lee","description":"Personal Website","@type":"WebSite","@context":"https://schema.org"}</script>
+{"url":"https://stephenlee.info/","headline":"Notes","name":"Stephen M. Lee","description":"Personal Website","@type":"WebSite","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -64,13 +64,13 @@
       <div class="navbar-nav">
       
         
-        <a class="nav-item nav-link active" href="/index.html">About</a>
+        <a class="nav-item nav-link active" href="/index.html">Blog</a>
       
         
         <a class="nav-item nav-link " href="/work.html">Work</a>
       
         
-        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+        <a class="nav-item nav-link " href="/about.html">About</a>
       
       </div>
     </div>
@@ -79,166 +79,619 @@
 
 
       <main>
-        <div class="row">
-    <div class="col d-flex justify-content-center">
-        <div class="card p-3 headshot-card">
-            <div class="row">
-                <div class="col-sm-5 d-flex justify-content-center">
-                    <img class="img-fluid headshot"
-                        src="/assets/images/profile.png"
-                        alt="">
-                </div>
-
-                <div class="col-sm-7 d-flex justify-content-center align-items-center">
-                    <div class="card-body main-info-text">
-                        <h1 class="card-title my-name mt-4">Stephen M. Lee</h1>
-                        <h5 class="card-text">Director, Workforce Strategy</h5>
-                        <h6 class="card-text">Comcast</h6>
-                        <div class="d-flex justify-content-end align-bottom mt-5">
-                            <p class="resume-link card-link">
-                                <a target="_new" href="https://github.com/slee981/Resume/blob/master/StephenLee_Resume.pdf">
-                                    Full PDF Resume &raquo;
-                                </a>
-                            </p>
-                        </div>
-                        <div class="row social">
-                            <div class="d-flex social justify-content-end align-bottom">
-                                <div class="footer-element">
-    
-        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
-            <i class="fa-hover fas fa-envelope" title="Email"></i>
-        </a>
-    
-        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
-            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
-        </a>
-    
-        <a class="social-icon" href="https://github.com/slee981" target="_blank">
-            <i class="fa-hover fab fa-github" title="GitHub"></i>
-        </a>
-    
-</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1 class="text-center">Blog</h1>
+<p class="text-center">
+    Technical musings on whatever catches my attention. 
+</p>
+<div class="row">
+    <div class="category-tags d-flex flex-wrap justify-content-center px-5">
+        <a class="card-link my-1 py-2 px-3"
+            href="/categories.html">Categories</a>
+        <a class="card-link my-1 py-2 px-3"
+            href="/archive.html">Archive</a>
+        <a class="card-link my-1 py-2 px-3"
+            href="/tags.html">Tags</a>
     </div>
 </div>
+
 <hr>
 
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card h-100 m-3 p-4">
-            <div class="card-body">
-                <h2 class="card-title">Employment</h2>
-                <ul class="card-text">
-                    <li><b>Director, Workforce Strategy</b>, Comcast</li>
-                    <li><b>Manager, Decision Science</b>, FedEx Corporation</li>
-                    <li><b>Sr. Decision Scientist</b>, FedEx Corporation</li>
-                    <li><b>Economist</b>, Econ One Research</li>
-                    <li><b>Research Assistant</b>, Federal Reserve Bank of Chicago</li>
-                    <li><b>Graduate Assistant</b>, U of Memphis CS Department</li>
-                    <li><b>Graduate Assistant</b>, U of Memphis Econ Department</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card h-100 m-3 p-4">
-            <div class="card-body education">
-                <h2 class="card-title">Education</h2>
-                <p class="card-text">University of Memphis</p>
-                <ul class="card-text">
-                    <li>M.S. <b>Computer Science</b></li>
-                    <li>M.A. <b>Economics</b></li>
-                    <li>B.S. <b>Physics</b></li>
-                </ul>
-            </div>
+
+
+<div class="row mt-3">
+
+  <!-- START POST COLUMN -->
+  <div class="col-md-8 py-2">
+    
+
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">A Balanced Toe-Hang Putter?</h3>
+
+            <p class="card-text text-center">
+                
+                    Introduction In a previous post, I analyzed how different putter designs create torques that want to twist the face during your stroke. The key point was that putter head geometry creates two independent torque sources: Gravitational torque: This term is present even when the putter is held still. It depends...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/physics/golf/2025/11/20/balanced-toe-hang-putter.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
         </div>
     </div>
 
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Putter Torque and Face Rotation</h3>
+
+            <p class="card-text text-center">
+                
+                    Introduction Dr. Sasho MacKenzie’s research shows that successful putting requires managing three factors: Start line Primarily determined by face angle at impact Tolerance: ±0.7° on 12-foot putts1 Speed control Determines capture width and is especially critical on breaking putts Visual strategy (near vs. far focus) can affect speed control2. This...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/physics/golf/2025/11/19/putter-torque-physics.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Effective Distance on Sloped Greens</h3>
+
+            <p class="card-text text-center">
+                
+                    The Problem You face a 20-foot putt that’s 2% downhill on 10-stimp greens. How hard should you hit it? Instead of thinking “hit it softer than a flat 20-footer,” what if we could translate this into an equivalent flat distance? Your body already knows how to hit a 15-footer—that muscle...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Calibrating Aimpoint Express</h3>
+
+            <p class="card-text text-center">
+                
+                    Introduction In my previous post, I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we’re going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system. The Express method is elegant and simple: Stand just above/behind the ball,...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/golf/physics/2025/11/17/calibrating-aimpoint-express.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Modeling Aimpoint for Green Reading</h3>
+
+            <p class="card-text text-center">
+                
+                    The Physics of Putting Problem Aimpoint Express is a common system for calibrating your feet and fingers to estimate the break of a putt. Tune in to a professional golf tournament and you’re likely to see players doing funny things with their fingers, and awkwardly straddling their line. I played...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/golf/physics/2025/11/16/rederiving-aimpoint.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Networks (Part II) - Navigation</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Audience This is part II in a series about making economic inferences on network structures. The notation is covered in part I. Overview In the previous post I described the basic notations for...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/networks/2021/08/02/networks-navigation.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Networks (Part I) - Notation</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Audience I assume you know what a network is, some areas where they appear (e.g. social media connection graphs, airline routes, supply chain logistics, etc.), and are familiar with or curious about formalizing...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/networks/2021/07/14/networks-notation.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">What is the "Potential Outcomes" Framework</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Overview Potential outcomes is a set of techniques and tools for estimating the likely results of a particular action. More specifically, potential outcomes provides a methodology for assessing the effect of a treatment...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">SEM Estimation by 2SLS</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Overview The goal is to: Determine the correct setup for the first stage regression, and Provide intuition for why that is the case. Microeconomic Theory Suppose the true supply function for some product...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/instrumental%20variables/2021/07/12/sem-iv.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Omitted Variable Bias by Simulation</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Overview In simulation, we can show that omitting a variable \(x_2\) can cause the point estimates for a correlated variable \(x_1\) to change from (positive) \(0.999\) with a p-value of nearly zero, to...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/econometrics/statistics/2021/01/21/why-omitted-variables-matter.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Use Docker for Local Databases</h3>
+
+            <p class="card-text text-center">
+                
+                    Problem You want access to a local database for some reason. You might be doing web or app development, or practicing SQL queries, or whatever. Why you want a local database is your business. Solution Use Docker. It can manage your data (with docker volume), your databases and versions (with...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/database/backend/2021/01/19/setup-docker-db-testing.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Moving Average in R, tidyverse</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Problem Given some dataset, you might want to find the rolling or moving average. We can visualize this in a sample dataset as follows. Note, the k-lag moving average we want, MA-k, is...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/statistics/tutorial/2021/01/19/moving-average-in-R.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Deploy Jekyll to GitHub Pages</h3>
+
+            <p class="card-text text-center">
+                
+                    Problem You have made a beautiful blog with Jekyll (and hopefully with the Cadre theme), but don’t know the best workflow to make it go live on the Internet. Solution There are two options depending on your use case and preferences. Using the github-pages plugin When you create a new...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/web%20development/front%20end/2021/01/14/deploy-jekyll-to-github-pages.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Force Push a Git Subtree</h3>
+
+            <p class="card-text text-center">
+                
+                    Problem For… reasons… you force pushed a branch to your remote repository. For example, I’ve definitely done the following thing before (not that I’m proud of it): $ git add . $ git commit -m "useful message" $ git push $ # $ # shoot, i really should have also...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/version%20control/2021/01/13/git-force-push-subtree.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Text Wraps in Safari, but Scrolls in Chrome</h3>
+
+            <p class="card-text text-center">
+                
+                    Problem On your website, you want to display text (like code) that should not wrap to a new line if it exceeds its y-axis boundary. In other words, if a line of text is too long, you want the option to scroll, as in the screenshot below: However, in several...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/web%20development/front%20end/2021/01/12/code-wrap-safari-browser.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Build a Neural Network with Julia</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Audience If you’re reading this, I assume you are already motivated to learn how a neural network actually works. They are relevant and powerful tools, so the sell shouldn’t be too difficult anyway....
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/machine%20learning/prediction/tutorial/2020/12/20/build-a-neural-network.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Replicate STATA Robust Errors</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Overview In STATA, it’s good practice to estimate your OLS model with “robust” standard errors. For example, in STATA you type: reg y x1 x2, r And magic happens. As it turns out,...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/econometrics/tutorial/2020/10/20/replicate-robust-stata-errors.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <div class="card my-2 mx-3">
+        <div class="card-body p-5">
+            <h3 class="card-title text-center">Docker for Managing Code Versions</h3>
+
+            <p class="card-text text-center">
+                
+                    Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use. Introduction If you’re here, you either want to learn Docker, or find a better way to manage various programming languages and their versions. For this use case, we explore Docker in the context...
+                
+            </p>
+
+            <p class="card-text text-center read-more">
+                <a href="/general/tutorial/2020/10/15/docker.html">
+                    Read more <i class="fa fa-xs fa-hover fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+
+
+    
+  </div>
+
+  <!-- START INFO COLUMN -->
+  <div class="col-md-4 py-3">
+    <div class="card">
+    <div class="card-body">
+        <h3 class="card-title text-center">About</h3>
+        
+            <p class="card-text text-center">
+            A blog with notes for my future self, and probably the AIs, too.
+            </p>
+        
+    </div>
+    
 </div>
-<hr>
 
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card h-100 m-3 p-4">
-            <div class="card-body">
-                <h2 class="card-title">Golf</h2>
-                <div class="card-text">
-                    <p>
-                        My dad introduced me to golf when I was very young -
-                        in fact, I've been told stories about me crawling around
-                        with
-                        a wooden golf club before I could walk. This turned
-                        into a real obsession with time.
-                    </p>
-                    <p>
-                        I played in tournaments frequently throughout
-                        high school and ended up earning a scholarship
-                        to play golf at the University of Memphis.
-                    </p>
-                    <p>
-                        At Memphis, we had a good team and won the 2012
-                        Conference USA Team Championship, and even qualified
-                        to play in the NCAA Championship at the Riviera CC
-                        (in California) that same year. Individually, a couple
-                        of my highlights include qualifying to compete in the
-                        PGA
-                        Tour's
-                        FedEx St. Jude Classic and the United States Amateur -
-                        both
-                        in the summer of 2011.
-                    </p>
-                    <p>
-                        After college, I played professionally for a year.
-                        I won some money and lived out of my suitcase and
-                        then retired as a golfer.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card h-100 m-3 p-4">
-            <div class="card-body">
-                <h2 class="card-title">Awards and Scholarships</h2>
-                <ul class="card-text">
-                    <li><b>2019: </b> 2nd Place, University of Memphis Graduate
-                        Student Research Symposium</li>
-                    <li><b>2018: </b> Winner, Wells Fargo Campus Analytics
-                        Challenge</li>
-                    <li><b>2018-2019: </b> Graduate Assistantship Scholarship, Computer
-                        Science</li>
-                    <li><b>2016-2018: </b> Graduate Assistantship Scholarship, Economics</li>
-                    <li><b>2013: </b> Cleveland Golf / Srixon All America
-                        Scholar</li>
-                    <li><b>2012: </b> Cleveland Golf / Srixon All America
-                        Scholar</li>
-                    <li><b>2009-2013: </b>Cecil C. Humphreys Presidental
-                        Scholarship</li>
-                    <li><b>2009-2013: </b> Men's Golf Scholarship</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div class="card sticky-div mt-2">
+
+  <div class="card-body">
+
+    <h3 class="card-title text-center">Recent Posts</h3>
+  </div>
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item">
+          <time datetime="">Nov 20, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/physics/golf/2025/11/20/balanced-toe-hang-putter.html">A Balanced Toe-Hang Putter?</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="">Nov 19, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/physics/golf/2025/11/19/putter-torque-physics.html">Putter Torque and Face Rotation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="">Nov 18, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">Effective Distance on Sloped Greens</a>
+        </li>
+      
+    </ul>
+
+  <div class="card-body">
+    
+      <h3 class="card-title text-center">Categories</h3>
+      <div class="category-tags d-flex flex-wrap justify-content-center px-5">
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#general">
+            
+            
+              General
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#tutorial">
+            
+            
+              Tutorial
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#econometrics">
+            
+            
+              Econometrics
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#machine-learning">
+            
+            
+              Machine
+            
+              Learning
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#prediction">
+            
+            
+              Prediction
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#web-development">
+            
+            
+              Web
+            
+              Development
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#front-end">
+            
+            
+              Front
+            
+              End
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#version-control">
+            
+            
+              Version
+            
+              Control
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#statistics">
+            
+            
+              Statistics
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#database">
+            
+            
+              Database
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#backend">
+            
+            
+              Backend
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#instrumental-variables">
+            
+            
+              Instrumental
+            
+              Variables
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#potential-outcomes">
+            
+            
+              Potential
+            
+              Outcomes
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#networks">
+            
+            
+              Networks
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#golf">
+            
+            
+              Golf
+            
+          
+          </a>
+        
+          
+          
+          
+          
+          <a class="card-link my-1 py-2 px-3" href="/categories.html#physics">
+            
+            
+              Physics
+            
+          
+          </a>
+        
+      </div>
+    
+  </div>
 </div>
-<hr> 
 
-<div class="row">
-    <div class="col">
-        <p class="resume-link card-link">
-            <a target="_new" href="https://github.com/slee981/Resume/blob/master/StephenLee_Resume.pdf">
-                Full PDF Resume &raquo;
-            </a>
-        </p>
-    </div>
+  </div>
 </div>
-
-
       </main>
 
     </div>
