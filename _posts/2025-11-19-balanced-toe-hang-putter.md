@@ -75,10 +75,10 @@ This is **2.4× more forward** than a traditional toe-hang blade ($$b_g \approx 
 
 | Parameter | Traditional Toe-Hang | Balanced Toe-Hang | 
 |-----------|---------------------|-------------------|
-| $$b_g$$ (forward offset) | +19 mm | **+46 mm** | 
-| $$b_a$$ (heel/toe offset) | -51 mm | **-50 mm** | 
-| $$\tau_g$$ @ rest | +0.065 N·m | **+0.158 N·m** | 
-| $$\tau_{in}$$ @ 9 m/s² | -0.159 N·m | **-0.158 N·m** | 
+| $$b_g$$ (forward offset) | +19 mm | +46 mm | 
+| $$b_a$$ (heel/toe offset) | -51 mm | -50 mm | 
+| $$\tau_g$$ @ rest | +0.065 N·m | +0.158 N·m | 
+| $$\tau_{in}$$ @ 9 m/s² | -0.159 N·m | -0.158 N·m | 
 | **Net torque** | -0.094 N·m | **~0 N·m** |
 
 The balanced toe-hang achieves cancellation by having:
@@ -94,9 +94,9 @@ The cancellation is **acceleration-dependent**. Here's how rotation varies with 
 
 | Stroke Type | Acceleration | Traditional Toe-Hang | Balanced Toe-Hang |
 |-------------|--------------|---------------------|-------------------|
-| Gentle | 6 m/s² | -2.5° (closes) | **+3.1°** (opens) |
+| Gentle | 6 m/s² | -2.5° (closes) | +3.1° (opens) |
 | Medium | 9 m/s² | -5.7° (closes) | **±0.0°** (neutral) | 
-| Aggressive | 12 m/s² | -8.8° (closes) | **-3.1°** (closes) | 
+| Aggressive | 12 m/s² | -8.8° (closes) |*-3.1° (closes) | 
 
 **Observations:**
 
