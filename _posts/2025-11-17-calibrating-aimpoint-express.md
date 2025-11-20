@@ -10,7 +10,7 @@ katex: true
 
 ## Introduction 
 
-In my [previous post]({% post_url 2025-11-17-rederiving-aimpoint %}), I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we're going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system.
+In my [previous post]({% post_url 2025-11-16-rederiving-aimpoint %}), I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we're going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system.
 
 The Express method is elegant and simple: 
 
@@ -47,7 +47,7 @@ The key insight: if break is linear in distance, then we can choose a fixed view
 
 ## Why This Works
 
-From the [previous derivation]({% post_url 2025-11-17-rederiving-aimpoint %}), the physics model gives break as a function of distance with a $$(\sqrt{D+R} - \sqrt{R})^2$$ term, where $$D$$ is the distance to the hole and $$R$$ is the additional roll out distance the ball would travel if you didn't make the putt. 
+From the [previous derivation]({% post_url 2025-11-16-rederiving-aimpoint %}), the physics model gives break as a function of distance with a $$(\sqrt{D+R} - \sqrt{R})^2$$ term, where $$D$$ is the distance to the hole and $$R$$ is the additional roll out distance the ball would travel if you didn't make the putt. 
 
 For practical estimates with small roll out distance (e.g. you hit a 10 footer with enough speed to go 11ft), this break is very nearly linear in distance to the hole.
 

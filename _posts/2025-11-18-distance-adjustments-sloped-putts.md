@@ -16,7 +16,7 @@ Instead of thinking "hit it softer than a flat 20-footer," what if we could tran
 
 ## Derivation
 
-From [previous posts]({% post_url 2025-11-17-rederiving-aimpoint %}), we know that for a putt with total rollout $$L = D + R$$, the required initial velocity is:
+From [previous posts]({% post_url 2025-11-16-rederiving-aimpoint %}), we know that for a putt with total rollout $$L = D + R$$, the required initial velocity is:
 
 $$
 v_0^2 = 2 a_{\text{eff}} L
