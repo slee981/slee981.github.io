@@ -1,5 +1,5 @@
 ---
-title: "A Balanced Toe-Hang Putter"
+title: "A Balanced Toe-Hang Putter?"
 layout: post
 author: Stephen Lee
 categories: [physics, golf]

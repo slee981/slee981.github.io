@@ -37,9 +37,9 @@ slee981.github.io/
 │   ├── resume/          # Resume files
 │   └── css/
 ├── Root pages:
-│   ├── index.html       # Home/about page
+│   ├── index.html       # Blog archive (landing page)
 │   ├── work.html        # Portfolio showcase
-│   ├── notes.html       # Blog archive
+│   ├── about.html       # About page
 │   ├── categories.html  # Posts by category
 │   └── tags.html        # Posts by tag
 ├── _config.yml          # Jekyll site configuration
