@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T19:56:40-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T20:37:16-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Dr. Sasho MacKenzie’s research shows that successful putting requires managing three factors:&lt;/p&gt;
 
@@ -427,237 +427,162 @@ R\cos\theta\cos\phi
       &lt;p&gt;MacKenzie, S., &amp;amp; MacInnis, K. (2017). “Evaluation of Near Versus Far Target Visual Focus Strategies with Breaking Putts.” Study of 27 golfers on breaking putts from 6-14 feet showed far-focus strategy improved make rate from 37% to 40% through better distance control. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">A Balanced Toe-Hang Putter</title><link href="https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html" rel="alternate" type="text/html" title="A Balanced Toe-Hang Putter" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;In my &lt;a href=&quot;/golf/physics/2025/11/17/rederiving-aimpoint.html&quot;&gt;previous post&lt;/a&gt;, I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we’re going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system.&lt;/p&gt;
-
-&lt;p&gt;The Express method is elegant and simple:&lt;/p&gt;
+&lt;p&gt;In a &lt;a href=&quot;/golf/physics/2025/11/19/putter-torque-physics.html&quot;&gt;previous post&lt;/a&gt;, I analyzed how different putter designs create torques that want to twist the face during your stroke. The key point was that putter head geometry creates two independent torque sources:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Stand just above/behind the ball,&lt;/li&gt;
-  &lt;li&gt;Hold up X fingers for X% side slope (one per percent of side slope),&lt;/li&gt;
-  &lt;li&gt;Close your non-dominant eye,&lt;/li&gt;
-  &lt;li&gt;Align one side of your finger with the center of the hole such that the rest of the finger(s) covers the edge of 
- the cup in the direction you’d need to start your putt.&lt;/li&gt;
-  &lt;li&gt;Observe the location where you can first see grass that is parallel with the center of the hole.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Gravitational torque&lt;/strong&gt;: This term is present even when the putter is held still. It depends on how far the center of mass is, in the heel-toe direction, from the shaft line when in the address position.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Inertial torque&lt;/strong&gt;: This term depends on how hard you accelerate the putter and on the distance from the shaft’s pivot point to the putter’s center of mass in the left-to-right direction (i.e. face to back of club).&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;This spot becomes your “aim point”, and you then just pretend to hit a dead straight putt at that point.&lt;/p&gt;
+&lt;p&gt;Traditional blade style toe-hang putters fight the natural arc geometry by closing the face during the backswing since the inertial torque dominates. But what if we could design a toe-hang putter where these torques cancel out?&lt;/p&gt;
 
-&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;This post explores the “balanced toe-hang” design—a putter that achieves near-zero initial torques by deliberately using opposing gravitational and inertial forces.&lt;/p&gt;
 
-&lt;p&gt;The magic of this system is in the calibration: how far should you hold your hand from your face?&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;It turns out the answer involves elegant geometry and depends critically on both green speed and the slope uphill or downhill.&lt;/p&gt;
+&lt;h2 id=&quot;the-cancellation-condition&quot;&gt;The Cancellation Condition&lt;/h2&gt;
 
-&lt;h2 id=&quot;the-triangle-geometry&quot;&gt;The Triangle Geometry&lt;/h2&gt;
+&lt;p&gt;For the total torque to be zero:&lt;/p&gt;
 
-&lt;p&gt;The Aimpoint Express system works through similar triangles:&lt;/p&gt;
+\[\tau_{total} = \tau_g + \tau_{in} = 0\]
 
-\[\frac{\text{Finger Width } (w)}{\text{Viewing Distance } (L)} = \frac{\text{Break at Hole } (B)}{\text{Distance to Hole } (D)}\]
+&lt;p&gt;Substituting the torque formulas:&lt;/p&gt;
 
-&lt;p&gt;Rearranging:&lt;/p&gt;
+\[mgb_g + mab_a = 0\]
 
-\[B = \frac{w \cdot D}{L}\]
+&lt;p&gt;The mass \(m\) cancels out, giving us the design constraint:&lt;/p&gt;
 
-&lt;p&gt;The key insight: if break is linear in distance, then we can choose a fixed viewing distance \(L\) inches away from our face that works for all putt lengths.&lt;/p&gt;
+\[gb_g = -ab_a\]
 
-&lt;h2 id=&quot;why-this-works&quot;&gt;Why This Works&lt;/h2&gt;
+&lt;p&gt;Rearranging for the critical ratio:&lt;/p&gt;
 
-&lt;p&gt;From the &lt;a href=&quot;/golf/physics/2025/11/17/rederiving-aimpoint.html&quot;&gt;previous derivation&lt;/a&gt;, the physics model gives break as a function of distance with a \((\sqrt{D+R} - \sqrt{R})^2\) term, where \(D\) is the distance to the hole and \(R\) is the additional roll out distance the ball would travel if you didn’t make the putt.&lt;/p&gt;
-
-&lt;p&gt;For practical estimates with small roll out distance (e.g. you hit a 10 footer with enough speed to go 11ft), this break is very nearly linear in distance to the hole.&lt;/p&gt;
-
-&lt;p&gt;To verify this, I fit a simple linear model:&lt;/p&gt;
-
-\[B \approx \alpha \cdot D\]
-
-&lt;p&gt;where the value of \(\alpha\) depends on:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Green speed (Stimp reading)&lt;/li&gt;
-  &lt;li&gt;Side slope percentage&lt;/li&gt;
-  &lt;li&gt;Forward slope percentage&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We will see that this simple linear approximation fits extremely well with our model from the previous post (\(R^2 &amp;gt; 0.99\)), which means for a given putt (fixed green speed and slopes), we can treat \(\alpha\) as constant.&lt;/p&gt;
-
-&lt;p&gt;Therefore:&lt;/p&gt;
-
-\[\frac{w}{L} = \alpha \quad \Rightarrow \quad L = \frac{w}{\alpha}\]
-
-&lt;p&gt;This means the viewing distance away from your face \(L\) is constant for any given green speed, side slope, and forward slope combination. You don’t need to adjust for putt distance - the similar geometry scales it automatically!&lt;/p&gt;
-
-&lt;h2 id=&quot;n-fingers&quot;&gt;“N” Fingers&lt;/h2&gt;
-
-&lt;p&gt;Here’s another elegant consequence: if side slope doubles (say, 1% → 2%), the break doubles:&lt;/p&gt;
-
-\[B_{2\%} = 2 \times B_{1\%}\]
-
-&lt;p&gt;So for 2% slope, you hold up two fingers with the same width \(2w\):&lt;/p&gt;
-
-\[\frac{2w}{L} = 2\alpha\]
-
-&lt;p&gt;The viewing distance stays exactly the same. This is why the Express system scales so well. You just use more fingers for steeper side slopes and keep your hand at the same calibrated distance.&lt;/p&gt;
-
-&lt;h2 id=&quot;calibration&quot;&gt;Calibration&lt;/h2&gt;
-
-&lt;p&gt;The approach is straightforward but elegant. For each combination of green speed and slope conditions, I need to find the coefficient \(\alpha\) that describes how break scales with distance. Then \(L = w / \alpha\) gives the viewing distance you need to hold your fingers from your face.&lt;/p&gt;
-
-&lt;p&gt;Here’s the process:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 1: Generate data&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I used the dampened break model from the previous post to calculate expected break for:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Stimp values: 8, 10, 12, 14&lt;/li&gt;
-  &lt;li&gt;Forward slopes: -3%, -2%, -1%, 0%, +1%, +2%, +3%&lt;/li&gt;
-  &lt;li&gt;Side slope: 1% (other slopes scale proportionally)&lt;/li&gt;
-  &lt;li&gt;Distances: 3-30 feet (in 1-foot increments)&lt;/li&gt;
-  &lt;li&gt;Rollout: 1.5 feet past the hole&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This creates 756 observations (4 Stimp × 7 forward slopes × 27 distances).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Step 2: Fit linear models&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;For each Stimp value, I estimate a regression model with separate slope coefficients for each forward slope condition (since the uphill/downhill changes the speed, and consequently, the break). Using indicator variables \(\mathbb{1}_{j}\) for each of the \(j=1,...,7\) forward slope categories:&lt;/p&gt;
-
-\[B_ij = \sum_{j=1}^{7} \alpha_j \cdot \mathbb{1}_{j} \cdot D_i + \epsilon_i\]
+\[\frac{b_g}{b_a} = -\frac{a}{g}\]
 
 &lt;p&gt;where:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;\(B_ij\) is the specific putt’s break in inches.&lt;/li&gt;
-  &lt;li&gt;\(D_i\) is the putt’s distance to the hole in feet.&lt;/li&gt;
-  &lt;li&gt;\(\alpha_j\) is the coefficient (inches of break per foot) for a given slope uphill or downhill.&lt;/li&gt;
-  &lt;li&gt;\(\epsilon_i\) is the error term that our linear model doesn’t capture.&lt;/li&gt;
+  &lt;li&gt;\(b_g\) = front/back COM offset from shaft (mm)&lt;/li&gt;
+  &lt;li&gt;\(b_a\) = heel/toe COM offset from shaft (mm)&lt;/li&gt;
+  &lt;li&gt;\(a\) = stroke acceleration (m/s²)&lt;/li&gt;
+  &lt;li&gt;\(g\) = gravitational acceleration (9.8 m/s²)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This gives us 7 coefficients per Stimp value (one for each forward slope).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key insight&lt;/strong&gt;: For a typical stroke acceleration of \(a = 9\) m/s², we need:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Step 3: Extract viewing distances&lt;/strong&gt;&lt;/p&gt;
+\[\frac{b_g}{b_a} = -\frac{9}{9.8} \approx -0.918\]
 
-&lt;p&gt;From the regression coefficients, we use our fitted parameters to reverse engineer what viewing distance from your face you should hold your fingers:&lt;/p&gt;
+&lt;hr /&gt;
 
-\[L = \frac{w}{\alpha}\]
+&lt;h2 id=&quot;design-parameters&quot;&gt;Design Parameters&lt;/h2&gt;
 
-&lt;p&gt;where \(w\) is your finger width (e.g. mine is about 0.75 inch).&lt;/p&gt;
+&lt;p&gt;For a toe-hang putter with typical heel bias (\(b_a = -50\) mm, meaning the shaft is in front of the COM on the “face” side of the putter), the required forward offset is:&lt;/p&gt;
 
-&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+\[b_g = -0.918 \times (-50) = 45.9 \text{ mm}\]
 
-&lt;p&gt;Here are the viewing distances (the number of inches you should hold your fingers from your face):&lt;/p&gt;
+&lt;p&gt;This is &lt;strong&gt;2.4× more forward&lt;/strong&gt; than a traditional toe-hang blade (\(b_g \approx 19\) mm).&lt;/p&gt;
+
+&lt;h3 id=&quot;comparison-of-designs&quot;&gt;Comparison of Designs&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Forward Slope&lt;/th&gt;
-      &lt;th&gt;Stimp 8&lt;/th&gt;
-      &lt;th&gt;Stimp 10&lt;/th&gt;
-      &lt;th&gt;Stimp 12&lt;/th&gt;
-      &lt;th&gt;Stimp 14&lt;/th&gt;
+      &lt;th&gt;Parameter&lt;/th&gt;
+      &lt;th&gt;Traditional Toe-Hang&lt;/th&gt;
+      &lt;th&gt;Balanced Toe-Hang&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;-3% (steep downhill)&lt;/td&gt;
-      &lt;td&gt;10”&lt;/td&gt;
-      &lt;td&gt;7”&lt;/td&gt;
-      &lt;td&gt;5”&lt;/td&gt;
-      &lt;td&gt;4”&lt;/td&gt;
+      &lt;td&gt;\(b_g\) (forward offset)&lt;/td&gt;
+      &lt;td&gt;+19 mm&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;+46 mm&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;-2% (downhill)&lt;/td&gt;
-      &lt;td&gt;11”&lt;/td&gt;
-      &lt;td&gt;8”&lt;/td&gt;
-      &lt;td&gt;7”&lt;/td&gt;
-      &lt;td&gt;5”&lt;/td&gt;
+      &lt;td&gt;\(b_a\) (heel/toe offset)&lt;/td&gt;
+      &lt;td&gt;-51 mm&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;-50 mm&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;-1% (slight downhill)&lt;/td&gt;
-      &lt;td&gt;12”&lt;/td&gt;
-      &lt;td&gt;10”&lt;/td&gt;
-      &lt;td&gt;8”&lt;/td&gt;
-      &lt;td&gt;7”&lt;/td&gt;
+      &lt;td&gt;\(\tau_g\) @ rest&lt;/td&gt;
+      &lt;td&gt;+0.065 N·m&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;+0.158 N·m&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;0% (flat)&lt;/td&gt;
-      &lt;td&gt;14”&lt;/td&gt;
-      &lt;td&gt;11”&lt;/td&gt;
-      &lt;td&gt;9”&lt;/td&gt;
-      &lt;td&gt;8”&lt;/td&gt;
+      &lt;td&gt;\(\tau_{in}\) @ 9 m/s²&lt;/td&gt;
+      &lt;td&gt;-0.159 N·m&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;-0.158 N·m&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;+1% (slight uphill)&lt;/td&gt;
-      &lt;td&gt;15”&lt;/td&gt;
-      &lt;td&gt;12”&lt;/td&gt;
-      &lt;td&gt;10”&lt;/td&gt;
-      &lt;td&gt;9”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;+2% (uphill)&lt;/td&gt;
-      &lt;td&gt;16”&lt;/td&gt;
-      &lt;td&gt;13”&lt;/td&gt;
-      &lt;td&gt;12”&lt;/td&gt;
-      &lt;td&gt;10”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;+3% (steep uphill)&lt;/td&gt;
-      &lt;td&gt;17”&lt;/td&gt;
-      &lt;td&gt;15”&lt;/td&gt;
-      &lt;td&gt;13”&lt;/td&gt;
-      &lt;td&gt;12”&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Net torque&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-0.094 N·m&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;~0 N·m&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;The regression fits are excellent (\(R^2 = 0.992\)), confirming that break really is linear in distance.&lt;/p&gt;
+&lt;p&gt;The balanced toe-hang achieves cancellation by having:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Large gravitational torque (wants to open face)&lt;/li&gt;
+  &lt;li&gt;Equally large inertial torque (wants to close face)&lt;/li&gt;
+  &lt;li&gt;Perfect cancellation at initial acceleration&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&quot;key-insights&quot;&gt;Key Insights&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;performance-across-stroke-speeds&quot;&gt;Performance Across Stroke Speeds&lt;/h2&gt;
+
+&lt;p&gt;The cancellation is &lt;strong&gt;acceleration-dependent&lt;/strong&gt;. Here’s how rotation varies with stroke aggressiveness:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Stroke Type&lt;/th&gt;
+      &lt;th&gt;Acceleration&lt;/th&gt;
+      &lt;th&gt;Traditional Toe-Hang&lt;/th&gt;
+      &lt;th&gt;Balanced Toe-Hang&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Gentle&lt;/td&gt;
+      &lt;td&gt;6 m/s²&lt;/td&gt;
+      &lt;td&gt;-2.5° (closes)&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;+3.1°&lt;/strong&gt; (opens)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Medium&lt;/td&gt;
+      &lt;td&gt;9 m/s²&lt;/td&gt;
+      &lt;td&gt;-5.7° (closes)&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;±0.0°&lt;/strong&gt; (neutral)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Aggressive&lt;/td&gt;
+      &lt;td&gt;12 m/s²&lt;/td&gt;
+      &lt;td&gt;-8.8° (closes)&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;-3.1°&lt;/strong&gt; (closes)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Observations:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Uphill/Downhill Slope Requires Adjustment&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;This was actually my initial motivation for the analysis as the videos I saw online didn’t really talk much about how to adjust the Express system for uphill/downhill slopes. I guess that’s the paywalled version!&lt;/p&gt;
-
-    &lt;p&gt;What I find is that the viewing distance changes nearly 1 inch per percent of forward slope:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Downhill: hold fingers closer (more break)&lt;/li&gt;
-      &lt;li&gt;Uphill: hold fingers farther (less break)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;On its own, not a huge deal, but when you compare a 10 footer with 2% side slope that is 2% uphill vs. 2% downhill, my estimates show about 7 inches of total break difference! If you’re not even trying to move your fingers closer/farther from your face, you will miss.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;The Express System is Excellent&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;All of the physics here validates that the simple fingers approach truly provides a consistent and useful heuristic for estimating total break.&lt;/p&gt;
-
-    &lt;p&gt;The massive caveat (and reason for all this work), is that calibrating the distance to hold your fingers is really important, and adjusting for uphill/downhill can make or break you.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Traditional toe-hang&lt;/strong&gt;: Always closes, fighting the required ~7° arc opening&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Balanced toe-hang&lt;/strong&gt;: Neutral at 9 m/s², with ±3° variation across realistic stroke speeds&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;application&quot;&gt;Application&lt;/h2&gt;
+&lt;p&gt;The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range.&lt;/p&gt;
 
-&lt;p&gt;To use this on the course:&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Assess green speed. Ask the pro shop for the Stimp reading, or estimate based on course conditions&lt;/li&gt;
-  &lt;li&gt;Read the forward slope. Is your putt uphill, downhill, or flat?&lt;/li&gt;
-  &lt;li&gt;Read the side slope.&lt;/li&gt;
-  &lt;li&gt;Find your viewing distance. Use the table above for a starting point.&lt;/li&gt;
-  &lt;li&gt;Hold up fingers. One per percent, at the correct viewing distance.&lt;/li&gt;
-  &lt;li&gt;Find your aim point.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;when-two-wrongs-make-a-right&quot;&gt;When Two Wrongs Make a Right&lt;/h2&gt;
 
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Unlike L.A.B. putters that eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.&lt;/p&gt;
 
-&lt;p&gt;The Aimpoint Express finger-reading system embodies elegant applied physics. The similar-triangle geometry, combined with the linear break-distance relationship, creates a practical tool that scales naturally with slope percentage.&lt;/p&gt;
+&lt;p&gt;Putters exactly like these can be seen all over! I suspect this is more or less what the plumber’s neck version of the popular Taylor Made Spyder putters do. Especially with their removable weights, I imagine they can get those pretty dialed.&lt;/p&gt;
 
-&lt;p&gt;The calibration table reveals why green-reading feels so different across course conditions: on fast greens with downhill putts, you need to hold your hand quite close to see the correct break angle. On slower, uphill putts, extend your arm farther.&lt;/p&gt;
-
-&lt;p&gt;Next time you’re on the practice green, find the Stimp reading and test these viewing distances. I suspect you’ll find they provide an excellent baseline for the Express system—and a deeper appreciation for the physics happening beneath your feet.&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><category term="geometry" /><summary type="html">Introduction</summary></entry><entry><title type="html">Effective Distance on Sloped Greens</title><link href="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html" rel="alternate" type="text/html" title="Effective Distance on Sloped Greens" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">&lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;Even more players are reducing torque than we thought!&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">Effective Distance on Sloped Greens</title><link href="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html" rel="alternate" type="text/html" title="Effective Distance on Sloped Greens" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">&lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
 
 &lt;p&gt;You face a 20-foot putt that’s 2% downhill on 10-stimp greens. How hard should you hit it?&lt;/p&gt;
 
@@ -665,7 +590,7 @@ R\cos\theta\cos\phi
 
 &lt;h2 id=&quot;derivation&quot;&gt;Derivation&lt;/h2&gt;
 
-&lt;p&gt;From &lt;a href=&quot;/golf/physics/2025/11/17/rederiving-aimpoint.html&quot;&gt;previous posts&lt;/a&gt;, we know that for a putt with total rollout \(L = D + R\), the required initial velocity is:&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;/golf/physics/2025/11/16/rederiving-aimpoint.html&quot;&gt;previous posts&lt;/a&gt;, we know that for a putt with total rollout \(L = D + R\), the required initial velocity is:&lt;/p&gt;
 
 \[v_0^2 = 2 a_{\text{eff}} L\]
 
@@ -862,7 +787,237 @@ R\cos\theta\cos\phi
 
 &lt;p&gt;On the practice green, verify the table matches your feel. Hit 10-footers at different slopes and see if the adjustments work. Once calibrated, you’ll have a more reliable guide for speed control that compliments the broader Aimpoint Express system.&lt;/p&gt;
 
-&lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><summary type="html">The Problem</summary></entry><entry><title type="html">Modeling Aimpoint for Green Reading</title><link href="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html" rel="alternate" type="text/html" title="Modeling Aimpoint for Green Reading" /><published>2025-11-17T00:00:00-06:00</published><updated>2025-11-17T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/17/rederiving-aimpoint.html">&lt;h1 id=&quot;the-physics-of-putting&quot;&gt;The Physics of Putting&lt;/h1&gt;
+&lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><summary type="html">The Problem</summary></entry><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/17/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-17T00:00:00-06:00</published><updated>2025-11-17T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/17/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/17/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In my &lt;a href=&quot;/golf/physics/2025/11/16/rederiving-aimpoint.html&quot;&gt;previous post&lt;/a&gt;, I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we’re going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system.&lt;/p&gt;
+
+&lt;p&gt;The Express method is elegant and simple:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Stand just above/behind the ball,&lt;/li&gt;
+  &lt;li&gt;Hold up X fingers for X% side slope (one per percent of side slope),&lt;/li&gt;
+  &lt;li&gt;Close your non-dominant eye,&lt;/li&gt;
+  &lt;li&gt;Align one side of your finger with the center of the hole such that the rest of the finger(s) covers the edge of 
+ the cup in the direction you’d need to start your putt.&lt;/li&gt;
+  &lt;li&gt;Observe the location where you can first see grass that is parallel with the center of the hole.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This spot becomes your “aim point”, and you then just pretend to hit a dead straight putt at that point.&lt;/p&gt;
+
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;The magic of this system is in the calibration: how far should you hold your hand from your face?&lt;/p&gt;
+
+&lt;p&gt;It turns out the answer involves elegant geometry and depends critically on both green speed and the slope uphill or downhill.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-triangle-geometry&quot;&gt;The Triangle Geometry&lt;/h2&gt;
+
+&lt;p&gt;The Aimpoint Express system works through similar triangles:&lt;/p&gt;
+
+\[\frac{\text{Finger Width } (w)}{\text{Viewing Distance } (L)} = \frac{\text{Break at Hole } (B)}{\text{Distance to Hole } (D)}\]
+
+&lt;p&gt;Rearranging:&lt;/p&gt;
+
+\[B = \frac{w \cdot D}{L}\]
+
+&lt;p&gt;The key insight: if break is linear in distance, then we can choose a fixed viewing distance \(L\) inches away from our face that works for all putt lengths.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-this-works&quot;&gt;Why This Works&lt;/h2&gt;
+
+&lt;p&gt;From the &lt;a href=&quot;/golf/physics/2025/11/16/rederiving-aimpoint.html&quot;&gt;previous derivation&lt;/a&gt;, the physics model gives break as a function of distance with a \((\sqrt{D+R} - \sqrt{R})^2\) term, where \(D\) is the distance to the hole and \(R\) is the additional roll out distance the ball would travel if you didn’t make the putt.&lt;/p&gt;
+
+&lt;p&gt;For practical estimates with small roll out distance (e.g. you hit a 10 footer with enough speed to go 11ft), this break is very nearly linear in distance to the hole.&lt;/p&gt;
+
+&lt;p&gt;To verify this, I fit a simple linear model:&lt;/p&gt;
+
+\[B \approx \alpha \cdot D\]
+
+&lt;p&gt;where the value of \(\alpha\) depends on:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Green speed (Stimp reading)&lt;/li&gt;
+  &lt;li&gt;Side slope percentage&lt;/li&gt;
+  &lt;li&gt;Forward slope percentage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We will see that this simple linear approximation fits extremely well with our model from the previous post (\(R^2 &amp;gt; 0.99\)), which means for a given putt (fixed green speed and slopes), we can treat \(\alpha\) as constant.&lt;/p&gt;
+
+&lt;p&gt;Therefore:&lt;/p&gt;
+
+\[\frac{w}{L} = \alpha \quad \Rightarrow \quad L = \frac{w}{\alpha}\]
+
+&lt;p&gt;This means the viewing distance away from your face \(L\) is constant for any given green speed, side slope, and forward slope combination. You don’t need to adjust for putt distance - the similar geometry scales it automatically!&lt;/p&gt;
+
+&lt;h2 id=&quot;n-fingers&quot;&gt;“N” Fingers&lt;/h2&gt;
+
+&lt;p&gt;Here’s another elegant consequence: if side slope doubles (say, 1% → 2%), the break doubles:&lt;/p&gt;
+
+\[B_{2\%} = 2 \times B_{1\%}\]
+
+&lt;p&gt;So for 2% slope, you hold up two fingers with the same width \(2w\):&lt;/p&gt;
+
+\[\frac{2w}{L} = 2\alpha\]
+
+&lt;p&gt;The viewing distance stays exactly the same. This is why the Express system scales so well. You just use more fingers for steeper side slopes and keep your hand at the same calibrated distance.&lt;/p&gt;
+
+&lt;h2 id=&quot;calibration&quot;&gt;Calibration&lt;/h2&gt;
+
+&lt;p&gt;The approach is straightforward but elegant. For each combination of green speed and slope conditions, I need to find the coefficient \(\alpha\) that describes how break scales with distance. Then \(L = w / \alpha\) gives the viewing distance you need to hold your fingers from your face.&lt;/p&gt;
+
+&lt;p&gt;Here’s the process:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1: Generate data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I used the dampened break model from the previous post to calculate expected break for:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Stimp values: 8, 10, 12, 14&lt;/li&gt;
+  &lt;li&gt;Forward slopes: -3%, -2%, -1%, 0%, +1%, +2%, +3%&lt;/li&gt;
+  &lt;li&gt;Side slope: 1% (other slopes scale proportionally)&lt;/li&gt;
+  &lt;li&gt;Distances: 3-30 feet (in 1-foot increments)&lt;/li&gt;
+  &lt;li&gt;Rollout: 1.5 feet past the hole&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This creates 756 observations (4 Stimp × 7 forward slopes × 27 distances).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2: Fit linear models&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For each Stimp value, I estimate a regression model with separate slope coefficients for each forward slope condition (since the uphill/downhill changes the speed, and consequently, the break). Using indicator variables \(\mathbb{1}_{j}\) for each of the \(j=1,...,7\) forward slope categories:&lt;/p&gt;
+
+\[B_ij = \sum_{j=1}^{7} \alpha_j \cdot \mathbb{1}_{j} \cdot D_i + \epsilon_i\]
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;\(B_ij\) is the specific putt’s break in inches.&lt;/li&gt;
+  &lt;li&gt;\(D_i\) is the putt’s distance to the hole in feet.&lt;/li&gt;
+  &lt;li&gt;\(\alpha_j\) is the coefficient (inches of break per foot) for a given slope uphill or downhill.&lt;/li&gt;
+  &lt;li&gt;\(\epsilon_i\) is the error term that our linear model doesn’t capture.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This gives us 7 coefficients per Stimp value (one for each forward slope).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3: Extract viewing distances&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;From the regression coefficients, we use our fitted parameters to reverse engineer what viewing distance from your face you should hold your fingers:&lt;/p&gt;
+
+\[L = \frac{w}{\alpha}\]
+
+&lt;p&gt;where \(w\) is your finger width (e.g. mine is about 0.75 inch).&lt;/p&gt;
+
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+
+&lt;p&gt;Here are the viewing distances (the number of inches you should hold your fingers from your face):&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Forward Slope&lt;/th&gt;
+      &lt;th&gt;Stimp 8&lt;/th&gt;
+      &lt;th&gt;Stimp 10&lt;/th&gt;
+      &lt;th&gt;Stimp 12&lt;/th&gt;
+      &lt;th&gt;Stimp 14&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-3% (steep downhill)&lt;/td&gt;
+      &lt;td&gt;10”&lt;/td&gt;
+      &lt;td&gt;7”&lt;/td&gt;
+      &lt;td&gt;5”&lt;/td&gt;
+      &lt;td&gt;4”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-2% (downhill)&lt;/td&gt;
+      &lt;td&gt;11”&lt;/td&gt;
+      &lt;td&gt;8”&lt;/td&gt;
+      &lt;td&gt;7”&lt;/td&gt;
+      &lt;td&gt;5”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-1% (slight downhill)&lt;/td&gt;
+      &lt;td&gt;12”&lt;/td&gt;
+      &lt;td&gt;10”&lt;/td&gt;
+      &lt;td&gt;8”&lt;/td&gt;
+      &lt;td&gt;7”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0% (flat)&lt;/td&gt;
+      &lt;td&gt;14”&lt;/td&gt;
+      &lt;td&gt;11”&lt;/td&gt;
+      &lt;td&gt;9”&lt;/td&gt;
+      &lt;td&gt;8”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+1% (slight uphill)&lt;/td&gt;
+      &lt;td&gt;15”&lt;/td&gt;
+      &lt;td&gt;12”&lt;/td&gt;
+      &lt;td&gt;10”&lt;/td&gt;
+      &lt;td&gt;9”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+2% (uphill)&lt;/td&gt;
+      &lt;td&gt;16”&lt;/td&gt;
+      &lt;td&gt;13”&lt;/td&gt;
+      &lt;td&gt;12”&lt;/td&gt;
+      &lt;td&gt;10”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;+3% (steep uphill)&lt;/td&gt;
+      &lt;td&gt;17”&lt;/td&gt;
+      &lt;td&gt;15”&lt;/td&gt;
+      &lt;td&gt;13”&lt;/td&gt;
+      &lt;td&gt;12”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The regression fits are excellent (\(R^2 = 0.992\)), confirming that break really is linear in distance.&lt;/p&gt;
+
+&lt;h2 id=&quot;key-insights&quot;&gt;Key Insights&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Uphill/Downhill Slope Requires Adjustment&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;This was actually my initial motivation for the analysis as the videos I saw online didn’t really talk much about how to adjust the Express system for uphill/downhill slopes. I guess that’s the paywalled version!&lt;/p&gt;
+
+    &lt;p&gt;What I find is that the viewing distance changes nearly 1 inch per percent of forward slope:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Downhill: hold fingers closer (more break)&lt;/li&gt;
+      &lt;li&gt;Uphill: hold fingers farther (less break)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;On its own, not a huge deal, but when you compare a 10 footer with 2% side slope that is 2% uphill vs. 2% downhill, my estimates show about 7 inches of total break difference! If you’re not even trying to move your fingers closer/farther from your face, you will miss.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;The Express System is Excellent&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;All of the physics here validates that the simple fingers approach truly provides a consistent and useful heuristic for estimating total break.&lt;/p&gt;
+
+    &lt;p&gt;The massive caveat (and reason for all this work), is that calibrating the distance to hold your fingers is really important, and adjusting for uphill/downhill can make or break you.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;application&quot;&gt;Application&lt;/h2&gt;
+
+&lt;p&gt;To use this on the course:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Assess green speed. Ask the pro shop for the Stimp reading, or estimate based on course conditions&lt;/li&gt;
+  &lt;li&gt;Read the forward slope. Is your putt uphill, downhill, or flat?&lt;/li&gt;
+  &lt;li&gt;Read the side slope.&lt;/li&gt;
+  &lt;li&gt;Find your viewing distance. Use the table above for a starting point.&lt;/li&gt;
+  &lt;li&gt;Hold up fingers. One per percent, at the correct viewing distance.&lt;/li&gt;
+  &lt;li&gt;Find your aim point.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;The Aimpoint Express finger-reading system embodies elegant applied physics. The similar-triangle geometry, combined with the linear break-distance relationship, creates a practical tool that scales naturally with slope percentage.&lt;/p&gt;
+
+&lt;p&gt;The calibration table reveals why green-reading feels so different across course conditions: on fast greens with downhill putts, you need to hold your hand quite close to see the correct break angle. On slower, uphill putts, extend your arm farther.&lt;/p&gt;
+
+&lt;p&gt;Next time you’re on the practice green, find the Stimp reading and test these viewing distances. I suspect you’ll find they provide an excellent baseline for the Express system—and a deeper appreciation for the physics happening beneath your feet.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>Stephen Lee</name></author><category term="golf" /><category term="physics" /><category term="golf" /><category term="physics" /><category term="putting" /><category term="aimpoint" /><category term="geometry" /><summary type="html">Introduction</summary></entry><entry><title type="html">Modeling Aimpoint for Green Reading</title><link href="https://stephenlee.info/golf/physics/2025/11/16/rederiving-aimpoint.html" rel="alternate" type="text/html" title="Modeling Aimpoint for Green Reading" /><published>2025-11-16T00:00:00-06:00</published><updated>2025-11-16T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/16/rederiving-aimpoint</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/16/rederiving-aimpoint.html">&lt;h1 id=&quot;the-physics-of-putting&quot;&gt;The Physics of Putting&lt;/h1&gt;
 
 &lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 
@@ -2238,219 +2393,4 @@ fit &amp;lt;- lm(P ~ `Q Predicted (all exogenous)` + Z_Demand, data = data)
 
 &lt;p&gt;In the simulation, omitting \(x_2\) will cause the point estimates for \(x_1\) to change from (positive) \(0.999\) with a p-value of nearly zero, to (negative!) \(-0.512\), also with a p-value of nearly zero!&lt;/p&gt;
 
-&lt;p&gt;More generally, this reinforces the mantra that unless very specific assumptions are met, regression results should only be taken as linear predictors of an outcome, and not as a cause and effect relationship. Further, you cannot rely on statistical significance to guide you about whether your model is “well specified” or not.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="econometrics" /><category term="statistics" /><category term="R" /><category term="stats" /><category term="econometrics" /><category term="prediction" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry><entry><title type="html">Use Docker for Local Databases</title><link href="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html" rel="alternate" type="text/html" title="Use Docker for Local Databases" /><published>2021-01-19T00:00:00-06:00</published><updated>2021-01-19T00:00:00-06:00</updated><id>https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing</id><content type="html" xml:base="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
-
-&lt;p&gt;You want access to a local database for some reason. You might be doing web or app development, or practicing SQL queries, or whatever. Why you want a local database is your business.&lt;/p&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;Use Docker. It can manage your data (with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker volume&lt;/code&gt;), your databases and versions (with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker images&lt;/code&gt;), and makes cleanup very simple so as to not overburden your computer.&lt;/p&gt;
-
-&lt;p&gt;For these examples, I’m using Docker version 3.1.0 on OSX.&lt;/p&gt;
-
-&lt;h3 id=&quot;example-1-db-only&quot;&gt;Example 1: DB only&lt;/h3&gt;
-&lt;p&gt;For this, I’m using MySQL, although conceptually changing to any other database (e.g. PostGREs, Mongo, Maria) is straightforward. To create a Docker managed database (without a corresponding database management system), we can create the following &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Makefile&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;setup&quot;&gt;Setup&lt;/h4&gt;
-&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./Makefile 
-&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# local variables 
-# these can be imported from a separate config file 
-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;MYSQL_DATA_IMAGE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;steve-data
-&lt;span class=&quot;nv&quot;&gt;MYSQL_INIT_FILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dev.mysql.list
-&lt;span class=&quot;nv&quot;&gt;SHELL_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;steve
-
-&lt;span class=&quot;nv&quot;&gt;DOCKER_NETWORK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;steve-network
-&lt;span class=&quot;nv&quot;&gt;MYSQL_IMAGE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;steve-dev-mysql
-&lt;span class=&quot;nv&quot;&gt;MYSQL_PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3306 &lt;span class=&quot;c&quot;&gt;# &amp;lt;-- can be different to avoid port collisions.&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# create network and volume
-# only needs to be run once
-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	docker network create &lt;span class=&quot;nv&quot;&gt;$(DOCKER_NETWORK)&lt;/span&gt;
-	docker volume create &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_DATA_IMAGE_NAME)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# start database in a docker instance.
-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;start-db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	docker run &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_IMAGE_NAME)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_DATA_IMAGE_NAME)&lt;/span&gt;:/var/lib/mysql &lt;span class=&quot;nt&quot;&gt;--network&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(DOCKER_NETWORK)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--env-file&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_INIT_FILE)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--detach&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--publish&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_PORT)&lt;/span&gt;:3306 mysql:5.7
-
-&lt;span class=&quot;c&quot;&gt;# stop database instance.
-&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;stop-db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	docker stop &lt;span class=&quot;nv&quot;&gt;$(MYSQL_IMAGE_NAME)&lt;/span&gt;
-	docker &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_IMAGE_NAME)&lt;/span&gt;
-
-&lt;span class=&quot;nl&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_IMAGE_NAME)&lt;/span&gt; mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(SHELL_USER)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 
-
-&lt;span class=&quot;nl&quot;&gt;shell-root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_IMAGE_NAME)&lt;/span&gt; mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 
-
-&lt;span class=&quot;nl&quot;&gt;inspect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker inspect &lt;span class=&quot;nv&quot;&gt;$(MYSQL_IMAGE_NAME)&lt;/span&gt;
-
-&lt;span class=&quot;nl&quot;&gt;ip_addr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker inspect &lt;span class=&quot;nv&quot;&gt;$(MYSQL_IMAGE_NAME)&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;IPAddress
-
-&lt;span class=&quot;nl&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	docker volume &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(MYSQL_DATA_IMAGE_NAME)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And, we can provide the specified environment configuration file as follows:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-list&quot;&gt;# ./dev.mysql.list
-
-MYSQL_USER=steve
-MYSQL_PASSWORD=password
-MYSQL_ROOT_PASSWORD=password
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;run&quot;&gt;Run&lt;/h4&gt;
-&lt;p&gt;To run this, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd&lt;/code&gt; into the same directory as the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Makefile&lt;/code&gt;, and enter:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
-&lt;/span&gt;Makefile    dev.mysql.list
-
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make setup
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make start-db
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can then interact with the database via the cli. For example, to administer user permissions (for later use when seeding data, or whatever), you might do the following.&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make shell-root
-Enter password: 
-Welcome to the MySQL monitor.  Commands end with &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; or &lt;span class=&quot;se&quot;&gt;\g&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-Your MySQL connection &lt;span class=&quot;nb&quot;&gt;id &lt;/span&gt;is 2
-Server version: 5.7.32 MySQL Community Server &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;GPL&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 2000, 2020, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type &lt;span class=&quot;s1&quot;&gt;'help;'&lt;/span&gt; or &lt;span class=&quot;s1&quot;&gt;'\h'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;help. Type &lt;span class=&quot;s1&quot;&gt;'\c'&lt;/span&gt; to clear the current input statement.
-
-mysql&amp;gt; SHOW DATABASES&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| sys                |
-+--------------------+
-5 rows &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.01 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-mysql&amp;gt; SHOW GRANTS &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'steve'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
-+------------------------------------------------------+
-| Grants &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;steve@%                                |
-+------------------------------------------------------+
-| GRANT USAGE ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; TO &lt;span class=&quot;s1&quot;&gt;'steve'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'%'&lt;/span&gt;                |
-+------------------------------------------------------+
-1 rows &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.00 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-mysql&amp;gt; GRANT INSERT, UPDATE, DELETE ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; TO &lt;span class=&quot;s1&quot;&gt;'steve'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-Query OK, 0 rows affected &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.00 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-mysql&amp;gt; FLUSH PRIVILEGES&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-Query OK, 0 rows affected &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.00 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-mysql&amp;gt; SHOW GRANTS FOR &lt;span class=&quot;s1&quot;&gt;'steve'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-+----------------------------------------------------+
-| Grants &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;steve@%                                 |
-+----------------------------------------------------+
-| GRANT SELECT, INSERT, UPDATE ON &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; TO &lt;span class=&quot;s1&quot;&gt;'steve'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'%'&lt;/span&gt; |
-+----------------------------------------------------+
-1 row &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0.00 sec&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And later, to stop the database container, run&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make stop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And finally, if you want to destroy the data from that database to free up hard drive space, type&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make clean
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;example-2-db-and-dbms&quot;&gt;Example 2: DB and DBMS&lt;/h3&gt;
-&lt;p&gt;Sometimes you may additionally want to have available a database management system without committing to a full install. For example, Sequel Ace is a very popular piece of database management software for MySQL and Maria databases, but is only compatible on OSX. MySQL Workbench is a popular but bulky choice if you’re not 100% committed to using it regularly.&lt;/p&gt;
-
-&lt;p&gt;In this case, we can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose&lt;/code&gt; to build both the database server, and a locally hosted database management system.&lt;/p&gt;
-
-&lt;h4 id=&quot;setup-1&quot;&gt;Setup&lt;/h4&gt;
-&lt;p&gt;We’ll again use MySQL as the database, and select Adminer (formerly phpMyAdmin) as the database management system. It’s not &lt;em&gt;amazing&lt;/em&gt;, but it does everything we need as lightweight solution.&lt;/p&gt;
-
-&lt;p&gt;First, create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt; file&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# ./docker-compose.yml&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3.1'&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-
-  &lt;span class=&quot;na&quot;&gt;adminer&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;admin_portal&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;adminer&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;restart&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;always&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;8080:8080&lt;/span&gt;
-
-  &lt;span class=&quot;na&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;steve_db&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql:5.6&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;3306:3306&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;steve_data:/var/lib/mysql&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;env_file&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql.dev.list&lt;/span&gt;
-      
-&lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-  &lt;span class=&quot;na&quot;&gt;steve_data&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The mysql environment configuation file, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql.dev.list&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ./mysql.dev.list
-
-MYSQL_ROOT_PASSWORD=password
-MYSQL_USER=steve
-MYSQL_PASSWORD=password
-MYSQL_DATABASE=test_db
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Finally, we can build a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Makefile&lt;/code&gt; to simplify commands&lt;/p&gt;
-
-&lt;div class=&quot;language-makefile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ./Makefile
-&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;DATABASE_IMAGE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;steve_db
-&lt;span class=&quot;nv&quot;&gt;DEFAULT_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;steve
-
-&lt;span class=&quot;nl&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker-compose up &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
-
-&lt;span class=&quot;nl&quot;&gt;down&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker-compose down
-
-&lt;span class=&quot;nl&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(DATABASE_CONTAINER)&lt;/span&gt; mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$(DEFAULT_USER)&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 
-
-&lt;span class=&quot;nl&quot;&gt;inspect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker inspect &lt;span class=&quot;nv&quot;&gt;$(DATABASE_CONTAINER)&lt;/span&gt;
-
-&lt;span class=&quot;nl&quot;&gt;ip_addr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
-	docker inspect &lt;span class=&quot;nv&quot;&gt;$(DATABASE_CONTAINER)&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;IPAddress
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;run-1&quot;&gt;Run&lt;/h4&gt;
-&lt;p&gt;Now, to start the database, we &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd&lt;/code&gt; into the root directory with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Makefile&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt; and run&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls 
-&lt;/span&gt;Makefile    docker-compose.yml    mysql.dev.list
-
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make up 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now, we can either interact with the database via the cli&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;make shell
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Or, we can open a browser, navigate to https://localhost:8080, and find Adminer. Simply login with the credentials you provided in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql.dev.list&lt;/code&gt; configuration file.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="database" /><category term="backend" /><category term="docker" /><category term="mysql" /><summary type="html">Problem</summary></entry></feed>
+&lt;p&gt;More generally, this reinforces the mantra that unless very specific assumptions are met, regression results should only be taken as linear predictors of an outcome, and not as a cause and effect relationship. Further, you cannot rely on statistical significance to guide you about whether your model is “well specified” or not.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="econometrics" /><category term="statistics" /><category term="R" /><category term="stats" /><category term="econometrics" /><category term="prediction" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry></feed>

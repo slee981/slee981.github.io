@@ -21,22 +21,22 @@
 
   <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Networks (Part I) - Notation | Stephen M. Lee</title>
+<title>A Balanced Toe-Hang Putter | Stephen M. Lee</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Networks (Part I) - Notation" />
+<meta property="og:title" content="A Balanced Toe-Hang Putter" />
 <meta name="author" content="Stephen Lee" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use." />
-<meta property="og:description" content="Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use." />
-<link rel="canonical" href="https://stephenlee.info/networks/2021/07/14/networks-notation.html" />
-<meta property="og:url" content="https://stephenlee.info/networks/2021/07/14/networks-notation.html" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html" />
+<meta property="og:url" content="https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html" />
 <meta property="og:site_name" content="Stephen M. Lee" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-07-14T00:00:00-05:00" />
+<meta property="article:published_time" content="2025-11-19T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Networks (Part I) - Notation" />
+<meta property="twitter:title" content="A Balanced Toe-Hang Putter" />
 <script type="application/ld+json">
-{"url":"https://stephenlee.info/networks/2021/07/14/networks-notation.html","headline":"Networks (Part I) - Notation","dateModified":"2021-07-14T00:00:00-05:00","datePublished":"2021-07-14T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/networks/2021/07/14/networks-notation.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html","headline":"A Balanced Toe-Hang Putter","dateModified":"2025-11-19T00:00:00-06:00","datePublished":"2025-11-19T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/physics/golf/2025/11/19/balanced-toe-hang-putter.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Introduction","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -91,7 +91,7 @@
 <div class="post-body">
   <div class="row post-header">
     <div class="col">
-      <h1 class="post-title text-center">Networks (Part I) - Notation</h1>
+      <h1 class="post-title text-center">A Balanced Toe-Hang Putter</h1>
       <div class="post-meta text-center">
 
         
@@ -104,8 +104,8 @@
         
 
         
-        <time class="post-metadata" datetime="2021-07-14T00:00:00-05:00" itemprop="datePublished">
-          Jul 14, 2021
+        <time class="post-metadata" datetime="2025-11-19T00:00:00-06:00" itemprop="datePublished">
+          Nov 19, 2025
         </time>
         
       </div>
@@ -120,7 +120,7 @@
   
     <h3 class="toc-title">Table of Contents</h3>
   
-  <ul class="toc"><li><a href="#audience">Audience</a></li><li><a href="#overview">Overview</a></li><li><a href="#setup-and-definitions">Setup and Definitions</a><ul><li><a href="#nodes">Nodes</a></li><li><a href="#edges">Edges</a></li><li><a href="#network-graphs">Network Graphs</a><ul><li><a href="#matrix-notation">Matrix Notation</a></li><li><a href="#other-notation">Other Notation</a><ul><li><a href="#adjacency-list">Adjacency List</a></li><li><a href="#list-of-edges">List of Edges</a></li></ul></li></ul></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul>
+  <ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#the-cancellation-condition">The Cancellation Condition</a></li><li><a href="#design-parameters">Design Parameters</a><ul><li><a href="#comparison-of-designs">Comparison of Designs</a></li></ul></li><li><a href="#performance-across-stroke-speeds">Performance Across Stroke Speeds</a></li><li><a href="#when-two-wrongs-make-a-right">When Two Wrongs Make a Right</a></li></ul>
 
 </div>
 
@@ -128,103 +128,162 @@
 
     <!-- MAIN POST -->
     <div class="col-sm-10 post p-4">
-        <p>Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</p>
+        <h2 id="introduction">Introduction</h2>
 
-<h2 id="audience">Audience</h2>
+<p>In a <a href="/golf/physics/2025/11/19/putter-torque-physics.html">previous post</a>, I analyzed how different putter designs create torques that want to twist the face during your stroke. The key point was that putter head geometry creates two independent torque sources:</p>
 
-<p>I assume you know what a network is, some areas where they appear (e.g. social media connection graphs, airline routes, supply chain logistics, etc.), and are familiar with or curious about formalizing these relationships mathematically.</p>
+<ol>
+  <li><strong>Gravitational torque</strong>: This term is present even when the putter is held still. It depends on how far the center of mass is, in the heel-toe direction, from the shaft line when in the address position.</li>
+  <li><strong>Inertial torque</strong>: This term depends on how hard you accelerate the putter and on the distance from the shaft’s pivot point to the putter’s center of mass in the left-to-right direction (i.e. face to back of club).</li>
+</ol>
 
-<p>Consider this post more of a “cheatsheet” rather than a tutorial. This draws heavily from the textbook “Social and Economic Networks” by Matthew O. Jackson, although the notation is fairly standard and similar to what you’d see in a book on algorithms.</p>
+<p>Traditional blade style toe-hang putters fight the natural arc geometry by closing the face during the backswing since the inertial torque dominates. But what if we could design a toe-hang putter where these torques cancel out?</p>
 
-<h2 id="overview">Overview</h2>
+<p>This post explores the “balanced toe-hang” design—a putter that achieves near-zero initial torques by deliberately using opposing gravitational and inertial forces.</p>
 
-<p>Causal inference on network structures is notoriously difficult. This is due (at least in part) to the complicated web of interactions, and the resulting spillovers (i.e. externalities) violate assumptions for the “potential outcomes” approach to inference (<a href="/potential%20outcomes/2021/07/13/what-is-potential-outcomes.html">click for more</a>). For example, suppose you are studying a supply chain fulfilment network, and are wondering which facility or facilities, if upgraded, would improve the network’s capacity the most. Because of the interconnected routing decisions, the answer is not at all obvious.</p>
+<hr />
 
-<p>This post will (hopefully) kick off a series of posts that explore how to measure and analyze network structures.</p>
+<h2 id="the-cancellation-condition">The Cancellation Condition</h2>
 
-<h2 id="setup-and-definitions">Setup and Definitions</h2>
+<p>For the total torque to be zero:</p>
 
-<p>Consider the following network graph.</p>
+\[\tau_{total} = \tau_g + \tau_{in} = 0\]
 
-<p><img src="/assets/images/networks/network-simple.svg" alt="scatter" width="150" /></p>
+<p>Substituting the torque formulas:</p>
 
-<h3 id="nodes">Nodes</h3>
+\[mgb_g + mab_a = 0\]
 
-<p>Let \(N = \{1, ..., n\}\) be a set of <strong>nodes</strong> in a network. These nodes (also called vertices) could be individuals, companies, fulfilment centers, or nearly any other object. A node is the basic unit of analysis, and the main focus is on the relationships between these nodes.</p>
+<p>The mass \(m\) cancels out, giving us the design constraint:</p>
 
-<h3 id="edges">Edges</h3>
+\[gb_g = -ab_a\]
 
-<p>Nodes are connected by <strong>edges</strong>. Edges can represent a friendship between two people, a link between webpages, and so on. Importantly, edges can be either <strong>directed</strong> or <strong>undirected</strong>. In a directed network, the order matters, and relationships are not necessarily reciprocal - so some webpage A can link to webpage B, but webpage B might not link to webpage A. By contrast, in an undirected network these relationships are symmetric.</p>
+<p>Rearranging for the critical ratio:</p>
 
-<p>Additionally, edges may be <strong>weighted</strong> or <strong>unweighted</strong>. An unweighted edge represents a simple binary connection, whereas a weighted edge may represent some magnitude of the relationship, for example, the amount of money traded between two banks.</p>
+\[\frac{b_g}{b_a} = -\frac{a}{g}\]
 
-<h3 id="network-graphs">Network Graphs</h3>
+<p>where:</p>
+<ul>
+  <li>\(b_g\) = front/back COM offset from shaft (mm)</li>
+  <li>\(b_a\) = heel/toe COM offset from shaft (mm)</li>
+  <li>\(a\) = stroke acceleration (m/s²)</li>
+  <li>\(g\) = gravitational acceleration (9.8 m/s²)</li>
+</ul>
 
-<p>Given a network, there are multiple ways to express it, and which one you choose depends on your use case. For most of what follows, I will focus on the matrix representation, as it naturally lends itself to matrix algebra, which will be useful later on. However, where there are very few edges relative to the number of nodes (i.e. the network is <em>sparce</em>), a matrix will likely not be a very efficient way of storing or processing the information.</p>
+<p><strong>Key insight</strong>: For a typical stroke acceleration of \(a = 9\) m/s², we need:</p>
 
-<h4 id="matrix-notation">Matrix Notation</h4>
+\[\frac{b_g}{b_a} = -\frac{9}{9.8} \approx -0.918\]
 
-<p>The figure above shows an undirected network graph with four (4) nodes and three unweighted edges. We can represent this graph, \(g\), in matrix form as follows:</p>
+<hr />
 
-\[g = \begin{bmatrix}
-0 &amp; 1 &amp; 0 &amp; 1 \\
-1 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; 0 \\ 
-1 &amp; 0 &amp; 0 &amp; 0
-\end{bmatrix}\]
+<h2 id="design-parameters">Design Parameters</h2>
 
-<p>By convention, the edge connecting node 1 to node 4 is represented by a “1” in the first row, fourth column. Similarly, the edge representing the connection from node 4 back to node 1 is captured by a “1” in the fourth row, first column. Note also that in this case, “self-edges” are denoted as “0” i.e. we don’t count an edge from a node back to itself. This choice is unimportant for this example, but may matter depending on your specific use case.</p>
+<p>For a toe-hang putter with typical heel bias (\(b_a = -50\) mm, meaning the shaft is in front of the COM on the “face” side of the putter), the required forward offset is:</p>
 
-<p>The figure below shows a directed network with weighted eges. For example, we can imagine this as a group of friends settling a bet.</p>
+\[b_g = -0.918 \times (-50) = 45.9 \text{ mm}\]
 
-<p><img src="/assets/images/networks/network-weighted-directed.svg" alt="scatter" width="150" /></p>
+<p>This is <strong>2.4× more forward</strong> than a traditional toe-hang blade (\(b_g \approx 19\) mm).</p>
 
-<p>Similar to the first graph, we can represent this in matrix form as follows.</p>
+<h3 id="comparison-of-designs">Comparison of Designs</h3>
 
-\[g = \begin{bmatrix}
-    0 &amp; 0 &amp; 0 &amp; 9 \\
-    8 &amp; 0 &amp; 7 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 0 \\ 
-    0 &amp; 0 &amp; 0 &amp; 0
-\end{bmatrix}\]
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Traditional Toe-Hang</th>
+      <th>Balanced Toe-Hang</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(b_g\) (forward offset)</td>
+      <td>+19 mm</td>
+      <td><strong>+46 mm</strong></td>
+    </tr>
+    <tr>
+      <td>\(b_a\) (heel/toe offset)</td>
+      <td>-51 mm</td>
+      <td><strong>-50 mm</strong></td>
+    </tr>
+    <tr>
+      <td>\(\tau_g\) @ rest</td>
+      <td>+0.065 N·m</td>
+      <td><strong>+0.158 N·m</strong></td>
+    </tr>
+    <tr>
+      <td>\(\tau_{in}\) @ 9 m/s²</td>
+      <td>-0.159 N·m</td>
+      <td><strong>-0.158 N·m</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Net torque</strong></td>
+      <td>-0.094 N·m</td>
+      <td><strong>~0 N·m</strong></td>
+    </tr>
+  </tbody>
+</table>
 
-<h4 id="other-notation">Other Notation</h4>
+<p>The balanced toe-hang achieves cancellation by having:</p>
+<ul>
+  <li>Large gravitational torque (wants to open face)</li>
+  <li>Equally large inertial torque (wants to close face)</li>
+  <li>Perfect cancellation at initial acceleration</li>
+</ul>
 
-<p>The following notations are often used in computational settings when implementing algorithms on graphs (e.g. depth-first search). Since that falls outside the scope of this post, I will only briefly mention their representations for my own future reference.</p>
+<hr />
 
-<h5 id="adjacency-list">Adjacency List</h5>
+<h2 id="performance-across-stroke-speeds">Performance Across Stroke Speeds</h2>
 
-<p>One popular form of describing graphs for computation problems is via “adjacency lists”. Here we represent each edge from node \(i\) to node \(j\) as a list (oftentime a linked list) that stems from the source node. For example, our original unweighted and undirected graph could have the following form:</p>
+<p>The cancellation is <strong>acceleration-dependent</strong>. Here’s how rotation varies with stroke aggressiveness:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># example with Python3 syntax
-</span><span class="n">graph</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
-    <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
-    <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> 
-    <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th>Stroke Type</th>
+      <th>Acceleration</th>
+      <th>Traditional Toe-Hang</th>
+      <th>Balanced Toe-Hang</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gentle</td>
+      <td>6 m/s²</td>
+      <td>-2.5° (closes)</td>
+      <td><strong>+3.1°</strong> (opens)</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>9 m/s²</td>
+      <td>-5.7° (closes)</td>
+      <td><strong>±0.0°</strong> (neutral)</td>
+    </tr>
+    <tr>
+      <td>Aggressive</td>
+      <td>12 m/s²</td>
+      <td>-8.8° (closes)</td>
+      <td><strong>-3.1°</strong> (closes)</td>
+    </tr>
+  </tbody>
+</table>
 
-<h5 id="list-of-edges">List of Edges</h5>
+<p><strong>Observations:</strong></p>
 
-<p>Similar to the adjacency list, another way of describing a network is simply as a list of edges, so to again use the first network above, this representation would be:</p>
+<ol>
+  <li><strong>Traditional toe-hang</strong>: Always closes, fighting the required ~7° arc opening</li>
+  <li><strong>Balanced toe-hang</strong>: Neutral at 9 m/s², with ±3° variation across realistic stroke speeds</li>
+</ol>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># note Python uses an exclusive stop value
-# in the "range" function
-</span><span class="n">nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> 
-<span class="n">edges</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> 
-    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> 
-    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="p">]</span>
+<p>The balanced design provides ±3° variation compared to traditional toe-hang’s 6° range.</p>
 
-<span class="n">graph</span> <span class="o">=</span> <span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">edges</span><span class="p">)</span>
-</code></pre></div></div>
+<hr />
 
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="when-two-wrongs-make-a-right">When Two Wrongs Make a Right</h2>
 
-<p>I plan to use these definitions and notation in future posts.</p>
+<p>Unlike L.A.B. putters that eliminate both offsets (\(b_g \approx 0\), \(b_a \approx 0\)), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.</p>
+
+<p>Putters exactly like these can be seen all over! I suspect this is more or less what the plumber’s neck version of the popular Taylor Made Spyder putters do. Especially with their removable weights, I imagine they can get those pretty dialed.</p>
+
+<p>Even more players are reducing torque than we thought!</p>
 
     </div>
   </div>
@@ -244,31 +303,31 @@
     <ul class="list-group list-group-flush">
       
         <li class="list-group-item">
-          <time datetime="2021-07-14T00:00:00-05:00">Nov 19, 2025</time> 
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 19, 2025</time> 
           &raquo;
           <a class="card-link" href="/physics/golf/2025/11/19/putter-torque-physics.html">Putter Torque and Face Rotation</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-07-14T00:00:00-05:00">Nov 19, 2025</time> 
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 19, 2025</time> 
           &raquo;
           <a class="card-link" href="/physics/golf/2025/11/19/balanced-toe-hang-putter.html">A Balanced Toe-Hang Putter</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-07-14T00:00:00-05:00">Nov 18, 2025</time> 
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 18, 2025</time> 
           &raquo;
           <a class="card-link" href="/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">Effective Distance on Sloped Greens</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-07-14T00:00:00-05:00">Nov 17, 2025</time> 
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 17, 2025</time> 
           &raquo;
           <a class="card-link" href="/golf/physics/2025/11/17/calibrating-aimpoint-express.html">Calibrating Aimpoint Express</a>
         </li>
       
         <li class="list-group-item">
-          <time datetime="2021-07-14T00:00:00-05:00">Nov 16, 2025</time> 
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 16, 2025</time> 
           &raquo;
           <a class="card-link" href="/golf/physics/2025/11/16/rederiving-aimpoint.html">Modeling Aimpoint for Green Reading</a>
         </li>
