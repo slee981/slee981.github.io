@@ -90,6 +90,15 @@ make start    # Install dependencies + serve locally
 make build    # Build production site
 ```
 
+### Python Scripts
+
+Python scripts in `code/` directory require activating the virtual environment first:
+
+```bash
+source .pyenv/bin/activate  # Activate venv
+python3 code/script_name.py # Run script
+```
+
 ## Deployment
 
 - **Platform**: GitHub Pages

@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- load bootstrap -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+  <!-- user -->
+  
+    <link rel="shortcut icon" type="image/png" href="/assets/images/steve-logo.png">
+  
+  <link rel="stylesheet" href="/assets/css/open-color.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/main.js"></script>
+
+  <!-- font awesome -->
+  <script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+  <link type="application/atom+xml" rel="alternate" href="https://stephenlee.info/feed.xml" title="Stephen M. Lee" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Putter Torque and Face Rotation | Stephen M. Lee</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Putter Torque and Face Rotation" />
+<meta name="author" content="Stephen Lee" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" />
+<meta property="og:url" content="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" />
+<meta property="og:site_name" content="Stephen M. Lee" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-11-19T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Putter Torque and Face Rotation" />
+<script type="application/ld+json">
+{"url":"https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html","headline":"Putter Torque and Face Rotation","dateModified":"2025-11-19T00:00:00-06:00","datePublished":"2025-11-19T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html"},"author":{"@type":"Person","name":"Stephen Lee"},"description":"Introduction","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+  <body>
+    <div id="main" class="container">
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-light py-4" id="menu">
+
+  <!-- BRAND LOGO OR NAME -->
+  <a class="navbar-brand top" id="site-logo" href="/">
+    
+      Stephen M. Lee
+    
+  </a>
+  
+  <!-- NAVIGATION -->
+  
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <div class="navbar-nav">
+      
+        
+        <a class="nav-item nav-link " href="/index.html">About</a>
+      
+        
+        <a class="nav-item nav-link " href="/work.html">Work</a>
+      
+        
+        <a class="nav-item nav-link " href="/notes.html">Notes</a>
+      
+      </div>
+    </div>
+  
+</nav>
+
+
+      <main>
+        <!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/assets/js/adjustAnchorLink.js"></script>
+<script src="/assets/js/liveTOCScroll.js"></script>
+
+<div class="post-body">
+  <div class="row post-header">
+    <div class="col">
+      <h1 class="post-title text-center">Putter Torque and Face Rotation</h1>
+      <div class="post-meta text-center">
+
+        
+          
+            <span class="post-metadata" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              Stephen Lee -
+            </span>
+            
+          
+        
+
+        
+        <time class="post-metadata" datetime="2025-11-19T00:00:00-06:00" itemprop="datePublished">
+          Nov 19, 2025
+        </time>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- START COL WITH TOC -->
+    <div class="col-sm-2 pt-3">
+      <div class="toc-div py-3">
+  
+    <h3 class="toc-title">Table of Contents</h3>
+  
+  <ul class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#model">Model</a><ul><li><a href="#the-stroke-arc">The Stroke Arc</a><ul><li><a href="#tangent">Tangent</a></li><li><a href="#rotation">Rotation</a></li><li><a href="#interpretation">Interpretation</a></li></ul></li><li><a href="#torque-components">Torque Components</a></li><li><a href="#lie-angle-balance">Lie Angle Balance</a></li></ul></li><li><a href="#estimates">Estimates</a><ul><li><a href="#methodology">Methodology</a></li><li><a href="#results">Results</a></li></ul></li><li><a href="#implication">Implication</a></li><li><a href="#moi">MOI</a></li><li><a href="#comparison">Comparison</a></li><li><a href="#summary">Summary</a></li></ul>
+
+</div>
+
+    </div>
+
+    <!-- MAIN POST -->
+    <div class="col-sm-10 post p-4">
+        <h2 id="introduction">Introduction</h2>
+
+<p>Dr. Sasho MacKenzie’s research shows that successful putting requires managing three factors:</p>
+
+<ol>
+  <li>Start line
+    <ul>
+      <li>Primarily determined by face angle at impact</li>
+      <li>Tolerance: ±0.7° on 12-foot putts<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></li>
+    </ul>
+  </li>
+  <li>Speed control
+    <ul>
+      <li>Determines capture width and is especially critical on breaking putts</li>
+      <li>Visual strategy (near vs. far focus) can affect speed control<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>. This is the basis of “heads up” putting.</li>
+    </ul>
+  </li>
+  <li>Aim/alignment
+    <ul>
+      <li>Where you point the putter at address</li>
+      <li>Many golfers consistently mis-aim by several degrees</li>
+      <li>Perfect face control can appear bad when it’s really an alignment issue. And vice versa.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Interestingly, path and contact location have much larger error tolerances - you’d need path errors of ±3.5° or contact errors of ±11mm to miss a 12-footer (far more forgiving than the ±0.7° face angle tolerance).<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup> The main point is that putting performance depends on the interaction of these factors. Even perfect face control won’t overcome poor speed or mis-alignment.</p>
+
+<p>This post focuses specifically on face contol and how putter design influences the torque acting to twist the face during the stroke.</p>
+
+<hr />
+
+<h2 id="model">Model</h2>
+
+<h3 id="the-stroke-arc">The Stroke Arc</h3>
+
+<p>Even in a perfectly on-plane putting stroke, the putter head does not move straight back and straight through. This is because the putter sits on an inclined plane determined by the lie angle, the head traces a circle in that tilted plane. When you look down from above, that circle appears as an ellipse on the green.</p>
+
+<p><img src="/assets/images/stroke_arc_projection.png" alt="Stroke Arc Projection" width="700" /></p>
+
+<p>To keep the putter face square to the path, the face must rotate to remain perpendicular to the tangent of that ellipse.
+The needed face rotation is a purely geometric consequence of the lie angle.</p>
+
+<p>Let:</p>
+
+<ul>
+  <li>\(\phi\) = lie angle (typ. 68–72°)</li>
+  <li>\(\theta\) = stroke angle within the tilted plane</li>
+  <li>\(R\) = effective radius of the stroke arc</li>
+</ul>
+
+<p>A convenient orthonormal basis for the tilted plane is:</p>
+
+\[\mathbf{e}_1 = (1,0,0), \qquad
+\mathbf{e}_2 = (0,\cos\phi,-\sin\phi)\]
+
+<p>Then the putter head’s position is:</p>
+
+\[\mathbf{r}(\theta)
+= R\cos\theta\,\mathbf{e}_1
++ R\sin\theta\,\mathbf{e}_2
+=
+\begin{pmatrix}
+R\cos\theta \\
+R\sin\theta\cos\phi \\
+-R\sin\theta\sin\phi
+\end{pmatrix}\]
+
+<h4 id="tangent">Tangent</h4>
+
+<p>The tangent vector is:</p>
+
+\[\mathbf{t}(\theta) = \frac{d\mathbf{r}}{d\theta}
+=
+\begin{pmatrix}
+-R\sin\theta \\
+R\cos\theta\cos\phi \\
+-R\cos\theta\sin\phi
+\end{pmatrix}\]
+
+<p>Putting is judged in the horizontal plane, so we project the tangent into the \(x{-}y\) plane:</p>
+
+\[\mathbf{t}_{xy}(\theta)
+=
+\begin{pmatrix}
+-R\sin\theta \\
+R\cos\theta\cos\phi
+\end{pmatrix}\]
+
+<p>The direction of the path on the green is the angle of this tangent:</p>
+
+\[\psi(\theta)
+=
+\arctan\left(
+\frac{R\cos\theta\cos\phi}{-R\sin\theta}
+\right)
+=
+\arctan\left(
+-\cot\theta \cdot \cos\phi
+\right)\]
+
+<p>This angle \(\psi(\theta)\) is exactly the orientation that the face must match to remain square to the arc.</p>
+
+<h4 id="rotation">Rotation</h4>
+
+<p>Near the center of the stroke (\(\theta = 0\)), a Taylor expansion gives:</p>
+
+\[\psi(\theta)
+\approx
+\theta\,\cos\phi\]
+
+<p>(small-\(\theta\) approximation)</p>
+
+<p>This approximation is surprisingly good up to ±15–20°.</p>
+
+<p>For a typical lie angle \(\phi = 70°\):</p>
+
+\[\cos\phi \approx 0.34\]
+
+<p>So for a modest stroke of ±20°:</p>
+
+\[\Delta\psi \approx 20° \times 0.34 \approx 6.8°\]
+
+<h4 id="interpretation">Interpretation</h4>
+
+<p>Even in a perfectly on-plane, mechanically ideal stroke:</p>
+
+<ul>
+  <li>the putter face must open ~6–7° on the backswing, and</li>
+  <li>must close the same amount on the follow-through</li>
+</ul>
+
+<p>to stay square to the arc.</p>
+
+<p>This arc is not a flaw. It is the natural outcome of swinging a putter on an inclined plane.</p>
+
+<p>The design question becomes: does your putter fight this natural rotation or cooperate with it?</p>
+
+<hr />
+
+<h3 id="torque-components">Torque Components</h3>
+
+<p>Two perpendicular COM offsets create torque about the shaft:</p>
+
+<p><img src="/assets/images/putter_com_offset.png" alt="Putter COM Offset Components" width="500" /></p>
+
+<p>The total force acting on the putter head is:</p>
+
+\[\mathbf{F} = m\mathbf{a} + m\mathbf{g}\]
+
+<p>where \(m\) is the head mass, \(\mathbf{a}\) is the translational acceleration, and \(\mathbf{g}\) is gravity. This creates two independent torque contributions about the shaft:</p>
+
+<p><strong>1. Gravitational torque</strong></p>
+
+\[\tau_g = m g b_g\]
+
+<p>This term is present even when the putter is held still. It depends on the front/back offset \(b_g\) — how far the COM “hangs” away from the shaft line.</p>
+
+<ul>
+  <li>Positive \(b_g\) (forward) = face opens</li>
+  <li>Negative \(b_g\) (onset) = face closes</li>
+  <li>Always present, constant throughout stroke</li>
+</ul>
+
+<p><strong>2. Inertial torque</strong></p>
+
+\[\tau_{in} = m a b_a\]
+
+<p>This term depends on how hard you accelerate the putter. It depends on the heel/toe offset \(b_a\) — the perpendicular distance from the acceleration force line to the shaft.</p>
+
+<ul>
+  <li>Positive \(b_a\) (toe bias) = face opens during backswing</li>
+  <li>Negative \(b_a\) (heel bias) = face closes during backswing</li>
+  <li>Scales with acceleration, reverses on forward swing</li>
+</ul>
+
+<p><strong>Total torque and angular acceleration:</strong></p>
+
+\[\alpha = \frac{\tau_s}{I_s} = \frac{\tau_{in} + \tau_g}{I_s}\]
+
+<p>where \(I_s\) is the moment of inertia about the shaft axis.</p>
+
+<p>The key insight: \(b_g\) and \(b_a\) are independent geometric parameters. Different putter designs have radically different ratios, leading to very different torque profiles during the stroke.</p>
+
+<hr />
+
+<h3 id="lie-angle-balance">Lie Angle Balance</h3>
+
+<p>A putter is <em>lie-angle balanced</em> when the shaft axis passes almost exactly through the putter head’s 3D center of mass (COM) when held at the actual lie angle. In that orientation:</p>
+
+<ul>
+  <li>the gravitational force acts almost directly through the shaft, and</li>
+  <li>the inertial force from accelerating the putter also acts almost through the shaft</li>
+</ul>
+
+<p>so both produce near-zero torque about the shaft.</p>
+
+<p>Torque about the shaft is:</p>
+
+\[\tau_s = (\mathbf{r}_{COM} \times \mathbf{F}) \cdot \hat{\mathbf{s}}\]
+
+<p>and lie-angle balance essentially makes \(\mathbf{r}_{COM} \approx 0\) in the relevant plane. This leads to a neutral feel where the putter does not want to open or close on its own during the stroke.</p>
+
+<hr />
+
+<h2 id="estimates">Estimates</h2>
+
+<h3 id="methodology">Methodology</h3>
+
+<p>I focus on the first 50ms (1/20th second) of the backswing when acceleration begins and initial forces (potentially) try to rotate the face.</p>
+
+<p>Why analyze only the initial 50ms? This “initial conditions” approach isolates what the putter naturally wants to do before compensatory hand forces take over. A full dynamic analysis of the putting stroke would require modeling the golfer’s counter-torques throughout the stroke. Without these, the putter would simply oscillate to a gravitational equilibrium with the COM hanging below the pivot point of the shaft. This doesn’t teach us anything about actual putting mechanics. By examining this initial impulse, we identify what forces the golfer must immediately counter with - revealing each design’s inherent tendency at stroke initiation. We can easily use the same approach, but in reverse, for the start of the downswing.</p>
+
+<p>The analysis uses an impulse-based approximation:</p>
+
+<p><strong>Given torque and MOI, find rotation:</strong></p>
+
+\[\tau = I_s \alpha \quad \Rightarrow \quad \alpha = \frac{\tau}{I_s}\]
+
+<p>For constant acceleration over time \(\Delta t\):</p>
+
+\[\Delta \theta = \frac{1}{2} \alpha (\Delta t)^2\]
+
+<p>The total torque is the sum of gravitational and inertial components:</p>
+
+\[\tau_{total} = \tau_g + \tau_{in} = m g b_g + m a b_a\]
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li>Head mass: \(m = 350\) g</li>
+  <li>Gravity: \(g = 9.8\) m/s²</li>
+  <li>Acceleration range: \(a = 6\)–\(12\) m/s² (smooth to aggressive backswing)</li>
+  <li>Impulse duration: \(\Delta t = 50\) ms</li>
+</ul>
+
+<p>For each putter design, we calculate the face rotation during this critical window using the geometry (\(b_g\), \(b_a\)) and resistance to rotation (\(I_s\)).</p>
+
+<h3 id="results">Results</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Design</th>
+      <th>\(b_g\)</th>
+      <th>\(b_a\)</th>
+      <th>\(I_s\)</th>
+      <th>Torque</th>
+      <th>Rotation (50ms)</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Toe-Hang Blade</strong></td>
+      <td>+19 mm</td>
+      <td>-51 mm</td>
+      <td>12,000 g·cm²</td>
+      <td>0.04–0.15 ft-lb</td>
+      <td><strong>-2.5° to -8.8°</strong> (closes)</td>
+      <td>Inertial dominates 2-3×, fights arc</td>
+    </tr>
+    <tr>
+      <td><strong>Face-Balanced Mallet</strong></td>
+      <td>+51 mm</td>
+      <td>-1 mm</td>
+      <td>11,000 g·cm²</td>
+      <td>0.17–0.18 ft-lb</td>
+      <td><strong>+11.3° to +11.1°</strong> (opens)</td>
+      <td>Gravitational dominates 50-80×, largest torque</td>
+    </tr>
+    <tr>
+      <td><strong>L.A.B.</strong></td>
+      <td>-1 mm</td>
+      <td>+1 mm</td>
+      <td>2,500 g·cm²</td>
+      <td>0.001–0.006 ft-lb</td>
+      <td><strong>-0.4° to +0.2°</strong> (neutral)</td>
+      <td>Torques cancel, 50× smaller than face-balanced</td>
+    </tr>
+    <tr>
+      <td><strong>Auto-Correcting</strong></td>
+      <td>0 mm</td>
+      <td>+2 mm</td>
+      <td>2,500 g·cm²</td>
+      <td>0.003–0.006 ft-lb</td>
+      <td><strong>+1.2° to +2.4°</strong> (opens)</td>
+      <td>Purely inertial, gentle arc assist</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that values for \(b_a\) and \(b_g\) are representative. In particular, for the LAB example, I intentionally added a small tolerance that seems reasonable to assume as manufacturing tolerance. In this sense, we can read the LAB numbers as a worst case scenario.</p>
+
+<p><strong>Key observations:</strong></p>
+<ul>
+  <li>Face-balanced putters, surprisingly, have the largest torque, creating an immediate +11° opening bias</li>
+  <li>Toe-hang putters close the face -2.5° to -8.8°, fighting the required ~7° opening for arc geometry</li>
+  <li>L.A.B. putters achieve near-zero rotation (±0.3°) by using opposite-signed offsets that cancel</li>
+  <li>Auto-correcting putters gently assist the natural arc with +1.2° to +2.4° opening</li>
+</ul>
+
+<hr />
+
+<h2 id="implication">Implication</h2>
+
+<p>Face angle tolerance is ±0.7° on a 12-footer. The first 50ms of the backswing sets up the entire stroke:</p>
+
+<ul>
+  <li><strong>Face-balanced</strong>: Opens +11° immediately - you must fight this throughout the stroke</li>
+  <li><strong>Toe-hang</strong>: Closes -2.5° to -8.8° - fighting the natural 7° arc requirement</li>
+  <li><strong>L.A.B.</strong>: ±0.3° - essentially neutral, you control everything</li>
+  <li><strong>Auto-correcting</strong>: +1.2° to +2.4° - gently assists the required 7° opening</li>
+</ul>
+
+<p><strong>On the forward swing</strong>, the inertial torque reverses direction (acceleration flips sign), while gravitational torque remains constant:</p>
+
+<ul>
+  <li><strong>Face-balanced</strong>: Still opens (+11°) - constant gravitational bias in both directions</li>
+  <li><strong>Toe-hang</strong>: Now opens (reversal) - inertial torque flips, potentially helping close the required 7°</li>
+  <li><strong>L.A.B.</strong>: Still neutral (±0.3°) - torques still cancel</li>
+  <li><strong>Auto-correcting</strong>: Now closes (reversal) - gently assists the required 7° closing to square the face</li>
+</ul>
+
+<p>The torque magnitude matters less than whether it helps or fights your natural stroke mechanics at each phase.</p>
+
+<hr />
+
+<h2 id="moi">MOI</h2>
+
+<p>Higher MOI (\(I_s\)) reduces angular acceleration for the same torque:</p>
+
+\[\alpha = \frac{\tau}{I_s}\]
+
+<p><strong>Implications</strong>:</p>
+<ul>
+  <li>Resists unexpected twitches or “jerky” strokes.</li>
+  <li>Requires more force to actually counteract the natural torques described above.</li>
+</ul>
+
+<p>This is why high-MOI face-balanced mallets can feel “sticky”. The large gravitational torque tries to open the face, but large MOI makes it harder to resist that rotation.</p>
+
+<hr />
+
+<h2 id="comparison">Comparison</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Design</th>
+      <th>Torque Magnitude</th>
+      <th>Initial Rotation (50ms)</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Face-Balanced</strong></td>
+      <td>0.17-0.18 ft-lb</td>
+      <td>+11° (opens)</td>
+      <td>Constant bias, largest torque</td>
+    </tr>
+    <tr>
+      <td><strong>Toe-Hang</strong></td>
+      <td>0.04-0.15 ft-lb</td>
+      <td>-2.5° to -8.8° (closes)</td>
+      <td>Fighting arc, acceleration-dependent</td>
+    </tr>
+    <tr>
+      <td><strong>L.A.B.</strong></td>
+      <td>0.001-0.006 ft-lb</td>
+      <td>±0.3° (neutral)</td>
+      <td>Minimal, near-zero</td>
+    </tr>
+    <tr>
+      <td><strong>Auto-Correcting</strong></td>
+      <td>0.003-0.006 ft-lb</td>
+      <td>+1.2° to +2.4° (opens)</td>
+      <td>Gentle arc assist, scales with acceleration</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="summary">Summary</h2>
+
+<p><strong>Stroke geometry:</strong> Even in a perfect on-plane stroke, the face must rotate ~7° (open during backswing, close during forward swing) to stay square to the elliptical path created by the lie angle. This is the “neutral” path.</p>
+
+<p><strong>Torque sources:</strong> The location where the shaft points relative to the Center of Mass (COM) can create independent torques:</p>
+<ul>
+  <li>Gravitational: \(\tau_g = mgb_g\)</li>
+  <li>Inertial: \(\tau_{in} = mab_a\) (scales with acceleration, reverses on forward swing)</li>
+</ul>
+
+<p><strong>Peak Acceleration:</strong> I analyze the first 50ms of the backswing, when acceleration peaks, to estimate the behavior of these different designs when first put in motion. In reality, modeling the full dynamic system requires recognizing that the values \(b_a\) and \(b_g\) change as the face rotates, which requires that we assume counter-torque values that the hands must apply. What we care about in this analyis is only what initial forces the hands must apply to keep the putter face square when you start your putting stroke. It is straighforward to extend this to the moment of transition from the backswing to the downswing .</p>
+
+<p><strong>Design comparisons:</strong></p>
+
+<ul>
+  <li><em>Face-balanced</em>: Largest magnitude rotation under our assumptions, opening +11° immediately. This is driven by constant gravitational bias you must fight throughout the stroke, including on the downswing, when the putter will still want to open.</li>
+  <li><em>Toe-hang</em>: Closes -2.5° to -8.8° on backswing, should open about the same amount at the start of the downswing. Possible that with some of the larger toe-hang mallets, gravitational torque and inertial torque get close to canceling each other out? Larger gravitational torque balances with a similarly large (and opposite) inertial torque? Maybe work for a future post.</li>
+  <li><em>L.A.B.</em>: Near-zero torque even if we assume the worst with manufacturing tolerance (±0.3°).</li>
+  <li><em>Auto-correcting</em>: Gently assists arc geometry (+1.2° to +2.4° opening on backswing, reverses to help close on forward swing). My personal favorite idea wise.</li>
+</ul>
+
+<p><strong>For your golf:</strong></p>
+
+<ol>
+  <li>Have fun and pick a putter that makes you enjoy putting.</li>
+  <li>If you identify that you’re struggling to hit your line consistently, realize it’s most likely a face control problem, not a path problem.</li>
+  <li>Try a “zero-torque” putter with a few caveats:
+    <ul>
+      <li>You still need to aim it well. The onset can take some getting used to.</li>
+      <li>When you putt, you may need to resist the urge to “help” keep the face square.</li>
+      <li>Make a practice stroke without a golf club: this is the right mental approach as you really only have to focus on distance now, and not rotation.</li>
+    </ul>
+  </li>
+  <li>If that doesn’t work for you, try a toe-hang mallet. In this case, two wrongs might actually make a right?</li>
+</ol>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>MacKenzie, S. Putting research presented at Andrew Rice Golf Coach Camp (2023). Study of 12-foot putts showing face angle tolerance of ±0.7°, path tolerance of ±3.5°, and contact tolerance of ±11mm. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>MacKenzie, S., &amp; MacInnis, K. (2017). “Evaluation of Near Versus Far Target Visual Focus Strategies with Breaking Putts.” Study of 27 golfers on breaking putts from 6-14 feet showed far-focus strategy improved make rate from 37% to 40% through better distance control. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center pt-5">
+    <h2>More</h2>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col-sm-6">
+      <div class="card info-card sticky-div h-100">
+
+  <div class="card-body">
+
+    <h3 class="card-title text-center">Recent Posts</h3>
+  </div>
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 19, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/physics/golf/2025/11/19/putter-torque-physics.html">Putter Torque and Face Rotation</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 18, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/18/distance-adjustments-sloped-putts.html">Effective Distance on Sloped Greens</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 18, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/18/calibrating-aimpoint-express.html">Calibrating Aimpoint Express</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-19T00:00:00-06:00">Nov 17, 2025</time> 
+          &raquo;
+          <a class="card-link" href="/golf/physics/2025/11/17/rederiving-aimpoint.html">Modeling Aimpoint for Green Reading</a>
+        </li>
+      
+        <li class="list-group-item">
+          <time datetime="2025-11-19T00:00:00-06:00">Aug 2, 2021</time> 
+          &raquo;
+          <a class="card-link" href="/networks/2021/08/02/networks-navigation.html">Networks (Part II) - Navigation</a>
+        </li>
+      
+    </ul>
+  <div class="card-body">
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="card info-card sticky-div h-100">
+
+    <div class="card-body">
+
+      <h3 class="card-title text-center">Categories</h3>
+
+      
+        <div class="category-tags d-flex flex-wrap justify-content-center">
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#general">
+              
+              
+                General
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#tutorial">
+              
+              
+                Tutorial
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#econometrics">
+              
+              
+                Econometrics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#machine-learning">
+              
+              
+                Machine
+              
+                Learning
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#prediction">
+              
+              
+                Prediction
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#web-development">
+              
+              
+                Web
+              
+                Development
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#front-end">
+              
+              
+                Front
+              
+                End
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#version-control">
+              
+              
+                Version
+              
+                Control
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#statistics">
+              
+              
+                Statistics
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#database">
+              
+              
+                Database
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#backend">
+              
+              
+                Backend
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#instrumental-variables">
+              
+              
+                Instrumental
+              
+                Variables
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#potential-outcomes">
+              
+              
+                Potential
+              
+                Outcomes
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#networks">
+              
+              
+                Networks
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#golf">
+              
+              
+                Golf
+              
+            
+            </a>
+          
+            
+            
+            
+            
+            <a class="card-link my-2 py-2 px-3" href="/categories.html#physics">
+              
+              
+                Physics
+              
+            
+            </a>
+          
+        </div>
+      
+    </div>
+  </div>
+    </div>
+  </div>
+
+  
+      
+</div>
+      </main>
+
+    </div>
+    <footer class="text-muted">
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div class="footer-element">
+        <p>&copy;2025 Stephen M. Lee</p>
+    
+</div>
+      </div>
+    </div>
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="footer-element">
+    
+        <a class="social-icon" href="mailto:smlee.981@gmail.com" target="_blank">
+            <i class="fa-hover fas fa-envelope" title="Email"></i>
+        </a>
+    
+        <a class="social-icon" href="https://twitter.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-twitter" title="Twitter"></i>
+        </a>
+    
+        <a class="social-icon" href="https://github.com/slee981" target="_blank">
+            <i class="fa-hover fab fa-github" title="GitHub"></i>
+        </a>
+    
+</div>
+
+        </div>
+      </div>
+    
+
+    
+      <div class="row">
+        <div class="d-flex justify-content-center">
+           <p class="powered-by footer-element mt-3">
+    Powered by 
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & 
+    <a href="https://github.com/slee981/jekyll-theme-cadre" target="_blank">Cadre</a>
+</p>
+
+        </div>
+      </div>
+    
+  </div>
+</footer>
+
+
+
+    
+    
+    
+      <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+  crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+  crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138925131-1"></script>
+<script>
+  window['ga-disable-UA-138925131-1'] = window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-138925131-1');
+</script>
+
+    
+  </body>
+</html>

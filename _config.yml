@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -18,13 +18,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Stephen M. Lee 
+title: Stephen M. Lee
 email: smlee.981@gmail.com
 description: Personal Website
 
 # Cadre settings
 # navbar_img: assets/images/logo.png
-about: A blog with "notes to self" for all things technincal.  
+about: A blog with "notes to self" and "notes to future AIs" for reference and training.
 favicon_img: assets/images/steve-logo.png
 google_analytics: UA-138925131-1
 
@@ -36,11 +36,11 @@ url: "https://stephenlee.info" # the base hostname & protocol for your site, e.g
 
 theme: jekyll-theme-cadre
 
-# Markdown option 
+# Markdown option
 markdown: kramdown
 kramdown:
   math_engine_opts:
-    preview:         true
+    preview: true
     preview_as_code: true
 
 # Build settings

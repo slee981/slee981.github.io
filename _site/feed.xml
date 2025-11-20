@@ -1,4 +1,433 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-18T21:48:47-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T19:56:40-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Dr. Sasho MacKenzie’s research shows that successful putting requires managing three factors:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start line
+    &lt;ul&gt;
+      &lt;li&gt;Primarily determined by face angle at impact&lt;/li&gt;
+      &lt;li&gt;Tolerance: ±0.7° on 12-foot putts&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Speed control
+    &lt;ul&gt;
+      &lt;li&gt;Determines capture width and is especially critical on breaking putts&lt;/li&gt;
+      &lt;li&gt;Visual strategy (near vs. far focus) can affect speed control&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. This is the basis of “heads up” putting.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Aim/alignment
+    &lt;ul&gt;
+      &lt;li&gt;Where you point the putter at address&lt;/li&gt;
+      &lt;li&gt;Many golfers consistently mis-aim by several degrees&lt;/li&gt;
+      &lt;li&gt;Perfect face control can appear bad when it’s really an alignment issue. And vice versa.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Interestingly, path and contact location have much larger error tolerances - you’d need path errors of ±3.5° or contact errors of ±11mm to miss a 12-footer (far more forgiving than the ±0.7° face angle tolerance).&lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; The main point is that putting performance depends on the interaction of these factors. Even perfect face control won’t overcome poor speed or mis-alignment.&lt;/p&gt;
+
+&lt;p&gt;This post focuses specifically on face contol and how putter design influences the torque acting to twist the face during the stroke.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;model&quot;&gt;Model&lt;/h2&gt;
+
+&lt;h3 id=&quot;the-stroke-arc&quot;&gt;The Stroke Arc&lt;/h3&gt;
+
+&lt;p&gt;Even in a perfectly on-plane putting stroke, the putter head does not move straight back and straight through. This is because the putter sits on an inclined plane determined by the lie angle, the head traces a circle in that tilted plane. When you look down from above, that circle appears as an ellipse on the green.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/stroke_arc_projection.png&quot; alt=&quot;Stroke Arc Projection&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To keep the putter face square to the path, the face must rotate to remain perpendicular to the tangent of that ellipse.
+The needed face rotation is a purely geometric consequence of the lie angle.&lt;/p&gt;
+
+&lt;p&gt;Let:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;\(\phi\) = lie angle (typ. 68–72°)&lt;/li&gt;
+  &lt;li&gt;\(\theta\) = stroke angle within the tilted plane&lt;/li&gt;
+  &lt;li&gt;\(R\) = effective radius of the stroke arc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A convenient orthonormal basis for the tilted plane is:&lt;/p&gt;
+
+\[\mathbf{e}_1 = (1,0,0), \qquad
+\mathbf{e}_2 = (0,\cos\phi,-\sin\phi)\]
+
+&lt;p&gt;Then the putter head’s position is:&lt;/p&gt;
+
+\[\mathbf{r}(\theta)
+= R\cos\theta\,\mathbf{e}_1
++ R\sin\theta\,\mathbf{e}_2
+=
+\begin{pmatrix}
+R\cos\theta \\
+R\sin\theta\cos\phi \\
+-R\sin\theta\sin\phi
+\end{pmatrix}\]
+
+&lt;h4 id=&quot;tangent&quot;&gt;Tangent&lt;/h4&gt;
+
+&lt;p&gt;The tangent vector is:&lt;/p&gt;
+
+\[\mathbf{t}(\theta) = \frac{d\mathbf{r}}{d\theta}
+=
+\begin{pmatrix}
+-R\sin\theta \\
+R\cos\theta\cos\phi \\
+-R\cos\theta\sin\phi
+\end{pmatrix}\]
+
+&lt;p&gt;Putting is judged in the horizontal plane, so we project the tangent into the \(x{-}y\) plane:&lt;/p&gt;
+
+\[\mathbf{t}_{xy}(\theta)
+=
+\begin{pmatrix}
+-R\sin\theta \\
+R\cos\theta\cos\phi
+\end{pmatrix}\]
+
+&lt;p&gt;The direction of the path on the green is the angle of this tangent:&lt;/p&gt;
+
+\[\psi(\theta)
+=
+\arctan\left(
+\frac{R\cos\theta\cos\phi}{-R\sin\theta}
+\right)
+=
+\arctan\left(
+-\cot\theta \cdot \cos\phi
+\right)\]
+
+&lt;p&gt;This angle \(\psi(\theta)\) is exactly the orientation that the face must match to remain square to the arc.&lt;/p&gt;
+
+&lt;h4 id=&quot;rotation&quot;&gt;Rotation&lt;/h4&gt;
+
+&lt;p&gt;Near the center of the stroke (\(\theta = 0\)), a Taylor expansion gives:&lt;/p&gt;
+
+\[\psi(\theta)
+\approx
+\theta\,\cos\phi\]
+
+&lt;p&gt;(small-\(\theta\) approximation)&lt;/p&gt;
+
+&lt;p&gt;This approximation is surprisingly good up to ±15–20°.&lt;/p&gt;
+
+&lt;p&gt;For a typical lie angle \(\phi = 70°\):&lt;/p&gt;
+
+\[\cos\phi \approx 0.34\]
+
+&lt;p&gt;So for a modest stroke of ±20°:&lt;/p&gt;
+
+\[\Delta\psi \approx 20° \times 0.34 \approx 6.8°\]
+
+&lt;h4 id=&quot;interpretation&quot;&gt;Interpretation&lt;/h4&gt;
+
+&lt;p&gt;Even in a perfectly on-plane, mechanically ideal stroke:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the putter face must open ~6–7° on the backswing, and&lt;/li&gt;
+  &lt;li&gt;must close the same amount on the follow-through&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;to stay square to the arc.&lt;/p&gt;
+
+&lt;p&gt;This arc is not a flaw. It is the natural outcome of swinging a putter on an inclined plane.&lt;/p&gt;
+
+&lt;p&gt;The design question becomes: does your putter fight this natural rotation or cooperate with it?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;torque-components&quot;&gt;Torque Components&lt;/h3&gt;
+
+&lt;p&gt;Two perpendicular COM offsets create torque about the shaft:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/putter_com_offset.png&quot; alt=&quot;Putter COM Offset Components&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The total force acting on the putter head is:&lt;/p&gt;
+
+\[\mathbf{F} = m\mathbf{a} + m\mathbf{g}\]
+
+&lt;p&gt;where \(m\) is the head mass, \(\mathbf{a}\) is the translational acceleration, and \(\mathbf{g}\) is gravity. This creates two independent torque contributions about the shaft:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Gravitational torque&lt;/strong&gt;&lt;/p&gt;
+
+\[\tau_g = m g b_g\]
+
+&lt;p&gt;This term is present even when the putter is held still. It depends on the front/back offset \(b_g\) — how far the COM “hangs” away from the shaft line.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Positive \(b_g\) (forward) = face opens&lt;/li&gt;
+  &lt;li&gt;Negative \(b_g\) (onset) = face closes&lt;/li&gt;
+  &lt;li&gt;Always present, constant throughout stroke&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Inertial torque&lt;/strong&gt;&lt;/p&gt;
+
+\[\tau_{in} = m a b_a\]
+
+&lt;p&gt;This term depends on how hard you accelerate the putter. It depends on the heel/toe offset \(b_a\) — the perpendicular distance from the acceleration force line to the shaft.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Positive \(b_a\) (toe bias) = face opens during backswing&lt;/li&gt;
+  &lt;li&gt;Negative \(b_a\) (heel bias) = face closes during backswing&lt;/li&gt;
+  &lt;li&gt;Scales with acceleration, reverses on forward swing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Total torque and angular acceleration:&lt;/strong&gt;&lt;/p&gt;
+
+\[\alpha = \frac{\tau_s}{I_s} = \frac{\tau_{in} + \tau_g}{I_s}\]
+
+&lt;p&gt;where \(I_s\) is the moment of inertia about the shaft axis.&lt;/p&gt;
+
+&lt;p&gt;The key insight: \(b_g\) and \(b_a\) are independent geometric parameters. Different putter designs have radically different ratios, leading to very different torque profiles during the stroke.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;lie-angle-balance&quot;&gt;Lie Angle Balance&lt;/h3&gt;
+
+&lt;p&gt;A putter is &lt;em&gt;lie-angle balanced&lt;/em&gt; when the shaft axis passes almost exactly through the putter head’s 3D center of mass (COM) when held at the actual lie angle. In that orientation:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the gravitational force acts almost directly through the shaft, and&lt;/li&gt;
+  &lt;li&gt;the inertial force from accelerating the putter also acts almost through the shaft&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;so both produce near-zero torque about the shaft.&lt;/p&gt;
+
+&lt;p&gt;Torque about the shaft is:&lt;/p&gt;
+
+\[\tau_s = (\mathbf{r}_{COM} \times \mathbf{F}) \cdot \hat{\mathbf{s}}\]
+
+&lt;p&gt;and lie-angle balance essentially makes \(\mathbf{r}_{COM} \approx 0\) in the relevant plane. This leads to a neutral feel where the putter does not want to open or close on its own during the stroke.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;estimates&quot;&gt;Estimates&lt;/h2&gt;
+
+&lt;h3 id=&quot;methodology&quot;&gt;Methodology&lt;/h3&gt;
+
+&lt;p&gt;I focus on the first 50ms (1/20th second) of the backswing when acceleration begins and initial forces (potentially) try to rotate the face.&lt;/p&gt;
+
+&lt;p&gt;Why analyze only the initial 50ms? This “initial conditions” approach isolates what the putter naturally wants to do before compensatory hand forces take over. A full dynamic analysis of the putting stroke would require modeling the golfer’s counter-torques throughout the stroke. Without these, the putter would simply oscillate to a gravitational equilibrium with the COM hanging below the pivot point of the shaft. This doesn’t teach us anything about actual putting mechanics. By examining this initial impulse, we identify what forces the golfer must immediately counter with - revealing each design’s inherent tendency at stroke initiation. We can easily use the same approach, but in reverse, for the start of the downswing.&lt;/p&gt;
+
+&lt;p&gt;The analysis uses an impulse-based approximation:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Given torque and MOI, find rotation:&lt;/strong&gt;&lt;/p&gt;
+
+\[\tau = I_s \alpha \quad \Rightarrow \quad \alpha = \frac{\tau}{I_s}\]
+
+&lt;p&gt;For constant acceleration over time \(\Delta t\):&lt;/p&gt;
+
+\[\Delta \theta = \frac{1}{2} \alpha (\Delta t)^2\]
+
+&lt;p&gt;The total torque is the sum of gravitational and inertial components:&lt;/p&gt;
+
+\[\tau_{total} = \tau_g + \tau_{in} = m g b_g + m a b_a\]
+
+&lt;p&gt;&lt;strong&gt;Parameters:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Head mass: \(m = 350\) g&lt;/li&gt;
+  &lt;li&gt;Gravity: \(g = 9.8\) m/s²&lt;/li&gt;
+  &lt;li&gt;Acceleration range: \(a = 6\)–\(12\) m/s² (smooth to aggressive backswing)&lt;/li&gt;
+  &lt;li&gt;Impulse duration: \(\Delta t = 50\) ms&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For each putter design, we calculate the face rotation during this critical window using the geometry (\(b_g\), \(b_a\)) and resistance to rotation (\(I_s\)).&lt;/p&gt;
+
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Design&lt;/th&gt;
+      &lt;th&gt;\(b_g\)&lt;/th&gt;
+      &lt;th&gt;\(b_a\)&lt;/th&gt;
+      &lt;th&gt;\(I_s\)&lt;/th&gt;
+      &lt;th&gt;Torque&lt;/th&gt;
+      &lt;th&gt;Rotation (50ms)&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Toe-Hang Blade&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;+19 mm&lt;/td&gt;
+      &lt;td&gt;-51 mm&lt;/td&gt;
+      &lt;td&gt;12,000 g·cm²&lt;/td&gt;
+      &lt;td&gt;0.04–0.15 ft-lb&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;-2.5° to -8.8°&lt;/strong&gt; (closes)&lt;/td&gt;
+      &lt;td&gt;Inertial dominates 2-3×, fights arc&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Face-Balanced Mallet&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;+51 mm&lt;/td&gt;
+      &lt;td&gt;-1 mm&lt;/td&gt;
+      &lt;td&gt;11,000 g·cm²&lt;/td&gt;
+      &lt;td&gt;0.17–0.18 ft-lb&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;+11.3° to +11.1°&lt;/strong&gt; (opens)&lt;/td&gt;
+      &lt;td&gt;Gravitational dominates 50-80×, largest torque&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;L.A.B.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-1 mm&lt;/td&gt;
+      &lt;td&gt;+1 mm&lt;/td&gt;
+      &lt;td&gt;2,500 g·cm²&lt;/td&gt;
+      &lt;td&gt;0.001–0.006 ft-lb&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;-0.4° to +0.2°&lt;/strong&gt; (neutral)&lt;/td&gt;
+      &lt;td&gt;Torques cancel, 50× smaller than face-balanced&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Auto-Correcting&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;0 mm&lt;/td&gt;
+      &lt;td&gt;+2 mm&lt;/td&gt;
+      &lt;td&gt;2,500 g·cm²&lt;/td&gt;
+      &lt;td&gt;0.003–0.006 ft-lb&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;+1.2° to +2.4°&lt;/strong&gt; (opens)&lt;/td&gt;
+      &lt;td&gt;Purely inertial, gentle arc assist&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Note that values for \(b_a\) and \(b_g\) are representative. In particular, for the LAB example, I intentionally added a small tolerance that seems reasonable to assume as manufacturing tolerance. In this sense, we can read the LAB numbers as a worst case scenario.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Key observations:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Face-balanced putters, surprisingly, have the largest torque, creating an immediate +11° opening bias&lt;/li&gt;
+  &lt;li&gt;Toe-hang putters close the face -2.5° to -8.8°, fighting the required ~7° opening for arc geometry&lt;/li&gt;
+  &lt;li&gt;L.A.B. putters achieve near-zero rotation (±0.3°) by using opposite-signed offsets that cancel&lt;/li&gt;
+  &lt;li&gt;Auto-correcting putters gently assist the natural arc with +1.2° to +2.4° opening&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;implication&quot;&gt;Implication&lt;/h2&gt;
+
+&lt;p&gt;Face angle tolerance is ±0.7° on a 12-footer. The first 50ms of the backswing sets up the entire stroke:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Face-balanced&lt;/strong&gt;: Opens +11° immediately - you must fight this throughout the stroke&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Toe-hang&lt;/strong&gt;: Closes -2.5° to -8.8° - fighting the natural 7° arc requirement&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;L.A.B.&lt;/strong&gt;: ±0.3° - essentially neutral, you control everything&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Auto-correcting&lt;/strong&gt;: +1.2° to +2.4° - gently assists the required 7° opening&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;On the forward swing&lt;/strong&gt;, the inertial torque reverses direction (acceleration flips sign), while gravitational torque remains constant:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Face-balanced&lt;/strong&gt;: Still opens (+11°) - constant gravitational bias in both directions&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Toe-hang&lt;/strong&gt;: Now opens (reversal) - inertial torque flips, potentially helping close the required 7°&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;L.A.B.&lt;/strong&gt;: Still neutral (±0.3°) - torques still cancel&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Auto-correcting&lt;/strong&gt;: Now closes (reversal) - gently assists the required 7° closing to square the face&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The torque magnitude matters less than whether it helps or fights your natural stroke mechanics at each phase.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;moi&quot;&gt;MOI&lt;/h2&gt;
+
+&lt;p&gt;Higher MOI (\(I_s\)) reduces angular acceleration for the same torque:&lt;/p&gt;
+
+\[\alpha = \frac{\tau}{I_s}\]
+
+&lt;p&gt;&lt;strong&gt;Implications&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Resists unexpected twitches or “jerky” strokes.&lt;/li&gt;
+  &lt;li&gt;Requires more force to actually counteract the natural torques described above.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is why high-MOI face-balanced mallets can feel “sticky”. The large gravitational torque tries to open the face, but large MOI makes it harder to resist that rotation.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;comparison&quot;&gt;Comparison&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Design&lt;/th&gt;
+      &lt;th&gt;Torque Magnitude&lt;/th&gt;
+      &lt;th&gt;Initial Rotation (50ms)&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Face-Balanced&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;0.17-0.18 ft-lb&lt;/td&gt;
+      &lt;td&gt;+11° (opens)&lt;/td&gt;
+      &lt;td&gt;Constant bias, largest torque&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Toe-Hang&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;0.04-0.15 ft-lb&lt;/td&gt;
+      &lt;td&gt;-2.5° to -8.8° (closes)&lt;/td&gt;
+      &lt;td&gt;Fighting arc, acceleration-dependent&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;L.A.B.&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;0.001-0.006 ft-lb&lt;/td&gt;
+      &lt;td&gt;±0.3° (neutral)&lt;/td&gt;
+      &lt;td&gt;Minimal, near-zero&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Auto-Correcting&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;0.003-0.006 ft-lb&lt;/td&gt;
+      &lt;td&gt;+1.2° to +2.4° (opens)&lt;/td&gt;
+      &lt;td&gt;Gentle arc assist, scales with acceleration&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Stroke geometry:&lt;/strong&gt; Even in a perfect on-plane stroke, the face must rotate ~7° (open during backswing, close during forward swing) to stay square to the elliptical path created by the lie angle. This is the “neutral” path.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Torque sources:&lt;/strong&gt; The location where the shaft points relative to the Center of Mass (COM) can create independent torques:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Gravitational: \(\tau_g = mgb_g\)&lt;/li&gt;
+  &lt;li&gt;Inertial: \(\tau_{in} = mab_a\) (scales with acceleration, reverses on forward swing)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Peak Acceleration:&lt;/strong&gt; I analyze the first 50ms of the backswing, when acceleration peaks, to estimate the behavior of these different designs when first put in motion. In reality, modeling the full dynamic system requires recognizing that the values \(b_a\) and \(b_g\) change as the face rotates, which requires that we assume counter-torque values that the hands must apply. What we care about in this analyis is only what initial forces the hands must apply to keep the putter face square when you start your putting stroke. It is straighforward to extend this to the moment of transition from the backswing to the downswing .&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Design comparisons:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Face-balanced&lt;/em&gt;: Largest magnitude rotation under our assumptions, opening +11° immediately. This is driven by constant gravitational bias you must fight throughout the stroke, including on the downswing, when the putter will still want to open.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Toe-hang&lt;/em&gt;: Closes -2.5° to -8.8° on backswing, should open about the same amount at the start of the downswing. Possible that with some of the larger toe-hang mallets, gravitational torque and inertial torque get close to canceling each other out? Larger gravitational torque balances with a similarly large (and opposite) inertial torque? Maybe work for a future post.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;L.A.B.&lt;/em&gt;: Near-zero torque even if we assume the worst with manufacturing tolerance (±0.3°).&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Auto-correcting&lt;/em&gt;: Gently assists arc geometry (+1.2° to +2.4° opening on backswing, reverses to help close on forward swing). My personal favorite idea wise.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;For your golf:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Have fun and pick a putter that makes you enjoy putting.&lt;/li&gt;
+  &lt;li&gt;If you identify that you’re struggling to hit your line consistently, realize it’s most likely a face control problem, not a path problem.&lt;/li&gt;
+  &lt;li&gt;Try a “zero-torque” putter with a few caveats:
+    &lt;ul&gt;
+      &lt;li&gt;You still need to aim it well. The onset can take some getting used to.&lt;/li&gt;
+      &lt;li&gt;When you putt, you may need to resist the urge to “help” keep the face square.&lt;/li&gt;
+      &lt;li&gt;Make a practice stroke without a golf club: this is the right mental approach as you really only have to focus on distance now, and not rotation.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If that doesn’t work for you, try a toe-hang mallet. In this case, two wrongs might actually make a right?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;MacKenzie, S. Putting research presented at Andrew Rice Golf Coach Camp (2023). Study of 12-foot putts showing face angle tolerance of ±0.7°, path tolerance of ±3.5°, and contact tolerance of ±11mm. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;MacKenzie, S., &amp;amp; MacInnis, K. (2017). “Evaluation of Near Versus Far Target Visual Focus Strategies with Breaking Putts.” Study of 27 golfers on breaking putts from 6-14 feet showed far-focus strategy improved make rate from 37% to 40% through better distance control. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="physics" /><category term="golf" /><category term="golf" /><category term="physics" /><category term="putters" /><category term="torque" /><summary type="html">Introduction</summary></entry><entry><title type="html">Calibrating Aimpoint Express</title><link href="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html" rel="alternate" type="text/html" title="Calibrating Aimpoint Express" /><published>2025-11-18T00:00:00-06:00</published><updated>2025-11-18T00:00:00-06:00</updated><id>https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express</id><content type="html" xml:base="https://stephenlee.info/golf/physics/2025/11/18/calibrating-aimpoint-express.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;In my &lt;a href=&quot;/golf/physics/2025/11/17/rederiving-aimpoint.html&quot;&gt;previous post&lt;/a&gt;, I derived a simple physical model to estimate how many inches a putt breaks on sloped greens. Next, we’re going to derive some calibration rules behind the famous (infamous?) Aimpoint Express finger-reading system.&lt;/p&gt;
 
@@ -1809,184 +2238,7 @@ fit &amp;lt;- lm(P ~ `Q Predicted (all exogenous)` + Z_Demand, data = data)
 
 &lt;p&gt;In the simulation, omitting \(x_2\) will cause the point estimates for \(x_1\) to change from (positive) \(0.999\) with a p-value of nearly zero, to (negative!) \(-0.512\), also with a p-value of nearly zero!&lt;/p&gt;
 
-&lt;p&gt;More generally, this reinforces the mantra that unless very specific assumptions are met, regression results should only be taken as linear predictors of an outcome, and not as a cause and effect relationship. Further, you cannot rely on statistical significance to guide you about whether your model is “well specified” or not.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="econometrics" /><category term="statistics" /><category term="R" /><category term="stats" /><category term="econometrics" /><category term="prediction" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry><entry><title type="html">Moving Average in R, tidyverse</title><link href="https://stephenlee.info/statistics/tutorial/2021/01/19/moving-average-in-R.html" rel="alternate" type="text/html" title="Moving Average in R, tidyverse" /><published>2021-01-19T00:00:00-06:00</published><updated>2021-01-19T00:00:00-06:00</updated><id>https://stephenlee.info/statistics/tutorial/2021/01/19/moving-average-in-R</id><content type="html" xml:base="https://stephenlee.info/statistics/tutorial/2021/01/19/moving-average-in-R.html">&lt;p&gt;Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.&lt;/p&gt;
-
-&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
-
-&lt;p&gt;Given some dataset, you might want to find the rolling or moving average. We can visualize this in a sample dataset as follows. Note, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k-lag&lt;/code&gt; moving average we want, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MA-k&lt;/code&gt;, is the mean of the last &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k&lt;/code&gt; observations in time, including the current one.&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# A tibble: 48 x 5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MA_3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MA_4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2010-03-31&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2010-06-30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2010-09-30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2010-12-31&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2011-03-31&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2011-06-30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5.25&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2011-09-30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5.5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2011-12-31&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
- &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2012-03-31&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Industries&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2012-06-30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.25&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# … with 38 more rows&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Additionally, however, we want to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tidyverse&lt;/code&gt; methodology: so no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;for&lt;/code&gt; loops.&lt;/p&gt;
-
-&lt;h3 id=&quot;sample-data&quot;&gt;Sample Data&lt;/h3&gt;
-
-&lt;p&gt;For this post, I use a constructed dataset to emphasize the usecase I want. Namely, imagine we have a panel dataset of manufacturer prices over time, and we want to see how those prices change from a moving average perspective.&lt;/p&gt;
-
-&lt;p&gt;The following code will generate a simulation dataset.&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tidyverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tibble&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A1 Industries&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;B2 Factories&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C3 Potentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as.Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2010-03-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2010-06-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2010-09-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2010-12-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2011-03-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2011-06-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2011-09-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2011-12-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2012-03-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2012-06-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2012-09-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2012-12-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2013-03-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2013-06-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2013-09-30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2013-12-31&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# &amp;gt; data &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # A tibble: 48 x 3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    Manufacturer  Date       Price&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    &amp;lt;chr&amp;gt;         &amp;lt;date&amp;gt;     &amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  1 A1 Industries 2010-03-31     5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  2 A1 Industries 2010-06-30     4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  3 A1 Industries 2010-09-30     3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  4 A1 Industries 2010-12-31     6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  5 A1 Industries 2011-03-31     7&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  6 A1 Industries 2011-06-30     5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  7 A1 Industries 2011-09-30     4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  8 A1 Industries 2011-12-31     4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  9 A1 Industries 2012-03-31     5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 10 A1 Industries 2012-06-30     4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # … with 38 more rows&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;setup&quot;&gt;Setup&lt;/h3&gt;
-
-&lt;p&gt;We can take advantage of an existing function in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoo&lt;/code&gt; package, called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoo::rollmean&lt;/code&gt;, and modify it to fit this use case.&lt;/p&gt;
-
-&lt;p&gt;On its own, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoo::rollmean&lt;/code&gt; exhibits the following behavior:&lt;/p&gt;
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Roll_3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rollmean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Roll_4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rollmean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ungroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # A tibble: 48 x 5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    Manufacturer  Date       Price Roll_3 Roll_4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    &amp;lt;chr&amp;gt;         &amp;lt;date&amp;gt;     &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  1 A1 Industries 2010-03-31     5  NA     NA   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  2 A1 Industries 2010-06-30     4   4      4   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  3 A1 Industries 2010-09-30     3   4.33   4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  4 A1 Industries 2010-12-31     6   5.33   5.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  5 A1 Industries 2011-03-31     7   6      6   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  6 A1 Industries 2011-06-30     5   5.33   5.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  7 A1 Industries 2011-09-30     4   4.33   4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  8 A1 Industries 2011-12-31     4   4.33   4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  9 A1 Industries 2012-03-31     5   4.33   4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 10 A1 Industries 2012-06-30     4   4      4   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # … with 38 more rows&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Not what I expected! In this case, the default behavior is to take the rolling mean &lt;em&gt;centered&lt;/em&gt; on the given row, meaning it is using fututre “lead” data, as well as past “lagged” data. Note the use of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fill = NA&lt;/code&gt;. this just tells the function how to pad the data, since any use of lagged variabes will necessarily shrink the number of usable rows.&lt;/p&gt;
-
-&lt;p&gt;There are some other options that sound promising, but they do not seem to work for me.&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Roll_4_right&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rollmean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;align&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;right&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Roll_4_left&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rollmean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;align&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;left&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ungroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # A tibble: 48 x 5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    Manufacturer  Date       Price Roll_4_right Roll_4_left&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    &amp;lt;chr&amp;gt;         &amp;lt;date&amp;gt;     &amp;lt;dbl&amp;gt;        &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  1 A1 Industries 2010-03-31     5        NA           4   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  2 A1 Industries 2010-06-30     4        NA           4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  3 A1 Industries 2010-09-30     3         4           5.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  4 A1 Industries 2010-12-31     6         4.33        6   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  5 A1 Industries 2011-03-31     7         5.33        5.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  6 A1 Industries 2011-06-30     5         6           4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  7 A1 Industries 2011-09-30     4         5.33        4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  8 A1 Industries 2011-12-31     4         4.33        4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  9 A1 Industries 2012-03-31     5         4.33        4   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 10 A1 Industries 2012-06-30     4         4.33        4.33&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # … with 38 more rows&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;In this case, the behavior is mostly correct, so I wrap this function to give it the behavior I want.&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;moving_average&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;klags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zoo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rollmean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;klags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;klags&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This will first calculate the rolling mean with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoo&lt;/code&gt; package function, and then shift the results back to where we want them. The use of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;floor(klags / 2)&lt;/code&gt; accounts for how &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zoo::rollmean&lt;/code&gt; handles even and odd numbers.&lt;/p&gt;
-
-&lt;p&gt;The result is the following:&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ma_data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arrange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manufacturer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MA_3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moving_average&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MA_4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moving_average&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MA_5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moving_average&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MA_6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moving_average&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ungroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# &amp;gt; ma_data &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # A tibble: 48 x 7&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    Manufacturer  Date       Price  MA_3  MA_4  MA_5  MA_6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#    &amp;lt;chr&amp;gt;         &amp;lt;date&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  1 A1 Industries 2010-03-31     5 NA    NA     NA   NA   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  2 A1 Industries 2010-06-30     4 NA    NA     NA   NA   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  3 A1 Industries 2010-09-30     3  4    NA     NA   NA   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  4 A1 Industries 2010-12-31     6  4.33  4.5   NA   NA   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  5 A1 Industries 2011-03-31     7  5.33  5      5   NA   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  6 A1 Industries 2011-06-30     5  6     5.25   5    5   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  7 A1 Industries 2011-09-30     4  5.33  5.5    5    4.83&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  8 A1 Industries 2011-12-31     4  4.33  5      5.2  4.83&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  9 A1 Industries 2012-03-31     5  4.33  4.5    5    5.17&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 10 A1 Industries 2012-06-30     4  4.33  4.25   4.4  4.83&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # … with 38 more rows&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To convince yourself that this works on the different groups e.g. manufacturers, view this table in R Studio&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ma_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Stephen Lee</name></author><category term="statistics" /><category term="tutorial" /><category term="R" /><category term="tidyverse" /><category term="stats" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry><entry><title type="html">Use Docker for Local Databases</title><link href="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html" rel="alternate" type="text/html" title="Use Docker for Local Databases" /><published>2021-01-19T00:00:00-06:00</published><updated>2021-01-19T00:00:00-06:00</updated><id>https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing</id><content type="html" xml:base="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;More generally, this reinforces the mantra that unless very specific assumptions are met, regression results should only be taken as linear predictors of an outcome, and not as a cause and effect relationship. Further, you cannot rely on statistical significance to guide you about whether your model is “well specified” or not.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="econometrics" /><category term="statistics" /><category term="R" /><category term="stats" /><category term="econometrics" /><category term="prediction" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry><entry><title type="html">Use Docker for Local Databases</title><link href="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html" rel="alternate" type="text/html" title="Use Docker for Local Databases" /><published>2021-01-19T00:00:00-06:00</published><updated>2021-01-19T00:00:00-06:00</updated><id>https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing</id><content type="html" xml:base="https://stephenlee.info/database/backend/2021/01/19/setup-docker-db-testing.html">&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
 
 &lt;p&gt;You want access to a local database for some reason. You might be doing web or app development, or practicing SQL queries, or whatever. Why you want a local database is your business.&lt;/p&gt;
 
