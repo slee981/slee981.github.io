@@ -53,7 +53,7 @@ where:
 - $$a$$ = stroke acceleration (m/s²)
 - $$g$$ = gravitational acceleration (9.8 m/s²)
 
-**Key insight**: For a typical stroke acceleration of $$a = 9$$ m/s², we need:
+For example, a stroke acceleration of $$a = 9$$ m/s² requires:
 
 $$
 \frac{b_g}{b_a} = -\frac{9}{9.8} \approx -0.918
@@ -61,17 +61,18 @@ $$
 
 ---
 
-## Design Parameters
+## Calibration
 
-For a toe-hang putter with typical heel bias ($$b_a = -50$$ mm, meaning the shaft is in front of the COM on the "face" side of the putter), the required forward offset is:
+If we assume a relative shaft-to-COM length of $$b_a = -50$$ mm, meaning the shaft is positioned to the heel side of the COM by about 2 inches:
 
 $$
 b_g = -0.918 \times (-50) = 45.9 \text{ mm}
 $$
 
-This is **2.4× more forward** than a traditional toe-hang blade ($$b_g \approx 19$$ mm).
+Which just requires the shaft is also in front of the COM (toward the face) by about 2 inches also. This can be easily achieved through a large mallet with rear weight.
 
-### Comparison of Designs
+
+## Comparison 
 
 | Parameter | Traditional Toe-Hang | Balanced Toe-Hang | 
 |-----------|---------------------|-------------------|
@@ -88,9 +89,9 @@ The balanced toe-hang achieves cancellation by having:
 
 ---
 
-## Performance Across Stroke Speeds
+## Performance 
 
-The cancellation is **acceleration-dependent**. Here's how rotation varies with stroke aggressiveness:
+The cancellation is acceleration-dependent. Here's how rotation varies with stroke aggressiveness:
 
 | Stroke Type | Acceleration | Traditional Toe-Hang | Balanced Toe-Hang |
 |-------------|--------------|---------------------|-------------------|
@@ -98,20 +99,20 @@ The cancellation is **acceleration-dependent**. Here's how rotation varies with 
 | Medium | 9 m/s² | -5.7° (closes) | **±0.0°** (neutral) | 
 | Aggressive | 12 m/s² | -8.8° (closes) |*-3.1° (closes) | 
 
-**Observations:**
+Observations:
 
 1. **Traditional toe-hang**: Always closes, fighting the required ~7° arc opening
 2. **Balanced toe-hang**: Neutral at 9 m/s², with ±3° variation across realistic stroke speeds
 
-The balanced design provides ±3° variation compared to traditional toe-hang's 6° range. 
+The balanced design provides ±3° variation compared to traditional toe-hang's 6° range, but is still sensitive to tempo and rhythm (which manifest as acceleration) in the stroke. 
 
 ---
 
 
 ## When Two Wrongs Make a Right
 
-Unlike L.A.B. putters that eliminate both offsets ($$b_g \approx 0$$, $$b_a \approx 0$$), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.
+Unlike zero torque putters that try to eliminate both offsets ($$b_g \approx 0$$, $$b_a \approx 0$$), the balanced toe-hang uses large offsets in precise ratio to cancel their effects. Both torques are individually large (~0.16 N·m), but they oppose each other.
 
-Putters exactly like these can be seen all over! I suspect this is more or less what the plumber's neck version of the popular Taylor Made Spyder putters do. Especially with their removable weights, I imagine they can get those pretty dialed. 
+Putters exactly like these can be seen all over, too. I suspect this is more or less what the plumber's neck version of the popular Taylor Made Spyder putters do. Especially with their changable weights, I imagine they can get those pretty dialed. 
 
 Even more players are reducing torque than we thought! 
