@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T20:37:16-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-19T20:44:44-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Putter Torque and Face Rotation</title><link href="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html" rel="alternate" type="text/html" title="Putter Torque and Face Rotation" /><published>2025-11-19T00:00:00-06:00</published><updated>2025-11-19T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/19/putter-torque-physics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Dr. Sasho MacKenzie’s research shows that successful putting requires managing three factors:&lt;/p&gt;
 
@@ -496,22 +496,22 @@ R\cos\theta\cos\phi
     &lt;tr&gt;
       &lt;td&gt;\(b_g\) (forward offset)&lt;/td&gt;
       &lt;td&gt;+19 mm&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;+46 mm&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;+46 mm&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;\(b_a\) (heel/toe offset)&lt;/td&gt;
       &lt;td&gt;-51 mm&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;-50 mm&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-50 mm&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;\(\tau_g\) @ rest&lt;/td&gt;
       &lt;td&gt;+0.065 N·m&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;+0.158 N·m&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;+0.158 N·m&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;\(\tau_{in}\) @ 9 m/s²&lt;/td&gt;
       &lt;td&gt;-0.159 N·m&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;-0.158 N·m&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;-0.158 N·m&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Net torque&lt;/strong&gt;&lt;/td&gt;
@@ -548,7 +548,7 @@ R\cos\theta\cos\phi
       &lt;td&gt;Gentle&lt;/td&gt;
       &lt;td&gt;6 m/s²&lt;/td&gt;
       &lt;td&gt;-2.5° (closes)&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;+3.1°&lt;/strong&gt; (opens)&lt;/td&gt;
+      &lt;td&gt;+3.1° (opens)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Medium&lt;/td&gt;
@@ -560,7 +560,7 @@ R\cos\theta\cos\phi
       &lt;td&gt;Aggressive&lt;/td&gt;
       &lt;td&gt;12 m/s²&lt;/td&gt;
       &lt;td&gt;-8.8° (closes)&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;-3.1°&lt;/strong&gt; (closes)&lt;/td&gt;
+      &lt;td&gt;*-3.1° (closes)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
