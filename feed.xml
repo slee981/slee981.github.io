@@ -1,4 +1,252 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-20T08:53:08-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">A Balanced Toe-Hang Putter?</title><link href="https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter.html" rel="alternate" type="text/html" title="A Balanced Toe-Hang Putter?" /><published>2025-11-20T00:00:00-06:00</published><updated>2025-11-20T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://stephenlee.info/feed.xml" rel="self" type="application/atom+xml" /><link href="https://stephenlee.info/" rel="alternate" type="text/html" /><updated>2025-11-24T08:59:49-06:00</updated><id>https://stephenlee.info/feed.xml</id><title type="html">Stephen M. Lee</title><subtitle>Personal Website</subtitle><entry><title type="html">Music Theory as Constrained Combinatorics</title><link href="https://stephenlee.info/music/math/2025/11/22/music-theory-constrained-combinatorics.html" rel="alternate" type="text/html" title="Music Theory as Constrained Combinatorics" /><published>2025-11-22T00:00:00-06:00</published><updated>2025-11-22T00:00:00-06:00</updated><id>https://stephenlee.info/music/math/2025/11/22/music-theory-constrained-combinatorics</id><content type="html" xml:base="https://stephenlee.info/music/math/2025/11/22/music-theory-constrained-combinatorics.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;When I first tried to learn about music, the vocabulary didn’t make much sense to me. Specifically, the system of letters with arbtrary seeming full and half steps between them was hard for me to remember and memorize. What do you mean there’s no “C-flat”?&lt;/p&gt;
+
+&lt;p&gt;To make sense of things, I ended up constructing a numerical way of thinking about melody and scales using intervals inside a modular 12-number system. I was also learning basic computer programming at the time, so the connection was fairly straightforward and useful. I treat the root as 0, and everything else as its distance (in semitones) above that, modulo 12.&lt;/p&gt;
+
+&lt;p&gt;This is obviously not a new idea or observation, but I don’t see it easily accessible anywhere else, so this post is just me writing down the version that ended up making the most sense to me.&lt;/p&gt;
+
+&lt;p&gt;The framework is simple:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;define scales as subsets of a 12-element universe,&lt;/li&gt;
+  &lt;li&gt;pick a few tones as “stable,”&lt;/li&gt;
+  &lt;li&gt;treat the rest as “color,”&lt;/li&gt;
+  &lt;li&gt;and describe melodies as sequences moving between those sets.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This framework has helped me make sense, conceptually at least, of songs I like.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;universe&quot;&gt;Universe&lt;/h2&gt;
+
+&lt;p&gt;Define the universe of possible notes as:&lt;/p&gt;
+
+\[U = \{0,1,2,\dots,11\} \pmod{12}\]
+
+&lt;p&gt;where \(0\) is the chosen root of the key.&lt;/p&gt;
+
+&lt;h3 id=&quot;frequencies&quot;&gt;Frequencies&lt;/h3&gt;
+
+&lt;p&gt;In equal temperament, each step of this \(0-11\) system corresponds to a constant multiplicative change in frequency. If the root has frequency \(f_0\), the pitch class labeled \(i\) corresponds (including octaves) to&lt;/p&gt;
+
+\[f_i = f_0 \cdot 2^{\,i/12}\]
+
+&lt;p&gt;I don’t use this relationship for anything that follows, but it was actually this fact that motivated my use of the modular number system for notes and scales.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;scales&quot;&gt;Scales&lt;/h2&gt;
+
+&lt;p&gt;A scale is just a subset, often a “12 pick 7” type of problem:&lt;/p&gt;
+
+\[S \subseteq U\]
+
+&lt;p&gt;For example, with \(0 = C\):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Major scale:
+\(S = \{0,2,4,5,7,9,11\}\)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Natural minor:
+\(S = \{0,2,3,5,7,8,10\}\)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dorian:
+\(S = \{0,2,3,5,7,9,10\}\)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This avoids note names and focuses only on interval structure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constraints:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While mathematically any subset of \(U\) could be a scale, most scales in practice follow these conventions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Size&lt;/strong&gt;: Typically 5–7 notes (pentatonic through heptatonic scales)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Consecutive semitones&lt;/strong&gt;: No more than 2–3 consecutive semitone steps without a whole-step break&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Maximum gap&lt;/strong&gt;: No more than 3 semitones between adjacent scale degrees&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Contains root&lt;/strong&gt;: Almost always includes \(0\) as the tonal center&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These constraints ensure scales have recognizable patterns and a balance between stepwise motion and larger intervals.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;stable-notes&quot;&gt;Stable Notes&lt;/h2&gt;
+
+&lt;p&gt;Inside a scale \(S\), certain tones behave like “home base.” These are the stable tones, forming a subset:&lt;/p&gt;
+
+\[T \subseteq S\]
+
+&lt;p&gt;In many minor or Dorian contexts, a natural choice is:&lt;/p&gt;
+
+\[T = \{0,3,7\}\]
+
+&lt;p&gt;corresponding to the root, minor third, and fifth. In the major scale for example, these would be \(T = \{0,4,7\}\) also 
+corresponding to the root, major third, and fifth.&lt;/p&gt;
+
+&lt;p&gt;The color tones are just any note in the scale that is not a “stable note”:&lt;/p&gt;
+
+\[C = S \setminus T\]
+
+&lt;p&gt;These notes provide the majority of the songs complexity through motion, tension, brightness, and directional pull.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constraints:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Size&lt;/strong&gt;: Typically 3 notes (a triad: root, third, fifth)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Must contain root&lt;/strong&gt;: \(0 \in T\) for tonal stability&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Contains the fifth&lt;/strong&gt;: Usually \(7 \in T\) (the perfect fifth provides strong harmonic support)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Defines mode&lt;/strong&gt;: The third (either \(3\) or \(4\)) typically belongs to \(T\) and determines major vs. minor character&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;melodies&quot;&gt;Melodies&lt;/h2&gt;
+
+&lt;p&gt;A melody can be represented as a sequence:&lt;/p&gt;
+
+\[M = \{m_1, m_2, \dots, m_n\}, \quad m_i \in S\]
+
+&lt;p&gt;This makes it easy to talk about:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;how often the melody visits \(T\) versus \(C\),&lt;/li&gt;
+  &lt;li&gt;the size of intervals \(m_i \to m_{i+1}\),&lt;/li&gt;
+  &lt;li&gt;moments of tension (moving into \(C\) or taking larger leaps),&lt;/li&gt;
+  &lt;li&gt;and moments of resolution (landing back on \(T\)).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Small intervals and frequent returns to \(T\) generally feel stable; longer runs inside \(C\) feel more tense or exploratory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constraints:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Melodic movement typically follows these conventions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Mostly stepwise or chord tones&lt;/strong&gt;: Movement is either small (1–2 semitones) or jumps between notes in the current chord \(H_i\)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Avoid extreme leaps&lt;/strong&gt;: Large jumps (&amp;gt; 7 semitones) are rare and usually serve dramatic purposes&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Range&lt;/strong&gt;: Stay within 1–2 octaves for singable melodies&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cadence on stable tones&lt;/strong&gt;: Phrases typically end on \(t \in T\), especially \(t = 0\)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Directional balance&lt;/strong&gt;: Extended runs in one direction are usually followed by motion in the opposite direction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;chords&quot;&gt;Chords&lt;/h2&gt;
+
+&lt;p&gt;While melodies are sequences played over time, chords are sets of notes played simultaneously. In this framework, a chord is simply a subset:&lt;/p&gt;
+
+\[H \subseteq S\]
+
+&lt;p&gt;Common chords are just small, specific subsets chosen for their harmonic properties:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Minor triad&lt;/strong&gt;: \(H = \{0, 3, 7\}\)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Major triad&lt;/strong&gt;: \(H = \{0, 4, 7\}\)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Minor 7th&lt;/strong&gt;: \(H = \{0, 3, 7, 10\}\)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dominant 7th&lt;/strong&gt;: \(H = \{0, 4, 7, 10\}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Notice that the minor triad \(\{0, 3, 7\}\) is exactly what we called \(T\) in the minor/Dorian contexts earlier. This isn’t a coincidence—stable tones are often chord tones. When a melody lands on \(T\), it’s landing on notes that spell out the underlying harmony.&lt;/p&gt;
+
+&lt;p&gt;A chord progression is then a sequence of these subsets:&lt;/p&gt;
+
+\[H_1, H_2, \dots, H_k\]
+
+&lt;p&gt;where each \(H_i \subseteq S\). The melody \(M\) typically draws from the scale \(S\), moving between the chord tones in \(H_i\) and the remaining notes in \(S \setminus H_i\), creating a natural interplay between the horizontal (melodic) and vertical (harmonic) dimensions.&lt;/p&gt;
+
+&lt;p&gt;The same notation extends naturally to more complex chords. Here are some common variations:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Suspended chords&lt;/strong&gt; replace the third with a neighboring scale degree:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;sus2&lt;/strong&gt;: \(H = \{0, 2, 7\}\) — suspends the third with the major second&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;sus4&lt;/strong&gt;: \(H = \{0, 5, 7\}\) — suspends the third with the perfect fourth&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These chords have an open, unresolved quality because they lack the defining major or minor third.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sixth chords&lt;/strong&gt; add the sixth scale degree:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Major 6th&lt;/strong&gt;: \(H = \{0, 4, 7, 9\}\)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Minor 6th&lt;/strong&gt;: \(H = \{0, 3, 7, 9\}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Extended chords&lt;/strong&gt; add notes beyond the seventh by borrowing from the next octave. The 9th is just the 2nd shifted up an octave (\(2 + 12 \equiv 2 \pmod{12}\)), so we represent it with the same pitch class:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Major 9th&lt;/strong&gt;: \(H = \{0, 4, 7, 11, 2\}\) — includes major 7th and 9th (the 2)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Minor 9th&lt;/strong&gt;: \(H = \{0, 3, 7, 10, 2\}\) — includes minor 7th and 9th&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dominant 9th&lt;/strong&gt;: \(H = \{0, 4, 7, 10, 2\}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Similarly, 11ths and 13ths correspond to \(5\) and \(9\) respectively. These extended notes often come from the underlying scale \(S\), but played in a higher register to avoid muddiness in the lower octaves.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Altered dominant chords&lt;/strong&gt; modify the 5th and/or 9th:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;7♭5&lt;/strong&gt;: \(H = \{0, 4, 6, 10\}\) — flatted fifth&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;7♯5&lt;/strong&gt;: \(H = \{0, 4, 8, 10\}\) — raised fifth&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;7♭9&lt;/strong&gt;: \(H = \{0, 4, 7, 10, 1\}\) — flatted ninth&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;7♯9&lt;/strong&gt;: \(H = \{0, 4, 7, 10, 3\}\) — raised ninth (the “Hendrix chord”)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Diminished chords&lt;/strong&gt; flatten both the third and fifth:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Diminished triad&lt;/strong&gt;: \(H = \{0, 3, 6\}\)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Diminished 7th&lt;/strong&gt;: \(H = \{0, 3, 6, 9\}\) — note the symmetry (all intervals of 3 semitones)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Augmented chords&lt;/strong&gt; raise the fifth:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Augmented triad&lt;/strong&gt;: \(H = \{0, 4, 8\}\) — also symmetric (all intervals of 4 semitones)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The interval structure makes these relationships clear. For instance, \(\{0, 5, 7\}\) (sus4) differs from \(\{0, 4, 7\}\) (major) by a single semitone—moving \(4 \to 5\) creates the suspension. Similarly, the diminished 7th chord \(\{0, 3, 6, 9\}\) divides the octave into four equal parts, which is why it sounds so symmetrical and tense.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Constraints:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Chords follow certain structural conventions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Size&lt;/strong&gt;: Typically 3–5 notes (triads through 9th chords; larger chords can sound muddy)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Stacking thirds&lt;/strong&gt;: Most chords are built by stacking intervals of 3–4 semitones&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Voice spacing&lt;/strong&gt;: Notes should be spread to avoid clusters (especially in lower registers)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;/h2&gt;
+
+&lt;p&gt;I’ve implemented a version of this in Python as a music generator that creates scales, melodies, and chord progressions following the constraints described above.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;/assets/scripts/music_generator.py&quot;&gt;Download music_generator.py&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Try it out:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Generate music in C Dorian with guitar tabs&lt;/span&gt;
+python3 music_generator.py &lt;span class=&quot;nt&quot;&gt;--key&lt;/span&gt; C &lt;span class=&quot;nt&quot;&gt;--scale&lt;/span&gt; dorian &lt;span class=&quot;nt&quot;&gt;--tabs&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Generate a random constrained scale&lt;/span&gt;
+python3 music_generator.py &lt;span class=&quot;nt&quot;&gt;--random&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--tabs&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Custom melody and progression lengths&lt;/span&gt;
+python3 music_generator.py &lt;span class=&quot;nt&quot;&gt;--key&lt;/span&gt; A &lt;span class=&quot;nt&quot;&gt;--scale&lt;/span&gt; pentatonic_minor &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--melody-length&lt;/span&gt; 24 &lt;span class=&quot;nt&quot;&gt;--progression-length&lt;/span&gt; 8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The generator outputs everything in both interval notation and note names, making it easy to see how the mathematical framework translates to actual music.&lt;/p&gt;
+
+&lt;p&gt;If you’re in a rut with your music, give it a try!&lt;/p&gt;</content><author><name></name></author><category term="Music" /><category term="Math" /><category term="music-theory" /><category term="intervals" /><category term="jazz" /><category term="modeling" /><summary type="html">Introduction</summary></entry><entry><title type="html">A Balanced Toe-Hang Putter?</title><link href="https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter.html" rel="alternate" type="text/html" title="A Balanced Toe-Hang Putter?" /><published>2025-11-20T00:00:00-06:00</published><updated>2025-11-20T00:00:00-06:00</updated><id>https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter</id><content type="html" xml:base="https://stephenlee.info/physics/golf/2025/11/20/balanced-toe-hang-putter.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;In a &lt;a href=&quot;/golf/physics/2025/11/19/putter-torque-physics.html&quot;&gt;previous post&lt;/a&gt;, I analyzed how different putter designs create torques that want to twist the face during your stroke. The key point was that putter head geometry creates two independent torque sources:&lt;/p&gt;
 
@@ -2254,147 +2502,4 @@ fit &amp;lt;- lm(P ~ `Q Predicted (all exogenous)` + Z_Demand, data = data)
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/sem/true-sem.png&quot; alt=&quot;scatter&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In this case, using all exogenous variables in the first stage allows us to recover the “true” demand parameters on quantity and the demand shifter.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="Instrumental Variables" /><category term="Instrumental Variables" /><category term="R" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry><entry><title type="html">Omitted Variable Bias by Simulation</title><link href="https://stephenlee.info/econometrics/statistics/2021/01/21/why-omitted-variables-matter.html" rel="alternate" type="text/html" title="Omitted Variable Bias by Simulation" /><published>2021-01-21T00:00:00-06:00</published><updated>2021-01-21T00:00:00-06:00</updated><id>https://stephenlee.info/econometrics/statistics/2021/01/21/why-omitted-variables-matter</id><content type="html" xml:base="https://stephenlee.info/econometrics/statistics/2021/01/21/why-omitted-variables-matter.html">&lt;p&gt;Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.&lt;/p&gt;
-
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-
-&lt;p&gt;In simulation, we can show that omitting a variable \(x_2\) can cause the point estimates for a correlated variable \(x_1\) to change from (positive) \(0.999\) with a p-value of nearly zero, to (negative!) \(-0.512\), also with a p-value of nearly zero!&lt;/p&gt;
-
-&lt;p&gt;More generally, this reinforces the mantra that unless very specific assumptions are met, regression results should only be taken as linear predictors of an outcome, and not as a cause and effect relationship. Further, you cannot rely on statistical significance to guide you about whether your model is “well specified” or not.&lt;/p&gt;
-
-&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
-&lt;p&gt;You have data, and you’re excited to use it. The only problem: you know the data is missing variables that you would prefer to have.&lt;/p&gt;
-
-&lt;p&gt;Suppose we believe the variable \(x_1\) predicts or explains an outcome \(y\). Further, suppose there is an unobserved (or otherwise omitted) variable \(x_2\), which is correlated with both \(y\) and \(x_1\). An immediate implication is that our error term will no longer independent of the included explanatory variable \(x_1\), and our estimate of the relationship between \(x_1\) and \(y\) will be incorrect.&lt;/p&gt;
-
-&lt;p&gt;More formally, suppose we have a “true” data generating process of&lt;/p&gt;
-
-\[y_{true} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u\]
-
-&lt;p&gt;If we omit \(x_2\) from our estimation and instead solve for the linear relationship&lt;/p&gt;
-
-\[\hat{y} = \hat{\beta_0} + \hat{\beta_1} x_1 + e\]
-
-&lt;p&gt;Our point estimate for \(\hat{\beta_1}\) will be misleading. We can see this mathematically as follows. If we solve the linear regression by ordinary least squares (OLS), then it can be shown that \(\hat{\beta}\) is found by the relationship&lt;/p&gt;
-
-\[\hat{\beta} = (X^T X)^{-1}(X^T Y)\]
-
-&lt;p&gt;Further, if we “de-mean” each variable by subtracting it’s mean value from each observation, we find&lt;/p&gt;
-
-\[\begin{aligned}
-    \hat{\beta} &amp;amp;= \frac{\sum_i (x_i - \bar{x}) (y_i - \bar{y})}{\sum_i (x_i - \bar{x})^2} \\
-    &amp;amp;= \frac{Cov(x, y)}{Var(x)}
-\end{aligned}\]
-
-&lt;p&gt;Speaking of omission, I will state without proof that this leads to the following relationship (for more details, see &lt;a href=&quot;https://are.berkeley.edu/courses/EEP118/spring2014/section/Handout5_student.pdf&quot;&gt;this excellent PDF&lt;/a&gt;)&lt;/p&gt;
-
-\[\hat{\beta} = \beta + \frac{\sum_i (x_i - \bar{x}) e_i}{\sum_i (x_i - \bar{x}) x_i}\]
-
-&lt;p&gt;In this case, if we omit \(x_2\), we can no longer expect that our error term will be zero conditional on some value of \(x\). In other words, the condition \(E(e \lvert x) = 0\) no longer holds.&lt;/p&gt;
-
-&lt;p&gt;The takeaway here is that by omitting a relevant variable, \(\hat{\beta} \ne \beta\). This is all well documented.&lt;/p&gt;
-
-&lt;h2 id=&quot;question&quot;&gt;Question&lt;/h2&gt;
-&lt;p&gt;But I wonder: can we simulate this process to see how bad this bias can be? Further still, could this biased estimate still be “statistically significant”?&lt;/p&gt;
-
-&lt;h2 id=&quot;answer&quot;&gt;Answer&lt;/h2&gt;
-
-&lt;p&gt;Yes, an omitted variable can flip the sign of your estimate of interest, and still appear significant.&lt;/p&gt;
-
-&lt;h2 id=&quot;simulation&quot;&gt;Simulation&lt;/h2&gt;
-
-&lt;p&gt;To make this a bit more concrete, and to highlight the potential side-effects of unknown omitted variable bias, suppose we have a “true” data generating process of&lt;/p&gt;
-
-\[\begin{aligned}
-    y &amp;amp;= 4 + x_1 - 3x_2 + u \quad &amp;amp;u \sim N(0, 1) \\ \\
-    x_2 &amp;amp;= 0.5x_1 + e \quad &amp;amp;e \sim N(0, 50) 
-\end{aligned}\]
-
-&lt;p&gt;Notice that \(x_2\) is correlated with both \(y\) and \(x_1\). As such, if we don’t include it in our regression model for whatever reason (either we don’t observe it or don’t think it’s relevant), then we will actually estimate the relationship with the opposite sign, and both be statistically significant!&lt;/p&gt;
-
-&lt;p&gt;In code, we first create the simulation dataset:&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;set.seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;981&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- for random number generator&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- 
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rnorm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rnorm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tibble&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # A tibble: 1,000 x 3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#         y     x1      x2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#     &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  1 -130.  -67.4   22.4  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  2 -112.   32.2   49.0  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  3   80.0  16.5  -20.0  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  4 -212.  -17.4   65.9  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  5 -228.  -68.2   54.5  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  6   67.0  60.3   -0.524&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  7   65.9  -2.55 -21.0  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  8 -149.  -88.9   21.8  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  9   91.8  20.0  -22.5  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 10  -57.6  37.3   32.8  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# # … with 990 more rows&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Next we can fit both the “true” and the “omitted” models.&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# fit the models&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_omitted&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And finally, we view the results&lt;/p&gt;
-
-&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#----------------------------------------------------------------&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# TRUE MODEL RESULTS&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Call&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;formula&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Coefficients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-              &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Estimate&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Std.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.9885178&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.0321514&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;124.1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2e-16&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;***&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.9990703&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.0006465&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1545.4&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2e-16&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;***&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-2.9999153&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.0006280&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-4776.9&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2e-16&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;***&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Signif.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;codes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;***&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Residual&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;standard&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.016&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;997&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;degrees&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freedom&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Multiple&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squared&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Adjusted&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squared&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statistic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.182e+07&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;997&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.2e-16&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#----------------------------------------------------------------&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# OMITTED VARIABLE RESULTS&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_omitted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Call&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;formula&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Coefficients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Estimate&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Std.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Intercept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.93910&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.86159&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.605&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.546&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-0.51169&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.08526&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-6.001&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.74e-09&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;***&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Signif.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;codes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;***&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.001&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Residual&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;standard&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;153.6&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;998&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;degrees&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freedom&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Multiple&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squared&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.03483&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Adjusted&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squared&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.03386&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statistic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;36.02&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;998&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.736e-09&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
-
-&lt;p&gt;In the simulation, omitting \(x_2\) will cause the point estimates for \(x_1\) to change from (positive) \(0.999\) with a p-value of nearly zero, to (negative!) \(-0.512\), also with a p-value of nearly zero!&lt;/p&gt;
-
-&lt;p&gt;More generally, this reinforces the mantra that unless very specific assumptions are met, regression results should only be taken as linear predictors of an outcome, and not as a cause and effect relationship. Further, you cannot rely on statistical significance to guide you about whether your model is “well specified” or not.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="econometrics" /><category term="statistics" /><category term="R" /><category term="stats" /><category term="econometrics" /><category term="prediction" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry></feed>
+&lt;p&gt;In this case, using all exogenous variables in the first stage allows us to recover the “true” demand parameters on quantity and the demand shifter.&lt;/p&gt;</content><author><name>Stephen Lee</name></author><category term="Instrumental Variables" /><category term="Instrumental Variables" /><category term="R" /><summary type="html">Note, this is a cross post from an older blog, Sparking Correlation, which I no longer use.</summary></entry></feed>
