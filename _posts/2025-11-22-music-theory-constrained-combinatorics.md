@@ -1,7 +1,6 @@
 ---
 title: Music Theory as Constrained Combinatorics
 layout: post
-description: A simple interval-based notation for thinking about scales and why Herbie Hancock's "Cantaloupe Island" works so well.
 categories: [Music, Math]
 tags: [music-theory, intervals, jazz, modeling]
 katex: true
